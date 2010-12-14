@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 require 'rake'
 
-HelloWorld::Application.load_tasks
+DateIdeas::Application.load_tasks

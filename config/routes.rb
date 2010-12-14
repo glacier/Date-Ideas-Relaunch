@@ -1,4 +1,11 @@
-HelloWorld::Application.routes.draw do
+DateIdeas::Application.routes.draw do
+  get "wizard/index"
+
+  get "home/index"
+
+  resources :users
+  resources :wizard
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +55,7 @@ HelloWorld::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => "welcome#index"
+  root :to => "home#index"
 
   # See how all your routes lay out with "rake routes"
 
