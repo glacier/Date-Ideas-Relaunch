@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  venue: MyString
+  location: MyString
+  priceRange: 1
+
+two:
+  venue: MyString
+  location: MyString
+  priceRange: 1
