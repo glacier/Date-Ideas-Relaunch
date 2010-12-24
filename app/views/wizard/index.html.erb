@@ -1,55 +1,33 @@
-<h1>Wizard#index</h1>
-<p>Find me in app/views/wizard/index.html.erb</p>
+<h1>Wizard</h1>
 
- <div id="date_wizard">
-    <!-- Date Wizard -->
-    <div class="title">
-      <span class="pagewrap"><!-- no-content --></span>
-      <h2>Find the perfect date spot.</h2>
-      <h3>Click the fields below to get started!</h3>
-    </div>
 
-    <!-- Wizard Steps -->
-    <div id="steps">
-        <table>
-          <tr>
-            <td>
-              <span>1</span>What do you want to do?
-            </td>
-            <td>
-              <select>
-                  <option value="arts_entertainment">Arts & Entertainment</option>
-                  <option value="food_drinks">Food & Drinks</option>
-                  <option value="activities_events">Activities & Events</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span>2</span>What area do you want to go to?
-            </td>
-            <td>
-              <select>
-                  <option value="downtown_north">Downtown Toronto North</option>
-                  <option value="downtown_east">Downtown Toronto East</option>
-                  <option value="downtown_west">Downtown Toronto West</option>
-                  <option value="downtown_core">Downtown Toronto Core</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span>3</span>What is your price point?
-            </td>
-            <td>
-              <select>
-                  <option value="budget">Budget</option>
-                  <option value="moderate">Moderate</option>
-                  <option value="high_roller">High roller</option>
-              </select>
-            </td>
-          </tr>          
-        </table>
-
-    </div>
- </div><!-- #date_wizard -->
+<%= form_for :wizard, @wizard do |f| %>
+<table>
+  <tr>
+    <td>
+      <%= f.label(:venue,"1. What do you want to do?") %>
+    </td><td>
+      <%= f.select(:venue,Wizard::VENUES)%>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <%= f.label(:location,"2. What area do you want to go to?") %>
+    </td><td>
+        <%= f.select(:location,Wizard::LOCATIONS) %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <%= f.label(:pricePoint,"3. What is your price point") %>
+    </td><td>
+        <%= f.select(:pricePoint,Wizard::PRICE_POINTS) %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="left">
+      <%= f.submit("Search")  %>
+    </td>
+  </tr>
+</table>
+<% end %>

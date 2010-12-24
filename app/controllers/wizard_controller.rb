@@ -1,15 +1,19 @@
+#require "Yelp"
+
 class WizardController < ApplicationController
   def index
+    @wizard = Wizard.new
   end
-  def search
-     request = Yelp::Review::Request::Location.new(
-             :address => '650 Mission St',
-             :city => 'San Francisco',
-             :state => 'CA',
-             :radius => 2,
-             :term => 'cream puffs',
-             :yws_id => '9VeDRJ1tPeDsdRUAkZAukA')
-     response = client.search(request)
+  def show
+    @wizard = Wizard.new
   end
+  def create
+    @wizard = Wizard.new(params[:wizard][:venue], params[:wizard][:location],params[:wizard][:pricePoint])
 
+    respond_to do |format|
+        format.html { render :action =>"show"}
+        format.xml  { render :xml => @wizard.errors, :status => :unprocessable_entity }
+    end  
+
+  end
 end

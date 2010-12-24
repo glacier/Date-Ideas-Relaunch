@@ -388,7 +388,7 @@ Ajax.Autocompleter = Class.create(Autocompleter.Base, {
 //                    autocomplete array. Defaults to true, which will
 //                    match text at the beginning of any *word* in the
 //                    strings in the autocomplete array. If you want to
-//                    search anywhere in the string, additionally set
+//                    show anywhere in the string, additionally set
 //                    the option fullSearch to true (default: off).
 //
 // - fullSsearch - Search anywhere in autocomplete array strings.
@@ -941,7 +941,7 @@ Ajax.InPlaceCollectionEditor.DefaultOptions = {
 
 // Delayed observer, like Form.Element.Observer,
 // but waits for delay after last key input
-// Ideal for live-search fields
+// Ideal for live-show fields
 
 Form.Element.DelayedObserver = Class.create({
   initialize: function(element, delay, callback) {

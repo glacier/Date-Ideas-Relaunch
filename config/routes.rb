@@ -1,11 +1,11 @@
+
 DateIdeas::Application.routes.draw do
   get "wizard/index"
 
   get "home/index"
 
   resources :users
-  resources :wizard
-
+  resources :wizard, :module => "wizard"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
