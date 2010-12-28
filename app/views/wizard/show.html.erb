@@ -1,7 +1,46 @@
-<%= @wizard.venue %>
-<br>
-<%= @wizard.location %>
-<br>
-<%= @wizard.pricePoint %>
-<br>
-<%= @wizard.response %>
+<%= stylesheet_link_tag("wizard.css") %>
+<table>
+<% @wizard.businesses.each do |business| %>
+  <tr>
+    <td>
+      <div class="di_biz">
+      <table>
+        <tr>
+          <td colspan="2">
+            <div class="di_biz_name">
+                <%= business.name %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="di_biz_photo">
+                <%= image_tag(business.photo_url) %>
+            </div>
+          </td>
+          <td>
+            <div class="di_biz_desc">
+                <%= business.text_excerpt %>
+            </div>
+            <div class="di_biz_yelp_reviews">
+              <% business.reviews.each do |review| %>
+              <div class="di_biz_yelp_user_view">
+                <%= review.text_excerpt %>
+              </div>
+              <% end %>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <div class="di_biz_addr">
+                 <%= display_address(business) %>
+             </div>
+          </td>
+        </tr>
+      </table>
+      </div>
+    </td>
+  </tr>
+<% end %>
+</table>

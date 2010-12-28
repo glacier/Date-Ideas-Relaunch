@@ -70,6 +70,7 @@
     <orderEntry type="library" scope="PROVIDED" name="[gem] rack-test (v0.5.6, /Users/alviny/.rvm/gems/ruby-1.9.2-p0/gems/rack-test-0.5.6)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] i18n (v0.5.0, /Users/alviny/.rvm/gems/ruby-1.9.2-p0/gems/i18n-0.5.0)" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="[gem] mail (v2.2.12, /Users/alviny/.rvm/gems/ruby-1.9.2-p0/gems/mail-2.2.12)" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="[gem] bundler (v1.0.0.rc.6, /Users/alviny/.rvm/gems/ruby-1.9.2-p0/gems/bundler-1.0.0.rc.6)" level="application" />
   </component>
 </module>
 

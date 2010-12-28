@@ -1,0 +1,23 @@
+div.di_biz{
+    border-style:solid;
+    border-width:1px;
+}
+div.di_biz_addr{
+    text-align:left
+}
+div.di_biz_photo{
+
+}
+div.di_biz_desc{
+    text-align:left;
+    vertical-align: text-top;
+}
+div.di_biz_yelp_reviews{
+    border-style:solid;
+    border-width:1px;
+    text-align:left;
+    vertical-align: text-bottom;
+}
+div.di_biz_yelp_user_view{
+
+}
