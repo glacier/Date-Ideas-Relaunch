@@ -10,7 +10,7 @@ class Wizard
                   ['Moderate','moderate'],
                   ['High Roller','high_roller']]
 
-  attr_accessor :venue, :location, :pricePoint
+  attr_accessor :venue, :location, :pricePoint, :response
   def initialize(venue="", location="", pricePoint="")
     @venue = venue
     @location = location

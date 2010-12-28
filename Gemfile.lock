@@ -35,6 +35,7 @@ GEM
     ffi (1.0.2)
       rake (>= 0.8.7)
     i18n (0.5.0)
+    json (1.4.6)
     mail (2.2.12)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -67,6 +68,8 @@ GEM
     treetop (1.4.9)
       polyglot (>= 0.3.1)
     tzinfo (0.3.23)
+    yelp (1.0.0)
+      json (>= 1.1.1)
 
 PLATFORMS
   ruby
@@ -74,3 +77,4 @@ PLATFORMS
 DEPENDENCIES
   rails (= 3.0.3)
   sqlite3
+  yelp
