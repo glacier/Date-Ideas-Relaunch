@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  # before_filter :authenticate_user!
+  # before_filter :authenticate_user!, :only => :token
+    
   # GET /users
   # GET /users.xml
   def index
@@ -79,9 +82,5 @@ class UsersController < ApplicationController
       format.html { redirect_to(users_url) }
       format.xml  { head :ok }
     end
-  end
-
-  def say_when
-    render_text "<p>The time is <b>" + DateTime.now.to_s + "</b></p>"
   end
 end
