@@ -1,4 +1,7 @@
 <%= stylesheet_link_tag("wizard.css") %>
+<div class="container">
+<div class="content">
+
 <table>
 <% @wizard.businesses.each do |business| %>
   <tr>
@@ -14,21 +17,30 @@
         </tr>
         <tr>
           <td>
-            <div class="di_biz_photo">
-                <%= image_tag(business.photo_url) %>
-            </div>
-          </td>
-          <td>
-            <div class="di_biz_desc">
-                <%= business.text_excerpt %>
-            </div>
-            <div class="di_biz_yelp_reviews">
-              <% business.reviews.each do |review| %>
-              <div class="di_biz_yelp_user_view">
-                <%= review.text_excerpt %>
-              </div>
-              <% end %>
-            </div>
+          <table>
+            <tr>
+              <th rowspan="2">
+                <div class="di_biz_photo">
+                    <%= image_tag(business.photo_url) %>
+                </div>
+              </th>
+              <td valign="top">
+                <div class="di_biz_desc">
+                    <%= business.text_excerpt %>
+                    <a href="#?w=880" rel="popup2" class="poplight">Read full reviews</a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td valign="bottom">
+                <div class="di_biz_yelp_reviews">
+                  <div class="di_biz_yelp_user_view">
+                    <%= business.reviews.first.text_excerpt %>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
           </td>
         </tr>
         <tr>
@@ -44,3 +56,13 @@
   </tr>
 <% end %>
 </table>
+</div>
+</div>
+<div id="popup2" class="popup_block">
+	<a href="http://www.designbombs.com"><img src="bomber.gif" alt="Lil bomb dude" style="float: right; margin: 80px 0 0 20px;" /></a>
+    <h2>Popup #3</h2>
+    <pre>&lt;a href=&quot;#?w=350&quot; rel=&quot;popup3&quot; class=&quot;poplight&quot;&gt;</pre>
+    <p>Aliquip transverbero loquor esse ille vulputate exerci veniam fatua eros similis illum valde. Praesent, venio conventio rusticus antehabeo lenis. Melior pertineo feugait, praesent hos rusticus et haero facilisis abluo. </p>
+    <p>Veniam tincidunt augue abluo vero, augue nisl melior quidem secundum nobis singularis eum eum.</p><p><strong>Need Inspiration?</strong> Check out <a href="http://www.designbombs.com">Design Bombs</a></p>
+
+</div>
