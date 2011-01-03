@@ -1,6 +1,79 @@
+body {
+	margin: 0; padding: 0;
+	font: normal 10px Verdana, Arial, Helvetica, sans-serif;
+	line-height: 1.8em;
+	min-width: 980px;
+}
+img {border: none;}
+a {color: #0052af;}
+h1 {
+	font: 3.5em normal Georgia, 'Times New Roman', Times, serif;
+	padding: 20px;
+	margin: 0;
+}
+h1 small{
+	font: 0.3em normal Verdana, Arial, Helvetica, sans-serif;
+	text-transform:uppercase;
+	display: block;
+}
+.container {width: 900px; margin: 0 auto; font-size: 1.2em;  color: #555;}
+#content {	background: #f0f0f0; float: left; width: 100%;}
+.post {
+	margin: 0; padding: 10px 20px;
+	float: left;
+	width: 560px;
+}
+
+
+
+
+
+/*------------------POPUPS------------------------*/
+#fade {
+	display: none;
+	background: #000;
+	position: fixed; left: 0; top: 0;
+	z-index: 10;
+	width: 100%; height: 100%;
+	opacity: .80;
+	z-index: 9999;
+}
+.popup_block{
+	display: none;
+	background: #fff;
+	padding: 5px;
+    border: 2px solid #ddd;
+	float: left;
+	font-size: 1.2em;
+	position: fixed;
+	top: 50%; left: 50%;
+	z-index: 99999;
+	-webkit-box-shadow: 0px 0px 5px #000;
+	-moz-box-shadow: 0px 0px 5px #000;
+	box-shadow: 0px 0px 5px #000;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+img.btn_close {
+	float: right;
+	margin: -10px -10px 0 0;
+}
+.popup p {
+	padding: 5px 10px;
+	margin: 5px 0;
+}
+/*--Making IE6 Understand Fixed Positioning--*/
+*html #fade {
+	position: absolute;
+}
+*html .popup_block {
+	position: absolute;
+}
+
+
 div.di_biz{
-    border-style:solid;
-    border-width:1px;
+    border: 2px solid #ddd;
 }
 div.di_biz_addr{
     text-align:left
@@ -13,8 +86,7 @@ div.di_biz_desc{
     vertical-align: text-top;
 }
 div.di_biz_yelp_reviews{
-    border-style:solid;
-    border-width:1px;
+    border: 2px solid #ddd;
     text-align:left;
     vertical-align: text-bottom;
 }
