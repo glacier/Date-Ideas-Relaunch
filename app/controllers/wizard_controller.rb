@@ -7,6 +7,7 @@ class WizardController < ApplicationController
   end
   def create
     @wizard = Wizard.new(params[:wizard][:venue], params[:wizard][:location],params[:wizard][:pricePoint])
+    
     #client = Yelp::Client.new
     #request = Yelp::Review::Request::Location.new(
     #              :address => '365 Bartlett Ave.',
