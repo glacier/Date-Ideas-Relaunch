@@ -1,5 +1,9 @@
 
 DateIdeas::Application.routes.draw do
+  devise_for :admins
+
+  resources :admins
+
   devise_for :users
 
   get "wizard/index"
@@ -8,6 +12,8 @@ DateIdeas::Application.routes.draw do
 
   resources :users
   resources :wizard, :module => "wizard"
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
