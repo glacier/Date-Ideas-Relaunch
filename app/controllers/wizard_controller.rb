@@ -39,7 +39,9 @@ class WizardController < ApplicationController
     return businesses
   end
   def create_business(business_hash)
+
     business = Business.new
+    business.id = business_hash.fetch("id")
     business.address1 = business_hash.fetch("address1")
     business.address2 = business_hash.fetch("address2")
     business.address3 = business_hash.fetch("address3")
@@ -65,6 +67,7 @@ class WizardController < ApplicationController
   end
   def create_review(review_hash)
     review = Review.new
+    review.id = review_hash.fetch("id")
     review.text_excerpt = review_hash.fetch("text_excerpt")
     review.rating_img_url = review_hash.fetch("rating_img_url")
     review.rating_img_url_small = review_hash.fetch("rating_img_url_small")

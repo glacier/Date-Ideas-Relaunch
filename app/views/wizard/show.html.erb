@@ -10,11 +10,21 @@
       <div class="di_main_biz">
       <table>
         <tr>
-          <td colspan="10">
+          <td colspan="10" align="center">
             <%= image_tag(@wizard.restaurant.photo_url) %>
           </td>
         </tr>
         <tr>
+          <td>
+            <div class="di_main_biz_icon_image">
+              <%= image_tag("whole_heart.png", :height => '16', :width => '16') %>
+            </div>
+          </td>
+          <td>
+            <div class="di_main_biz_icon_image">
+              <%= image_tag("half_heart.png", :height => '16', :width => '16') %>
+            </div>
+          </td>
           <td>
             <div class="di_main_biz_icon_image">
               <%= image_tag("unlock.png", :height => '16', :width => '16') %>
@@ -38,7 +48,7 @@
       <div class="di_main_biz">
       <table>
         <tr>
-          <td colspan="10">
+          <td colspan="10" align="center">
             <%= image_tag(@wizard.activity.photo_url) %>
           </td>
         </tr>
@@ -66,7 +76,7 @@
       <div class="di_main_biz">
       <table>
         <tr>
-          <td colspan="10">
+          <td colspan="10" align="center" style="align:center">
             <%= image_tag(@wizard.dessert.photo_url) %>
           </td>
         </tr>
@@ -111,23 +121,31 @@
               <td>
               <table>
                 <tr>
-                  <th rowspan="2">
+                  <td rowspan="2" valign="top" align="left">
                     <div class="di_biz_photo">
                         <%= image_tag(business.photo_url) %>
                     </div>
-                  </th>
+                  </td>
                   <td valign="top">
                     <div class="di_biz_desc">
-                        <%= business.text_excerpt %>
-                        <a href="#?w=880" rel="popup2" class="poplight">Read full reviews</a>
+                      <table>
+                        <tr>
+                          <td colspan="2">
+                            <%= business.text_excerpt %>
+                            <%= link_to("Read full reviews","#?w=880",:class=>"poplight",:rel=>business.id) %>
+                          </td>
+                        </tr>
+                      </table>
                     </div>
                   </td>
                 </tr>
                 <tr>
                   <td valign="bottom">
                     <div class="di_biz_yelp_reviews">
+                      <%= image_tag("reviews_from_yelp.gif") %>
                       <div class="di_biz_yelp_user_view">
-                        <%= business.reviews.first.text_excerpt %>
+                        <%= business.reviews.first.text_excerpt %><%= image_tag(business.reviews.first.rating_img_url) %>
+                        <%= link_to("Read Yelp Review", "#?w=880", :class=>"poplight", :rel=>"popup2") %>
                       </div>
                     </div>
                   </td>
@@ -155,9 +173,11 @@
 </div>
 </div>
 <!-- each business popup -->
-<div id="popup2" class="popup_block">
-    <h2>Popup #3</h2>
-    <pre>&lt;a href=&quot;#?w=350&quot; rel=&quot;popup3&quot; class=&quot;poplight&quot;&gt;</pre>
-    <p>Aliquip transverbero loquor esse ille vulputate exerci veniam fatua eros similis illum valde. Praesent, venio conventio rusticus antehabeo lenis. Melior pertineo feugait, praesent hos rusticus et haero facilisis abluo. </p>
-    <p>Veniam tincidunt augue abluo vero, augue nisl melior quidem secundum nobis singularis eum eum.</p><p><strong>Need Inspiration?</strong> Check out <a href="http://www.designbombs.com">Design Bombs</a></p>
-</div>
+<% @wizard.businesses.each do |business| %>
+    <%= content_tag(:div,:id=>business.id, :class=>"popup_block") do %>
+        <%= business.name %>
+        <%= image_tag(business.photo_url) %>
+        <%= business.text_excerpt %>
+        <%= display_address(business) %>
+    <% end %>
+<% end %>
