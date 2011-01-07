@@ -1,16 +1,19 @@
 
 DateIdeas::Application.routes.draw do
+  resources :profiles
+
   devise_for :admins
 
   resources :admins
 
-  devise_for :users
+  devise_for :users, :path_prefix => 'd'
+  
+  resources :users
 
   get "wizard/index"
 
   get "home/index"
 
-  resources :users
   resources :wizard, :module => "wizard"
   
   

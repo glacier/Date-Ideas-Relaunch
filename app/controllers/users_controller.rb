@@ -1,8 +1,14 @@
 class UsersController < ApplicationController
-  # before_filter :authenticate_admin!  #:except => [:show, :index]
-
-  # before_filter :authenticate_user!, :only => :token
-    
+  # TODO: require admin authentication to CRUD users
+  # before_filter :authenticate_admin!
+  
+  # TODO: request user to fill in profile after signing up
+  # step 1: Add a photo; step 2: ask for relationship status? 
+  # step 3: other information step 4: invite friends to join
+  
+  # after_create :build_profile
+  # see http://api.rubyonrails.org/classes/ActiveRecord/Callbacks.html
+  
   # GET /users
   # GET /users.xml
   def index
@@ -28,6 +34,7 @@ class UsersController < ApplicationController
   # GET /users/new
   # GET /users/new.xml
   def new
+    #@user is available in the corresponding view new.html.erb
     @user = User.new
 
     respond_to do |format|
