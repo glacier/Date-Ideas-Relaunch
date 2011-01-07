@@ -75,6 +75,14 @@ img.btn_close {
 div.di_biz{
     border: 2px solid #ddd;
 }
+
+div.di_main_biz{
+    border: 2px solid #ddd;
+}
+div.di_main_biz_image{
+    height: 16px;
+    width: 16px;
+}
 div.di_biz_addr{
     text-align:left
 }
