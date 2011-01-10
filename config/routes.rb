@@ -1,17 +1,25 @@
-
 DateIdeas::Application.routes.draw do
   devise_for :admins
-
   resources :admins
 
-  devise_for :users
-
+  # devise_for :users
+      # class Admins::SessionsController < Devise::SessionsController
+      #       end 
+      #       devise_for :admins, :controllers => { :sessions => "admins/sessions" }
+      #       
+      
+  # devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
+  
+  resources :users
+  
   get "wizard/index"
 
   get "home/index"
 
-  resources :users
   resources :wizard, :module => "wizard"
+  
+  resources :profiles
   
   
   # The priority is based upon order of creation:
