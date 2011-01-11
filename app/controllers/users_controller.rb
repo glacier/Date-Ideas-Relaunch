@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+<<<<<<< HEAD
   # TODO: require admin authentication to CRUD users
   # before_filter :authenticate_admin!
   
@@ -9,10 +10,16 @@ class UsersController < ApplicationController
   # after_create :build_profile
   # see http://api.rubyonrails.org/classes/ActiveRecord/Callbacks.html
   
+=======
+  # before_filter :authenticate_admin!  #:except => [:show, :index]
+  # before_filter :authenticate_user!, :only => :token
+    
+>>>>>>> profile
   # GET /users
   # GET /users.xml
   def index
     @users = User.all
+<<<<<<< HEAD
 
     respond_to do |format|
       format.html # index.html.erb
@@ -90,5 +97,7 @@ class UsersController < ApplicationController
       format.html { redirect_to(users_url) }
       format.xml  { head :ok }
     end
+=======
+>>>>>>> profile
   end
 end

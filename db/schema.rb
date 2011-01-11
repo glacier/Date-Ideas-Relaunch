@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(:version => 20110103233702) do
     t.string   "username"
     t.string   "first_name"
     t.string   "last_name"
-    t.date     "birthday"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
