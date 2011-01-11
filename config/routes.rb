@@ -1,27 +1,13 @@
 DateIdeas::Application.routes.draw do
-  resources :profiles
 
   devise_for :admins
+
   resources :admins
 
-<<<<<<< HEAD
-  devise_for :users, :path_prefix => 'd'
-  
-  resources :users
-
-=======
-  # devise_for :users
-      # class Admins::SessionsController < Devise::SessionsController
-      #       end 
-      #       devise_for :admins, :controllers => { :sessions => "admins/sessions" }
-      #       
-      
-  # devise_for :users
   devise_for :users, :controllers => {:registrations => "registrations"}
   
   resources :users
   
->>>>>>> profile
   get "wizard/index"
 
   get "home/index"
