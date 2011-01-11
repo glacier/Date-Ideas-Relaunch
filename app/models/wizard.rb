@@ -10,7 +10,7 @@ class Wizard
                   ['Moderate','moderate'],
                   ['High Roller','high_roller']]
 
-  attr_accessor :venue, :location, :pricePoint, :response, :businesses
+  attr_accessor :venue, :location, :pricePoint, :response, :businesses, :restaurant, :activity, :dessert
   def initialize(venue="", location="", pricePoint="")
     @venue = venue
     @location = location
@@ -20,5 +20,4 @@ class Wizard
   def add_business(business)
     @businesses.push(business)
   end
-
 end
