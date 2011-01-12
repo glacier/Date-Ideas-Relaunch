@@ -131,7 +131,7 @@
                       <table>
                         <tr>
                           <td colspan="2">
-                            <%= business.text_excerpt %>
+                            <%= business.text_excerpt %><%= image_tag(business.rating_img_url) %>
                             <%= link_to("Read full reviews","#?w=880",:class=>"poplight",:rel=>business.id) %>
                           </td>
                         </tr>
@@ -145,7 +145,7 @@
                       <%= image_tag("reviews_from_yelp.gif") %>
                       <div class="di_biz_yelp_user_view">
                         <%= business.reviews.first.text_excerpt %><%= image_tag(business.reviews.first.rating_img_url) %>
-                        <%= link_to("Read Yelp Review", "#?w=880", :class=>"poplight", :rel=>"popup2") %>
+                        <%= link_to("Read Yelp Review", "#?w=880", :class=>"poplight", :rel=>String.new(business.id).concat("-yreviews")) %>
                       </div>
                     </div>
                   </td>
@@ -175,9 +175,64 @@
 <!-- each business popup -->
 <% @wizard.businesses.each do |business| %>
     <%= content_tag(:div,:id=>business.id, :class=>"popup_block") do %>
-        <%= business.name %>
-        <%= image_tag(business.photo_url) %>
-        <%= business.text_excerpt %>
-        <%= display_address(business) %>
+        <table>
+          <tr>
+            <td>
+                <%= business.name %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+             <%= image_tag(business.photo_url) %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= business.text_excerpt %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= display_address(business) %>
+            </td>
+          </tr>
+
+        </table>
+    <% end %>
+<% end %>
+<!-- each yelp reviews -->
+<% @wizard.businesses.each do |business| %>
+    <%= content_tag(:div,:id=>String.new(business.id).concat("-yreviews"), :class=>"popup_block") do %>
+        <table>
+          <tr>
+            <td>
+                <%= business.name %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+             <%= image_tag(business.photo_url) %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= business.text_excerpt %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <%= display_address(business) %>
+            </td>
+          </tr>
+          <% business.reviews.each do |review| %>
+            <tr>
+              <td>
+                <div class="di_biz_yelp_reviews">
+                    <%= review.text_excerpt %><%= image_tag(review.rating_img_url) %>
+                </div>
+              </td>
+            </tr>
+          <% end %>
+        </table>
     <% end %>
 <% end %>
