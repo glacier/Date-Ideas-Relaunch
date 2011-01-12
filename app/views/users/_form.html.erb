@@ -14,10 +14,30 @@
   <fieldset>
   	<legend>Enter User Details</legend>
 	  <div class="field">
-	    <%= f.label :name %><br />
-	    <%= f.text_field :name %>
+	    <%= f.label :first_name %><br />
+	    <%= f.text_field :first_name %>
 	  </div>
-		
+	
+		<div class="field">
+	    <%= f.label :last_name %><br />
+	    <%= f.text_field :last_name %>
+	  </div>
+	
+		<div class="field">
+	    <%= f.label :username %><br />
+	    <%= f.text_field :username %>
+	  </div>
+	
+		<div class="field">
+	    <%= f.label :email %><br />
+	    <%= f.text_field :email %>
+	  </div>
+	
+		<div class="field">
+	    <%= f.label :birthday %><br />
+	    <%= f.date_select :birthday, :start_year => 1950, :end_year => 1998 %>
+	  </div>
+	
 	  <div class="field">
 	    <%= f.label :password %><br />
 	    <%= f.text_field :password, :size => 40 %>
