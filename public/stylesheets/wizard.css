@@ -2,7 +2,7 @@ body {
 	margin: 0; padding: 0;
 	font: normal 10px Verdana, Arial, Helvetica, sans-serif;
 	line-height: 1.8em;
-	min-width: 980px;
+	min-width: 1080px;
 }
 img {border: none;}
 a {color: #0052af;}
@@ -71,7 +71,9 @@ img.btn_close {
 	position: absolute;
 }
 
-
+div.di_biz_name{
+    font-weight:bold;
+}
 div.di_biz{
     border: 2px solid #ddd;
 }
@@ -101,3 +103,4 @@ div.di_biz_yelp_reviews{
 div.di_biz_yelp_user_view{
 
 }
+
