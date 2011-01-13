@@ -11,16 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </div>
-
+	<div class="field">
+		<%= f.label :user_id %>
+		<%= @profile.user_id %>
+	</div>
+	
   <div class="field">
     <%= f.label :anniversary %><br />
     <%= f.date_select :anniversary %>
   </div>
-  <div class="field">
+  
+	<div class="field">
     <%= f.label :about_me %><br />
     <%= f.text_field :about_me %>
   </div>

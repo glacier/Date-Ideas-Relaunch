@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_one :profile #:dependent => :destroy #removes user profile if user is delete
+  # validates_associated
   
   # TODO: link user reviews to user model
   # has_many :review

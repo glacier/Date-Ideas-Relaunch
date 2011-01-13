@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
-<p><%= current_user.email %></p>
+<h1> My Profile </h1>
+<p>
+	<b>User:</b>
+	<%= current_user.email %>
+</p>
 <p>
   <b>Anniversary:</b>
   <%= @profile.anniversary %>
@@ -11,5 +15,4 @@
 </p>
 
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<%= link_to 'Edit', edit_profile_path(@profile) %>
