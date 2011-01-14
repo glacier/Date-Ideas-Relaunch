@@ -2,9 +2,6 @@ class ProfilesController < ApplicationController
   #require user sign up/sign in to see own profile
   before_filter :authenticate_user!
   
-  def index
-  end
-  
   def show
     if @profile = current_user.profile
       @profile
@@ -62,8 +59,5 @@ class ProfilesController < ApplicationController
         format.xml  { render :xml => @profile.errors, :status => :unprocessable_entity }
       end
     end
-  end
-
-  def destroy
   end
 end

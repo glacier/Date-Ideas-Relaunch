@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2>DateIdeas Sign up</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -15,6 +15,17 @@
 	
   <p><%= f.label :email %><br />
   <%= f.text_field :email %></p>
+
+  <p><%= f.label :gender %><br />
+  <%= f.radio_button :gender, 'female' %> Female
+  <%= f.radio_button :gender, 'male' %> Male
+</p>
+
+  <p><%= f.label :birthday %><br />
+  <%= f.date_select :birthday %></p>
+
+  <p><%= f.label :postal_code %><br />
+  <%= f.text_field :postal_code %></p>
 
   <p><%= f.label :password %><br />
   <%= f.password_field :password %></p>

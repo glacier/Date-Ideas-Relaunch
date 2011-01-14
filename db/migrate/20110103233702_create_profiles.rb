@@ -4,9 +4,9 @@ class CreateProfiles < ActiveRecord::Migration
       # model association to the user model
       # equivalent to t.integer :supplier_id
       t.references :user
+      t.string :avatar_url
       t.date :anniversary
       t.string :about_me
-
       t.timestamps
     end
   end

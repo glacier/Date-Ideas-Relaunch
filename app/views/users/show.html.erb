@@ -1,29 +1,14 @@
 <p id="notice"><%= notice %></p>
-
-<p id="notice"><%= notice %></p>
-<% if user_signed_in? %> %>
-<p>You are signed in as <%= current_user.email %></p>
-<p>
-		<% if current_user.email == @user.email %>
-			you are looking at your own user information
-		<% else %>
-			this is not your info
-		<% end %>
-</p>
-
+<% if user_signed_in? %>
+	<p>You are signed in as <%= current_user.email %></p>
 <% else %>
-	You are not signed in
+	<p> You are not signed in</p>
 <% end %>
 
-<p>
-  <b>First name:</b>
-  <%= @user.first_name %>
-</p>
-
-<p>
-  <b>Last name:</b>
-  <%= @user.last_name %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<p>First name: <%= @user.first_name %></p>
+<p>Last name: <%= @user.last_name %></p>
+<p>Username: <%= @user.username %></p>
+<p>Email: <%= @user.email %></p>
+<p>Birthday: <%= @user.birthday %></p>
+<p>Postal Code: <%= @user.postal_code %></p>
+<p>Gender: <%= @user.gender %></p>

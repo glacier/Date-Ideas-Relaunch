@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(:version => 20110103233702) do
 
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
+    t.string   "avatar_url"
     t.date     "anniversary"
     t.string   "about_me"
     t.datetime "created_at"
@@ -56,6 +57,9 @@ ActiveRecord::Schema.define(:version => 20110103233702) do
     t.string   "username"
     t.string   "first_name"
     t.string   "last_name"
+    t.date     "birthday"
+    t.string   "postal_code"
+    t.string   "gender"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 <h1> My Profile </h1>
 <p>
+	<%= image_tag avatar_url(current_user) %>
+</p>
+<p>
 	<b>User:</b>
 	<%= current_user.email %>
 </p>

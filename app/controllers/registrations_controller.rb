@@ -6,7 +6,7 @@ class RegistrationsController < Devise::RegistrationsController
           set_flash_message :notice, :signed_up
           sign_in(resource_name, resource)
           # redirect to new profile creation
-          # redirect_to new_profile_path :user_id => resource
+          redirect_to new_profile_path :user_id => resource
         else
           set_flash_message :notice, :inactive_signed_up, :reason => resource.inactive_message.to_s
           expire_session_data_after_sign_in!

@@ -2,18 +2,22 @@
 
 <table>
   <tr>
+		<th>Profile pic</th>
     <th>First Name</th>
     <th>Last Name</th>
     <th>User Name</th>
 		<th>Email</th>
+		<th>Actions</th>
   </tr>
 
 <% @users.each do |user| %>
   <tr>
+		<td><%= image_tag avatar_url(user) %> </td>
     <td><%= user.first_name %></td>
     <td><%= user.last_name %></td>
     <td><%= user.username %></td>
-	<td><%= user.email %></td>
+		<td><%= user.email %></td>
+		<td><%= link_to "Show", user_path(user) %>
   </tr>
 <% end %>
 </table>
