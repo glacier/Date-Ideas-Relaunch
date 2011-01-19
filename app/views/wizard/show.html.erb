@@ -5,7 +5,9 @@
 <table>
 <tr>
    <td valign="top">
-     <div id="map_canvas" style="width: 300px; height: 300px"></div>
+     <%= raw Cartographer::Header.new.to_s %>
+     <%= raw @map.to_html %>
+     <div id="map" style="width: 300px; height: 300px"></div>
    </td>
    <td>
 <table>

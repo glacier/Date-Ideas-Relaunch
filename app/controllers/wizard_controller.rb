@@ -27,9 +27,74 @@ class WizardController < ApplicationController
     @wizard.activity = businesses[1]
     @wizard.dessert = businesses[2]
 
+    #google map thingy
+ @map = Cartographer::Gmap.new( 'map' )
+  @map.zoom = :bound
+  @map.marker_clusterer = true
+
+  icon_building = Cartographer::Gicon.new(:name => "building_icon",
+          :image_url => '/images/icon.gif',
+          :width => 31,
+          :height => 24,
+          :anchor_x => 0,
+          :anchor_y => 20,
+          :info_anchor_x => 5,
+          :info_anchor_x => 1)
+
+  building_cluster_icon = Cartographer::ClusterIcon.new({:marker_type => "Building"})
+  #Clustering requires various variant of icon for different grouping/zoom level
+  #push first variant
+  building_cluster_icon << {
+                 :url => '/images/small_icon.gif',
+                 :height => 33,
+                 :width => 58,
+                 :opt_anchor => [10, 0],
+                 :opt_textColor => 'black'
+               }
+  #push second variant
+  building_cluster_icon << {
+                 :url => '/images/bigger_icon.gif',
+                 :height => 63,
+                  :width => 98,
+                 :opt_anchor => [20, 0],
+                 :opt_textColor => 'black'
+               }
+
+  #push third variant
+  building_cluster_icon << {
+                 :url => '/images/biggest_icon.gif',
+                 :height => 73,
+                 :width => 118,
+                 :opt_anchor => [26, 0],
+                 :opt_textColor => 'black'
+               }
+
+  position1 = Array.new
+  position1 << businesses[0].latitude
+  position1 << businesses[0].longitude
+
+  position2 = Array.new
+  position2 << businesses[1].latitude
+  position2 << businesses[1].longitude
+
+  logger.info("position1:" << position1.to_s )
+  logger.info("position2:" << position2.to_s )
+
+  marker1 = Cartographer::Gmarker.new(:name=> "taj_mahal", :marker_type => "Building",
+              :position => position1,
+              :info_window_url => "/url_for_info_content",
+              :icon => icon_building)
+  marker2 = Cartographer::Gmarker.new(:name=> "raj_bhawan", :marker_type => "Building",
+              :position => position2,
+              :info_window_url => "/url_for_info_content",
+              :icon => icon_building)
+
+  @map.markers << marker1
+  @map.markers << marker2
+    #respond_with(@wizard)
+
     respond_to do |format|
-        format.html { render :action =>"show"}
-        format.xml  { render :xml => @wizard.errors, :status => :unprocessable_entity }
+        format.html { render :action =>"show" }
     end
   end
   def create_businesses(businesses_hash)
@@ -58,6 +123,8 @@ class WizardController < ApplicationController
     business.text_excerpt = "Some restaurant description...blah blah blah."#business_hash.fetch("text_excerpt")
     business.avg_rating = business_hash.fetch("avg_rating")
     business.rating_img_url = business_hash.fetch("rating_img_url")
+    business.longitude = business_hash.fetch("longitude")
+    business.latitude = business_hash.fetch("latitude")
     business.reviews = create_reviews(business_hash.fetch("reviews"))
     return business
   end
