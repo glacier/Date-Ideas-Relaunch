@@ -3,10 +3,16 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.3'
 gem 'sqlite3'
 gem 'yelp'
-gem 'devise'
+gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
+gem 'omniauth'
+gem 'oa-openid', :require => 'omniauth/openid'
+gem 'mongrel', '1.2.0.pre2', :group => :development
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+# Need this to fix the uninitialized constant Rack::Session::Abstract::SessionHash 
+# exception
+# gem "rack", :git => "git://github.com/rack/rack.git"
 
 #gem 'mysql2'
 

@@ -1,8 +1,7 @@
 DateIdeas::Application.routes.draw do
 
-  devise_for :admins
-
-  resources :admins
+  # resources :authentications
+  match '/auth/:provider/callback' => 'authentications#create'
 
   devise_for :users, :controllers => {:registrations => "registrations"}
   
@@ -16,6 +15,7 @@ DateIdeas::Application.routes.draw do
   
   resources :profiles
   
+  resources :authentications
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
