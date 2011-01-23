@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
 User.delete_all
 
 User.create(
@@ -19,12 +20,45 @@ User.create(
 )
 
 User.create(
+  :first_name => "John",
+  :last_name => "Smith",
+  :username => "john",
+  :email => "john@gmail.com",
+  :gender =>"male",
+  :birthday => "1980-01-01",
+  :postal_code => "C2ZM3P",
+  :password => "test"
+)
+
+User.create(
   :first_name => "Jane",
   :last_name => "Doe",
   :username => "jane",
   :email => "jane@dateideas.ca",
   :gender =>"female",
   :birthday => "1980-01-01",
+  :postal_code => "A1BC2D",
+  :password => "test"
+)
+
+User.create(
+  :first_name => "Barack",
+  :last_name => "Obama",
+  :username => "obama",
+  :email => "obama@whitehouse.gov",
+  :gender =>"male",
+  :birthday => "1961-08-04",
+  :postal_code => "A1BC2D",
+  :password => "test"
+)
+
+User.create(
+  :first_name => "First",
+  :last_name => "Lady",
+  :username => "first_lady",
+  :email => "first_lady@whitehouse.gov",
+  :gender =>"female",
+  :birthday => "1964-01-17",
   :postal_code => "A1BC2D",
   :password => "test"
 )

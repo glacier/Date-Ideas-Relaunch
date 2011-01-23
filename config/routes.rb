@@ -1,11 +1,15 @@
 DateIdeas::Application.routes.draw do
-
-  # resources :authentications
+  # TODO: handle user abuse of application urls?
+  
   match '/auth/:provider/callback' => 'authentications#create'
 
   devise_for :users, :controllers => {:registrations => "registrations"}
   
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   
   get "wizard/index"
 
@@ -13,9 +17,12 @@ DateIdeas::Application.routes.draw do
 
   resources :wizard, :module => "wizard"
   
+  #TODO: allow users to access their profiles using /profiles/:username?
   resources :profiles
   
   resources :authentications
+  
+  resources :relationships, :only => [:create, :destroy]
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
