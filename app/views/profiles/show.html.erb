@@ -16,9 +16,11 @@ else
 end
  -->
 
-	<%= form_for @user.relationships.build(:followed_id => @user.id) do |f| %>
-		<%= f.submit "Follow" %>
-	<% end %>
+<p>TODO: add follow/unfollow button </p>
+
+<%= form_for @user.relationships.build(:followed_id => @user.id) do |f| %>
+	<%= f.submit "Follow" %>
+<% end %>
 
 <p>
 	<b>Email:</b>
