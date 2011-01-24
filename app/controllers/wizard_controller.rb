@@ -7,6 +7,7 @@ class WizardController < ApplicationController
   end
   def create
     @wizard = Wizard.new(params[:wizard][:venue], params[:wizard][:location],params[:wizard][:price_point])
+    @marker_counter = 0
     #client = Yelp::Client.new
     #request = Yelp::Review::Request::Location.new(
     #              :address => '365 Bartlett Ave.',
@@ -31,51 +32,41 @@ class WizardController < ApplicationController
     @map = Cartographer::Gmap.new( 'map' )
     @map.zoom = :bound
 
-  icon_building = Cartographer::Gicon.new(:name => "building_icon",
-          :image_url => 'http://chart.apis.google.com/chart?chst=d_map_pin_icon&chld=glyphish_heart|C80000',
-          :shadow_url => 'http://chart.apis.google.com/chart?chst=d_map_pin_shadow',
-          :anchor_x => 6,
-          :anchor_y => 20)
-  @map.icons << icon_building
+    icon_building = Cartographer::Gicon.new(:name => "building_icon",
+            :image_url => 'http://chart.apis.google.com/chart?chst=d_map_pin_icon&chld=glyphish_heart|C80000',
+            :shadow_url => 'http://chart.apis.google.com/chart?chst=d_map_pin_shadow',
+            :anchor_x => 6,
+            :anchor_y => 20)
+    @map.icons << icon_building
 
-  position1 = Array.new
-  position1 << businesses[0].latitude
-  position1 << businesses[0].longitude
-
-  position2 = Array.new
-  position2 << businesses[1].latitude
-  position2 << businesses[1].longitude
-
-  position3 = Array.new
-  position3 << businesses[2].latitude
-  position3 << businesses[2].longitude
-
-  name1 = String.new(businesses[0].name)
-  logger.info("position1:" << position1.to_s )
-  logger.info("position2:" << position2.to_s )
-
-  marker1 = Cartographer::Gmarker.new(:name=> "marker1", :marker_type => "Building",
-              :position => position1,
-              :info_window_url => "/url_for_info_content",
-              :icon => icon_building)
-  marker2 = Cartographer::Gmarker.new(:name=> "marker2", :marker_type => "Building",
-              :position => position2,
-              :info_window_url => "/url_for_info_content",
-              :icon => icon_building)
-  marker3 = Cartographer::Gmarker.new(:name=> "marker3", :marker_type => "Building",
-              :position => position3,
-              :info_window_url => "/url_for_info_content",
-              :icon => icon_building)
-
-  @map.markers << marker1
-  @map.markers << marker2
-  @map.markers << marker3
+    add_marker(@map,icon_building,businesses[0] )
+    add_marker(@map,icon_building,businesses[1] )
+    add_marker(@map,icon_building,businesses[2] )
 
     #respond_with(@wizard)
 
     respond_to do |format|
         format.html { render :action =>"show" }
     end
+  end
+  def add_marker(map, icon, business)
+    @marker_counter = @marker_counter + 1
+    #create a position
+    position = Array.new
+    position << business.latitude
+    position << business.longitude
+    
+    name = "marker" << @marker_counter.to_s
+    url = business.url
+    logger.info("name:" << name)
+    logger.info("url:" << url)
+    marker = Cartographer::Gmarker.new(:name=> name, 
+            :marker_type => "Building",
+            :position => position,
+            :info_window_url => url,
+            :icon => icon)
+            
+    map.markers << marker         
   end
   def create_businesses(businesses_hash)
     businesses = Array.new
@@ -84,26 +75,6 @@ class WizardController < ApplicationController
       businesses.push(business)
     end
     return businesses
-
-  logger.info("position1:" << position1.to_s )
-  logger.info("position2:" << position2.to_s )
-
-  marker1 = Cartographer::Gmarker.new(:name=> "taj_mahal", :marker_type => "Building",
-              :position => position1,
-              :info_window_url => "/url_for_info_content",
-              :icon => icon_building)
-  marker2 = Cartographer::Gmarker.new(:name=> "raj_bhawan", :marker_type => "Building",
-              :position => position2,
-              :info_window_url => "/url_for_info_content",
-              :icon => icon_building)
-
-  @map.markers << marker1
-  @map.markers << marker2
-    #respond_with(@wizard)
-
-    respond_to do |format|
-        format.html { render :action =>"show" }
-    end
   end
   def create_businesses(businesses_hash)
     businesses = Array.new
@@ -133,7 +104,24 @@ class WizardController < ApplicationController
     business.rating_img_url = business_hash.fetch("rating_img_url")
     business.longitude = business_hash.fetch("longitude")
     business.latitude = business_hash.fetch("latitude")
+    business.url = business_hash.fetch("url")
     business.reviews = create_reviews(business_hash.fetch("reviews"))
+    key = String.new
+    key = "map_" <<  business.id 
+    map = Cartographer::Gmap.new( key )
+    map.zoom = :bound
+
+    icon_building = Cartographer::Gicon.new(:name => "building_icon",
+            :image_url => 'http://chart.apis.google.com/chart?chst=d_map_pin_icon&chld=glyphish_heart|C80000',
+            :shadow_url => 'http://chart.apis.google.com/chart?chst=d_map_pin_shadow',
+            :anchor_x => 6,
+            :anchor_y => 20)
+    map.icons << icon_building
+    
+    add_marker(map, icon_building, business)
+    
+    business.map = map
+    #logger.info("business hash:" << business_hash.to_s )
     return business
   end
   def create_reviews(reviews_hash)

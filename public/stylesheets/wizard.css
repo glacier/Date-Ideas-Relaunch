@@ -1,34 +1,4 @@
-body {
-	margin: 0; padding: 0;
-	font: normal 10px Verdana, Arial, Helvetica, sans-serif;
-	line-height: 1.8em;
-	min-width: 1080px;
-}
-img {border: none;}
-a {color: #0052af;}
-h1 {
-	font: 3.5em normal Georgia, 'Times New Roman', Times, serif;
-	padding: 20px;
-	margin: 0;
-}
-h1 small{
-	font: 0.3em normal Verdana, Arial, Helvetica, sans-serif;
-	text-transform:uppercase;
-	display: block;
-}
-.container {width: 900px; margin: 0 auto; font-size: 1.2em;  color: #555;}
-#content {	background: #f0f0f0; float: left; width: 100%;}
-.post {
-	margin: 0; padding: 10px 20px;
-	float: left;
-	width: 560px;
-}
-
-
-
-
-
-/*------------------POPUPS------------------------*/
+/------------------POPUPS------------------------*/
 #fade {
 	display: none;
 	background: #000;
@@ -70,7 +40,10 @@ img.btn_close {
 *html .popup_block {
 	position: absolute;
 }
-
+div.di_bullet{
+  width: 5em; height: 5em;
+  -webkit-border-radius: 5em; -moz-border-radius: 5em;
+}
 div.di_biz_name{
     font-weight:bold;
 }
@@ -103,8 +76,6 @@ div.di_biz_yelp_reviews{
 div.di_biz_yelp_user_view{
 
 }
-.map {
-  border: black 0.5px solid;
-  width: 400px
-  height: 400px
+a.menu:hover{ 
+  background-color: #A29C9C;
 }

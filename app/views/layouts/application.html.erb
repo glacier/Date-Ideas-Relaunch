@@ -3,9 +3,16 @@
 <head>
   <title>DateIdeas.ca - <%= yield(:title) ||  "Home" %></title>
   <%= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag "di.css" %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
-  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js","jquery.rails.js" %>
+  <%= stylesheet_link_tag "http://jqueryui.com/themes/base/jquery.ui.all.css" %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js","jquery.rails.js" %>
+  <%= javascript_include_tag "http://jqueryui.com/ui/jquery.ui.core.js" %>
+  <%= javascript_include_tag "http://jqueryui.com/ui/jquery.ui.widget.js" %>
+  <%= javascript_include_tag "http://jqueryui.com/ui/jquery.ui.mouse.js" %>
+  <%= javascript_include_tag "http://jqueryui.com/ui/jquery.ui.selectable.js" %>
+  <%= javascript_include_tag "http://jqueryui.com/ui/jquery.ui.accordion.js" %>
   <script type="text/javascript">
   $(document).ready(function(){
 

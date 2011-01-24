@@ -192,7 +192,7 @@
     <%= content_tag(:div,:id=>business.id, :class=>"popup_block") do %>
         <table>
           <tr>
-            <td>
+            <td colspan="2">
                 <%= business.name %>
             </td>
           </tr>
@@ -200,18 +200,24 @@
             <td>
              <%= image_tag(business.photo_url) %>
             </td>
+            <td>
+               <div>
+              <%= raw Cartographer::Header.new.to_s %>   
+              <%= raw business.map.to_html %>
+              <%= content_tag(:div,"",:id=>String.new("map_").concat(business.id), :style=>"width: 200px; height: 200px") %>
+              </div>           
+            </td>
           </tr>
           <tr>
-            <td>
+            <td colspan="2">
               <%= business.text_excerpt %>
             </td>
           </tr>
           <tr>
-            <td>
+            <td colspan="2">
               <%= display_address(business) %>
             </td>
           </tr>
-
         </table>
     <% end %>
 <% end %>
