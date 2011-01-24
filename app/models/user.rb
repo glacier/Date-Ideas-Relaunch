@@ -1,7 +1,15 @@
 class User < ActiveRecord::Base
   has_one :profile
   has_many :authentications
-  
+  #model association with following users
+  has_many :relationships, :foreign_key => "follower_id", :dependent => :destroy
+  has_many :following, :through => :relationships, :source => :followed
+  #model association with followers
+  has_many :reverse_relationships, :foreign_key => "followed_id",
+                                    :class_name => "Relationship",
+                                    :dependent => :destroy
+  has_many :followers, :through => :reverse_relationships, :source => :follower
+
   # TODO: link user tips, reviews to user model
   # has_many :tips
   
@@ -21,5 +29,20 @@ class User < ActiveRecord::Base
   # overrides devises super controller
   def password_required?
     (authentications.empty? || !password.blank?) && super
+  end
+  
+  #is the user following 'followed'
+  def following?(followed)
+    relationships.find_by_followed_id(followed)
+  end
+  
+  #follow another user 'followed'
+  def follow!(followed)
+    relationships.create!(:followed_id => followed.id)
+  end
+  
+  def unfollow!(followed)
+    # relationships.delete(followed)
+    relationships.find_by_followed_id(followed).destroy
   end
 end

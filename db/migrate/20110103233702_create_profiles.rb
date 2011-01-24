@@ -5,10 +5,11 @@ class CreateProfiles < ActiveRecord::Migration
       # equivalent to t.integer :supplier_id
       t.references :user
       t.string :avatar_url
-      t.date :anniversary
+      t.date :anniversary #this is optional
       t.string :about_me
       t.timestamps
     end
+    add_index :profiles, :user_id
   end
 
   def self.down

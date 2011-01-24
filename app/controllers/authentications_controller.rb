@@ -7,6 +7,7 @@ class AuthenticationsController < ApplicationController
 
   # POST /authentications
   # POST /authentications.xml
+  # railscast episode 235 to 236
   def create    
     omniauth = request.env["omniauth.auth"]
     

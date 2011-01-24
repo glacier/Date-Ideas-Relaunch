@@ -4,7 +4,7 @@ module ApplicationHelper
     content_for(:title) { page_title }
   end
 
-  #implemented according to railscast episode 244
+  # implemented according to railscast episode 244
   def avatar_url(user)
     default_url = "#{root_url}images/guest.jpg"
     if user.profile

@@ -1,0 +1,17 @@
+<h1>Listing profiles</h1>
+
+<table>
+  <tr>
+		<th>user_id</th>
+		<th>Anniversary</th>
+		<th>About me</th>
+  </tr>
+
+<% @profiles.each do |profile| %>
+  <tr>
+		<td><%= profile.user_id %> </td>
+    <td><%= profile.anniversary %></td>
+    <td><%= profile.about_me %></td>
+  </tr>
+<% end %>
+</table>
