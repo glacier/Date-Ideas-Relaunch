@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
 <head>
   <title>DateIdeas.ca - <%= yield(:title) ||  "Home" %></title>
   <%= stylesheet_link_tag :all %>
   <%= stylesheet_link_tag "di.css" %>
-  <%= javascript_include_tag :defaults %>
+  <!-- %= javascript_include_tag :defaults % -->
   <%= csrf_meta_tag %>
   <%= stylesheet_link_tag "http://jqueryui.com/themes/base/jquery.ui.all.css" %>
   <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js","jquery.rails.js" %>
@@ -14,6 +13,7 @@
   <%= javascript_include_tag "http://jqueryui.com/ui/jquery.ui.mouse.js" %>
   <%= javascript_include_tag "http://jqueryui.com/ui/jquery.ui.selectable.js" %>
   <%= javascript_include_tag "http://jqueryui.com/ui/jquery.ui.accordion.js" %>
+  <%= javascript_include_tag "lightbox.js" %>
   <script type="text/javascript">
   $(document).ready(function(){
 
@@ -60,25 +60,6 @@
 
   });
   </script>
-</head>
-<body>
-	<div id="container">
-		<div id="user_nav">
-			<% if user_signed_in? %>
-				Welcome <%= current_user.email %>.
-				<%= link_to "Sign out", destroy_user_session_path %> 
-				<%= link_to "Profile", profile_path(current_user.id)%>
-			<% else %>
-				<%= link_to "Sign in", new_user_session_path %> or 
-				<%= link_to "Sign up", new_user_registration_path %>
-			<% end %>
-	<head>
-	  <title>DateIdeas.ca - <%= yield(:title) ||  "Home" %></title>
-	  <%= stylesheet_link_tag :all %>
-	  <%#javascript_include_tag :defaults %>
-	  <%= csrf_meta_tag %>
-	  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js","jquery.rails.js" %>
-		<%= javascript_include_tag "lightbox.js" %>
 	</head>
 	<body>
 		<div id="container">
