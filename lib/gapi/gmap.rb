@@ -1,0 +1,3 @@
+class Gapi::Gmap
+  
+end

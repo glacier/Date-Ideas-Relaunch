@@ -57,13 +57,14 @@ class WizardController < ApplicationController
     position << business.longitude
     
     name = "marker" << @marker_counter.to_s
+    
     url = business.url
     logger.info("name:" << name)
     logger.info("url:" << url)
     marker = Cartographer::Gmarker.new(:name=> name, 
             :marker_type => "Building",
             :position => position,
-            :info_window_url => url,
+            :info_window => "<h1>#{business.name}</h1>",
             :icon => icon)
             
     map.markers << marker         

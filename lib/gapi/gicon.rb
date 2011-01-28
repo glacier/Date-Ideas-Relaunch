@@ -1,0 +1,3 @@
+class Gapi::Gicon
+  
+end

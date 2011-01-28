@@ -1,9 +1,11 @@
 <%= stylesheet_link_tag("wizard.css") %>
+<!--
 <%= stylesheet_link_tag("http://jqueryui.com/demos/demos.css") %>
+-->
 <div class="container">
 <div class="content">
 <h1>Wizard</h1>
-
+<!-- 
 <style>
 	#feedback { font-size: 1.4em; }
 	#selectable .ui-selecting { background: #FECA40; }
@@ -31,10 +33,12 @@
 		$( "#price_point" ).selectable();
 	});
 </script>
-
+-->
 
 
 <%= form_for :wizard, @wizard do |f| %>
+
+<!--
 <div class="demo">
 
 <div id="accordion">
@@ -64,7 +68,7 @@
 	</div>
 </div>
 
-</div><!-- End demo -->
+</div>
 
 <div class="demo-description" style="display: none; ">
 <p>
@@ -75,8 +79,8 @@ Optionally, toggle sections open/closed on mouseover.
 The underlying HTML markup is a series of headers (H3 tags) and content divs so the content is
 usable without JavaScript.
 </p>
-</div><!-- End demo-description -->
-
+</div>
+-->
 <table>
   <tr>
     <td>
