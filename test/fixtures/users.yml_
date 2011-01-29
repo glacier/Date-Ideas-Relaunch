@@ -4,6 +4,15 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 # column: value
+one:
+    first_name: Grace
+    last_name: Li
+    email: grace@dateideas.ca
+    gender: female
+    birthday: 1984-10-05
+    postal_code: M3C3P5
+    password: test
+    
 two:
     first_name: Will
     last_name: Lam
@@ -11,5 +20,5 @@ two:
     gender: male
     birthday: 2011-01-19
     postal_code: X2Y3Z4
-    encrypted_password: test
+    password: test
 

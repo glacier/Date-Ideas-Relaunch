@@ -10,26 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110121202936) do
-
-  create_table "admins", :force => true do |t|
-    t.string   "email",                               :default => "", :null => false
-    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                       :default => "", :null => false
-    t.string   "reset_password_token"
-    t.string   "remember_token"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                       :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
-  add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
+ActiveRecord::Schema.define(:version => 20110125021326) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -48,6 +29,8 @@ ActiveRecord::Schema.define(:version => 20110121202936) do
     t.datetime "updated_at"
   end
 
+  add_index "profiles", ["user_id"], :name => "index_profiles_on_user_id"
+
   create_table "relationships", :force => true do |t|
     t.integer  "follower_id"
     t.integer  "followed_id"
@@ -61,7 +44,6 @@ ActiveRecord::Schema.define(:version => 20110121202936) do
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                       :default => "", :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
@@ -82,6 +64,32 @@ ActiveRecord::Schema.define(:version => 20110121202936) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "venues", :force => true do |t|
+    t.string   "venue_type"
+    t.string   "venue_logo"
+    t.string   "venue_name"
+    t.string   "venue_address1"
+    t.string   "venue_city"
+    t.string   "venue_prov"
+    t.string   "venue_postal"
+    t.string   "venue_country"
+    t.string   "venue_phone"
+    t.string   "venue_website"
+    t.string   "venue_dna_neighbourhood"
+    t.string   "venue_dna_atmosphere"
+    t.string   "venue_dna_pricepoint"
+    t.string   "venue_dna_foodcategory"
+    t.string   "venue_dna_dresscode"
+    t.string   "venue_dna_pictures"
+    t.string   "venue_post_title"
+    t.string   "venue_dna_review"
+    t.integer  "venue_dna_conversation"
+    t.integer  "venue_dna_convenience"
+    t.integer  "venue_dna_comfort"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "wizards", :force => true do |t|
     t.string   "venue"

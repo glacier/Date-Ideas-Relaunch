@@ -34,7 +34,7 @@
 					Welcome <%= current_user.email %>.
 					<%= link_to "Sign out", destroy_user_session_path %>
 					<%= link_to "Profile", profile_path(current_user.id) %>
-					<%= link_to 'Edit Profile', edit_profile_path %>
+					<%# link_to 'Edit Profile', edit_profile_path %>
 				<% else %>
 					<%= link_to "Sign in", new_user_session_path %> or 
 					<%= link_to "Sign up", new_user_registration_path %>
