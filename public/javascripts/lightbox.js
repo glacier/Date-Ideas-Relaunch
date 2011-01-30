@@ -26,7 +26,16 @@ $(document).ready(function(){
       //Fade in Background
       $('body').append('<div id="fade"></div>'); //Add the fade layer to bottom of the body tag.
       $('#fade').css({'filter' : 'alpha(opacity=80)'}).fadeIn(); //Fade in the fade layer
-      $('#map' + popID).jMapping({metadata_options: {type: 'html5'}});
+      //$('#map' + popID).jMapping({metadata_options: {type: 'html5'}});
+      //$('#map' + popID).jMapping('update');
+      $(document).ready(function(){
+    	  $('#map').jMapping({
+    	    side_bar_selector: '#map-locations:first',
+    	    location_selector: '.location',
+    	    link_selector: 'a.map-item',
+    	    info_window_selector: '.info-html'
+    	  });
+    	});
       return false;
   });
 
