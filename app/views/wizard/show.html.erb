@@ -1,191 +1,89 @@
 <%= stylesheet_link_tag("wizard.css") %>
-<div class="container">
-<div class="content">
-
-<table>
-<tr>
-   <td valign="top">
-    <div>
-            <script type="text/javascript"> 
-        $(document).ready(function(){
-          $('#map').jMapping({metadata_options: {type: 'html5'}});
-        });
-      </script>
-    <div id="map" style="width: 350px; height: 400px"></div> 
-    
-    <div id="map-side-bar"> 
-      <div class="map-location" data-id="1" data-point="{lng: -122.2678847, lat: 37.8574888}" data-category="'market'"> 
-        <a href="#" class="map-link">Berkeley Bowl</a> 
-        <div class="info-box"> 
+<% content_for :sidebar_left do %>
+	<div>
+    <script type="text/javascript"> 
+      $(document).ready(function(){
+        $('#map').jMapping({metadata_options: {type: 'html5'}});
+      });
+    </script>
+  	<div id="map" style="width: 300px; height: 300px"></div> 
+  	<div id="map-side-bar"> 
+    	<div class="map-location" data-id="1" data-point="{lng: -122.2678847, lat: 37.8574888}" data-category="'market'"> 
+      <a href="#" class="map-link">Berkeley Bowl</a> 
+      	<div class="info-box"> 
           <p>A great place to get all your groceries, especially fresh fruits and vegetables.</p> 
         </div> 
       </div> 
-      <div class="map-location" data-id="2" data-point="{lng: -122.4391131, lat: 37.7729943}" data-category="'restaurant'"> 
-        <a href="#" class="map-link">Nopalito</a> 
-        <div class="info-box"> 
-          <p>The best authentic Mexican restaurant in San Francisco.</p> 
-        </div> 
-      </div> 
-      <div class="map-location" data-id="3" data-point="{lng: -122.4481651, lat: 37.8042096}" data-category="'museum'"> 
-        <a href="#" class="map-link">Exploratorium</a> 
-        <div class="info-box"> 
-          <p>A hands-on museum of science, art, and human perception in San Francisco.</p> 
-        </div> 
-      </div> 
-    </div>     
-    <div class="footer"></div> 
+    	<div class="map-location" data-id="2" data-point="{lng: -122.4391131, lat: 37.7729943}" data-category="'restaurant'"> 
+      <a href="#" class="map-link">Nopalito</a> 
+      	<div class="info-box"> 
+        	<p>The best authentic Mexican restaurant in San Francisco.</p> 
+      	</div> 
+    	</div> 
+    	<div class="map-location" data-id="3" data-point="{lng: -122.4481651, lat: 37.8042096}" data-category="'museum'"> 
+      	<a href="#" class="map-link">Exploratorium</a> 
+      	<div class="info-box"> 
+        	<p>A hands-on museum of science, art, and human perception in San Francisco.</p> 
+      	</div> 
+    	</div> 
+  	</div>
+  </div>
+<% end %>
+<div id="di_results_main" class="span-15">
+     <div class="di_main_biz span-5">				    
+          <div class="di_biz_photo"><%= image_tag(@wizard.restaurant.photo_url,:size=>"150x150") %></div>
+          <ul class="ratings">
+					<li><%= image_tag("unlock.png", :height => '16', :width => '16') %></li>
+          <li><%= image_tag("thumbs_up.jpeg", :height => '16', :width => '16') %></li>
+          <li><%= image_tag("thumbs_down.jpeg", :height => '16', :width => '16') %></li>
+					</ul>
+     </div>
 
-    </div>
-   </td>
-   <td>
-<table>
-  <!-- main list -->
-  <tr>
-    <td>
-      <div class="di_main_biz">
-      <table>
-        <tr>
-          <td colspan="10" align="center">
-            <%= image_tag(@wizard.restaurant.photo_url,:size=>"150x150") %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="di_main_biz_icon_image">
-              <%= image_tag("unlock.png", :height => '16', :width => '16') %>
-            </div>
-          </td>
-          <td>
-            <div class="di_main_biz_icon_image">
-              <%= image_tag("thumbs_up.jpeg", :height => '16', :width => '16') %>
-            </div>
-          </td>
-          <td>
-            <div class="di_main_biz_icon_image">
-              <%= image_tag("thumbs_down.jpeg", :height => '16', :width => '16') %>
-            </div>
-          </td>
-        </tr>
-      </table>
+      <div class="di_main_biz span-5">
+            <div class="di_biz_photo"><%= image_tag(@wizard.activity.photo_url,:size=>"150x150") %></div>
+            <ul class="ratings">
+						<li><%= image_tag("unlock.png", :height => '16', :width => '16') %></li>
+            <li><%= image_tag("thumbs_up.jpeg", :height => '16', :width => '16') %></li>
+            <li><%= image_tag("thumbs_down.jpeg", :height => '16', :width => '16') %></li>
+						</ul>
       </div>
-    </td>
-    <td>
-      <div class="di_main_biz">
-      <table>
-        <tr>
-          <td colspan="10" align="center">
-            <%= image_tag(@wizard.activity.photo_url,:size=>"150x150") %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="di_main_biz_icon_image">
-              <%= image_tag("unlock.png", :height => '16', :width => '16') %>
-            </div>
-          </td>
-          <td>
-            <div class="di_main_biz_icon_image">
-              <%= image_tag("thumbs_up.jpeg", :height => '16', :width => '16') %>
-            </div>
-          </td>
-          <td>
-            <div class="di_main_biz_icon_image">
-              <%= image_tag("thumbs_down.jpeg", :height => '16', :width => '16') %>
-            </div>
-          </td>
-        </tr>
-      </table>
-      </div>
-    </td>
-    <td>
-      <div class="di_main_biz">
-      <table>
-        <tr>
-          <td colspan="10" align="center" style="align:center">
-            <%= image_tag(@wizard.dessert.photo_url,:size=>"150x150") %>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <div class="di_main_biz_icon_image">
-              <%= image_tag("unlock.png", :height => '16', :width => '16') %>
-            </div>
-          </td>
-          <td>
-            <div class="di_main_biz_icon_image">
-              <%= image_tag("thumbs_up.jpeg", :height => '16', :width => '16') %>
-            </div>
-          </td>
-          <td>
-            <div class="di_main_biz_icon_image">
-              <%= image_tag("thumbs_down.jpeg", :height => '16', :width => '16') %>
-            </div>
-          </td>
-        </tr>
-      </table>
-      </div>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="3">
+
+      <div class="di_main_biz span-5 last">
+            <div class="di_biz_photo"><%= image_tag(@wizard.dessert.photo_url,:size=>"150x150") %></div>
+              <ul class="ratings">
+							<li><%= image_tag("unlock.png", :height => '16', :width => '16') %></li>
+              <li><%= image_tag("thumbs_up.jpeg", :height => '16', :width => '16') %></li>
+              <li><%= image_tag("thumbs_down.jpeg", :height => '16', :width => '16') %></li>
+							</ul>
+   		</div>
+			<hr/>
     <!-- business list -->
-    <table>
-    <% @wizard.businesses.each do |business| %>
-      <tr>
-        <td>
-          <div class="di_biz">
-          <table>
-            <tr>
-              <td colspan="2">
-                <div class="di_biz_name">
-                    <%= business.name %>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <td>
-              <table>
-                <tr>
-                  <td rowspan="2" valign="top" align="left">
-                    <div class="di_biz_photo">
-                        <%= image_tag(business.photo_url) %>
-                    </div>
-                  </td>
-                  <td valign="top">
-                    <div class="di_biz_desc">
-                      <table>
-                        <tr>
-                          <td colspan="2">
-                            <%= business.text_excerpt %>
-                            <%= link_to("Read full reviews","#?w=880",:class=>"poplight",:rel=>business.id) %>
-                          </td>
-                        </tr>
-                      </table>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td valign="bottom">
-                    <div class="di_biz_yelp_reviews">
-                      <%= image_tag("reviews_from_yelp.gif") %>
-                      <div class="di_biz_yelp_user_view">
-                        <%= business.reviews.first.text_excerpt %><%= image_tag(business.reviews.first.rating_img_url) %>
-                        <%= link_to("Read Yelp Review", "#?w=880", :class=>"poplight", :rel=>String.new(business.id).concat("-yreviews")) %>
-                      </div>
-                    </div>
-                  </td>
-                </tr>
-              </table>
-              </td>
-            </tr>
-            <tr>
-              <td colspan="2">
-                <div class="di_biz_addr">
-                     <%= display_address(business) %>&nbsp;<%= image_tag("thumbs_up.jpeg", :height => '16', :width => '16') %><%= image_tag("thumbs_down.jpeg", :height => '16', :width => '16') %><%= image_tag("unlock.png", :height => '16', :width => '16') %>
-                 </div>
-              </td>
-            </tr>
-          </table>
+    	<% @wizard.businesses.each do |business| %>
+         <div class="di_biz span-15 last">
+					<h3 class="di_biz_name"><%= business.name %></h3>
+					<div class="di_biz_info">
+					     <div class="di_biz_photo"><%= image_tag(business.photo_url) %></div>
+					     <div class="di_biz_desc">
+					          <p>
+						  		<%= business.text_excerpt %>
+					          	<%= link_to("Read full reviews","#?w=880",:class=>"poplight",:rel=>business.id) %> 
+								 </p>
+					   			 <p><%= display_address(business) %></p>
+						 </div>
+					</div>
+						<ul class="ratings">
+						<li><%= image_tag("thumbs_up.jpeg", :height => '16', :width => '16') %></li>
+						<li><%= image_tag("thumbs_down.jpeg", :height => '16', :width => '16') %></li>
+						<li><%= image_tag("unlock.png", :height => '16', :width => '16') %></li>
+					</ul>
+					 <hr class="di_biz_hr"/>
+	         <div class="di_biz_yelp_reviews">
+							<%= image_tag("reviews_from_yelp.gif") %>
+	          	<p class="di_biz_yelp_user_view">
+								<%= business.reviews.first.text_excerpt %><%= image_tag(business.reviews.first.rating_img_url) %>
+		            <%= link_to("Read Yelp Review", "#?w=880", :class=>"poplight", :rel=>String.new(business.id).concat("-yreviews")) %>
+							</p>
+	         </div>
           </div>
         </td>
       </tr>
@@ -214,7 +112,7 @@
              <%= image_tag(business.photo_url) %>
             </td>
             <td>
-            <!--
+            
     <div>
     <%= content_tag(:div,:id=>String.new("map").concat(business.id), :style=>"width: 350px; height: 400px")  do %>
     <% end %>
@@ -289,4 +187,90 @@
           <% end %>
         </table>
     <% end %>
+					<hr/>
+    <% end %>
+		<!-- end of business list -->
+
+		<!-- each business popup -->
+		<% @wizard.businesses.each do |business| %>
+		    <%= content_tag(:div,:id=>business.id, :class=>"popup_block") do %>
+		        <table>
+		          <tr>
+		            <td>
+		                <%= business.name %>
+		            </td>
+		          </tr>
+		          <tr>
+		            <td>
+		             <%= image_tag(business.photo_url) %>
+		            </td>
+		            <td>
+		    <div>
+		    <%= content_tag(:div,:id=>String.new("map").concat(business.id), :style=>"width: 350px; height: 400px")  do %>
+		    <% end %>
+    
+		    <div id="map-side-bar"> 
+		      <div class="map-location" data-id="1" data-point="{lng: -122.2678847, lat: 37.8574888}" data-category="'market'"> 
+		        <a href="#" class="map-link">Berkeley Bowl</a> 
+		        <div class="info-box"> 
+		          <p>A great place to get all your groceries, especially fresh fruits and vegetables.</p> 
+		        </div> 
+		      </div> 
+		    </div>
+
+		    </div>           
+		            </td>
+		          </tr>
+		          <tr>
+		            <td>
+		              <%= business.text_excerpt %>
+		            </td>
+		          </tr>
+		          <tr>
+		            <td>
+		              <%= display_address(business) %>
+		            </td>
+		          </tr>
+		        </table>
+		    <% end %>
+		<% end %>
+		<!-- each yelp reviews -->
+		<% @wizard.businesses.each do |business| %>
+		    <%= content_tag(:div,:id=>String.new(business.id).concat("-yreviews"), :class=>"popup_block") do %>
+		        <table>
+		          <tr>
+		            <td>
+		                <%= business.name %>
+		            </td>
+		          </tr>
+		          <tr>
+		            <td>
+		             <%= image_tag(business.photo_url,:size=>"200x200") %>
+		            </td>
+		          </tr>
+		          <tr>
+		            <td>
+		              <%= business.text_excerpt %>
+		            </td>
+		          </tr>
+		          <tr>
+		            <td>
+		              <%= display_address(business) %>
+		            </td>
+		          </tr>
+		          <% business.reviews.each do |review| %>
+		            <tr>
+		              <td>
+		                <div class="di_biz_yelp_reviews">
+		                    <%= review.text_excerpt %><%= image_tag(review.rating_img_url) %>
+		                </div>
+		              </td>
+		            </tr>
+		          <% end %>
+		        </table>
+		    <% end %>
+		<% end %>
+</div>
+<% content_for :sidebar_right do %>
+	<div class="span-7 last">right sidebar</div>
 <% end %>
