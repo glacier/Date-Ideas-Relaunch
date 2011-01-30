@@ -29,8 +29,9 @@
 		</div>
 	</div>
 <% end %>
-<div id="di_results_main" class="span-15">
-	<div class="di_main_biz span-5">				    
+
+<div id="di_results_main">
+	<div class="di_main_biz">				    
 		<div class="di_biz_photo"><%= image_tag(@wizard.restaurant.photo_url) %></div>
 			<ul class="ratings">
 				<li><%= image_tag("unlock.png", :height => '16', :width => '16') %></li>
@@ -38,7 +39,7 @@
 				<li><%= image_tag("thumbs_down.jpeg", :height => '16', :width => '16') %></li>
 			</ul>
 		</div>
-		<div class="di_main_biz span-5">
+		<div class="di_main_biz">
 			<div class="di_biz_photo"><%= image_tag(@wizard.activity.photo_url) %></div>
 			<ul class="ratings">
 				<li><%= image_tag("unlock.png", :height => '16', :width => '16') %></li>
@@ -46,7 +47,7 @@
 				<li><%= image_tag("thumbs_down.jpeg", :height => '16', :width => '16') %></li>
 			</ul>
 		</div>
-		<div class="di_main_biz span-5 last">
+		<div class="di_main_biz">
 			<div class="di_biz_photo"><%= image_tag(@wizard.dessert.photo_url) %></div>
 			<ul class="ratings">
 				<li><%= image_tag("unlock.png", :height => '16', :width => '16') %></li>
@@ -55,9 +56,10 @@
 			</ul>
 		</div>
 	</div>	
+	<hr/>
 	<!-- business list -->
 	<% @wizard.businesses.each do |business| %>
-		<div class="di_biz span-15 last">
+		<div class="di_biz">
 			<h3 class="di_biz_name"><%= business.name %></h3>
 			<div class="di_biz_info">
 			<div class="di_biz_photo"><%= image_tag(business.photo_url) %></div>
@@ -81,7 +83,8 @@
 			</div>
 		</div>
 	<% end %><!-- end of business list -->
-</div>
+<!-- </div> -->
+<hr/>
 
 <!-- each business popup -->
 <% @wizard.businesses.each do |business| %>
@@ -158,5 +161,5 @@
     <% end %>
 <% end %>
 <% content_for :sidebar_right do %>
-	<div class="span-7 last">right sidebar</div>
+right sidebar
 <% end %>

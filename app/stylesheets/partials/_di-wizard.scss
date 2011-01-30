@@ -1,0 +1,61 @@
+.di_bullet{
+  width: 5em; height: 5em;
+  -webkit-border-radius: 5em; -moz-border-radius: 5em;
+}
+
+.di_results_main {
+	@include pie-clearfix;
+	.di_main_biz {
+		.di_biz_photo {
+			width:100px;
+		}
+	}
+}
+
+.di_biz {
+	padding-bottom: 10px;
+	
+	.di_biz_name {
+	    font-weight: bold;
+	}
+	.di_biz_info {
+		@include pie-clearfix;
+		.di_biz_desc {
+			float: left;
+		}
+	}
+	
+	.di_biz_yelp_reviews {
+/*		display:block;*/
+	}
+	
+	.di_biz_hr {
+		visibility: hidden;
+	}
+}
+
+.di_biz_photo {
+	float: left;
+	display: block;
+}
+
+.ratings {
+	@include horizontal-list;
+	width:150px;
+}
+
+.di_main_biz {
+	@include pie-clearfix;
+	width:150px;
+	float: left;
+}
+
+
+/*.di_biz_addr{
+    text-align:left
+}
+*/
+
+/*a.menu:hover{ 
+  background-color: #A29C9C;
+}*/

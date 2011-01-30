@@ -1,0 +1,48 @@
+// mixins for beautifying
+@mixin loud_text {
+	font:{
+		size: 16px;
+		weight: 500;
+	};
+	color: $loud-color;
+}
+
+@mixin rounded_button_large {
+	-webkit-border-radius: 4px 4px;
+	-moz-border-radius: 4px / 4px;
+	-o-border-radius: 4px / 4px;
+	-ms-border-radius: 4px / 4px;
+	-khtml-border-radius: 4px / 4px;
+	border-radius: 4px / 4px;
+	line-height: 16px;
+	margin: 0px;
+	padding: 8px 10px;
+	vertical-align: middle;
+}
+
+@mixin rounded_button_small {
+	-webkit-border-radius: 2px 2px;
+	-moz-border-radius: 2px / 2px;
+	-o-border-radius: 2px / 2px;
+	-ms-border-radius: 2px / 2px;
+	-khtml-border-radius: 2px / 2px;
+	border-radius: 2px / 2px;
+	line-height: 8px;
+	margin: 0px;
+	padding: 4px 5px;
+	vertical-align: middle;
+}
+
+@mixin loud_link_button {
+	@include rounded_button_small;
+	@include loud_text;
+	background: $loud-bg-color;
+}
+
+@mixin quiet_link_button {
+	@include rounded_button_small;
+	font:{
+		size: 12px;
+	};
+	background: $quiet-bg-color;
+}
