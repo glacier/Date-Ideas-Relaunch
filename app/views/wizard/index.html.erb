@@ -2,9 +2,8 @@
 <!--
 <%= stylesheet_link_tag("http://jqueryui.com/demos/demos.css") %>
 -->
-<div class="container">
-<div class="content">
-<h1>Wizard</h1>
+
+<h1>Find the perfect date spot.</h1>
 <!-- 
 <style>
 	#feedback { font-size: 1.4em; }
@@ -45,25 +44,25 @@
 	<h3><a href="#" class="menu"><span>1</span> What do you want to do?</a></h3>
         <div>
             <ol id="selectable">
-              <% Wizard::VENUES.each do |venue| %>
-	        <li class="ui-widget-content"><%= link_to(venue[0],"#",:class => "menu")  %></li>
-              <% end %>
+              <%# Wizard::VENUES.each do |venue| %>
+	        <li class="ui-widget-content"><%# link_to(venue[0],"#",:class => "menu")  %></li>
+              <%# end %>
             </ol>
         </div>
 	<h3><a href="#" class="menu"><span>2</span> What area do you want to go to?</a></h3>
 	<div>
             <ol id="location">
-              <% Wizard::LOCATIONS.each do |location| %>
-	        <li class="ui-widget-content"><%= location[0]  %></li>
-              <% end %>
+              <%# Wizard::LOCATIONS.each do |location| %>
+	        <li class="ui-widget-content"><%# location[0]  %></li>
+              <%# end %>
             </ol>
 	</div>
 	<h3><a href="#" class="menu"><span>3</span> What is your price point?</a></h3>
 	<div>
             <ol id="price_point">
-              <% Wizard::PRICE_POINTS.each do |price_point| %>
-	        <li class="ui-widget-content"><%= price_point[0]  %></li>
-              <% end %>
+              <%# Wizard::PRICE_POINTS.each do |price_point| %>
+	        <li class="ui-widget-content"><%# price_point[0]  %></li>
+              <%# end %>
             </ol>
 	</div>
 </div>
@@ -110,5 +109,3 @@ usable without JavaScript.
   </tr>
 </table>
 <% end %>
-    </div>
-    </div>

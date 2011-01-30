@@ -11,11 +11,11 @@ DateIdeas::Application.routes.draw do
     end
   end
   
-  get "wizard/index"
+  # get "wizard/index"
 
-  get "home/index"
+  # get "home/index"
 
-  resources :wizard, :module => "wizard"
+  resources :wizard
   
   #TODO: allow users to access their profiles using /profiles/:username?
   resources :profiles
@@ -23,6 +23,10 @@ DateIdeas::Application.routes.draw do
   resources :authentications
   
   resources :relationships, :only => [:create, :destroy]
+  
+  # You can have the root of your site routed with "root"
+  # just remember to delete public/index.html.
+  root :to => "wizard#index"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -71,9 +75,7 @@ DateIdeas::Application.routes.draw do
   #     resources :products
   #   end
 
-  # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
-  root :to => "home#index"
+
 
   # See how all your routes lay out with "rake routes"
 
