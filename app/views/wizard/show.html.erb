@@ -7,26 +7,7 @@
 			});
 		</script>
 		<div id="map" style="width: 300px; height: 300px"></div> 
-		<div id="map-side-bar"> 
-			<div class="map-location" data-id="1" data-point="{lng: -122.2678847, lat: 37.8574888}" data-category="'market'"> 
-				<a href="#" class="map-link">Berkeley Bowl</a> 
-				<div class="info-box"> 
-					<p>A great place to get all your groceries, especially fresh fruits and vegetables.</p> 
-				</div> 
-			</div> 
-			<div class="map-location" data-id="2" data-point="{lng: -122.4391131, lat: 37.7729943}" data-category="'restaurant'"> 
-				<a href="#" class="map-link">Nopalito</a> 
-				<div class="info-box"> 
-					<p>The best authentic Mexican restaurant in San Francisco.</p> 
-				</div> 
-			</div> 
-			<div class="map-location" data-id="3" data-point="{lng: -122.4481651, lat: 37.8042096}" data-category="'museum'"> 
-				<a href="#" class="map-link">Exploratorium</a> 
-				<div class="info-box"> 
-					<p>A hands-on museum of science, art, and human perception in San Francisco.</p> 
-				</div> 
-			</div> 
-		</div>
+		<%= raw display_main_map_info(@wizard.businesses) %>
 	</div>
 <% end %>
 <div id="di_results_main" class="span-15">
@@ -96,26 +77,7 @@
 				<div>
 					<%= content_tag(:div,:id=>String.new("map").concat(business.id), :style=>"width: 350px; height: 400px")  do %>
 					<% end %>
-					<ul id="map-locations">
-						<li class="location" data-jmapping="{id: 1, point: {lng: -122.2678847, lat: 37.8574888}, category: 'market'}">
-							<a href="#" class="map-item">Berkeley Bowl</a>
-							<div class="info-html">
-							<p>A great place to get all your groceries, especially fresh fruits and vegetables.</p>
-							</div>
-						</li>
-						<li class="location" data-jmapping="{id: 2, point: {lng: -122.4391131, lat: 37.7729943}, category: 'restaurant'}">
-							<a href="#" class="map-item">Nopalito</a>
-							<div class="info-html">
-							<p>The best authentic Mexican restaurant in San Francisco.</p>
-							</div>
-						</li>
-						<li class="location" data-jmapping="{id: 3, point: {lng: -122.4481651, lat: 37.8042096}, category: 'museum'}">
-							<a href="#" class="map-item">Exploratorium</a>
-							<div class="info-html">
-							<p>A hands-on museum of science, art, and human perception in San Francisco.</p>
-							</div>
-						</li>
-					</ul>
+					<%= raw display_map_info(business) %>
 				</div>           
             </td>
           </tr>

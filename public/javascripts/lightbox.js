@@ -29,11 +29,11 @@ $(document).ready(function(){
       //$('#map' + popID).jMapping({metadata_options: {type: 'html5'}});
       //$('#map' + popID).jMapping('update');
       $(document).ready(function(){
-    	  $('#map').jMapping({
-    	    side_bar_selector: '#map-locations:first',
-    	    location_selector: '.location',
-    	    link_selector: 'a.map-item',
-    	    info_window_selector: '.info-html'
+    	  $('#map' + popID).jMapping({
+    	    side_bar_selector: '#map-locations' + popID + ':first',
+    	    location_selector: '.location' + popID,
+    	    link_selector: 'a.map-item' + popID,
+    	    info_window_selector: '.info-html' + popID
     	  });
     	});
       return false;
