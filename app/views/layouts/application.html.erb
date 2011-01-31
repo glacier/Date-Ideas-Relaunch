@@ -33,31 +33,32 @@
   <%= javascript_include_tag "jquery.jmapping.js" %>
   
 </head>
-	<body>
-		<div class="container">			
-			<div id="header" class="span-30 last">
-				<p class="notice">Notices: <%= notice %></p>
-				<div id="user_nav">
-					<%= render 'shared/navigation' %>
-				</div>
-				<h1 id="logo"><%=image_tag "logo_beta.png"%></h1>
+<body>
+	<div class="container">			
+		<div id="header" class="span-30 last">
+			<p class="notice">Notices: <%= notice %></p>
+			<div id="user_nav" class="span-30 last">
+			<%= render 'shared/navigation' %>
 			</div>
-			<hr/>
-			<div id="content" class="container">
-				<div id="sidebar_left" class="span-8">
-					<%= yield :sidebar_left %>
-				</div>
-				<div id="main" class="span-15">
-					<%= yield %>
-				</div>
-				<div id="sidebar_right" class="span-7 last">
-					<%= yield :sidebar_right %>
-				</div>
+			<h1 id="logo"><%=image_tag "logo_beta.png"%></h1>
+		</div>
+		<hr/>
+		<div id="content" class="span-30 last">
+			<div id="sidebar_left" class="span-8">
+			<%= yield :sidebar_left %>
 			</div>
-			<hr/>
-			<div id="footer" class="span-30 last">
-				© 2010 Date Ideas
+			<div id="main" class="span-14">
+			<%= yield %>
+			</div>
+			<div id="sidebar_right" class="span-8 last">
+			<%= yield :sidebar_right %>
 			</div>
 		</div>
-	</body>
+		<hr/>
+		<div id="footer" class="span-30 last">
+		© 2010 Date Ideas
+		</div>
+
+	</div>
+</body>
 </html>

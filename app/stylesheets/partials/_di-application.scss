@@ -1,0 +1,60 @@
+// dateideas custom css
+.container {
+	background:{
+		color: $container-bg-color;
+	};
+}
+
+body {
+	a {
+		@include hover-link;
+	}
+}
+
+#header {
+	#logo {
+		padding: 5px;
+	}
+	#user_nav {
+/*		float: right; */
+		padding: 5px;
+		background:{
+			color: $nav-bg-color;
+		};
+		a {
+			@include loud_text;
+		}
+		ul {
+			@include horizontal-list(4px, right);
+		}
+	}
+}
+
+#sidebar_left {
+	
+}
+
+#content {
+	margin: 0 auto;
+}
+
+#main {
+	.poplight {
+		@include quiet_link_button;
+	}
+}
+
+#sidebar_right {
+	height: 100%;
+	background:{
+		color: $sidebar-bg-color;
+	};
+}
+
+#footer {
+	padding: 5px;
+	@include loud_text;
+	background:{
+		color: $footer-bg-color;
+	};
+}
