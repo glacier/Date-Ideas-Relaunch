@@ -35,7 +35,7 @@ $(document).ready(function(){
     	    link_selector: 'a.map-item' + popID,
     	    info_window_selector: '.info-html' + popID
     	  });
-    	});
+      });
       return false;
   });
 
@@ -44,8 +44,7 @@ $(document).ready(function(){
   $('a.close, #fade').live('click', function() { //When clicking on the close or fade layer...
         $('#fade , .popup_block').fadeOut(function() {
           $('#fade, a.close').remove();
-  }); //fade them both out
-
+  		}); //fade them both out
       return false;
   });
 
