@@ -33,7 +33,9 @@ $(document).ready(function(){
     	    side_bar_selector: '#map-locations' + popID + ':first',
     	    location_selector: '.location' + popID,
     	    link_selector: 'a.map-item' + popID,
-    	    info_window_selector: '.info-html' + popID
+    	    info_window_selector: '.info-html' + popID,
+			force_zoom_level: 15,
+            metadata_options: {type: 'html5'}
     	  });
     	});
       return false;
