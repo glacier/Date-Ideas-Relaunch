@@ -21,7 +21,7 @@
   <b>About <%= @profile.user.first_name %>:</b>
   <%= @profile.about_me %>
 </p>
-
+<p><%= link_to 'Edit Profile', edit_profile_path %></p>
 <% unless current_user?(@user) %>
 	<%= render 'users/follow_form' %>
 <% end %>
