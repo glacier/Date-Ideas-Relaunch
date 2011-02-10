@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   #require user sign up/sign in to see own profile
   before_filter :authenticate_user!
+  # before_filter :authenticate_admin!
   def index
     @profiles = Profile.all
   end

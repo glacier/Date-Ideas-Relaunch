@@ -1,9 +1,12 @@
 DateIdeas::Application.routes.draw do
+  # devise_for :admins
+
   # TODO: handle user abuse of application urls?
   
   match '/auth/:provider/callback' => 'authentications#create'
 
-  devise_for :users, :controllers => {:registrations => "registrations"}
+  # devise_for :users, :controllers => {:registrations => "registrations"}
+  devise_for :users
   
   resources :users do
     member do
