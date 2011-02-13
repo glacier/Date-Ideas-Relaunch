@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   # TODO: require admin authentication to CRUD users
-  before_filter :authenticate_user!
+  # before_filter :authenticate_user!
   
   # TODO: Dateideas registration process
   # step 1: Add a photo; personal information 

@@ -1,4 +1,5 @@
 class AuthenticationsController < ApplicationController
+  # before_filter :authenticate_user!
   # GET /authentications
   # GET /authentications.xml
   def index

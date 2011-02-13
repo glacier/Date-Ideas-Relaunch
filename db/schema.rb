@@ -20,6 +20,36 @@ ActiveRecord::Schema.define(:version => 20110125021326) do
     t.datetime "updated_at"
   end
 
+  create_table "businesses", :force => true do |t|
+    t.string   "venue_type"
+    t.string   "logo"
+    t.string   "name"
+    t.string   "address1"
+    t.string   "city"
+    t.string   "province"
+    t.string   "postal_code"
+    t.string   "country"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "photo_url"
+    t.string   "url"
+    t.string   "phone_no"
+    t.string   "website"
+    t.string   "dna_excerpt"
+    t.string   "dna_neighbourhood"
+    t.string   "dna_atmosphere"
+    t.string   "dna_pricepoint"
+    t.string   "dna_category"
+    t.string   "dna_dresscode"
+    t.string   "dna_pictures"
+    t.string   "dna_review"
+    t.integer  "dna_rating_conversation"
+    t.integer  "dna_rating_convenience"
+    t.integer  "dna_rating_comfort"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
     t.string   "avatar_url"
@@ -63,32 +93,6 @@ ActiveRecord::Schema.define(:version => 20110125021326) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-
-  create_table "venues", :force => true do |t|
-    t.string   "venue_type"
-    t.string   "venue_logo"
-    t.string   "venue_name"
-    t.string   "venue_address1"
-    t.string   "venue_city"
-    t.string   "venue_prov"
-    t.string   "venue_postal"
-    t.string   "venue_country"
-    t.string   "venue_phone"
-    t.string   "venue_website"
-    t.string   "venue_dna_neighbourhood"
-    t.string   "venue_dna_atmosphere"
-    t.string   "venue_dna_pricepoint"
-    t.string   "venue_dna_foodcategory"
-    t.string   "venue_dna_dresscode"
-    t.string   "venue_dna_pictures"
-    t.string   "venue_post_title"
-    t.string   "venue_dna_review"
-    t.integer  "venue_dna_conversation"
-    t.integer  "venue_dna_convenience"
-    t.integer  "venue_dna_comfort"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "wizards", :force => true do |t|
     t.string   "venue"
