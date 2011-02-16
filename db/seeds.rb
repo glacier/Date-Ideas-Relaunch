@@ -12,11 +12,11 @@ User.create(
   :first_name => "demo",
   :last_name => "account",
   :username => "demo",
-  :email => "will@dateideas.ca",
+  :email => "demo@dateideas.ca",
   :gender =>"male",
   :birthday => "1980-01-01",
   :postal_code => "M3C3P5",
-  :password => "E5WX7Ys89n05Kb"
+  :password => "2J2866Nt874G7W"
 )
 # 
 # User.create(
