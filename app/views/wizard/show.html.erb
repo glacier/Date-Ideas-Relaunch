@@ -59,7 +59,7 @@
 				<%= image_tag("reviews_from_yelp.gif") %>
 				<p class="di_biz_yelp_user_view">
 					<%= business.reviews.first.text_excerpt %><%= image_tag(business.reviews.first.rating_img_url) %>
-					<%= link_to("Read Yelp Review", "#?w=880", :class=>"poplight", :rel=>String.new(business.id).concat("-yreviews")) %>
+					<%= link_to("Read Yelp Review", "#?w=880", :class=>"poplight", :rel=>String.new(business.id.to_s).concat("-yreviews")) %>
 				</p>
 			</div>
 		</div>
@@ -96,7 +96,7 @@
 <!-- end of each business popup -->
 <!-- each yelp reviews -->
 <% @wizard.businesses.each do |business| %>
-    <%= content_tag(:div,:id=>String.new(business.id).concat("-yreviews"), :class=>"popup_block") do %>
+    <%= content_tag(:div,:id=>String.new(business.id.to_s).concat("-yreviews"), :class=>"popup_block") do %>
         <table>
           <tr>
             <td><%= business.name %></td>
