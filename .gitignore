@@ -4,3 +4,4 @@ log/*.log
 tmp/**/*
 server/**/*
 public/stylesheets/compiled/*
+config/database.yml
