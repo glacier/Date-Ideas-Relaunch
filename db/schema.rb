@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(:version => 20110125021326) do
     t.string   "logo"
     t.string   "name"
     t.string   "address1"
+    t.string   "address2"
+    t.string   "address3"
     t.string   "city"
     t.string   "province"
     t.string   "postal_code"
