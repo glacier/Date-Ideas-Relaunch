@@ -16,7 +16,7 @@ User.create(
   :gender =>"male",
   :birthday => "1980-01-01",
   :postal_code => "M3C3P5",
-  :password => "E5WX7Ys89n05Kb"
+  :password => "jErDhw65vDmO1t"
 )
 # 
 # User.create(
