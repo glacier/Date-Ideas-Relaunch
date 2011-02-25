@@ -16,7 +16,7 @@ class CreateBusinesses < ActiveRecord::Migration
       t.string :country
       t.float  :latitude
       t.float  :longitude
-      t.string :photo_url
+      t.string :photo_url, :default => "business.jpg"
       t.string :url
       t.string :phone_no
       t.string :website

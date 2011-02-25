@@ -1,0 +1,17 @@
+<%= form_for(@datecart) do |f| %>
+  <% if @datecart.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@datecart.errors.count, "error") %> prohibited this datecart from being saved:</h2>
+
+      <ul>
+      <% @datecart.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

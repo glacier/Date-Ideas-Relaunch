@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+<h2> Your date cart items </h2>
+
+<ul>
+<% @datecart.cart_items.each do |item| %>
+	<li><%= item.business.name %></li>
+<% end %>
+</ul>
+
+<%= link_to 'Edit', edit_datecart_path(@datecart) %> |
+<%= link_to 'Back', datecarts_path %>

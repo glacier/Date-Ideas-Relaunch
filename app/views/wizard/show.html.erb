@@ -45,9 +45,12 @@
 			<div class="di_biz_info">
 			<div class="di_biz_photo"><%= image_tag(business.photo_url) %></div>
 				<div class="di_biz_desc">
-					<p><%= business.text_excerpt %><%= link_to("Read full reviews","#?w=880",:class=>"poplight",:rel=>business.id) %></p>
-					<p><%= display_address(business) %></p>
+					<p><%= business.dna_excerpt %><%= link_to("Read full reviews","#?w=880",:class=>"poplight",:rel=>business.id) %></p>
+					<p><%# display_address(business) %></p>
 				</div>
+				<!-- add to cart -->
+				<%# y business %>
+				<%= button_to 'Add', cart_items_path(:business_id => business)%>
 			</div>
 			<ul class="ratings">
 				<li><%= image_tag("thumbs_up.jpeg", :height => '16', :width => '16') %></li>
@@ -58,8 +61,8 @@
 			<div class="di_biz_yelp_reviews">
 				<%= image_tag("reviews_from_yelp.gif") %>
 				<p class="di_biz_yelp_user_view">
-					<%= business.reviews.first.text_excerpt %><%= image_tag(business.reviews.first.rating_img_url) %>
-					<%= link_to("Read Yelp Review", "#?w=880", :class=>"poplight", :rel=>String.new(business.id.to_s).concat("-yreviews")) %>
+					<%# business.reviews.first.text_excerpt %><%# image_tag(business.reviews.first.rating_img_url) %>
+					<%# link_to("Read Yelp Review", "#?w=880", :class=>"poplight", :rel=>String.new(business.id.to_s).concat("-yreviews")) %>
 				</p>
 			</div>
 		</div>
@@ -108,17 +111,17 @@
             <td><%= business.text_excerpt %></td>
           </tr>
           <tr>
-            <td><%= display_address(business) %></td>
+            <td><% display_address(business) %></td>
           </tr>
-          <% business.reviews.each do |review| %>
+          <%# business.reviews.each do |review| %>
             <tr>
               <td>
                 <div class="di_biz_yelp_reviews">
-                    <%= review.text_excerpt %><%= image_tag(review.rating_img_url) %>
+                    <%# review.text_excerpt %><%# image_tag(review.rating_img_url) %>
                 </div>
               </td>
             </tr>
-          <% end %>
+          <%# end %>
         </table>
     <% end %>
 <% end %>

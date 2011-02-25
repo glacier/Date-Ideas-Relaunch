@@ -1,0 +1,22 @@
+<h1>Listing datecarts</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @datecarts.each do |datecart| %>
+  <tr>
+		<td><%= datecart.id %></td>
+    <td><%= link_to 'Show', datecart %></td>
+    <td><%= link_to 'Edit', edit_datecart_path(datecart) %></td>
+    <td><%= link_to 'Destroy', datecart, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Datecart', new_datecart_path %>

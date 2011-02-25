@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20110224022857) do
     t.string   "country"
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "photo_url",               :default => "business.jpg"
+    t.string   "photo_url"
     t.string   "url"
     t.string   "phone_no"
     t.string   "website"
@@ -52,9 +52,11 @@ ActiveRecord::Schema.define(:version => 20110224022857) do
     t.datetime "updated_at"
   end
 
+<<<<<<< Updated upstream
+=======
   create_table "cart_items", :force => true do |t|
-    t.integer  "business_id"
-    t.integer  "datecart_id"
+    t.integer  "product_id"
+    t.integer  "cart_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -64,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20110224022857) do
     t.datetime "updated_at"
   end
 
+>>>>>>> Stashed changes
   create_table "profiles", :force => true do |t|
     t.integer  "user_id"
     t.string   "avatar_url"
