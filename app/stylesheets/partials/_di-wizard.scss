@@ -22,25 +22,38 @@
 		@include pie-clearfix;
 		.di_biz_desc {
 			float: left;
+			width: 280px;
+			margin: {
+				left:10px;
+				bottom:10px;
+			}
 		}
 	}
-	
+
 	.di_biz_yelp_reviews {
-/*		display:block;*/
 	}
 	
 	.di_biz_hr {
 		visibility: hidden;
 	}
+	
+	margin-bottom: 20px;
+	padding: 10px; 
+
+	
+	@include box-shadow;
+	@include border-radius(10px);
 }
 
 .di_biz_photo {
 	float: left;
 	display: block;
+	border: 1px;
 }
 
 .ratings {
 	@include horizontal-list;
+	float: left;
 	width:150px;
 }
 

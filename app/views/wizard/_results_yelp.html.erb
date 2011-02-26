@@ -1,0 +1,38 @@
+<!-- <hr class="di_biz_hr"/>
+<div class="di_biz_yelp_reviews">
+	<%# image_tag("reviews_from_yelp.gif") %>
+	<p class="di_biz_yelp_user_view">
+		<%# business.reviews.first.text_excerpt %><%# image_tag(business.reviews.first.rating_img_url) %>
+		<%# link_to("Read Yelp Review", "#?w=880", :class=>"poplight", :rel=>String.new(business.id.to_s).concat("-yreviews")) %>
+	</p>
+</div> -->
+
+
+<!-- each yelp reviews -->
+<!-- <% @wizard.businesses.each do |business| %>
+    <%= content_tag(:div,:id=>String.new(business.id.to_s).concat("-yreviews"), :class=>"popup_block") do %>
+        <table>
+          <tr>
+            <td><%= business.name %></td>
+          </tr>
+          <tr>
+            <td><%= image_tag(business.photo_url) %></td>
+          </tr>
+          <tr>
+            <td><%= business.text_excerpt %></td>
+          </tr>
+          <tr>
+            <td><% display_address(business) %></td>
+          </tr>
+          <%# business.reviews.each do |review| %>
+            <tr>
+              <td>
+                <div class="di_biz_yelp_reviews">
+                    <%# review.text_excerpt %><%# image_tag(review.rating_img_url) %>
+                </div>
+              </td>
+            </tr>
+          <%# end %>
+        </table>
+    <% end %> 
+<% end %> -->

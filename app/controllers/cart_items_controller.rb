@@ -43,8 +43,8 @@ class CartItemsController < ApplicationController
   def create
     # @cart_item = CartItem.new(params[:cart_item])
     @datecart = current_cart
-    y 'in cart_items#create'
-    y @datecart
+    # y 'in cart_items#create'
+    # y @datecart
     business = Business.find(params[:business_id])
     if @datecart
       @cart_item = @datecart.cart_items.build(:business => business)
@@ -52,7 +52,10 @@ class CartItemsController < ApplicationController
 
     respond_to do |format|
       if @cart_item.save
-        format.html { redirect_to(@cart_item.datecart, :notice => 'Cart item was successfully created.') }
+        format.js
+        format.html { 
+          redirect_to(@cart_item, :notice => 'Cart item was successfully created.')
+        }
         format.xml  { render :xml => @cart_item, :status => :created, :location => @cart_item }
       else
         format.html { render :action => "new" }
@@ -80,10 +83,13 @@ class CartItemsController < ApplicationController
   # DELETE /cart_items/1
   # DELETE /cart_items/1.xml
   def destroy
-    @cart_item = CartItem.find(params[:id])
+    @datecart = current_cart
+    # @cart_item = CartItem.find(params[:id])
+    @cart_item = @datecart.cart_items.find(params[:id])
     @cart_item.destroy
 
     respond_to do |format|
+      format.js
       format.html { redirect_to(cart_items_url) }
       format.xml  { head :ok }
     end

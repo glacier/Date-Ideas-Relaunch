@@ -12,7 +12,7 @@
 <% @cart_items.each do |cart_item| %>
   <tr>
     <td><%= cart_item.business_id %></td>
-    <td><%= cart_item.cart_id %></td>
+    <td><%= cart_item.datecart_id %></td>
     <td><%= link_to 'Show', cart_item %></td>
     <td><%= link_to 'Edit', edit_cart_item_path(cart_item) %></td>
     <td><%= link_to 'Destroy', cart_item, :confirm => 'Are you sure?', :method => :delete %></td>
