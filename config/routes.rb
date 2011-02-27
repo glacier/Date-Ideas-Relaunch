@@ -22,7 +22,12 @@ DateIdeas::Application.routes.draw do
 
   # get "home/index"
 
-  resources :wizard
+  # resources :wizard
+  resources :wizard do
+    collection do 
+      get "search"
+    end
+  end
   
   #TODO: allow users to access their profiles using /profiles/:username?
   resources :profiles

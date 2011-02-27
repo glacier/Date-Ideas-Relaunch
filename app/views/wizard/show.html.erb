@@ -21,6 +21,7 @@
 
 <!-- <hr/> -->
 <!-- venue results listing -->
+
 <% @wizard.businesses.each do |business| %>
 	<div class="di_biz">
 		<h3 class="di_biz_name"><%= business.name %></h3>
@@ -37,6 +38,7 @@
 		</div>
 	</div>
 <% end %>
+
 <!-- end of venue results list -->
 
 <hr/>
@@ -67,6 +69,7 @@
         </table>
     <% end %>
 <% end %>
+<%= will_paginate @wizard.businesses %>
 <!-- end of each business popup -->
 
 <% content_for :sidebar_right do %>

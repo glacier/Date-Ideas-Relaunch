@@ -7,7 +7,7 @@ class WizardController < ApplicationController
   def show
     @wizard = Wizard.new
   end
-  def create
+  def search
     @wizard = Wizard.new(params[:venue], params[:location],params[:price_point])
     @marker_counter = 0
     #client = Yelp::Client.new
@@ -26,7 +26,8 @@ class WizardController < ApplicationController
     #bsort(create_businesses(businesses_hash))
     
     #grab businesses from db, not yelp
-    businesses = Business.all
+    # businesses = Business.all
+    businesses = Business.paginate :page => params[:page], :per_page => 4
     @datecart = current_cart
     
     #businesses.sort {|x,y| x.avg_rating <=> y.avg_rating }

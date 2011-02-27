@@ -144,6 +144,7 @@ GEM
     tzinfo (0.3.23)
     warden (1.0.3)
       rack (>= 1.0.0)
+    will_paginate (3.0.pre2)
     yelp (1.0.0)
       json (>= 1.1.1)
 
@@ -160,4 +161,5 @@ DEPENDENCIES
   omniauth
   rails (= 3.0.3)
   sqlite3
+  will_paginate (~> 3.0.pre2)
   yelp
