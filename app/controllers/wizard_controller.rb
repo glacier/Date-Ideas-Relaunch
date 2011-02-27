@@ -8,7 +8,7 @@ class WizardController < ApplicationController
     @wizard = Wizard.new
   end
   def create
-    @wizard = Wizard.new(params[:wizard][:venue], params[:wizard][:location],params[:wizard][:price_point])
+    @wizard = Wizard.new(params[:venue], params[:location],params[:price_point])
     @marker_counter = 0
     #client = Yelp::Client.new
     #request = Yelp::Review::Request::Location.new(
@@ -25,7 +25,8 @@ class WizardController < ApplicationController
     #businesses_hash = response.fetch("businesses")
     #bsort(create_businesses(businesses_hash))
     
-    businesses = Business.all 
+    #grab businesses from db, not yelp
+    businesses = Business.all
     @datecart = current_cart
     
     #businesses.sort {|x,y| x.avg_rating <=> y.avg_rating }

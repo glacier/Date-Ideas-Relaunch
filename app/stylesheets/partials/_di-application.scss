@@ -42,6 +42,9 @@ body {
 	.poplight {
 		@include quiet_link_button;
 	}
+	.add_button {
+		@include quiet_link_button;
+	}
 }
 
 #sidebar_right {

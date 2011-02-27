@@ -1,4 +1,11 @@
 <%= stylesheet_link_tag("wizard.css") %>
+
+<% content_for :sidebar_cart do %>
+	<div id="di_datecart">
+		<%= render @datecart %>
+	</div>
+<% end %>
+
 <% content_for :sidebar_map do %>
 	<div id="di_map">
 		<script type="text/javascript"> 
@@ -12,44 +19,31 @@
 	</div>
 <% end %>
 
-<% content_for :sidebar_cart do %>
-	<div id="di_datecart">
-		<%= render @datecart %>
-	</div>
-<% end %>
-
-
 <!-- <hr/> -->
-<!-- business list -->
+<!-- venue results listing -->
 <% @wizard.businesses.each do |business| %>
 	<div class="di_biz">
 		<h3 class="di_biz_name"><%= business.name %></h3>
 		<div class="di_biz_info">
-			<div class="di_biz_photo">
-				<%= image_tag(business.photo_url) %>
-			</div>
+			<div class="di_biz_photo"><%= image_tag(business.photo_url) %></div>
 			<div class="di_biz_desc">
 				<p><%= business.dna_excerpt %></p>
-				<p><%= link_to("Read full reviews","#?w=880",:class=>"poplight",:rel=>business.id) %></p>
 				<p><%= display_address(business) %></p>
 				<p>
-					<ul class="ratings">
-						<li><%= image_tag("thumbs_up.jpeg", :height => '16', :width => '16') %></li>
-						<li><%= image_tag("thumbs_down.jpeg", :height => '16', :width => '16') %></li>
-						<!-- <li><%# image_tag("unlock.png", :height => '16', :width => '16') %></li> -->
-						<li><%= button_to 'Add', cart_items_path(:business_id => business), :remote => true %></li>
-					</ul>
+					<%= link_to("Read full reviews", "#?w=880", :class => "poplight", :rel => business.id) %>
+					<%= link_to('Add to Date', cart_items_path(:business_id => business), :class => "add_button", :remote => true, :method => :post) %>
 				</p>
 			</div>
 		</div>
 	</div>
 <% end %>
-<!-- end of business list -->
+<!-- end of venue results list -->
+
 <hr/>
 
 <!-- each business popup -->
 <% @wizard.businesses.each do |business| %>
-    <%= content_tag(:div,:id=>business.id, :class=>"popup_block") do %>
+    <%= content_tag(:div, :id=>business.id, :class=>"popup_block") do %>
         <table>
           <tr>
             <td colspan="2"><%= business.name %></td>

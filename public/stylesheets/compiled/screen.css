@@ -1413,15 +1413,32 @@ body a:hover {
   vertical-align: middle;
   font-size: 12px;
   background: #cccccc;
+  color: #FFF;
+}
+/* line 45, ../../../app/stylesheets/partials/_di-application.scss */
+#main .add_button {
+  -webkit-border-radius: 2px 2px;
+  -moz-border-radius: 2px/2px;
+  -o-border-radius: 2px/2px;
+  -ms-border-radius: 2px/2px;
+  -khtml-border-radius: 2px/2px;
+  border-radius: 2px/2px;
+  line-height: 8px;
+  margin: 0px;
+  padding: 4px 5px;
+  vertical-align: middle;
+  font-size: 12px;
+  background: #cccccc;
+  color: #FFF;
 }
 
-/* line 47, ../../../app/stylesheets/partials/_di-application.scss */
+/* line 50, ../../../app/stylesheets/partials/_di-application.scss */
 #sidebar_right {
   height: 100%;
   background-color: #424242;
 }
 
-/* line 54, ../../../app/stylesheets/partials/_di-application.scss */
+/* line 57, ../../../app/stylesheets/partials/_di-application.scss */
 #footer {
   padding: 5px;
   font-size: 16px;
