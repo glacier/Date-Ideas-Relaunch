@@ -42,7 +42,6 @@ module WizardHelper
     html = <<EOF
     <div id="map-locations#{business.id}">
 		  <div class="location#{business.id}" data-id="1" data-point="{lng: #{business.longitude}, lat: #{business.latitude}}" data-category="'restaurant'">
-		    <a href="#" class="map-item#{business.id}">#{business.name}</a>
 		    <div class="info-html#{business.id}">
 		      <p>#{business.name}<br>#{address}</p>
 		    </div>
@@ -64,19 +63,16 @@ EOF
     html = <<EOF  
   	<div id="map-side-bar"> 
 			<div class="map-location" data-id="1" data-point="{lng: #{business1.longitude}, lat: #{business1.latitude}}" data-category="'restaurant'">
-				<a href="#" class="map-link">#{business1.name}</a> 
 				<div class="info-box"> 
 					<p>#{business1.name}<br>#{address1}</p> 
 				</div> 
 			</div> 
 			<div class="map-location" data-id="2" data-point="{lng: #{business2.longitude}, lat: #{business2.latitude}}" data-category="'restaurant'"> 
-				<a href="#" class="map-link">#{business2.name}</a> 
 				<div class="info-box"> 
 					<p>#{business2.name}<br>#{address2}</p> 
 				</div> 
 			</div> 
 			<div class="map-location" data-id="3" data-point="{lng: #{business3.longitude}, lat: #{business3.latitude}}" data-category="'restaurant'"> 
-				<a href="#" class="map-link">#{business3.name}</a> 
 				<div class="info-box"> 
 					<p>#{business3.name}<br>#{address3}</p> 
 				</div> 

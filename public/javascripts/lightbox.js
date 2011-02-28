@@ -35,6 +35,7 @@ $(document).ready(function(){
     	    link_selector: 'a.map-item' + popID,
     	    info_window_selector: '.info-html' + popID,
 			force_zoom_level: 15,
+			link_selector: false,
             metadata_options: {type: 'html5'}
     	  });
       });
