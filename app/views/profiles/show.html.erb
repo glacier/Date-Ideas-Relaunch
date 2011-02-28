@@ -1,5 +1,5 @@
 <% @user = @profile.user %>
- 
+
 <% title @user.first_name + "'s public profile" %>
 
 <p id="notice"><%= notice %></p>
@@ -21,7 +21,7 @@
   <b>About <%= @profile.user.first_name %>:</b>
   <%= @profile.about_me %>
 </p>
-
+<p><%= link_to 'Edit Profile', edit_profile_path %></p>
 <% unless current_user?(@user) %>
 	<%= render 'users/follow_form' %>
 <% end %>

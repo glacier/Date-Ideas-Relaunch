@@ -1,0 +1,11 @@
+#di_datecart {
+	h2 {
+		font-size: 14px;
+	}
+	ul {
+		padding-left: 0;
+		margin-left: 0;
+	}
+	padding-top: 10px;
+	@include no-bullets;
+}

@@ -10,6 +10,7 @@ gem 'mongrel', '1.2.0.pre2', :group => :development
 gem 'jquery-rails','>=0.2.6'
 gem "compass", ">= 0.10.6"
 gem "haml"
+gem "will_paginate", "~> 3.0.pre2"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

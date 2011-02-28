@@ -1,61 +1,34 @@
-<%= form_for(@wizard) do |w| %>
- <div id="date_wizard">
-    <!-- Date Wizard -->
-    <div class="title">
-      <span class="pagewrap"><!-- no-content --></span>
-      <h2>Find the perfect date spot.</h2>
-      <h3>Click the fields below to get started!</h3>
-    </div>
-
-    <!-- Wizard Steps -->
-    <div id="steps">
-        <table>
-          <tr>
-            <td>
-              <span>1. </span>What do you want to do?
-            </td>
-            <td>
-              <select name="w.venue">
-                  <option value="arts_entertainment">Arts & Entertainment</option>
-                  <option value="food_drinks">Food & Drinks</option>
-                  <option value="activities_events">Activities & Events</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span>2. </span>What area do you want to go to?
-            </td>
-            <td>
-              <select name="w.location">
-                  <option value="downtown_north">Downtown Toronto North</option>
-                  <option value="downtown_east">Downtown Toronto East</option>
-                  <option value="downtown_west">Downtown Toronto West</option>
-                  <option value="downtown_core">Downtown Toronto Core</option>
-              </select>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <span>3. </span>What is your price point?
-            </td>
-            <td>
-              <select name="w.priceRange">
-                  <option value="budget">Budget</option>
-                  <option value="moderate">Moderate</option>
-                  <option value="high_roller">High roller</option>
-              </select>
-            </td>
-          </tr>
-            <tr>
-            <td>
-                <div class="actions">
-                <%= w.submit %>
-                </div>
-            </td>
-          </tr>
-        </table>
-
-    </div>
- </div><!-- #date_wizard -->
+<%# The wizard search form view %>
+<%= form_tag '/wizard/search', :method => :get do %>
+<table>
+  <tr>
+    <td>
+      <%= label_tag(:venue,"1. What do you want to do?") %>
+    </td>
+		<td>
+      <%= select_tag(:venue, options_for_select(Wizard::VENUES))%>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <%= label_tag(:location,"2. What area do you want to go to?") %>
+    </td>
+		<td>
+        <%= select_tag(:location, options_for_select(Wizard::LOCATIONS)) %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        <%= label_tag(:price_point,"3. What is your price point") %>
+    </td>
+		<td>
+        <%= select_tag(:price_point, options_for_select(Wizard::PRICE_POINTS)) %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="left">
+      <%= submit_tag("Search")  %>
+    </td>
+  </tr>
+</table>
 <% end %>

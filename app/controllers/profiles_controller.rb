@@ -1,6 +1,5 @@
 class ProfilesController < ApplicationController
   #require user sign up/sign in to see own profile
-  before_filter :authenticate_user!
   def index
     @profiles = Profile.all
   end
@@ -9,6 +8,7 @@ class ProfilesController < ApplicationController
     respond_to do |format|
       if Profile.exists?(:user_id => params[:id])
         @profile = Profile.find_by_user_id(params[:id])
+        y @profile
         format.html
       else
         logger.debug('profile does not exist')
@@ -40,7 +40,9 @@ class ProfilesController < ApplicationController
   # POST /profiles.xml
   def create
     respond_to do |format|
-      if @profile = current_user.create_profile(params[:profile])
+      @profile = current_user.create_profile(params[:profile])
+      y params
+      if @profile 
         format.html { redirect_to(profile_url(@profile.user_id), :notice => 'Profile was successfully created.') }
         format.xml  { render :xml => @profile, :status => :created, :location => @profile }
       else

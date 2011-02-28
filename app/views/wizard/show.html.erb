@@ -1,77 +1,51 @@
 <%= stylesheet_link_tag("wizard.css") %>
-<% content_for :sidebar_left do %>
-	<div>
+
+<% content_for :sidebar_cart do %>
+	<div id="di_datecart">
+		<%= render @datecart %>
+	</div>
+<% end %>
+
+<% content_for :sidebar_map do %>
+	<div id="di_map">
 		<script type="text/javascript"> 
 			$(document).ready(function(){
 				$('#map').jMapping({metadata_options: {type: 'html5'}, link_selector: false, always_show_markers: true });
 			});
 		</script>
-		<div id="map" style="width: 300px; height: 300px"></div> 
-		<%= raw display_main_map_info(@wizard.businesses) %>
+		<div id="map" style="width: 270px; height: 270px"></div>
+		<%# Don't display the top three venue links ... %>
+		<%# raw display_main_map_info(@wizard.businesses) %>
 	</div>
 <% end %>
 
-<div id="di_results_main">
-	<div class="di_main_biz">				    
-		<div class="di_biz_photo">
-			<%= link_to image_tag(@wizard.restaurant.photo_url),"#1",:class=>"map-link" %>
-		</div>
-		<ul class="ratings">
-			<li><%= image_tag("unlock.png", :height => '16', :width => '16') %></li>
-			<li><%= image_tag("thumbs_up.jpeg", :height => '16', :width => '16') %></li>
-			<li><%= image_tag("thumbs_down.jpeg", :height => '16', :width => '16') %></li>
-		</ul>
-	</div>
-	<div class="di_main_biz">
-		<div class="di_biz_photo"><%= image_tag(@wizard.activity.photo_url) %></div>
-		<ul class="ratings">
-			<li><%= image_tag("unlock.png", :height => '16', :width => '16') %></li>
-			<li><%= image_tag("thumbs_up.jpeg", :height => '16', :width => '16') %></li>
-			<li><%= image_tag("thumbs_down.jpeg", :height => '16', :width => '16') %></li>
-		</ul>
-	</div>
-	<div class="di_main_biz">
-		<div class="di_biz_photo"><%= image_tag(@wizard.dessert.photo_url) %></div>
-		<ul class="ratings">
-			<li><%= image_tag("unlock.png", :height => '16', :width => '16') %></li>
-			<li><%= image_tag("thumbs_up.jpeg", :height => '16', :width => '16') %></li>
-			<li><%= image_tag("thumbs_down.jpeg", :height => '16', :width => '16') %></li>
-		</ul>
-	</div>
-</div>	
-	<hr/>
-	<!-- business list -->
-	<% @wizard.businesses.each do |business| %>
-		<div class="di_biz">
-			<h3 class="di_biz_name"><%= business.name %></h3>
-			<div class="di_biz_info">
+<!-- <hr/> -->
+<!-- venue results listing -->
+
+<% @wizard.businesses.each do |business| %>
+	<div class="di_biz">
+		<h3 class="di_biz_name"><%= business.name %></h3>
+		<div class="di_biz_info">
 			<div class="di_biz_photo"><%= image_tag(business.photo_url) %></div>
-				<div class="di_biz_desc">
-					<p><%= business.text_excerpt %><%= link_to("Read full reviews","#?w=880",:class=>"poplight",:rel=>business.id) %></p>
-					<p><%= display_address(business) %></p>
-				</div>
-			</div>
-			<ul class="ratings">
-				<li><%= image_tag("thumbs_up.jpeg", :height => '16', :width => '16') %></li>
-				<li><%= image_tag("thumbs_down.jpeg", :height => '16', :width => '16') %></li>
-				<li><%= image_tag("unlock.png", :height => '16', :width => '16') %></li>
-			</ul>
-			<hr class="di_biz_hr"/>
-			<div class="di_biz_yelp_reviews">
-				<%= image_tag("reviews_from_yelp.gif") %>
-				<p class="di_biz_yelp_user_view">
-					<%= business.reviews.first.text_excerpt %><%= image_tag(business.reviews.first.rating_img_url) %>
-					<%= link_to("Read Yelp Review", "#?w=880", :class=>"poplight", :rel=>String.new(business.id).concat("-yreviews")) %>
+			<div class="di_biz_desc">
+				<p><%= business.dna_excerpt %></p>
+				<p><%= display_address(business) %></p>
+				<p>
+					<%= link_to("Read full reviews", "#?w=880", :class => "poplight", :rel => business.id) %>
+					<%= link_to('Add to Date', cart_items_path(:business_id => business), :class => "add_button", :remote => true, :method => :post) %>
 				</p>
 			</div>
 		</div>
-	<% end %><!-- end of business list -->
-<!-- </div> -->
+	</div>
+<% end %>
+
+<!-- end of venue results list -->
+
 <hr/>
 
 <!-- each business popup -->
 <% @wizard.businesses.each do |business| %>
-    <%= content_tag(:div,:id=>business.id, :class=>"popup_block") do %>
+    <%= content_tag(:div, :id=>business.id, :class=>"popup_block") do %>
         <table>
           <tr>
             <td colspan="2"><%= business.name %></td>
@@ -95,35 +69,10 @@
         </table>
     <% end %>
 <% end %>
+<%= will_paginate @wizard.businesses %>
 <!-- end of each business popup -->
-<!-- each yelp reviews -->
-<% @wizard.businesses.each do |business| %>
-    <%= content_tag(:div,:id=>String.new(business.id).concat("-yreviews"), :class=>"popup_block") do %>
-        <table>
-          <tr>
-            <td><%= business.name %></td>
-          </tr>
-          <tr>
-            <td><%= image_tag(business.photo_url) %></td>
-          </tr>
-          <tr>
-            <td><%= business.text_excerpt %></td>
-          </tr>
-          <tr>
-            <td><%= display_address(business) %></td>
-          </tr>
-          <% business.reviews.each do |review| %>
-            <tr>
-              <td>
-                <div class="di_biz_yelp_reviews">
-                    <%= review.text_excerpt %><%= image_tag(review.rating_img_url) %>
-                </div>
-              </td>
-            </tr>
-          <% end %>
-        </table>
-    <% end %>
-<% end %>
+
 <% content_for :sidebar_right do %>
-right sidebar
+	<!-- Nothing here yet -->
+	right sidebar
 <% end %>

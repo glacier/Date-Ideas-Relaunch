@@ -1,9 +1,16 @@
 DateIdeas::Application.routes.draw do
+  resources :cart_items
+
+  resources :datecarts
+
+  # devise_for :admins
+
   # TODO: handle user abuse of application urls?
   
   match '/auth/:provider/callback' => 'authentications#create'
 
-  devise_for :users, :controllers => {:registrations => "registrations"}
+  # devise_for :users, :controllers => {:registrations => "registrations"}
+  devise_for :users
   
   resources :users do
     member do
@@ -15,7 +22,12 @@ DateIdeas::Application.routes.draw do
 
   # get "home/index"
 
-  resources :wizard
+  # resources :wizard
+  resources :wizard do
+    collection do 
+      get "search"
+    end
+  end
   
   #TODO: allow users to access their profiles using /profiles/:username?
   resources :profiles
@@ -23,6 +35,8 @@ DateIdeas::Application.routes.draw do
   resources :authentications
   
   resources :relationships, :only => [:create, :destroy]
+  
+  resources :businesses
   
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.

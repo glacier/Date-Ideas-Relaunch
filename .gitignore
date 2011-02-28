@@ -3,3 +3,6 @@ db/*.sqlite3
 log/*.log
 tmp/**/*
 server/**/*
+public/stylesheets/compiled
+config/database.yml
+public/images/businesses
