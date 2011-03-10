@@ -32,7 +32,7 @@ module WizardHelper
       end
 
       if ! (business.phone_no.nil? || business.phone_no.empty?)
-        bus_addr.concat(" (").concat(business.phone_no[0..2]).concat(")").concat(business.phone_no[3..5]).concat("-").concat(business.phone_no[6..9])
+        bus_addr.concat(" (").concat(business.phone_no[0..2]).concat(")").concat(business.phone_no[4..6]).concat("-").concat(business.phone_no[8..11])
       end
 
     return bus_addr

@@ -2,10 +2,10 @@ class Wizard
   VENUES = [['Arts & Entertainment','arts_entertainment'],
             ['Food & Drinks','food_drinks'],
             ['Activities & Events','activities_events']]
-  LOCATIONS = [['Downtown Toronto North','to_north'],
-               ['Downtown Toronto East','to_east'],
-               ['Downtown Toronto West','to_west'],
-               ['Downtown Toronto Core','to_core']]
+  LOCATIONS = [['Downtown Toronto North','North End'],
+               ['Downtown Toronto East','East End'],
+               ['Downtown Toronto West','West End'],
+               ['Downtown Toronto Core','Downtown Core']]
   PRICE_POINTS = [['Budget','budget'],
                   ['Moderate','moderate'],
                   ['High Roller','high_roller']]
