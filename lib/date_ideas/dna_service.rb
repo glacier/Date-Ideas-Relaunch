@@ -14,7 +14,8 @@ class DateIdeas::DnaService
 
     #grab from Yelp
     yelp_businesses = DateIdeas::YelpAdaptor.new.search(venue_type,neighbourhood_list,price_point,page);
-    businesses.concat(yelp_businesses)
+    #businesses.concat(yelp_businesses)
+    puts("return:" << yelp_businesses.to_s )
     #puts("return:"<< businesses.to_s)
     return businesses
   end

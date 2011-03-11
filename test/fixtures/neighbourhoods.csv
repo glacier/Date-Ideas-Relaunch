@@ -1,21 +1,14 @@
 district,district_subsection,neighbourhood
 Old City of Toronto,Downtown Core,Alexandra Park
 Old City of Toronto,Downtown Core,The Annex
-Old City of Toronto,Downtown Core,Baldwin Village
 Old City of Toronto,Downtown Core,Cabbagetown
-Old City of Toronto,Downtown Core,CityPlace
 Old City of Toronto,Downtown Core,Chinatown
-Old City of Toronto,Downtown Core,Church and Wellesley
 Old City of Toronto,Downtown Core,Corktown
 Old City of Toronto,Downtown Core,Discovery District
 Old City of Toronto,Downtown Core,Distillery District
 Old City of Toronto,Downtown Core,The Entertainment District
-Old City of Toronto,Downtown Core,East Bayfront
-Old City of Toronto,Downtown Core,Fashion District
 Old City of Toronto,Downtown Core,The Financial District
 Old City of Toronto,Downtown Core,Garden District
-Old City of Toronto,Downtown Core,Grange Park
-Old City of Toronto,Downtown Core,Harbord Village
 Old City of Toronto,Downtown Core,Harbourfront
 Old City of Toronto,Downtown Core,Kensington Market
 Old City of Toronto,Downtown Core,Moss Park
@@ -24,198 +17,38 @@ Old City of Toronto,Downtown Core,Regent Park
 Old City of Toronto,Downtown Core,St. James Town
 Old City of Toronto,Downtown Core,St. Lawrence
 Old City of Toronto,Downtown Core,Toronto Islands
-Old City of Toronto,Downtown Core,Trefann Court
-Old City of Toronto,Downtown Core,University of Toronto St. George Campus
+Old City of Toronto,Downtown Core,University of Toronto
 Old City of Toronto,Downtown Core,Yorkville
 Old City of Toronto,East End,The Beaches
-Old City of Toronto,East End,East Danforth
-Old City of Toronto,East End,Gerrard Street East
 Old City of Toronto,East End,Little India
 Old City of Toronto,East End,Greektown
 Old City of Toronto,East End,Leslieville
-Old City of Toronto,East End,Main Square
 Old City of Toronto,East End,Playter Estates
-Old City of Toronto,East End,Port Lands
 Old City of Toronto,East End,Riverdale
 Old City of Toronto,East End,Upper Beaches
 Old City of Toronto,North End,Bedford Park
 Old City of Toronto,North End,Casa Loma
 Old City of Toronto,North End,Chaplin Estates
-Old City of Toronto,North End,Davisville Village
 Old City of Toronto,North End,Deer Park 
 Old City of Toronto,North End,Forest Hill 
 Old City of Toronto,North End,Lawrence Park
-Old City of Toronto,North End,Lytton Park
-Old City of Toronto,North End,Midtown
 Old City of Toronto,North End,Moore Park
-Old City of Toronto,North End,North Toronto
 Old City of Toronto,North End,Rosedale
-Old City of Toronto,North End,South Hill
-Old City of Toronto,North End,Summerhill
-Old City of Toronto,North End,Wanless Park
 Old City of Toronto,North End,Wychwood Park
 Old City of Toronto,North End,Yonge and Eglinton
-Old City of Toronto,West End,Bloor West Village
-Old City of Toronto,West End,Bracondale Hill
 Old City of Toronto,West End,Brockton Village
-Old City of Toronto,West End,Carleton Village
 Old City of Toronto,West End,Corso Italia
-Old City of Toronto,West End,Davenport
 Old City of Toronto,West End,Dovercourt Park
 Old City of Toronto,West End,Dufferin Grove
-Old City of Toronto,West End,Earlscourt
-Old City of Toronto,West End,Fort York
 Old City of Toronto,West End,High Park
 Old City of Toronto,West End,The Junction
-Old City of Toronto,West End,West Toronto
-Old City of Toronto,West End,Junction Triangle
 Old City of Toronto,West End,Koreatown
-Old City of Toronto,West End,Liberty Village
 Old City of Toronto,West End,Little Italy
-Old City of Toronto,West End,Little Portugal
-Old City of Toronto,West End,Malta Village
 Old City of Toronto,West End,Mirvish Village
 Old City of Toronto,West End,Niagara
 Old City of Toronto,West End,Palmerston
 Old City of Toronto,West End,Parkdale
-Old City of Toronto,West End,Pelham Park
 Old City of Toronto,West End,Roncesvalles
-Old City of Toronto,West End,Runnymede
-Old City of Toronto,West End,Seaton Village
 Old City of Toronto,West End,Swansea
 Old City of Toronto,West End,Portugal Village
-Old City of Toronto,West End,Trinity-Bellwoods
-East York,,Bermondsey
-East York,,Crescent Town
-East York,,East Danforth
-East York,,Broadview North
-East York,,Governor's Bridge
-East York,,Leaside
-East York,,O'Connor-Parkview
-East York,,Pape Village
-East York,,Thorncliffe Park
-East York,,Woodbine Heights
-East York,,Woodbine-Lumsden
-Etobicoke,,Alderwood
-Etobicoke,,Clairville
-Etobicoke,,Centennial Park
-Etobicoke,,Eatonville
-Etobicoke,,Etobicoke West Mall
-Etobicoke,,The Elms
-Etobicoke,,Eringate
-Etobicoke,,Humber Heights-Westmount
-Etobicoke,,Humber Valley Village
-Etobicoke,,Humberwood
-Etobicoke,,Islington – Six Points
-Etobicoke,,Kingsview Village
-Etobicoke,,The Westway
-Etobicoke,,The Kingsway
-Etobicoke,,Long Branch
-Etobicoke,,Markland Wood
-Etobicoke,,Mimico
-Etobicoke,,New Toronto
-Etobicoke,,Princess Gardens
-Etobicoke,,Rexdale
-Etobicoke,,Richview
-Etobicoke,,Smithfield
-Etobicoke,,Stonegate-Queensway
-Etobicoke,,Sunnylea
-Etobicoke,,Thistletown
-Etobicoke,,Thorncrest Village
-Etobicoke,,West Humber-Clairville
-Etobicoke,,West Deane Park
-Etobicoke,,Willowridge
-Scarborough,,Agincourt
-Scarborough,,Armadale
-Scarborough,,Bendale
-Scarborough,,Cedarbrae
-Scarborough,,Birch Cliff
-Scarborough,,Bridlewood
-Scarborough,,Brown's Corners
-Scarborough,,Clairlea
-Scarborough,,Cliffside
-Scarborough,,Cliffcrest
-Scarborough,,Dorset Park
-Scarborough,,Eglinton East
-Scarborough,,Golden Mile
-Scarborough,,Guildwood
-Scarborough,,Highland Creek
-Scarborough,,Hillside
-Scarborough,,Ionview
-Scarborough,,L'Amoreaux
-Scarborough,,Malvern
-Scarborough,,Maryvale
-Scarborough,,Milliken
-Scarborough,,Morningside Heights
-Scarborough,,Morningside
-Scarborough,,Oakridge
-Scarborough,,Orton Park
-Scarborough,,Port Union
-Scarborough,,Centennial Scarborough
-Scarborough,,Rouge
-Scarborough,,Scarborough City Centre
-Scarborough,,Scarborough Junction
-Scarborough,,Scarborough Village
-Scarborough,,Steeles
-Scarborough,,Tam O'Shanter-Sullivan
-Scarborough,,West Hill
-Scarborough,,West Rouge
-Scarborough,,Wexford
-Scarborough,,Wishing Well Acres
-Scarborough,,Woburn
-North York,,Amesbury
-North York,,Armour Heights
-North York,,Bathurst Manor
-North York,,Bayview Village
-North York,,Bayview Woods – Steeles
-North York,,Bermondsey
-North York,,Black Creek
-North York,,The Bridle Path
-North York,,Clanton Park
-North York,,Wilson Heights
-North York,,Don Mills
-North York,,Don Valley Village
-North York,,Downsview
-North York,,Emery
-North York,,Flemingdon Park
-North York,,Glen Park
-North York,,Henry Farm
-North York,,Hillcrest Village
 North York,,Hogg's Hollow
-North York,,Humber Summit
-North York,,Humbermede
-North York,,Emery
-North York,,Jane and Finch
-North York,,University Heights
-North York,,Lansing
-North York,,Lawrence Heights
-North York,,Ledbury Park
-North York,,Lawrence Manor
-North York,,Maple Leaf
-North York,,Newtonbrook
-North York,,North York Centre
-North York,,Parkway Forest
-North York,,Parkwoods
-North York,,The Peanut
-North York,,Pelmo Park-Humberlea
-North York,,Pleasant View
-North York,,Uptown Toronto
-North York,,Victoria Park Village
-North York,,Westminster-Branson
-North York,,Willowdale
-North York,,York Mills
-North York,,York University Heights
-North York,,Village at York
-York,,Baby Point
-York,,Eglinton West
-York,,Fairbank
-York,,Humewood–Cedarvale
-York,,Lambton
-York,,Mount Dennis
-York,,Oakwood-Vaughan
-York,,Five Points
-York,,Northcliffe
-York,,Old Mill
-York,,Rockcliffe-Smythe
-York,,Silverthorn
-York,,Weston

@@ -1,10 +1,10 @@
 class DateIdeas::YelpAdaptor
-  def search(venue_type,neibourhood,price_point = 'price_point',page = 'page')  
+  def search(venue_type,neighbourhood,price_point = 'price_point',page = 'page')  
     puts("DateIdeas::YelpAdaptor.search:")
-    puts(neibourhood.to_s)
+    puts(neighbourhood.to_s)
     client = Yelp::Client.new
     request = Yelp::Review::Request::Location.new(
-                  :address => '365 Bartlett Ave.',
+                  :neighborhood =>  neighbourhood,
                   :city => 'Toronto',
                   :state => 'ON',
                   :term => 'restaurant',
