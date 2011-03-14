@@ -1599,3 +1599,26 @@ body a:hover {
   list-style-type: none;
   margin-left: 0px;
 }
+
+/* line 13, ../../../app/stylesheets/partials/_di-datecart.scss */
+#sidebar_float {
+  position: absolute;
+  width: 100px;
+  height: 500px;
+  top: 200px;
+  left: 10%;
+  /*	padding-top: 100px;*/
+  background: #FFFFFF;
+  border: 2px solid #2266AA;
+  z-index: 100;
+  *zoom: 1;
+}
+/* line 22, ../../../../../../.rvm/gems/ruby-1.9.2-p0@rails3/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+#sidebar_float:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}

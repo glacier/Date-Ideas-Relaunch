@@ -1,1 +1,2 @@
 $("#di_datecart").html('<%= escape_javascript(render @datecart) %>')
+$("#add_to_date_<%= params[:business_id] %>").html("<%= escape_javascript(render 'wizard/remove') %>")
