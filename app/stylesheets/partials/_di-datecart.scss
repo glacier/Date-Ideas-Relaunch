@@ -9,3 +9,16 @@
 	padding-top: 10px;
 	@include no-bullets;
 }
+
+#sidebar_float {
+	position:absolute;
+	width:100px;
+	height:500px;
+	top:200px;
+	left:10%;
+/*	padding-top: 100px;*/
+	background:#FFFFFF;
+	border:2px solid #2266AA;
+	z-index:100;
+	@include pie-clearfix;
+}

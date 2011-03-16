@@ -10,8 +10,8 @@
 	<div id="di_map">
 		<script type="text/javascript"> 
 			$(document).ready(function(){
-				$('#map').jMapping({metadata_options: {type: 'html5'}, link_selector: false, always_show_markers: true });
-			});
+					$('#map').jMapping({metadata_options: {type: 'html5'}, link_selector: false, always_show_markers: true });
+				});
 		</script>
 		<div id="map" style="width: 270px; height: 270px"></div>
 		<%# Don't display the top three venue links ... %>
@@ -21,6 +21,11 @@
 
 <!-- <hr/> -->
 <!-- venue results listing -->
+
+<% y 'datecart items' %>
+<% @cart_items = @datecart.cart_items %>
+<% y @cart_items %>
+<% y 'end datecart items' %>
 
 <% @wizard.businesses.each do |business| %>
 	<div class="di_biz">
@@ -32,7 +37,14 @@
 				<p><%= display_address(business) %></p>
 				<p>
 					<%= link_to("Read full reviews", "#?w=880", :class => "poplight", :rel => business.id) %>
-					<%= link_to('Add to Date', cart_items_path(:business_id => business), :class => "add_button", :remote => true, :method => :post) %>
+					<% @cart_item = @cart_items.find(:first, :conditions => ["business_id = :b", {:b => business.id }]) %>
+					<span id="add_to_date_<%= business.id %>">
+						<% if @cart_item.nil? %>
+							<%= render :partial => 'add', :locals => {:business => business} %>
+						<% else %>
+							<%= render :partial => 'remove', :locals => {:business => business} %>
+						<% end %>
+					</span>
 				</p>
 			</div>
 		</div>
@@ -74,5 +86,5 @@
 
 <% content_for :sidebar_right do %>
 	<!-- Nothing here yet -->
-	right sidebar
+	TODO: Filters goes here
 <% end %>
