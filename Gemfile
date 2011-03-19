@@ -18,7 +18,7 @@ gem "will_paginate", "~> 3.0.pre2"
 # exception
 # gem "rack", :git => "git://github.com/rack/rack.git"
 
-#gem 'mysql2'
+gem 'mysql2'
 
 # Use unicorn as the web server
 # gem 'unicorn'
