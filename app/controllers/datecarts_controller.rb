@@ -84,14 +84,11 @@ class DatecartsController < ApplicationController
   # complete date planning
   def complete
     if current_user
-      @saved_cart = current_user.datecarts.create(current_cart)
-      # delete the current cart
-      current_cart.destroy
-      redirect_to(@saved_cart)
+      @datecart = Datecart.find(current_cart)
+      @datecart.update_attributes(:user_id => current_user.id)
+      redirect_to(current_user.profile)
     else
-      # I don't think I can create users RESTFULLY using devise 
-      # as the authentication method
-      # current_cart.create_user
+      # Devise not set to create users RESTFULLY 
       redirect_to(new_user_session_path)
     end
   end
