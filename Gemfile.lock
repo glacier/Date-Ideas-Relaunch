@@ -70,6 +70,7 @@ GEM
       gem_plugin (~> 0.2.3)
     multi_json (0.0.5)
     multipart-post (1.1.0)
+    mysql2 (0.2.6)
     net-ldap (0.1.1)
     nokogiri (1.4.4)
     oa-basic (0.1.6)
@@ -157,6 +158,7 @@ DEPENDENCIES
   haml
   jquery-rails (>= 0.2.6)
   mongrel (= 1.2.0.pre2)
+  mysql2
   oa-openid
   omniauth
   rails (= 3.0.3)
