@@ -2,6 +2,9 @@
 <!-- <p id="notice"><%= notice %></p> -->
 <h2> Your date </h2>
 <ul><%= render @datecart.cart_items %></ul>
+<%= form_tag '/datecarts/complete', :method => :put do %>
+<%= submit_tag('save') %>
+<% end %>
 </fieldset>
 
 <!-- TODO: empty cart -->

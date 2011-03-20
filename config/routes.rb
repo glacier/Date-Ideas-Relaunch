@@ -1,8 +1,12 @@
 DateIdeas::Application.routes.draw do
   resources :cart_items
 
-  resources :datecarts
-
+  resources :datecarts do 
+    collection do
+      put "complete"
+    end
+  end
+  
   # devise_for :admins
 
   # TODO: handle user abuse of application urls?
