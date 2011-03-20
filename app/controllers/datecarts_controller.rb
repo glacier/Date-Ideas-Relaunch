@@ -1,7 +1,6 @@
 class DatecartsController < ApplicationController
   # GET /datecarts
   # GET /datecarts.xml
-  
   def index
     @datecarts = Datecart.all
 
@@ -79,6 +78,21 @@ class DatecartsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(datecarts_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  # complete date planning
+  def complete
+    if current_user
+      @saved_cart = current_user.datecarts.create(current_cart)
+      # delete the current cart
+      current_cart.destroy
+      redirect_to(@saved_cart)
+    else
+      # I don't think I can create users RESTFULLY using devise 
+      # as the authentication method
+      # current_cart.create_user
+      redirect_to(new_user_session_path)
     end
   end
 end
