@@ -32,14 +32,12 @@ active,Leisure Centers,leisure_centers
 active,Mini Golf,mini_golf
 active,Parks,parks
 parks,Dog Parks,dog_parks
-parks,Skate Parks,skate_parks
 active,Playgrounds,playgrounds
 active,Rafting/Kayaking,rafting
 active,Skating Rinks,skatingrinks
 active,Skydiving,skydiving
 active,Soccer,football
 active,Sports Clubs,sports_clubs
-active,Summer Camps,summer_camps
 active,Swimming Pools,swimmingpools
 active,Tennis,tennis
 active,Zoos,zoos
@@ -60,81 +58,23 @@ arts,Psychics & Astrologers,psychic_astrology
 arts,Social Clubs,social_clubs
 arts,Stadiums & Arenas,stadiumsarenas
 arts,Wineries,wineries
-null,Automotive,auto
-auto,Auto Detailing,auto_detailing
-auto,Auto Glass Services,autoglass
-auto,Auto Parts & Supplies,autopartssupplies
-auto,Auto Repair,autorepair
-auto,Body Shops,bodyshops
-auto,Car Dealers,car_dealers
-auto,Car Wash,carwash
-auto,Gas & Service Stations,servicestations
-auto,Motorcycle Dealers,motorcycledealers
-auto,Motorcycle Repair,motorcyclerepair
-auto,Oil Change Stations,oilchange
-auto,Parking,parking
-auto,Smog Check Stations,smog_check_stations
-auto,Stereo Installation,stereo_installation
-auto,Tires,tires
-auto,Towing,towing
-auto,Windshield Installation & Repair,windshieldinstallrepair
 null,Education,education
-education,Adult Education,adultedu
-education,Colleges & Universities,collegeuniv
-education,Educational Services,educationservices
-education,Elementary Schools,elementaryschools
-education,Middle Schools & High Schools,highschools
-education,Preschools,preschools
-education,Private Tutors,privatetutors
 education,Specialty Schools,specialtyschools
-specialtyschools,Art Schools,artschools
 specialtyschools,Cooking Schools,cookingschools
-specialtyschools,Cosmetology Schools,cosmetology_schools
-specialtyschools,Dance Schools,dance_schools
-specialtyschools,Driving Schools,driving_schools
-specialtyschools,Flight Instruction,flightinstruction
-specialtyschools,Language Schools,language_schools
-specialtyschools,Massage Schools,massage_schools
-specialtyschools,Swimming Lessons/Schools,swimminglessons
-education,Tutoring Centers,tutoring
-null,Event Planning & Services,eventservices
-eventservices,Boat Charters,boatcharters
-eventservices,Cards & Stationery,stationery
-eventservices,Caterers,catering
-eventservices,DJs,djs
-eventservices,Hotels,hotels
-eventservices,Party & Event Planning,eventplanning
-eventservices,Party Supplies,partysupplies
-eventservices,Personal Chefs,personalchefs
-eventservices,Photographers,photographers
-eventservices,Venues & Event Spaces,venues
-eventservices,Videographers,videographers
-eventservices,Wedding Planning,wedding_planning
 null,Food,food
-food,Bagels,bagels
 food,Bakeries,bakeries
-food,Beer, Wine & Spirits,beer_and_wine
+food,"Beer, Wine & Spirits",beer_and_wine
 food,Breweries,breweries
 food,Coffee & Tea,coffee
-food,Convenience Stores,convenience
 food,Desserts,desserts
-food,Do-It-Yourself Food,diyfood
-food,Donuts,donuts
 food,Farmers Market,farmersmarket
-food,Food Delivery Services,fooddeliveryservices
-food,Grocery,grocery
 food,Ice Cream & Frozen Yogurt,icecream
-food,Internet Cafes,internetcafe
-food,Juice Bars & Smoothies,juicebars
 food,Specialty Food,gourmet
 gourmet,Candy Stores,candy
 gourmet,Cheese Shops,cheese
 gourmet,Chocolatiers and Shops,chocolate
 gourmet,Ethnic Food,ethnicmarkets
 gourmet,Fruits & Veggies,markets
-gourmet,Health Markets,healthmarkets
-gourmet,Meat Shops,meats
-gourmet,Seafood Markets,seafoodmarkets
 food,Tea Rooms,tea
 food,Wineries,wineries
 null,Hotels & Travel,hotelstravel
@@ -149,41 +89,11 @@ hotelstravel,RV Rental,rvrental
 hotelstravel,Ski Resorts,skiresorts
 hotelstravel,Tours,tours
 hotelstravel,Transportation,transport
-transport,Airlines,airlines
 transport,Airport Shuttles,airport_shuttles
 transport,Limos,limos
 transport,Public Transportation,publictransport
 transport,Taxis,taxis
-hotelstravel,Travel Services,travelservices
-hotelstravel,Vacation Rental Agents,vacationrentalagents
-null,Local Services,localservices
-localservices,Appliances & Repair,homeappliancerepair
-localservices,Carpet Cleaning,carpet_cleaning
-localservices,Child Care & Day Care,childcare
-localservices,Community Service/Non-Profit,nonprofit
-localservices,Couriers & Delivery Services,couriers
-localservices,Dry Cleaning & Laundry,drycleaninglaundry
-localservices,Electronics Repair,electronicsrepair
-localservices,Funeral Services & Cemeteries,funeralservices
-localservices,Furniture Reupholstery,reupholstery
-localservices,IT Services & Computer Repair,itservices
-localservices,Junk Removal and Hauling,junkremovalandhauling
-localservices,Notaries,notaries
-localservices,Pest Control,pest_control
-localservices,Printing Services,copyshops
-localservices,Recording & Rehearsal Studios,recording_studios
-localservices,Recycling Center,recyclingcenter
-localservices,Self Storage,selfstorage
-localservices,Sewing & Alterations,sewingalterations
-localservices,Shipping Centers,shipping_centers
-localservices,Shoe Repair,shoerepair
-localservices,Watch Repair,watch_repair
-null,Mass Media,massmedia
-massmedia,Print Media,printmedia
-massmedia,Stations,radiostations
-massmedia,Television Stations,televisionstations
 null,Nightlife,nightlife
-nightlife,Adult Entertainment,adultentertainment
 nightlife,Bars,bars
 bars,Champagne Bars,champagne_bars
 bars,Dive Bars,divebars
@@ -199,26 +109,11 @@ nightlife,Jazz & Blues,jazzandblues
 nightlife,Karaoke,karaoke
 nightlife,Music Venues,musicvenues
 nightlife Halls,poolhalls
-null,Pets,pets
-pets,Animal Shelters,animalshelters
-pets,Pet Services,petservices
-pets,Dog Walkers,dogwalkers
-pets,Pet Boarding/Pet Sitting,pet_sitting
-pets,Pet Groomers,groomer
-pets,Pet Training,pet_training
-pets,Pet Stores,petstore
-pets,Veterinarians,vet
-null,Religious Organizations,religiousorgs
-religiousorgs,Buddhist Temples,buddhist_temples
-religiousorgs,Churches,churches
-religiousorgs,Hindu Temples,hindu_temples
-religiousorgs,Mosques,mosques
-religiousorgs,Synagogues,synagogues
 null,Restaurants,restaurants
 restaurants,Afghan,afghani
 restaurants,African,african
-restaurants,American,New,newamerican
-restaurants,American,Traditional,tradamerican
+restaurants,"American,New",newamerican
+restaurants,"American,Traditional",tradamerican
 restaurants,Argentine,argentine
 restaurants,Asian Fusion,asianfusion
 restaurants,Barbeque,bbq
@@ -228,26 +123,18 @@ restaurants,Brasseries,brasseries
 restaurants,Brazilian,brazilian
 restaurants,Breakfast & Brunch,breakfast_brunch
 restaurants,British,british
-restaurants,Buffets,buffets
 restaurants,Burgers,burgers
 restaurants,Burmese,burmese
 restaurants,Cajun/Creole,cajun
 restaurants,Cambodian,cambodian
 restaurants,Caribbean,caribbean
-restaurants,Cheesesteaks,cheesesteaks
-restaurants,Chicken Wings,chicken_wings
 restaurants,Chinese,chinese
 chinese,Dim Sum,dimsum
 restaurants,Creperies,creperies
 restaurants,Cuban,cuban
-restaurants,Delis,delis
 restaurants,Diners,diners
 restaurants,Ethiopian,ethiopian
-restaurants,Fast Food,hotdogs
 restaurants,Filipino,filipino
-restaurants,Fish & Chips,fishnchips
-restaurants,Fondue,fondue
-restaurants,Food Stands,foodstands
 restaurants,French,french
 restaurants,Gastropubs,gastropubs
 restaurants,German,german
@@ -256,7 +143,6 @@ restaurants,Greek,greek
 restaurants,Halal,halal
 restaurants,Hawaiian,hawaiian
 restaurants,Himalayan/Nepalese,himalayan
-restaurants,Hot Dogs,hotdog
 restaurants,Hungarian,hungarian
 restaurants,Indian,indpak
 restaurants,Indonesian,indonesian
@@ -286,14 +172,13 @@ restaurants,Scandinavian,scandinavian
 restaurants,Seafood,seafood
 restaurants,Singaporean,singaporean
 restaurants,Soul Food,soulfood
-restaurants,Soup,soup
 restaurants,Southern,southern
 restaurants,Spanish,spanish
 restaurants,Steakhouses,steak
 restaurants,Sushi Bars,sushi
 restaurants,Taiwanese,taiwanese
 restaurants,Tapas Bars,tapas
-restaurants,Tapas/Small Plates,tapasmallplates
+restaurants,"Tapas/Small Plates",tapasmallplates
 restaurants,Tex-Mex,tex-mex
 restaurants,Thai,thai
 restaurants,Turkish,turkish
@@ -301,75 +186,3 @@ restaurants,Ukrainian,ukrainian
 restaurants,Vegan,vegan
 restaurants,Vegetarian,vegetarian
 restaurants,Vietnamese,vietnamese
-null,Shopping,shopping
-shopping,Adult,adult
-shopping,Antiques,antiques
-shopping,Art Galleries,galleries
-shopping,Arts & Crafts,artsandcrafts
-artsandcrafts,Art Supplies,artsupplies
-artsandcrafts,Cards & Stationery,stationery
-artsandcrafts,Costumes,costumes
-artsandcrafts,Fabric Stores,fabricstores
-artsandcrafts,Framing,framing
-shopping,Baby Gear & Furniture,baby_gear
-shopping,Books, Mags, Music and Video,media
-media,Bookstores,bookstores
-media,Comic Books,comicbooks
-media,Music & DVD's,musicvideo
-media,Newspapers & Magazines,mags
-media,Videos and Video Game Rental,videoandgames
-media,Vinyl Records,vinyl_records
-shopping,Bridal,bridal
-shopping,Computers,computers
-shopping,Cosmetics & Beauty Supply,cosmetics
-shopping,Department Stores,deptstores
-shopping,Discount Store,discountstore
-shopping,Drugstores,drugstores
-shopping,Electronics,electronics
-shopping,Eyewear & Opticians,opticians
-shopping,Fashion,fashion
-fashion,Accessories,accessories
-fashion,Children's Clothing,childcloth
-fashion,Department Stores,deptstores
-fashion,Leather Goods,leather
-fashion,Lingerie,lingerie
-fashion,Maternity Wear,maternity
-fashion,Men's Clothing,menscloth
-fashion,Shoe Stores,shoes
-fashion,Sports Wear,sportswear
-fashion,Swimwear,swimwear
-fashion,Used, Vintage & Consignment,vintage
-fashion,Women's Clothing,womenscloth
-shopping,Flowers & Gifts,flowers
-flowers,Cards & Stationery,stationery
-flowers,Florists,florists
-shopping,Hobby Shops,hobbyshops
-shopping,Home & Garden,homeandgarden
-homeandgarden,Appliances,appliances
-homeandgarden,Furniture Stores,furniture
-homeandgarden,Hardware Stores,hardware
-homeandgarden,Home Decor,homedecor
-homeandgarden,Hot Tub and Pool,hottubandpool
-homeandgarden,Kitchen & Bath,kitchenandbath
-homeandgarden,Mattresses,mattresses
-homeandgarden,Nurseries & Gardening,gardening
-shopping,Jewelry,jewelry
-shopping,Knitting Supplies,knittingsupplies
-shopping,Luggage,luggage
-shopping,Mobile Phones,mobilephones
-shopping,Musical Instruments & Teachers,musicalinstrumentsandteachers
-shopping,Office Equipment,officeequipment
-shopping,Outlet Stores,outlet_stores
-shopping,Pawn Shops,pawn
-shopping,Personal Shopping,personal_shopping
-shopping,Photography Stores & Services,photographystores
-shopping,Shopping Centers,shoppingcenters
-shopping,Sporting Goods,sportgoods
-sportgoods,Bikes,bikes
-sportgoods,Outdoor Gear,outdoorgear
-sportgoods,Sports Wear,sportswear
-shopping,Thrift Stores,thrift_stores
-shopping,Tobacco Shops,tobaccoshops
-shopping,Toy Stores,toys
-shopping,Watches,watches
-shopping,Wholesale Stores,wholesale_stores

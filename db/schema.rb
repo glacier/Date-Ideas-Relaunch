@@ -10,12 +10,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110313225001) do
+ActiveRecord::Schema.define(:version => 20110320195956) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
     t.string   "provider"
     t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "business_neighbourhoods", :force => true do |t|
+    t.string   "business_id"
+    t.string   "neighbourhood"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "business_types", :force => true do |t|
+    t.string   "business_id"
+    t.string   "category_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

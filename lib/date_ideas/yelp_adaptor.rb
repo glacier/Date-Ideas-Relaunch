@@ -4,7 +4,7 @@ class DateIdeas::YelpAdaptor
     puts(neighbourhood.to_s)
     client = Yelp::Client.new
     request = Yelp::Review::Request::Location.new(
-                  :neighborhood =>  neighbourhood,
+                  :neighborhood =>  'Yonge and Eglinton, Lawrence Park, Bedford Park, Moore Park',
                   :city => 'Toronto',
                   :state => 'ON',
                   :term => 'restaurant',
