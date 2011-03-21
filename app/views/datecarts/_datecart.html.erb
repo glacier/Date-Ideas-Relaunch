@@ -1,6 +1,9 @@
 <fieldset>
 <!-- <p id="notice"><%= notice %></p> -->
-<h2> Your date </h2>
+<h2>Your date</h2>
+<p>Title: <%= @datecart.name %></p>
+<p>When: <%= @datecart.datetime %></p>
+<p>Notes for my date: <%= @datecart.notes %></p> 
 <ul><%= render @datecart.cart_items %></ul>
 <%= form_tag '/datecarts/complete', :method => :put do %>
 <%= submit_tag('save') %>
@@ -8,5 +11,5 @@
 </fieldset>
 
 <!-- TODO: empty cart -->
-<%# link_to 'Edit', edit_datecart_path(@datecart) %>
+<%= link_to 'Edit', edit_datecart_path(@datecart) %>
 <%# link_to 'Back', datecarts_path %>

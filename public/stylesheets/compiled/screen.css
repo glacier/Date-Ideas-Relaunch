@@ -166,7 +166,7 @@ a {
 }
 /* line 18, ../../../../../../.rvm/gems/ruby-1.9.2-p0@rails3/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/links/_link-colors.scss */
 a:visited {
-  color: white;
+  color: #ef416c;
 }
 /* line 21, ../../../../../../.rvm/gems/ruby-1.9.2-p0@rails3/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/links/_link-colors.scss */
 a:focus {
@@ -178,7 +178,7 @@ a:hover {
 }
 /* line 27, ../../../../../../.rvm/gems/ruby-1.9.2-p0@rails3/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/links/_link-colors.scss */
 a:active {
-  color: white;
+  color: #ef416c;
 }
 
 /* line 78, ../../../../../../.rvm/gems/ruby-1.9.2-p0@rails3/gems/compass-0.10.6/frameworks/blueprint/stylesheets/blueprint/_typography.scss */
