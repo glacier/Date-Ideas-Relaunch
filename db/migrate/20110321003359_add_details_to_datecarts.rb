@@ -1,8 +1,8 @@
 class AddDetailsToDatecarts < ActiveRecord::Migration
   def self.up
-    add_column :datecarts, :name, :string
-    add_column :datecarts, :datetime, :string
-    add_column :datecarts, :notes, :string
+    add_column :datecarts, :name, :string, :default => "My Date"
+    add_column :datecarts, :datetime, :string, :default => ""
+    add_column :datecarts, :notes, :string, :default => "Make it special!"
   end
 
   def self.down

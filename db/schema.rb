@@ -71,9 +71,9 @@ ActiveRecord::Schema.define(:version => 20110321003359) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name"
-    t.string   "datetime"
-    t.string   "notes"
+    t.string   "name",       :default => "My Date"
+    t.string   "datetime",   :default => ""
+    t.string   "notes",      :default => "Make it special!"
   end
 
   create_table "neighbourhoods", :force => true do |t|

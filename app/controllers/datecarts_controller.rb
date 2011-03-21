@@ -86,7 +86,11 @@ class DatecartsController < ApplicationController
     if current_user
       @datecart = Datecart.find(current_cart)
       @datecart.update_attributes(:user_id => current_user.id)
-      redirect_to(current_user.profile)
+      if current_user.profile.nil?
+        redirect_to(@datecart)
+      else
+        redirect_to(current_user.profile)
+      end
     else
       # Devise not set to create users RESTFULLY 
       redirect_to(new_user_session_path)
