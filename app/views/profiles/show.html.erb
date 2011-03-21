@@ -32,7 +32,11 @@
 
 <h1> Your planned dates </h1>
 
+<ul>
 <% @user.datecarts.each do |datecart| %>
-	<p><%= datecart.id %></p>
+	<li><%= link_to(datecart) do %>
+			<%= datecart.name %>
+			<% end %> on <%= datecart.datetime %> </li>
 <% end %>
+</ul>
 
