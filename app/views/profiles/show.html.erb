@@ -4,14 +4,14 @@
 
 <p id="notice"><%= notice %></p>
 <h1> <%= @user.first_name %>'s public profile</h1>
-<p>
-	<%= image_tag avatar_url(@user) %>
-</p>
+
+<p><%= image_tag avatar_url(@user) %></p>
 
 <p>
 	<b>Email:</b>
 	<%= @user.email %>
 </p>
+
 <p>
   <b>Anniversary:</b>
   <%= @profile.anniversary %>
@@ -21,10 +21,22 @@
   <b>About <%= @profile.user.first_name %>:</b>
   <%= @profile.about_me %>
 </p>
+
 <p><%= link_to 'Edit Profile', edit_profile_path %></p>
+
 <% unless current_user?(@user) %>
 	<%= render 'users/follow_form' %>
 <% end %>
 
 <%= render 'shared/follower_stats' %>
+
+<h1> Your planned dates </h1>
+
+<ul>
+<% @user.datecarts.each do |datecart| %>
+	<li><%= link_to(datecart) do %>
+			<%= datecart.name %>
+			<% end %> on <%= datecart.datetime %> </li>
+<% end %>
+</ul>
 

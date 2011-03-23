@@ -21,11 +21,7 @@
 
 <!-- <hr/> -->
 <!-- venue results listing -->
-
-<% y 'datecart items' %>
 <% @cart_items = @datecart.cart_items %>
-<% y @cart_items %>
-<% y 'end datecart items' %>
 
 <% @wizard.businesses.each do |business| %>
 	<div class="di_biz">
@@ -50,7 +46,6 @@
 		</div>
 	</div>
 <% end %>
-
 <!-- end of venue results list -->
 
 <hr/>

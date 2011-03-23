@@ -1,7 +1,6 @@
 class DatecartsController < ApplicationController
   # GET /datecarts
   # GET /datecarts.xml
-  
   def index
     @datecarts = Datecart.all
 
@@ -79,6 +78,22 @@ class DatecartsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(datecarts_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  # complete date planning
+  def complete
+    if current_user
+      @datecart = Datecart.find(current_cart)
+      @datecart.update_attributes(:user_id => current_user.id)
+      if current_user.profile.nil?
+        redirect_to(@datecart)
+      else
+        redirect_to(current_user.profile)
+      end
+    else
+      # Devise not set to create users RESTFULLY 
+      redirect_to(new_user_session_path)
     end
   end
 end
