@@ -1,188 +1,188 @@
-parent_name,display_name,name
-null,Active Life,active
-active,Amateur Sports Teams,amateursportsteams
-active,Amusement Parks,amusementparks
-active,Aquariums,aquariums
-active,Archery,archery
-active,Beaches,beaches
-active,Bike Rentals,bikerentals
-active,Boating,boating
-active,Bowling,bowling
-active,Climbing,climbing
-active,Disc Golf,discgolf
-active,Diving,diving
-active,Fishing,fishing
-active,Fitness & Instruction,fitness
-fitness,Dance Studios,dancestudio
-fitness,Gyms,gyms
-fitness,Martial Arts,martialarts
-fitness,Pilates,pilates
-fitness,Swimming Lessons/Schools,swimminglessons
-fitness,Tai Chi,taichi
-fitness,Trainers,healthtrainers
-fitness,Yoga,yoga
-active,Go Karts,gokarts
-active,Golf,golf
-active,Gun/Rifle Ranges,gun_ranges
-active,Hiking,hiking
-active,Horse Racing,horseracing
-active,Horseback Riding,horsebackriding
-active,Lakes,lakes
-active,Leisure Centers,leisure_centers
-active,Mini Golf,mini_golf
-active,Parks,parks
-parks,Dog Parks,dog_parks
-active,Playgrounds,playgrounds
-active,Rafting/Kayaking,rafting
-active,Skating Rinks,skatingrinks
-active,Skydiving,skydiving
-active,Soccer,football
-active,Sports Clubs,sports_clubs
-active,Swimming Pools,swimmingpools
-active,Tennis,tennis
-active,Zoos,zoos
-null,Arts & Entertainment,arts
-arts,Arcades,arcades
-arts,Art Galleries,galleries
-arts,Botanical Gardens,gardens
-arts,Casinos,casinos
-arts,Cinema,movietheaters
-arts,Festivals,festivals
-arts,Jazz & Blues,jazzandblues
-arts,Museums,museums
-arts,Music Venues,musicvenues
-arts,Opera & Ballet,opera
-arts,Performing Arts,theater
-arts,Professional Sports Teams,sportsteams
-arts,Psychics & Astrologers,psychic_astrology
-arts,Social Clubs,social_clubs
-arts,Stadiums & Arenas,stadiumsarenas
-arts,Wineries,wineries
-null,Education,education
-education,Specialty Schools,specialtyschools
-specialtyschools,Cooking Schools,cookingschools
-null,Food,food
-food,Bakeries,bakeries
-food,"Beer, Wine & Spirits",beer_and_wine
-food,Breweries,breweries
-food,Coffee & Tea,coffee
-food,Desserts,desserts
-food,Farmers Market,farmersmarket
-food,Ice Cream & Frozen Yogurt,icecream
-food,Specialty Food,gourmet
-gourmet,Candy Stores,candy
-gourmet,Cheese Shops,cheese
-gourmet,Chocolatiers and Shops,chocolate
-gourmet,Ethnic Food,ethnicmarkets
-gourmet,Fruits & Veggies,markets
-food,Tea Rooms,tea
-food,Wineries,wineries
-null,Hotels & Travel,hotelstravel
-hotelstravel,Airports,airports
-hotelstravel,Bed & Breakfast,bedbreakfast
-hotelstravel,Campgrounds,campgrounds
-hotelstravel,Car Rental,carrental
-hotelstravel,Guest Houses,guesthouses
-hotelstravel,Hostels,hostels
-hotelstravel,Hotels,hotels
-hotelstravel,RV Rental,rvrental
-hotelstravel,Ski Resorts,skiresorts
-hotelstravel,Tours,tours
-hotelstravel,Transportation,transport
-transport,Airport Shuttles,airport_shuttles
-transport,Limos,limos
-transport,Public Transportation,publictransport
-transport,Taxis,taxis
-null,Nightlife,nightlife
-nightlife,Bars,bars
-bars,Champagne Bars,champagne_bars
-bars,Dive Bars,divebars
-bars,Gay Bars,gaybars
-bars,Hookah Bars,hookah_bars
-bars,Lounges,lounges
-bars,Pubs,pubs
-bars,Sports Bars,sportsbars
-bars,Wine Bars,wine_bars
-nightlife,Comedy Clubs,comedyclubs
-nightlife,Dance Clubs,danceclubs
-nightlife,Jazz & Blues,jazzandblues
-nightlife,Karaoke,karaoke
-nightlife,Music Venues,musicvenues
-nightlife Halls,poolhalls
-null,Restaurants,restaurants
-restaurants,Afghan,afghani
-restaurants,African,african
-restaurants,"American,New",newamerican
-restaurants,"American,Traditional",tradamerican
-restaurants,Argentine,argentine
-restaurants,Asian Fusion,asianfusion
-restaurants,Barbeque,bbq
-restaurants,Basque,basque
-restaurants,Belgian,belgian
-restaurants,Brasseries,brasseries
-restaurants,Brazilian,brazilian
-restaurants,Breakfast & Brunch,breakfast_brunch
-restaurants,British,british
-restaurants,Burgers,burgers
-restaurants,Burmese,burmese
-restaurants,Cajun/Creole,cajun
-restaurants,Cambodian,cambodian
-restaurants,Caribbean,caribbean
-restaurants,Chinese,chinese
-chinese,Dim Sum,dimsum
-restaurants,Creperies,creperies
-restaurants,Cuban,cuban
-restaurants,Diners,diners
-restaurants,Ethiopian,ethiopian
-restaurants,Filipino,filipino
-restaurants,French,french
-restaurants,Gastropubs,gastropubs
-restaurants,German,german
-restaurants,Gluten-Free,gluten_free
-restaurants,Greek,greek
-restaurants,Halal,halal
-restaurants,Hawaiian,hawaiian
-restaurants,Himalayan/Nepalese,himalayan
-restaurants,Hungarian,hungarian
-restaurants,Indian,indpak
-restaurants,Indonesian,indonesian
-restaurants,Irish,irish
-restaurants,Italian,italian
-restaurants,Japanese,japanese
-restaurants,Korean,korean
-restaurants,Kosher,kosher
-restaurants,Latin American,latin
-restaurants,Live/Raw Food,raw_food
-restaurants,Malaysian,malaysian
-restaurants,Mediterranean,mediterranean
-restaurants,Mexican,mexican
-restaurants,Middle Eastern,mideastern
-restaurants,Modern European,modern_european
-restaurants,Mongolian,mongolian
-restaurants,Moroccan,moroccan
-restaurants,Pakistani,pakistani
-restaurants,Persian/Iranian,persian
-restaurants,Peruvian,peruvian
-restaurants,Pizza,pizza
-restaurants,Polish,polish
-restaurants,Portuguese,portuguese
-restaurants,Russian,russian
-restaurants,Sandwiches,sandwiches
-restaurants,Scandinavian,scandinavian
-restaurants,Seafood,seafood
-restaurants,Singaporean,singaporean
-restaurants,Soul Food,soulfood
-restaurants,Southern,southern
-restaurants,Spanish,spanish
-restaurants,Steakhouses,steak
-restaurants,Sushi Bars,sushi
-restaurants,Taiwanese,taiwanese
-restaurants,Tapas Bars,tapas
-restaurants,"Tapas/Small Plates",tapasmallplates
-restaurants,Tex-Mex,tex-mex
-restaurants,Thai,thai
-restaurants,Turkish,turkish
-restaurants,Ukrainian,ukrainian
-restaurants,Vegan,vegan
-restaurants,Vegetarian,vegetarian
-restaurants,Vietnamese,vietnamese
+id,parent_name,display_name,name
+2,null,Active Life,active
+3,active,Amateur Sports Teams,amateursportsteams
+4,active,Amusement Parks,amusementparks
+5,active,Aquariums,aquariums
+6,active,Archery,archery
+7,active,Beaches,beaches
+8,active,Bike Rentals,bikerentals
+9,active,Boating,boating
+10,active,Bowling,bowling
+11,active,Climbing,climbing
+12,active,Disc Golf,discgolf
+13,active,Diving,diving
+14,active,Fishing,fishing
+15,active,Fitness & Instruction,fitness
+16,fitness,Dance Studios,dancestudio
+17,fitness,Gyms,gyms
+18,fitness,Martial Arts,martialarts
+19,fitness,Pilates,pilates
+20,fitness,Swimming Lessons/Schools,swimminglessons
+21,fitness,Tai Chi,taichi
+22,fitness,Trainers,healthtrainers
+23,fitness,Yoga,yoga
+24,active,Go Karts,gokarts
+25,active,Golf,golf
+26,active,Gun/Rifle Ranges,gun_ranges
+27,active,Hiking,hiking
+28,active,Horse Racing,horseracing
+29,active,Horseback Riding,horsebackriding
+30,active,Lakes,lakes
+31,active,Leisure Centers,leisure_centers
+32,active,Mini Golf,mini_golf
+33,active,Parks,parks
+34,parks,Dog Parks,dog_parks
+35,active,Playgrounds,playgrounds
+36,active,Rafting/Kayaking,rafting
+37,active,Skating Rinks,skatingrinks
+38,active,Skydiving,skydiving
+39,active,Soccer,football
+40,active,Sports Clubs,sports_clubs
+41,active,Swimming Pools,swimmingpools
+42,active,Tennis,tennis
+43,active,Zoos,zoos
+44,null,Arts & Entertainment,arts
+45,arts,Arcades,arcades
+46,arts,Art Galleries,galleries
+47,arts,Botanical Gardens,gardens
+48,arts,Casinos,casinos
+49,arts,Cinema,movietheaters
+50,arts,Festivals,festivals
+51,arts,Jazz & Blues,jazzandblues
+52,arts,Museums,museums
+53,arts,Music Venues,musicvenues
+54,arts,Opera & Ballet,opera
+55,arts,Performing Arts,theater
+56,arts,Professional Sports Teams,sportsteams
+57,arts,Psychics & Astrologers,psychic_astrology
+58,arts,Social Clubs,social_clubs
+59,arts,Stadiums & Arenas,stadiumsarenas
+60,arts,Wineries,wineries
+61,null,Education,education
+62,education,Specialty Schools,specialtyschools
+63,specialtyschools,Cooking Schools,cookingschools
+64,null,Food,food
+65,food,Bakeries,bakeries
+66,food,"Beer, Wine & Spirits",beer_and_wine
+67,food,Breweries,breweries
+68,food,Coffee & Tea,coffee
+69,food,Desserts,desserts
+70,food,Farmers Market,farmersmarket
+71,food,Ice Cream & Frozen Yogurt,icecream
+72,food,Specialty Food,gourmet
+73,gourmet,Candy Stores,candy
+74,gourmet,Cheese Shops,cheese
+75,gourmet,Chocolatiers and Shops,chocolate
+76,gourmet,Ethnic Food,ethnicmarkets
+77,gourmet,Fruits & Veggies,markets
+78,food,Tea Rooms,tea
+79,food,Wineries,wineries
+80,null,Hotels & Travel,hotelstravel
+81,hotelstravel,Airports,airports
+82,hotelstravel,Bed & Breakfast,bedbreakfast
+83,hotelstravel,Campgrounds,campgrounds
+84,hotelstravel,Car Rental,carrental
+85,hotelstravel,Guest Houses,guesthouses
+86,hotelstravel,Hostels,hostels
+87,hotelstravel,Hotels,hotels
+88,hotelstravel,RV Rental,rvrental
+89,hotelstravel,Ski Resorts,skiresorts
+90,hotelstravel,Tours,tours
+91,hotelstravel,Transportation,transport
+92,transport,Airport Shuttles,airport_shuttles
+93,transport,Limos,limos
+94,transport,Public Transportation,publictransport
+95,transport,Taxis,taxis
+96,null,Nightlife,nightlife
+97,nightlife,Bars,bars
+98,bars,Champagne Bars,champagne_bars
+99,bars,Dive Bars,divebars
+100,bars,Gay Bars,gaybars
+101,bars,Hookah Bars,hookah_bars
+102,bars,Lounges,lounges
+103,bars,Pubs,pubs
+104,bars,Sports Bars,sportsbars
+105,bars,Wine Bars,wine_bars
+106,nightlife,Comedy Clubs,comedyclubs
+107,nightlife,Dance Clubs,danceclubs
+108,nightlife,Jazz & Blues,jazzandblues
+109,nightlife,Karaoke,karaoke
+110,nightlife,Music Venues,musicvenues
+111,nightlife Halls,poolhalls
+112,null,Restaurants,restaurants
+113,restaurants,Afghan,afghani
+114,restaurants,African,african
+115,restaurants,"American,New",newamerican
+116,restaurants,"American,Traditional",tradamerican
+117,restaurants,Argentine,argentine
+118,restaurants,Asian Fusion,asianfusion
+119,restaurants,Barbeque,bbq
+120,restaurants,Basque,basque
+121,restaurants,Belgian,belgian
+122,restaurants,Brasseries,brasseries
+123,restaurants,Brazilian,brazilian
+124,restaurants,Breakfast & Brunch,breakfast_brunch
+125,restaurants,British,british
+126,restaurants,Burgers,burgers
+127,restaurants,Burmese,burmese
+128,restaurants,Cajun/Creole,cajun
+129,restaurants,Cambodian,cambodian
+130,restaurants,Caribbean,caribbean
+131,restaurants,Chinese,chinese
+132,chinese,Dim Sum,dimsum
+133,restaurants,Creperies,creperies
+134,restaurants,Cuban,cuban
+135,restaurants,Diners,diners
+136,restaurants,Ethiopian,ethiopian
+137,restaurants,Filipino,filipino
+138,restaurants,French,french
+139,restaurants,Gastropubs,gastropubs
+140,restaurants,German,german
+141,restaurants,Gluten-Free,gluten_free
+142,restaurants,Greek,greek
+143,restaurants,Halal,halal
+144,restaurants,Hawaiian,hawaiian
+145,restaurants,Himalayan/Nepalese,himalayan
+146,restaurants,Hungarian,hungarian
+147,restaurants,Indian,indpak
+148,restaurants,Indonesian,indonesian
+149,restaurants,Irish,irish
+150,restaurants,Italian,italian
+151,restaurants,Japanese,japanese
+152,restaurants,Korean,korean
+153,restaurants,Kosher,kosher
+154,restaurants,Latin American,latin
+155,restaurants,Live/Raw Food,raw_food
+156,restaurants,Malaysian,malaysian
+157,restaurants,Mediterranean,mediterranean
+158,restaurants,Mexican,mexican
+159,restaurants,Middle Eastern,mideastern
+160,restaurants,Modern European,modern_european
+161,restaurants,Mongolian,mongolian
+162,restaurants,Moroccan,moroccan
+163,restaurants,Pakistani,pakistani
+164,restaurants,Persian/Iranian,persian
+165,restaurants,Peruvian,peruvian
+166,restaurants,Pizza,pizza
+167,restaurants,Polish,polish
+168,restaurants,Portuguese,portuguese
+169,restaurants,Russian,russian
+170,restaurants,Sandwiches,sandwiches
+171,restaurants,Scandinavian,scandinavian
+172,restaurants,Seafood,seafood
+173,restaurants,Singaporean,singaporean
+174,restaurants,Soul Food,soulfood
+175,restaurants,Southern,southern
+176,restaurants,Spanish,spanish
+177,restaurants,Steakhouses,steak
+178,restaurants,Sushi Bars,sushi
+179,restaurants,Taiwanese,taiwanese
+180,restaurants,Tapas Bars,tapas
+181,restaurants,"Tapas/Small Plates",tapasmallplates
+182,restaurants,Tex-Mex,tex-mex
+183,restaurants,Thai,thai
+184,restaurants,Turkish,turkish
+185,restaurants,Ukrainian,ukrainian
+186,restaurants,Vegan,vegan
+187,restaurants,Vegetarian,vegetarian
+188,restaurants,Vietnamese,vietnamese

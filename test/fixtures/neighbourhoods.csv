@@ -1,54 +1,58 @@
-district,district_subsection,neighbourhood
-Old City of Toronto,Downtown Core,Alexandra Park
-Old City of Toronto,Downtown Core,The Annex
-Old City of Toronto,Downtown Core,Cabbagetown
-Old City of Toronto,Downtown Core,Chinatown
-Old City of Toronto,Downtown Core,Corktown
-Old City of Toronto,Downtown Core,Discovery District
-Old City of Toronto,Downtown Core,Distillery District
-Old City of Toronto,Downtown Core,The Entertainment District
-Old City of Toronto,Downtown Core,The Financial District
-Old City of Toronto,Downtown Core,Garden District
-Old City of Toronto,Downtown Core,Harbourfront
-Old City of Toronto,Downtown Core,Kensington Market
-Old City of Toronto,Downtown Core,Moss Park
-Old City of Toronto,Downtown Core,Queen Street West
-Old City of Toronto,Downtown Core,Regent Park
-Old City of Toronto,Downtown Core,St. James Town
-Old City of Toronto,Downtown Core,St. Lawrence
-Old City of Toronto,Downtown Core,Toronto Islands
-Old City of Toronto,Downtown Core,University of Toronto
-Old City of Toronto,Downtown Core,Yorkville
-Old City of Toronto,East End,The Beaches
-Old City of Toronto,East End,Little India
-Old City of Toronto,East End,Greektown
-Old City of Toronto,East End,Leslieville
-Old City of Toronto,East End,Playter Estates
-Old City of Toronto,East End,Riverdale
-Old City of Toronto,East End,Upper Beaches
-Old City of Toronto,North End,Bedford Park
-Old City of Toronto,North End,Casa Loma
-Old City of Toronto,North End,Chaplin Estates
-Old City of Toronto,North End,Deer Park 
-Old City of Toronto,North End,Forest Hill 
-Old City of Toronto,North End,Lawrence Park
-Old City of Toronto,North End,Moore Park
-Old City of Toronto,North End,Rosedale
-Old City of Toronto,North End,Wychwood Park
-Old City of Toronto,North End,Yonge and Eglinton
-Old City of Toronto,West End,Brockton Village
-Old City of Toronto,West End,Corso Italia
-Old City of Toronto,West End,Dovercourt Park
-Old City of Toronto,West End,Dufferin Grove
-Old City of Toronto,West End,High Park
-Old City of Toronto,West End,The Junction
-Old City of Toronto,West End,Koreatown
-Old City of Toronto,West End,Little Italy
-Old City of Toronto,West End,Mirvish Village
-Old City of Toronto,West End,Niagara
-Old City of Toronto,West End,Palmerston
-Old City of Toronto,West End,Parkdale
-Old City of Toronto,West End,Roncesvalles
-Old City of Toronto,West End,Swansea
-Old City of Toronto,West End,Portugal Village
-North York,,Hogg's Hollow
+id,district,district_subsection,neighbourhood
+2,Old City of Toronto,Downtown Core,Alexandra Park
+3,Old City of Toronto,Downtown Core,The Annex
+4,Old City of Toronto,Downtown Core,Cabbagetown
+5,Old City of Toronto,Downtown Core,Chinatown
+6,Old City of Toronto,Downtown Core,Corktown
+7,Old City of Toronto,Downtown Core,Discovery District
+8,Old City of Toronto,Downtown Core,Distillery District
+9,Old City of Toronto,Downtown Core,The Entertainment District
+10,Old City of Toronto,Downtown Core,The Financial District
+11,Old City of Toronto,Downtown Core,Garden District
+12,Old City of Toronto,Downtown Core,Harbourfront
+13,Old City of Toronto,Downtown Core,Kensington Market
+14,Old City of Toronto,Downtown Core,Moss Park
+15,Old City of Toronto,Downtown Core,Queen Street West
+16,Old City of Toronto,Downtown Core,Regent Park
+17,Old City of Toronto,Downtown Core,St. James Town
+18,Old City of Toronto,Downtown Core,St. Lawrence
+19,Old City of Toronto,Downtown Core,Toronto Islands
+20,Old City of Toronto,Downtown Core,University of Toronto
+21,Old City of Toronto,Downtown Core,Yorkville
+22,Old City of Toronto,East End,The Beaches
+23,Old City of Toronto,East End,Little India
+24,Old City of Toronto,East End,Greektown
+25,Old City of Toronto,East End,Leslieville
+26,Old City of Toronto,East End,Playter Estates
+27,Old City of Toronto,East End,Riverdale
+28,Old City of Toronto,East End,Upper Beaches
+29,Old City of Toronto,North End,Bedford Park
+30,Old City of Toronto,North End,Casa Loma
+31,Old City of Toronto,North End,Chaplin Estates
+32,Old City of Toronto,North End,Deer Park 
+33,Old City of Toronto,North End,Forest Hill 
+34,Old City of Toronto,North End,Lawrence Park
+35,Old City of Toronto,North End,Moore Park
+36,Old City of Toronto,North End,Rosedale
+37,Old City of Toronto,North End,Wychwood Park
+38,Old City of Toronto,North End,Yonge and Eglinton
+39,Old City of Toronto,West End,Brockton Village
+40,Old City of Toronto,West End,Corso Italia
+41,Old City of Toronto,West End,Dovercourt Park
+42,Old City of Toronto,West End,Dufferin Grove
+43,Old City of Toronto,West End,High Park
+44,Old City of Toronto,West End,The Junction
+45,Old City of Toronto,West End,Koreatown
+46,Old City of Toronto,West End,Little Italy
+47,Old City of Toronto,West End,Mirvish Village
+48,Old City of Toronto,West End,Niagara
+49,Old City of Toronto,West End,Palmerston
+50,Old City of Toronto,West End,Parkdale
+51,Old City of Toronto,West End,Roncesvalles
+52,Old City of Toronto,West End,Swansea
+53,Old City of Toronto,West End,Portugal Village
+54,North York,,Hogg's Hollow
+55,Old City of Toronto,Downtown Core,King West
+56,Old City of Toronto,Downtown Core,Queen West
+57,Old City of Toronto,Downtown Core,Downtown Yonge
+58,Old City of Toronto,Downtown Core,Gay Village

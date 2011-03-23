@@ -1,8 +1,8 @@
 class CreateBusinessNeighbourhoods < ActiveRecord::Migration
   def self.up
     create_table :business_neighbourhoods do |t|
-      t.string :business_id
-      t.string :neighbourhood
+      t.integer :business_id
+      t.integer :neighbourhood_id
 
       t.timestamps
     end

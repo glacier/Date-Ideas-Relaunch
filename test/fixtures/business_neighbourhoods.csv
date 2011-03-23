@@ -1,65 +1,54 @@
-business_id,neighbourhood
-1,St. Lawrence
-2,Riverside
-3,North York
-4,Yorkville
-5,The Entertainment District
-6,leslieville
-7,St. Lawrence
-8,Markham
-9,Downtown Yonge
-10,King West
-11,Queen Street West
-12,Downtown Yonge
-13,Queen West
-14,King West
-15,The Annex
-16,Distillery District
-17,Distillery District
-18,Distillery District
-19,Riverside
-20,Riverdale
-21,Yorkville
-22,The Annex
-23,Yorkville
-24,Discovery District
-25,Koreatown
-26,Riverdale
-27,Ossington
-28,Yonge and Eglinton
-29,Leslieville
-30,Liberty Village
-31,The Annex
-32,The Annex
-33,The Annex
-34,The Annex
-35,The Entertainment District
-36,The Annex
-37,The Entertainment District
-38,Gay Village
-39,St. Lawrence
-40,Leslieville
-41,Yorkville
-42,Yorkville
-43,The Entertainment District
-44,King West
-45,King West
-46,Riverdale
-47,Yorkville
-48,Downtown Yonge
-49,Queen Street West
-50,Queen Street West
-51,Queen Street West
-52,The Entertainment District
-53,Little Italy
-54,Leslieville
-55,Riverdale
-56,Ossington
-57,Distillery District
-58,Leslieville
-59,Liberty Village
-60,Richmond Hill
-61,King West
-62,Downsview
-63,The Entertainment District
-64,The Beaches
+business_id,neighbourhood_id
+1,18
+4,21
+5,9
+6,25
+7,18
+10,55
+11,15
+12,57
+13,56
+14,55
+15,3
+16,8
+17,8
+18,8
+20,27
+21,21
+22,3
+23,21
+24,7
+25,45
+26,27
+28,38
+29,25
+31,3
+32,3
+33,3
+34,3
+35,9
+36,3
+37,9
+38,58
+39,18
+40,25
+41,21
+42,21
+43,9
+44,55
+45,55
+46,27
+47,21
+48,57
+49,15
+50,15
+51,15
+52,9
+53,46
+54,25
+55,27
+57,8
+58,25
+61,55
+63,9
+64,22

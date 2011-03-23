@@ -1,6 +1,10 @@
 class Business < ActiveRecord::Base
   has_many :cart_items
-  
+  has_many :business_categories
+  has_many :categories, :through => :business_categories
+  has_many :business_neighbourhoods
+  has_many :neighbourhoods, :through => :business_neighbourhoods
+
   # before_destroy :ensure_not_referenced_by_any_line_item
   
   validates_presence_of :name, :message => "can't be empty"
