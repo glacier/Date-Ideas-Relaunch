@@ -44,7 +44,9 @@ hr {
 }
 
 #sidebar_left {
-
+	@include pie-clearfix;
+	width: 270px;
+	height: 600px;
 }
 
 #content {

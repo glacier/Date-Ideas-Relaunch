@@ -53,7 +53,7 @@ $(document).ready(function() {
 		});
 	}
 	
-	function pin(parent, element) {
+	function pin(parent, element, style) {
 		var scrollable = parent;
 		var pos_element_origin = element.offset().top;
 		
@@ -61,16 +61,20 @@ $(document).ready(function() {
 			// console.log(scrollable.scrollTop());
 			// console.log(pos_element_origin);
 			if(scrollable.scrollTop() > pos_element_origin + 60) {
-				element.addClass("pin");
+				element.addClass(style);
 			} else {
-				element.removeClass("pin");
+				element.removeClass(style);
 			}
 		});
 	}
 	var cart = $('#di_cart_front');
+	var map = $('#sidebar_left_pinned');
 	// console.log(cart);
 	if(cart.length){
-		pin($(window), cart);
+		pin($(window), cart, "pin-cart");
+	}
+	if(map.length){
+		pin($(window), map, "pin-map");
 	}
 	// lightbox();
 });

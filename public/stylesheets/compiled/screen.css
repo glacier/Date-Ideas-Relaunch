@@ -1407,17 +1407,33 @@ hr {
   padding-left: 0;
 }
 
-/* line 50, ../../../app/stylesheets/partials/_di-application.scss */
+/* line 46, ../../../app/stylesheets/partials/_di-application.scss */
+#sidebar_left {
+  *zoom: 1;
+  width: 270px;
+  height: 600px;
+}
+/* line 22, ../../../../../../.rvm/gems/ruby-1.9.2-p0@rails3/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+#sidebar_left:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+/* line 52, ../../../app/stylesheets/partials/_di-application.scss */
 #content {
   margin: 0 auto;
   background-color: #f7efeb;
 }
 
-/* line 57, ../../../app/stylesheets/partials/_di-application.scss */
+/* line 59, ../../../app/stylesheets/partials/_di-application.scss */
 #main {
   padding-top: 5px;
 }
-/* line 59, ../../../app/stylesheets/partials/_di-application.scss */
+/* line 61, ../../../app/stylesheets/partials/_di-application.scss */
 #main .poplight {
   -webkit-border-radius: 2px 2px;
   -moz-border-radius: 2px/2px;
@@ -1433,7 +1449,7 @@ hr {
   background: #cccccc;
   color: #FFF;
 }
-/* line 62, ../../../app/stylesheets/partials/_di-application.scss */
+/* line 64, ../../../app/stylesheets/partials/_di-application.scss */
 #main .add_button {
   -webkit-border-radius: 2px 2px;
   -moz-border-radius: 2px/2px;
@@ -1450,14 +1466,14 @@ hr {
   color: #FFF;
 }
 
-/* line 67, ../../../app/stylesheets/partials/_di-application.scss */
+/* line 69, ../../../app/stylesheets/partials/_di-application.scss */
 #sidebar_right {
   height: 100%;
   /*	padding-top: 0px;
   	margin-top: 0px;*/
 }
 
-/* line 73, ../../../app/stylesheets/partials/_di-application.scss */
+/* line 75, ../../../app/stylesheets/partials/_di-application.scss */
 #footer {
   padding: 5px;
   font-size: 16px;
@@ -1625,29 +1641,18 @@ hr {
   margin-left: 0px;
 }
 
-/* line 17, ../../../app/stylesheets/partials/_di-datecart.scss */
-#sidebar_float {
-  position: absolute;
-  width: 100px;
-  height: 500px;
-  top: 200px;
-  left: 10%;
-  /*	padding-top: 100px;*/
-  background: #FFFFFF;
-  border: 2px solid #2266AA;
-  z-index: 100;
-  *zoom: 1;
-}
-/* line 22, ../../../../../../.rvm/gems/ruby-1.9.2-p0@rails3/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-#sidebar_float:after {
-  content: "\0020";
-  display: block;
-  height: 0;
-  clear: both;
-  overflow: hidden;
-  visibility: hidden;
-}
-
+/*#sidebar_float {
+	position:absolute;
+	width:100px;
+	height:500px;
+	top:200px;
+	left:10%;
+/*	padding-top: 100px;*/
+/*	background:#FFFFFF;
+	border:2px solid #2266AA;
+	z-index:100;
+	@include pie-clearfix;*/
+/*}*/
 /* line 30, ../../../app/stylesheets/partials/_di-datecart.scss */
 fieldset {
   border: 0px;
