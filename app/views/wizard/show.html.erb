@@ -1,4 +1,11 @@
 <%= stylesheet_link_tag("wizard.css") %>
+<style>
+	.pin-map {
+		position: fixed;
+		top: 10px;
+		width: 270px;
+	}
+</style>
 
 <% content_for :sidebar_map do %>
 	<div id="di_map">
@@ -7,6 +14,7 @@
 					$('#map').jMapping({metadata_options: {type: 'html5'}, link_selector: false, always_show_markers: true });
 				});
 		</script>
+		
 		<div id="map" style="width: 270px; height: 270px"></div>
 		<%# Don't display the top three venue links ... %>
 		<%# raw display_main_map_info(@wizard.businesses) %>
@@ -15,8 +23,7 @@
 
 <% content_for :sidebar_filters do %>
 	<!-- Nothing here yet -->
-
-	<p>TODO: Filters goes here</p>
+	<fieldset id="di_filters">TODO: Filters goes here</fieldset>
 <% end %>
 
 <% content_for :sidebar_cart do %>
