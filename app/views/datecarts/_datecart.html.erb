@@ -1,9 +1,9 @@
 <style>
-.pin {
-	position: fixed;
-	top: 10px;
-	width: 236px;
-}
+	.pin {
+		position: fixed;
+		top: 10px;
+		width: 236px;
+	}
 </style>
 
 <fieldset id="cart">
@@ -13,10 +13,16 @@
 	<p>When: <%= @datecart.datetime %></p>
 	<p>Notes for my date: <%= @datecart.notes %></p> 
 	<ul><%= render @datecart.cart_items %></ul>
-	<%= form_tag '/datecarts/complete', :method => :put do %>
-	<%= submit_tag('save') %>
-	<% end %>
-
-	<!-- TODO: empty cart -->
-	<%= link_to 'Edit', edit_datecart_path(@datecart) %>
+	
+	<ul id="di_datecart_functions">
+		<li>
+			<%= form_tag '/datecarts/complete', :method => :put do %>
+				<%= submit_tag('save') %>
+			<% end %>
+		</li>
+		<li><%= link_to 'Print', print_datecart_path(@datecart) %></li> 
+		<li><%= link_to 'Email', email_datecart_path(@datecart) %></li>
+		<!-- TODO: empty cart -->	
+		<li><%= link_to 'Edit', edit_datecart_path(@datecart) %></li>
+	</ul>
 </fieldset>

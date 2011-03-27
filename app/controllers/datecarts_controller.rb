@@ -96,4 +96,19 @@ class DatecartsController < ApplicationController
       redirect_to(new_user_session_path)
     end
   end
+
+  def email
+    @datecart = Datecart.find(params[:id])
+    if current_user
+      UserMailer.date_plan_email(current_user, @datecart).deliver
+      redirect_to(@datecart)
+    else
+      redirect_to(new_user_session_path)
+    end
+  end
+  
+  def print
+    # render print view
+    @datecart = Datecart.find(params[:id])
+  end
 end
