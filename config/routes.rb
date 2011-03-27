@@ -5,6 +5,10 @@ DateIdeas::Application.routes.draw do
     collection do
       put "complete"
     end
+    member do
+      get "email"
+      get "print"
+    end
   end
   
   # devise_for :admins

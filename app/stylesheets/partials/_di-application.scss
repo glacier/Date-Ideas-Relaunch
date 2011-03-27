@@ -1,7 +1,7 @@
 // dateideas custom css
 .container {
 	background:{
-		color: $container-bg-color;
+		color: $quiet-pink;
 	};
 }
 
@@ -9,14 +9,24 @@ body {
 	a {
 		@include hover-link;
 	}
+	background: {
+		color: $loud-blue;
+	}
+}
+
+hr {
+	height:0px;
+	background:{
+		color: $quiet-bg-color;
+	};
 }
 
 #header {
 	#logo {
 		padding: 5px;
+
 	}
 	#user_nav {
-/*		float: right; */
 		padding: 5px;
 		background:{
 			color: $nav-bg-color;
@@ -28,17 +38,24 @@ body {
 			@include horizontal-list(4px, right);
 		}
 	}
+	background: {
+		color: $quiet-pink;
+	}
 }
 
 #sidebar_left {
-	
+
 }
 
 #content {
 	margin: 0 auto;
+	background: {
+		color: $quiet-pink; //$quiet-bg-color;
+	}
 }
 
 #main {
+	padding-top: 5px;
 	.poplight {
 		@include quiet_link_button;
 	}
@@ -49,9 +66,8 @@ body {
 
 #sidebar_right {
 	height: 100%;
-	background:{
-		color: $sidebar-bg-color;
-	};
+/*	padding-top: 0px;
+	margin-top: 0px;*/
 }
 
 #footer {

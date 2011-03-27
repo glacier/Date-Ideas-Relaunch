@@ -13,7 +13,6 @@
   <%# javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
   <!-- %= javascript_include_tag "http://maps.google.com/maps?file=api&v=3.3&sensor=true&key=ABQIAAAAPykA5RAR6EyCOpLSM2i1ixRNc1IYPKVGk-SIdG4lEdSAsvBTlRSSkM-qzMzVi4YWslSu0OGheV6nJg" % -->
-	<%= javascript_include_tag "di-floating-1.5.js"%>
   <%= javascript_include_tag "http://maps.google.com/maps/api/js?v=3.3&sensor=false" %>
   <%= stylesheet_link_tag    "jquery.ui.all.css" %>
   <%= javascript_include_tag "jquery.min.js","jquery.rails.js" %>
@@ -23,18 +22,18 @@
   <%= javascript_include_tag "jquery.ui.mouse.js" %>
   <%= javascript_include_tag "jquery.ui.selectable.js" %>
   <%= javascript_include_tag "jquery.ui.accordion.js" %>
-  <!-- jquery lightbox plugin -->
   <%= stylesheet_link_tag    "jquery.lightbox-0.5.css" %>
   <%= javascript_include_tag "jquery.lightbox-0.5.js" %>
-  <%= javascript_include_tag "lightbox.js"%>
+
   <!-- jquery google maps plugin -->
   <%= javascript_include_tag "markermanager.js" %>
   <%= javascript_include_tag "StyledMarker.js" %>
   <%= javascript_include_tag "jquery.metadata.js" %>
   <%= javascript_include_tag "jquery.jmapping.js" %>
+	
+	<!-- dateideas -->
+	<%= javascript_include_tag "dateideas.js"%>
 
-	<script type="text/javascript">
-	</script>
 </head>
 <body>
 	<div class="container">			
@@ -49,13 +48,13 @@
 		<div id="content" class="span-25 last">
 			<div id="sidebar_left" class="span-7">
 				<%= yield :sidebar_map %>
-				<%= yield :sidebar_cart %>
+				<%= yield :sidebar_filters %>
 			</div>
 			<div id="main" class="span-12">
 				<%= yield %>
 			</div>
 			<div id="sidebar_right" class="span-6 last">
-				<%= yield :sidebar_right %>
+				<%= yield :sidebar_cart %>
 			</div>
 		</div>
 		<hr/>
