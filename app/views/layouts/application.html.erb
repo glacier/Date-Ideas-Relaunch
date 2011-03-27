@@ -48,13 +48,13 @@
 		<div id="content" class="span-25 last">
 			<div id="sidebar_left" class="span-7">
 				<%= yield :sidebar_map %>
-				<%= yield :sidebar_cart %>
+				<%= yield :sidebar_filters %>
 			</div>
 			<div id="main" class="span-12">
 				<%= yield %>
 			</div>
 			<div id="sidebar_right" class="span-6 last">
-				<%= yield :sidebar_right %>
+				<%= yield :sidebar_cart %>
 			</div>
 		</div>
 		<hr/>

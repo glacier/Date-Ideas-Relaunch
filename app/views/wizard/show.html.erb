@@ -1,11 +1,5 @@
 <%= stylesheet_link_tag("wizard.css") %>
 
-<% content_for :sidebar_cart do %>
-	<div id="di_datecart">
-		<%= render @datecart %>
-	</div>
-<% end %>
-
 <% content_for :sidebar_map do %>
 	<div id="di_map">
 		<script type="text/javascript"> 
@@ -16,6 +10,18 @@
 		<div id="map" style="width: 270px; height: 270px"></div>
 		<%# Don't display the top three venue links ... %>
 		<%# raw display_main_map_info(@wizard.businesses) %>
+	</div>
+<% end %>
+
+<% content_for :sidebar_filters do %>
+	<!-- Nothing here yet -->
+
+	<p>TODO: Filters goes here</p>
+<% end %>
+
+<% content_for :sidebar_cart do %>
+	<div id="di_datecart">
+		<%= render 'datecarts/datecart_front' %>
 	</div>
 <% end %>
 
@@ -78,8 +84,3 @@
 <% end %>
 <%= will_paginate @wizard.businesses %>
 <!-- end of each business popup -->
-
-<% content_for :sidebar_right do %>
-	<!-- Nothing here yet -->
-	TODO: Filters goes here
-<% end %>

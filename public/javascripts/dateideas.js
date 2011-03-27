@@ -58,9 +58,8 @@ $(document).ready(function() {
 		var pos_element_origin = element.offset().top;
 		
 		scrollable.scroll(function(){
-			console.log(scrollable.scrollTop());
-			console.log(pos_element_origin);
-			
+			// console.log(scrollable.scrollTop());
+			// console.log(pos_element_origin);
 			if(scrollable.scrollTop() > pos_element_origin + 60) {
 				element.addClass("pin");
 			} else {
@@ -68,7 +67,10 @@ $(document).ready(function() {
 			}
 		});
 	}
-
-	pin($(window), $('#cart'));
-	lightbox();
+	var cart = $('#di_cart_front');
+	// console.log(cart);
+	if(cart.length){
+		pin($(window), cart);
+	}
+	// lightbox();
 });
