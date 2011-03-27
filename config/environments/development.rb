@@ -31,7 +31,7 @@ DateIdeas::Application.configure do
     :port => 587,
     :domain => "gmail.com",
     :user_name => "fullofgrace88",
-    :password => "w4Q!0ing05",
+    :password => "",
     :authentication => :login,
     :enable_starttls_auto => true
   }
