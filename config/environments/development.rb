@@ -27,11 +27,11 @@ DateIdeas::Application.configure do
   config.action_mailer.delivery_method = :smtp
   
   config.action_mailer.smtp_settings = {
-    :address => "smtp.gmail.com",
+    :address => "smtp.dateideas.ca",
     :port => 587,
-    :domain => "gmail.com",
-    :user_name => "fullofgrace88",
-    :password => "",
+    :domain => "dateideas.ca",
+    :user_name => "demo",
+    :password => "dateideas1001",
     :authentication => :login,
     :enable_starttls_auto => true
   }
