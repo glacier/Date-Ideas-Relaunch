@@ -35,7 +35,20 @@ DateIdeas::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Disable delivery errors, bad email addresses will be ignored
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = false
+
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.dateideas.ca",
+    :port => 587,
+    :domain => "dateideas.ca",
+    :user_name => "demo",
+    :password => "dateideas1001",
+    :authentication => :login,
+    :enable_starttls_auto => true
+  }
 
   # Enable threaded mode
   # config.threadsafe!
