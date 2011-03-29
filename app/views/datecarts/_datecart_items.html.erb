@@ -1,0 +1,7 @@
+<div id="datecart_items">
+	<% if @datecart.cart_items.empty? %>
+		<p>You haven't got a plan yet!</p>
+	<% else %>
+		<ul><%= render @datecart.cart_items %></ul>
+	<% end %>
+</div>
