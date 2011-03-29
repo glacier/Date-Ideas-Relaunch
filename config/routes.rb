@@ -2,10 +2,11 @@ DateIdeas::Application.routes.draw do
   resources :cart_items
 
   resources :datecarts do 
-    collection do
-      put "complete"
-    end
+    # collection do
+    #   put "complete"
+    # end
     member do
+      put "complete"
       get "email"
       get "print"
     end

@@ -76,7 +76,8 @@ class DatecartsController < ApplicationController
     @datecart.destroy
 
     respond_to do |format|
-      format.html { redirect_to(datecarts_url) }
+      format.js
+      format.html { redirect_to(current_user.profile) }
       format.xml  { head :ok }
     end
   end
@@ -84,7 +85,8 @@ class DatecartsController < ApplicationController
   # complete date planning
   def complete
     if current_user
-      @datecart = Datecart.find(current_cart)
+      y params
+      @datecart = Datecart.find(params[:id])
       @datecart.update_attributes(:user_id => current_user.id)
       if current_user.profile.nil?
         redirect_to(@datecart)

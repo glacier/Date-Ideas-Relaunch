@@ -1,1 +1,6 @@
-<%= render @datecart %>
+<%# Full display of the cart %>
+<fieldset id="cart">
+	<%= render :partial => 'datecarts/date_info' %>
+	<%= render :partial => 'datecarts/datecart_items' %>
+	<%= render :partial => 'datecarts/datecart_functions' %>
+</fieldset>

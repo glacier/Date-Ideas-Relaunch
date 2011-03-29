@@ -11,7 +11,7 @@
 	<div id="di_map">
 		<script type="text/javascript"> 
 			$(document).ready(function(){
-					$('#map').jMapping({metadata_options: {type: 'html5'}, link_selector: false, always_show_markers: true });
+				//	$('#map').jMapping({metadata_options: {type: 'html5'}, link_selector: false, always_show_markers: true });
 				});
 		</script>
 		
@@ -28,7 +28,7 @@
 
 <% content_for :sidebar_cart do %>
 	<div id="di_datecart">
-		<%= render 'datecarts/datecart_front' %>
+		<%= render @datecart %>
 	</div>
 <% end %>
 
