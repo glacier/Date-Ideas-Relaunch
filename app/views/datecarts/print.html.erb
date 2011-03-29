@@ -1,6 +1,10 @@
 <!-- print layout  -->
-<h2>Your date -- Print</h2>
-<p>Title: <%= @datecart.name %></p>
+<h2><%= @datecart.name %></h2>
 <p>When: <%= @datecart.datetime %></p>
+Where:
 <ul><%= render @datecart.cart_items %></ul>
 <p>Notes for my date: <%= @datecart.notes %></p>
+
+<div id="print_me">
+	<%= link_to('Print Me!', 'javascript:void(0);', :class => "add_button") %>
+</div>

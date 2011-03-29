@@ -67,6 +67,7 @@ $(document).ready(function() {
 			}
 		});
 	}
+	
 	var cart = $('#di_cart_front');
 	var map = $('#sidebar_left_pinned');
 	// console.log(cart);
@@ -76,5 +77,10 @@ $(document).ready(function() {
 	if(map.length){
 		pin($(window), map, "pin-map");
 	}
+	
+	//open print dialog
+	$("#print_me").click(function(){
+			window.print();
+	});
 	// lightbox();
 });

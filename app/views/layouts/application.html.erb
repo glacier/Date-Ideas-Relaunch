@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DateIdeas.ca - <%= yield(:title) ||  "Home" %></title>
-	
+  <title>DateIdeas.ca | <%= content_for?(:title) ? yield(:title) : 'Make it a great Date.' %></title>
+	<% title 'Home' %>
 	<%= stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection' %>
 	<%= stylesheet_link_tag 'compiled/print.css', :media => 'print' %>
 	<!--[if lt IE 8]> <%= stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection' %> <![endif]-->
@@ -33,7 +33,6 @@
 	
 	<!-- dateideas -->
 	<%= javascript_include_tag "dateideas.js"%>
-
 </head>
 <body>
 	<div class="container">			
