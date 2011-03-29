@@ -1,4 +1,5 @@
 <ul id="di_datecart_functions">
+	<li><%= link_to 'Clear', clear_cart_datecart_path(@datecart), :method => :delete, :remote => true %></li>
 	<li><%= link_to 'Save', complete_datecart_path(@datecart), :method => :put %></li>
 	<li><%= link_to 'Print', print_datecart_path(@datecart) %></li> 
 	<li><%= link_to 'Email', email_datecart_path(@datecart) %></li>

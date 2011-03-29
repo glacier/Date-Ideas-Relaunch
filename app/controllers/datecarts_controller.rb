@@ -82,6 +82,18 @@ class DatecartsController < ApplicationController
     end
   end
   
+  # datecart/:datecart_id/clear_cart
+  # POST
+  def clear_cart
+      @datecart = Datecart.find(params[:id])
+      @cleared_items = @datecart.cart_items.destroy_all
+      
+      respond_to do |format|
+        format.js
+        format.html {redirect_to(@datecart)}
+      end
+  end
+  
   # complete date planning
   def complete
     if current_user
@@ -89,7 +101,7 @@ class DatecartsController < ApplicationController
       @datecart = Datecart.find(params[:id])
       @datecart.update_attributes(:user_id => current_user.id)
       if current_user.profile.nil?
-        redirect_to(@datecart)
+        redirect_to(@datecart, :notice => 'Datecart was successfully updated.')
       else
         redirect_to(current_user.profile)
       end
@@ -103,7 +115,7 @@ class DatecartsController < ApplicationController
     @datecart = Datecart.find(params[:id])
     if current_user
       UserMailer.date_plan_email(current_user, @datecart).deliver
-      redirect_to(@datecart)
+      redirect_to(@datecart, :notice => 'An email of your Date Plan was sent!')
     else
       redirect_to(new_user_session_path)
     end

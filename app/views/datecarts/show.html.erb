@@ -1,6 +1,9 @@
 <%# Full display of the cart %>
+<p id="notice"><%= flash[:notice] %></p>
 <fieldset id="cart">
 	<%= render :partial => 'datecarts/date_info' %>
-	<%= render :partial => 'datecarts/datecart_items' %>
+	<div id="datecart_items">
+		<%= render :partial => 'datecarts/datecart_items' %>
+	</div>
 	<%= render :partial => 'datecarts/datecart_functions' %>
 </fieldset>

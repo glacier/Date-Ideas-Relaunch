@@ -10,7 +10,9 @@
 <fieldset id="di_cart_front">
 	<h2>Your Date</h2>
 
-	<%= render :partial => 'datecarts/datecart_items' %>
-
+	<div id="datecart_items">
+		<%= render :partial => 'datecarts/datecart_items' %>
+	</div>
+	
 	<%= render :partial => 'datecarts/datecart_functions' %>
 </fieldset>
