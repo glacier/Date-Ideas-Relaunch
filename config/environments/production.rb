@@ -35,16 +35,19 @@ DateIdeas::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Disable delivery errors, bad email addresses will be ignored
-  config.action_mailer.raise_delivery_errors = false
-
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = {
+	:host => 'getdateideas.com',
+ }
 
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-    :address => "smtp.dateideas.ca",
+    :address => "smtp.gmail.com",
     :port => 587,
     :domain => "dateideas.ca",
-    :user_name => "demo",
+    :user_name => "demo@dateideas.ca",
     :password => "dateideas1001",
     :authentication => :login,
     :enable_starttls_auto => true
