@@ -13,6 +13,10 @@
 }
 
 .di_biz {
+	background: {
+		color: $quiet-pink;
+	}
+	
 	padding-bottom: 10px;
 	
 	.di_biz_name {
@@ -42,7 +46,7 @@
 
 	
 	@include box-shadow;
-	@include border-radius(10px);
+	@include border-radius(5px);
 }
 
 .di_biz_photo {

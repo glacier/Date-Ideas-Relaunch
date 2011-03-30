@@ -1,2 +1,3 @@
-$("#di_datecart").html('<%= escape_javascript(render @datecart) %>')
-$("#add_to_date_<%= params[:business_id] %>").html("<%= escape_javascript(render 'wizard/remove') %>")
+// $("#di_datecart").html('<%= escape_javascript(render @datecart) %>')
+$("#datecart_items").html("<%= escape_javascript(render 'datecarts/datecart_items') %>")
+$("#add_to_date_<%= params[:business_id] %>").html("<%= escape_javascript(render :partial => 'wizard/remove', :locals => {:datecart => @datecart}) %>")

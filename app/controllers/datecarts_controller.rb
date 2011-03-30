@@ -76,18 +76,32 @@ class DatecartsController < ApplicationController
     @datecart.destroy
 
     respond_to do |format|
-      format.html { redirect_to(datecarts_url) }
+      format.js
+      format.html { redirect_to(current_user.profile) }
       format.xml  { head :ok }
     end
+  end
+  
+  # datecart/:datecart_id/clear_cart
+  # POST
+  def clear_cart
+      @datecart = Datecart.find(params[:id])
+      @cleared_items = @datecart.cart_items.destroy_all
+      
+      respond_to do |format|
+        format.js
+        format.html {redirect_to(@datecart)}
+      end
   end
   
   # complete date planning
   def complete
     if current_user
-      @datecart = Datecart.find(current_cart)
+      y params
+      @datecart = Datecart.find(params[:id])
       @datecart.update_attributes(:user_id => current_user.id)
       if current_user.profile.nil?
-        redirect_to(@datecart)
+        redirect_to(@datecart, :notice => 'Datecart was successfully updated.')
       else
         redirect_to(current_user.profile)
       end
@@ -95,5 +109,20 @@ class DatecartsController < ApplicationController
       # Devise not set to create users RESTFULLY 
       redirect_to(new_user_session_path)
     end
+  end
+
+  def email
+    @datecart = Datecart.find(params[:id])
+    if current_user
+      UserMailer.date_plan_email(current_user, @datecart).deliver
+      redirect_to(@datecart, :notice => 'An email of your Date Plan was sent!')
+    else
+      redirect_to(new_user_session_path)
+    end
+  end
+  
+  def print
+    # render print view
+    @datecart = Datecart.find(params[:id])
   end
 end

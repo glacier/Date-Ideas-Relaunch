@@ -1,7 +1,15 @@
 module ApplicationHelper
   # Use this function in views to dynamically set the page title
-  def title(page_title)
-    content_for(:title) { page_title }
+  def title(page_title = nil)
+    if page_title
+        content_for(:title) do 
+          page_title
+        end
+    else
+      content_for(:title) do 
+        "page_title"
+      end
+    end
   end
 
   # implemented according to railscast episode 244

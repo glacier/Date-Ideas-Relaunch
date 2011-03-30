@@ -30,13 +30,6 @@
 
 <%= render 'shared/follower_stats' %>
 
-<h1> Your planned dates </h1>
+<%= render :partial => 'date_plans', :locals => {:user => @user} %>
 
-<ul>
-<% @user.datecarts.each do |datecart| %>
-	<li><%= link_to(datecart) do %>
-			<%= datecart.name %>
-			<% end %> on <%= datecart.datetime %> </li>
-<% end %>
-</ul>
 

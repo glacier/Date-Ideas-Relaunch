@@ -1,11 +1,20 @@
 DateIdeas::Application.routes.draw do
-  resources :cart_items
+  # resources :cart_items
 
   resources :datecarts do 
-    collection do
+    # collection do
+    #   post "clear_cart"
+    # end
+    member do
+      delete "clear_cart"
       put "complete"
+      get "email"
+      get "print"
     end
+    
+    resources :cart_items
   end
+  
   
   # devise_for :admins
 

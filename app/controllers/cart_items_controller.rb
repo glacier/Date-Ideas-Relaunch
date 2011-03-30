@@ -13,7 +13,8 @@ class CartItemsController < ApplicationController
   # GET /cart_items/1
   # GET /cart_items/1.xml
   def show
-    @cart_item = CartItem.find(params[:id])
+    @datecart = Datecart.find(params[:datecart_id])
+    @cart_item = @datecart.cart_items.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -34,7 +35,9 @@ class CartItemsController < ApplicationController
 
   # GET /cart_items/1/edit
   def edit
-    @cart_item = CartItem.find(params[:id])
+    # @cart_item = CartItem.find(params[:id])
+    @datecart = Datecart.find(params[:datecart_id])
+    @cart_item = @datecart.cart_items.find(params[:id])
   end
 
   # POST /cart_items
@@ -42,7 +45,8 @@ class CartItemsController < ApplicationController
   # accept a business id
   def create
     # @cart_item = CartItem.new(params[:cart_item])
-    @datecart = current_cart
+    # @datecart = current_cart
+    @datecart = Datecart.find(params[:datecart_id])
     # y 'in cart_items#create'
     # y @datecart
     business = Business.find(params[:business_id])
@@ -83,7 +87,7 @@ class CartItemsController < ApplicationController
   # DELETE /cart_items/1
   # DELETE /cart_items/1.xml
   def destroy
-    @datecart = current_cart
+    @datecart = Datecart.find(params[:datecart_id])
     # @cart_item = CartItem.find(params[:id])
     @cart_item = @datecart.cart_items.find(params[:id])
     @cart_item.destroy

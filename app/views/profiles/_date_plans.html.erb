@@ -1,0 +1,12 @@
+<div id="date_plans">
+	<h1> Your planned dates </h1>
+	<ul>
+		<% user.datecarts.each do |datecart| %>
+			<li><%= link_to(datecart) do %>
+					<%= datecart.name %>
+					<% end %> on <%= datecart.datetime %> 
+					<%= link_to 'Delete', datecart, :confirm => 'Are you sure?', :method => :delete, :remote => true %>		
+			</li>
+		<% end %>
+	</ul>
+</div>

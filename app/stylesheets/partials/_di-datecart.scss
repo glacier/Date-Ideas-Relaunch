@@ -1,3 +1,6 @@
+#di_map {
+	margin: 5px;
+}
 #di_datecart {
 	h2 {
 		font-size: 14px;
@@ -6,19 +9,42 @@
 		padding-left: 0;
 		margin-left: 0;
 	}
-	padding-top: 10px;
+/*	padding-top: 10px;*/
 	@include no-bullets;
+
 }
 
-#sidebar_float {
+/*#sidebar_float {
 	position:absolute;
 	width:100px;
 	height:500px;
 	top:200px;
 	left:10%;
 /*	padding-top: 100px;*/
-	background:#FFFFFF;
+/*	background:#FFFFFF;
 	border:2px solid #2266AA;
 	z-index:100;
-	@include pie-clearfix;
+	@include pie-clearfix;*/
+/*}*/
+
+fieldset {
+	border:0px;
+}
+
+#di_cart_front {
+	h2 {
+		text-align: center;
+		background: {
+			color: $nav-bg-color;
+		};
+		color: white;
+		@include border-top-radius(5px);
+	}
+	margin: 5px;
+	padding: 0px;
+	
+}
+
+#di_datecart_functions {
+		@include horizontal-list;
 }
