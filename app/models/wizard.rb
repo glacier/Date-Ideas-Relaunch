@@ -1,7 +1,9 @@
 class Wizard
-  VENUES = [['Arts & Entertainment','arts_entertainment'],
-            ['Food & Drinks','food_drinks'],
-            ['Activities & Events','activities_events']]
+  VENUES = [['Food','food'],
+            ['Bars','bars'],
+            ['Arts & Entertainment','arts_entertainment'],
+            ['Activities & Events','activities_events'],
+            ['Nightlife','nightlife']]
   LOCATIONS = [['Downtown Toronto North','North End'],
                ['Downtown Toronto East','East End'],
                ['Downtown Toronto West','West End'],

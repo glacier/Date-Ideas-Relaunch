@@ -1,5 +1,5 @@
 id,parent_name,display_name,name
-2,null,Active Life,active
+2,,Active Life,active
 3,active,Amateur Sports Teams,amateursportsteams
 4,active,Amusement Parks,amusementparks
 5,active,Aquariums,aquariums
@@ -41,7 +41,7 @@ id,parent_name,display_name,name
 41,active,Swimming Pools,swimmingpools
 42,active,Tennis,tennis
 43,active,Zoos,zoos
-44,null,Arts & Entertainment,arts
+44,,Arts & Entertainment,arts
 45,arts,Arcades,arcades
 46,arts,Art Galleries,galleries
 47,arts,Botanical Gardens,gardens
@@ -58,10 +58,10 @@ id,parent_name,display_name,name
 58,arts,Social Clubs,social_clubs
 59,arts,Stadiums & Arenas,stadiumsarenas
 60,arts,Wineries,wineries
-61,null,Education,education
+61,,Education,education
 62,education,Specialty Schools,specialtyschools
 63,specialtyschools,Cooking Schools,cookingschools
-64,null,Food,food
+64,,Food,food
 65,food,Bakeries,bakeries
 66,food,"Beer, Wine & Spirits",beer_and_wine
 67,food,Breweries,breweries
@@ -77,7 +77,7 @@ id,parent_name,display_name,name
 77,gourmet,Fruits & Veggies,markets
 78,food,Tea Rooms,tea
 79,food,Wineries,wineries
-80,null,Hotels & Travel,hotelstravel
+80,,Hotels & Travel,hotelstravel
 81,hotelstravel,Airports,airports
 82,hotelstravel,Bed & Breakfast,bedbreakfast
 83,hotelstravel,Campgrounds,campgrounds
@@ -93,7 +93,7 @@ id,parent_name,display_name,name
 93,transport,Limos,limos
 94,transport,Public Transportation,publictransport
 95,transport,Taxis,taxis
-96,null,Nightlife,nightlife
+96,,Nightlife,nightlife
 97,nightlife,Bars,bars
 98,bars,Champagne Bars,champagne_bars
 99,bars,Dive Bars,divebars
@@ -109,7 +109,7 @@ id,parent_name,display_name,name
 109,nightlife,Karaoke,karaoke
 110,nightlife,Music Venues,musicvenues
 111,nightlife Halls,poolhalls
-112,null,Restaurants,restaurants
+112,,Restaurants,restaurants
 113,restaurants,Afghan,afghani
 114,restaurants,African,african
 115,restaurants,"American,New",newamerican

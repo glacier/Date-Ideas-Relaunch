@@ -11,7 +11,8 @@ class WizardController < ApplicationController
   def search
     @wizard = Wizard.new(params[:venue], params[:location], params[:price_point])
     current_page = params[:page]
-    dnaService = DateIdeas::DnaService.new
+    logger.info("creating dnaservice")
+    dnaService = DateIdeas::DnaService.new(logger)
     businesses = dnaService.search(@wizard.venue, @wizard.location, @wizard.price_point, current_page)
     @datecart = current_cart
     @wizard.businesses = businesses

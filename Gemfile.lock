@@ -53,6 +53,10 @@ GEM
     ffi (1.0.5)
       rake (>= 0.8.7)
     gem_plugin (0.2.3)
+    geokit (1.5.0)
+    geokit-rails3 (0.1.2)
+      geokit (~> 1.5.0)
+      rails (~> 3.0.0)
     haml (3.0.25)
     i18n (0.5.0)
     jquery-rails (0.2.6)
@@ -155,6 +159,7 @@ PLATFORMS
 DEPENDENCIES
   compass (>= 0.10.6)
   devise!
+  geokit-rails3
   haml
   jquery-rails (>= 0.2.6)
   mongrel (= 1.2.0.pre2)
