@@ -86,13 +86,6 @@ $(document).ready(function() {
 	});
 	// lightbox();
 	
-	//show date picker pop up
-	$('#datecart_datetime').datetimepicker({
-		ampm: true,
-		hourGrid: 4,
-		minuteGrid: 10
-	});
-
 	//close the dialog if clicked on the modal overlay
 	$(".ui-widget-overlay").live('click', function(){
 		$("#di_edit_dialog").dialog("close");
