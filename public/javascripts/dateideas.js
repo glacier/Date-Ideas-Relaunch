@@ -58,11 +58,13 @@ $(document).ready(function() {
 		var pos_element_origin = element.offset().top;
 		
 		scrollable.scroll(function(){
-			// console.log(scrollable.scrollTop());
-			// console.log(pos_element_origin);
+			// console.log("scrollable " + scrollable.scrollTop());
+			// console.log("element pos " + pos_element_origin);
 			if(scrollable.scrollTop() > pos_element_origin + 60) {
+				// console.log("pin-cart")
 				element.addClass(style);
 			} else {
+				// console.log("unpin-cart");
 				element.removeClass(style);
 			}
 		});
@@ -83,4 +85,16 @@ $(document).ready(function() {
 			window.print();
 	});
 	// lightbox();
+	
+	//show date picker pop up
+	$('#datecart_datetime').datetimepicker({
+		ampm: true,
+		hourGrid: 4,
+		minuteGrid: 10
+	});
+
+	//close the dialog if clicked on the modal overlay
+	$(".ui-widget-overlay").live('click', function(){
+		$("#di_edit_dialog").dialog("close");
+	});
 });

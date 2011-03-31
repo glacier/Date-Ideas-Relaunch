@@ -3,5 +3,5 @@
 	<li id="save"><%= link_to 'Save', complete_datecart_path(@datecart), :method => :put %></li>
 	<li id="print"><%= link_to 'Print View', print_datecart_path(@datecart) %></li> 
 	<li id="email"><%= link_to 'Email', email_datecart_path(@datecart) %></li>
-	<li id="edit"><%= link_to 'Edit', edit_datecart_path(@datecart) %></li>
+	<li id="edit"><%= link_to 'Edit', edit_datecart_path(@datecart), :remote => true %></li>
 </ul>

@@ -2,29 +2,26 @@
 <html>
 <head>
   <title>DateIdeas.ca | <%= content_for?(:title) ? yield(:title) : 'Make it a great Date.' %></title>
-	<% title 'Home' %>
 	<%= stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection' %>
 	<%= stylesheet_link_tag 'compiled/print.css', :media => 'print' %>
 	<!--[if lt IE 8]> <%= stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection' %> <![endif]-->
-	
 
-  <%#stylesheet_link_tag :all %>
-  <%# stylesheet_link_tag "di.css" %>
-  <%# javascript_include_tag :defaults %>
+  <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
   <!-- %= javascript_include_tag "http://maps.google.com/maps?file=api&v=3.3&sensor=true&key=ABQIAAAAPykA5RAR6EyCOpLSM2i1ixRNc1IYPKVGk-SIdG4lEdSAsvBTlRSSkM-qzMzVi4YWslSu0OGheV6nJg" % -->
   <%# javascript_include_tag "http://maps.google.com/maps/api/js?v=3.3&sensor=false" %>
   <%= stylesheet_link_tag    "jquery.ui.all.css" %>
-  <%= javascript_include_tag "jquery.min.js","jquery.rails.js" %>
+  <%# javascript_include_tag "jquery.min.js","jquery.rails.js" %>
   <%= javascript_include_tag "jquery-ui.min.js" %>
   <%= javascript_include_tag "jquery.ui.core.js" %>
   <%= javascript_include_tag "jquery.ui.widget.js" %>
   <%= javascript_include_tag "jquery.ui.mouse.js" %>
   <%= javascript_include_tag "jquery.ui.selectable.js" %>
   <%= javascript_include_tag "jquery.ui.accordion.js" %>
-  <%= stylesheet_link_tag    "jquery.lightbox-0.5.css" %>
-  <%= javascript_include_tag "jquery.lightbox-0.5.js" %>
-
+  <%# stylesheet_link_tag    "jquery.lightbox-0.5.css" %>
+  <%# javascript_include_tag "jquery.lightbox-0.5.js" %>
+	<%= javascript_include_tag "jquery-ui-timepicker-addon.js" %>
+	
   <!-- jquery google maps plugin -->
   <%# javascript_include_tag "markermanager.js" %>
   <%# javascript_include_tag "StyledMarker.js" %>
@@ -32,7 +29,8 @@
   <%# javascript_include_tag "jquery.jmapping.js" %>
 	
 	<!-- dateideas -->
-	<%= javascript_include_tag "dateideas.js"%>
+	<%= javascript_include_tag "dateideas.js" %>
+	
 </head>
 <body>
 	<div class="container">			

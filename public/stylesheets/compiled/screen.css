@@ -1482,6 +1482,11 @@ hr {
   background-color: #333132;
 }
 
+/* line 83, ../../../app/stylesheets/partials/_di-application.scss */
+#di_edit_dialog {
+  display: none;
+}
+
 /* line 1, ../../../app/stylesheets/partials/_di-wizard.scss */
 .di_bullet {
   width: 5em;
