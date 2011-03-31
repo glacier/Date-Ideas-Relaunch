@@ -21,13 +21,13 @@ class DateIdeas::DnaService
       puts("=========================")
       puts("business name:" << b.name)
       if (! b.categories.nil? && !b.categories[0].nil? ) 
-        puts("category:" << b.categories[0].name.to_s )
+        @logger.info("category:" << b.categories[0].name.to_s )
         categories.push( b.categories[0].name )
       else
         puts("category: is null")
       end
       if (! b.neighbourhoods.nil? && !b.neighbourhoods.empty? && !b.neighbourhoods[0].nil? ) 
-        puts("neighbourhood:" << b.neighbourhoods[0].neighbourhood.to_s )
+        @logger.info("neighbourhood:" << b.neighbourhoods[0].neighbourhood.to_s )
         neighbourhoods.push( b.neighbourhoods[0].neighbourhood )
       else
         puts("neighbourhood: is null")
@@ -44,10 +44,8 @@ class DateIdeas::DnaService
     end
     
     #grab from Yelp
-    yelp_businesses = DateIdeas::YelpAdaptor.new.search(venue_type,'test',price_point,page);
-    #businesses.concat(yelp_businesses)
-    puts("return:" << yelp_businesses.to_s )
-    #puts("return:"<< businesses.to_s)
+    yelp_businesses = DateIdeas::YelpAdaptor.new(@logger).search(CATEGORIES.fetch(venue_type),neighbourhoods,price_point,page);
+    @logger.info("return:" + yelp_businesses.to_s )
     return businesses
   end
   def get_geocode(address)

@@ -1,13 +1,16 @@
 class DateIdeas::YelpAdaptor
+  def initialize(logger)
+    @logger = logger
+  end
   def search(venue_type,neighbourhood,price_point = 'price_point',page = 'page')  
-    puts("DateIdeas::YelpAdaptor.search:")
-    puts(neighbourhood.to_s)
+    @logger.info("yelp:venue_type:" + venue_type.to_s)
+    @logger.info("yelp:neighbourhood:" + neighbourhood.to_s)
     client = Yelp::Client.new
     request = Yelp::Review::Request::Location.new(
-                  :neighborhood =>  'Yonge and Eglinton, Lawrence Park, Bedford Park, Moore Park',
+                  :neighborhood => neighbourhood[1],
                   :city => 'Toronto',
                   :state => 'ON',
-                  :term => 'restaurant',
+                  :term => venue_type,
                  :yws_id => '9VeDRJ1tPeDsdRUAkZAukA')
     response = client.search(request)
     businesses_hash = response.fetch("businesses")
