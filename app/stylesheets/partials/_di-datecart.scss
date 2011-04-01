@@ -37,8 +37,20 @@ fieldset {
 		background: {
 			color: $nav-bg-color;
 		};
-		color: white;
+		color: #FFF;
 		@include border-top-radius(5px);
+	}
+	
+	ul {
+		margin-bottom: 5px;
+	}
+	p {
+		padding:{
+			top: 15px;
+			bottom: 0px;
+		};
+		margin: 0;
+		text-align: center;
 	}
 	margin: 5px;
 	padding: 0px;
@@ -47,4 +59,8 @@ fieldset {
 
 #di_datecart_functions {
 		@include horizontal-list;
+}
+
+.loud_button {
+	@include quiet_link_button;
 }

@@ -1483,7 +1483,7 @@ hr {
 }
 
 /* line 83, ../../../app/stylesheets/partials/_di-application.scss */
-#di_edit_dialog {
+.dialog {
   display: none;
 }
 
@@ -1672,7 +1672,7 @@ fieldset {
 #di_cart_front h2 {
   text-align: center;
   background-color: #595959;
-  color: white;
+  color: #FFF;
   -moz-border-radius-topleft: 5px;
   -webkit-border-top-left-radius: 5px;
   -o-border-top-left-radius: 5px;
@@ -1686,8 +1686,19 @@ fieldset {
   -khtml-border-top-right-radius: 5px;
   border-top-right-radius: 5px;
 }
+/* line 44, ../../../app/stylesheets/partials/_di-datecart.scss */
+#di_cart_front ul {
+  margin-bottom: 5px;
+}
+/* line 47, ../../../app/stylesheets/partials/_di-datecart.scss */
+#di_cart_front p {
+  padding-top: 15px;
+  padding-bottom: 0px;
+  margin: 0;
+  text-align: center;
+}
 
-/* line 48, ../../../app/stylesheets/partials/_di-datecart.scss */
+/* line 60, ../../../app/stylesheets/partials/_di-datecart.scss */
 #di_datecart_functions {
   margin: 0;
   padding: 0;
@@ -1714,4 +1725,21 @@ fieldset {
 /* line 46, ../../../../../../.rvm/gems/ruby-1.9.2-p0@rails3/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal-list.scss */
 #di_datecart_functions li:last-child, #di_datecart_functions li.last {
   padding-right: 0;
+}
+
+/* line 64, ../../../app/stylesheets/partials/_di-datecart.scss */
+.loud_button {
+  -webkit-border-radius: 2px 2px;
+  -moz-border-radius: 2px/2px;
+  -o-border-radius: 2px/2px;
+  -ms-border-radius: 2px/2px;
+  -khtml-border-radius: 2px/2px;
+  border-radius: 2px/2px;
+  line-height: 8px;
+  margin: 0px;
+  padding: 4px 5px;
+  vertical-align: middle;
+  font-size: 12px;
+  background: #cccccc;
+  color: #FFF;
 }

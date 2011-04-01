@@ -38,9 +38,10 @@
 		<div id="header" class="span-25 last">
 			<!-- <p class="notice">Notices: <%= notice %></p> -->
 			<div id="user_nav" class="last">
-			<%= render 'shared/navigation' %>
+				<%= render 'shared/navigation' %>
 			</div>
 			<h1 id="logo"><%=image_tag "logo_beta.png"%></h1>
+			<%= yield :header %>
 		</div>
 		<hr/>
 		<div id="content" class="span-25 last">

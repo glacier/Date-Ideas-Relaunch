@@ -2,10 +2,18 @@ class WizardController < ApplicationController
   # before_filter :authenticate_user!
   def index
     @wizard = Wizard.new
+    respond_to do |format|
+      format.js
+      format.html # index.html.erb
+    end
   end
   
   def show
     @wizard = Wizard.new
+    respond_to do |format|
+      format.js
+      format.html # index.html.erb
+    end
   end
   
   def search

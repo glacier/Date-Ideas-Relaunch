@@ -1,5 +1,9 @@
 <div id="date_plans">
 	<h1> Your planned dates </h1>
+	<% if user.datecarts.empty? %>
+		<p> You have no dates planned! </p>
+	<% end %>
+	
 	<ul>
 		<% user.datecarts.each do |datecart| %>
 			<li><%= link_to(datecart) do %>

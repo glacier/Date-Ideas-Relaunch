@@ -5,6 +5,7 @@ class DatecartsController < ApplicationController
     @datecarts = Datecart.all
 
     respond_to do |format|
+      format.js
       format.html # index.html.erb
       format.xml  { render :xml => @datecarts }
     end
@@ -27,6 +28,7 @@ class DatecartsController < ApplicationController
     @datecart = Datecart.new
 
     respond_to do |format|
+      format.js
       format.html # new.html.erb
       format.xml  { render :xml => @datecart }
     end
