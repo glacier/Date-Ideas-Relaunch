@@ -1487,6 +1487,39 @@ hr {
   display: none;
 }
 
+/* line 87, ../../../app/stylesheets/partials/_di-application.scss */
+#di_venue_info {
+  margin-top: 5px;
+}
+/* line 89, ../../../app/stylesheets/partials/_di-application.scss */
+#di_venue_info ul {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 56, ../../../../../../.rvm/gems/ruby-1.9.2-p0@rails3/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal-list.scss */
+#di_venue_info ul li {
+  list-style-image: none;
+  list-style-type: none;
+  margin-left: 0px;
+  white-space: nowrap;
+  display: inline;
+  float: left;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+/* line 45, ../../../../../../.rvm/gems/ruby-1.9.2-p0@rails3/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal-list.scss */
+#di_venue_info ul li:first-child, #di_venue_info ul li.first {
+  padding-left: 0;
+}
+/* line 46, ../../../../../../.rvm/gems/ruby-1.9.2-p0@rails3/gems/compass-0.10.6/frameworks/compass/stylesheets/compass/utilities/lists/_horizontal-list.scss */
+#di_venue_info ul li:last-child, #di_venue_info ul li.last {
+  padding-right: 0;
+}
+
 /* line 1, ../../../app/stylesheets/partials/_di-wizard.scss */
 .di_bullet {
   width: 5em;

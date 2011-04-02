@@ -40,7 +40,7 @@
 			<div id="user_nav" class="last">
 				<%= render 'shared/navigation' %>
 			</div>
-			<h1 id="logo"><%=image_tag "logo_beta.png"%></h1>
+			<h1 id="logo"><%= link_to root_path do %> <%=image_tag "logo_beta.png"%><% end %></h1>
 			<%= yield :header %>
 		</div>
 		<hr/>
