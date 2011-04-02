@@ -26,7 +26,8 @@ class DatecartsController < ApplicationController
   # GET /datecarts/new.xml
   def new
     @datecart = Datecart.new
-
+      
+    session[:datecart_id] = @datecart.id
     respond_to do |format|
       format.js
       format.html # new.html.erb

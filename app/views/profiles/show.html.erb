@@ -30,8 +30,9 @@
 
 <%= render 'shared/follower_stats' %>
 
-<%= render :partial => 'date_plans', :locals => {:user => @user} %>
+<% if current_user?(@user) %>
+	<%= render :partial => 'date_plans', :locals => {:user => @user} %>
 
-<%= link_to "Start Planning!", wizard_index_path, :class => "add_button" %>
-
+	<%= link_to "Start Planning!", wizard_index_path, :class => "add_button" %>
+<% end %>
 
