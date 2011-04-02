@@ -85,9 +85,13 @@ $(document).ready(function() {
 			window.print();
 	});
 	// lightbox();
-	
+
 	//close the dialog if clicked on the modal overlay
 	$(".ui-widget-overlay").live('click', function(){
 		$("#di_edit_dialog").dialog("close");
+	});
+	
+	$('a[rel="external"]').click(function(){
+		this.target = "_blank";
 	});
 });
