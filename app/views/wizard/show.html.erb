@@ -34,13 +34,12 @@
 	</div>
 <% end %>
 
-<!-- <hr/> -->
 <!-- venue results listing -->
 <% @cart_items = @datecart.cart_items %>
 
 <% @wizard.businesses.each do |business| %>
 	<div class="di_biz">
-		<h3 class="di_biz_name"><%= business.name %></h3>
+		<h3 class="di_biz_name"><%= link_to business.name, business_path(business) %></h3>
 		<div class="di_biz_info">
 			<div class="di_biz_photo"><%= image_tag(business.photo_url) %></div>
 			<div class="di_biz_desc">

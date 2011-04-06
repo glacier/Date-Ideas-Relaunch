@@ -1,1 +1,30 @@
-Nothing here
+<h1><%= @business.name %></h1>
+<div id="di_venue_photo"><%= image_tag "generic_restaurant.jpg" %></div>
+<% content_for :sidebar_map do %>
+<div id="di_venue_map"><%= image_tag "map_generic.png"%></div>
+<% end %>
+
+<h2>About</h2>
+<div id="di_venue_excerpt"><%= @business.dna_excerpt %></div>
+
+<div id="di_venue_info">
+	<ul>
+	<li><%= @business.dna_neighbourhood %></li>
+	<li><%= @business.dna_atmosphere %></li>
+	<li><%= @business.dna_pricepoint %></li>
+	<li><%= @business.dna_category %></li>
+	<li><%= @business.dna_dresscode %></li>
+	</ul>
+</div>
+
+<h2>Leave a tip</h2>
+<div id="di_venue_tips">TODO: Tips go here</div>
+
+<h2>Date Ideas Review</h2>
+<div id="di_venue_reviews"><%= @business.dna_review %></div>
+
+<h2>From other Date-izens</h2>
+TODO
+
+<h2>Yelp</h2>
+TODO

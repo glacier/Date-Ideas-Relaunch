@@ -5,6 +5,7 @@ class DatecartsController < ApplicationController
     @datecarts = Datecart.all
 
     respond_to do |format|
+      format.js
       format.html # index.html.erb
       format.xml  { render :xml => @datecarts }
     end
@@ -25,8 +26,10 @@ class DatecartsController < ApplicationController
   # GET /datecarts/new.xml
   def new
     @datecart = Datecart.new
-
+      
+    session[:datecart_id] = @datecart.id
     respond_to do |format|
+      format.js
       format.html # new.html.erb
       format.xml  { render :xml => @datecart }
     end
@@ -97,7 +100,6 @@ class DatecartsController < ApplicationController
   # complete date planning
   def complete
     if current_user
-      y params
       @datecart = Datecart.find(params[:id])
       @datecart.update_attributes(:user_id => current_user.id)
       if current_user.profile.nil?

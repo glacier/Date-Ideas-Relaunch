@@ -1,0 +1,23 @@
+//define config object
+var dialogOpts = {
+	title: "New Date",
+	modal: true,
+	overlay: { 
+		background: "url(img/modal.png) repeat" 
+	},
+	// buttons: {
+	// 	"Ok": function() { $(this).dialog("close"); }
+	// },
+	closeOnEscape: true,
+	width: 600,
+	autoOpen: false,
+	resizable: false,
+	draggable: false,
+	open: function() {
+		//display correct dialog content
+		$("#di_new_date").html("<%= escape_javascript(render 'form', :format => :html) %>");
+	}
+};
+
+$("#di_new_date").dialog(dialogOpts);
+$("#di_new_date").dialog("open");

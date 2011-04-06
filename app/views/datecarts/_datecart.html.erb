@@ -6,13 +6,18 @@
 		width: 220px;
 	}
 </style>
+<div id="di_new_date" class="dialog"></div>
+<div id="di_add_to_date" class="dialog"></div>
 
 <fieldset id="di_cart_front">
+	<div id="di_edit_dialog" class="dialog">Dialog</div>
 	<h2>Your Date</h2>
 
 	<div id="datecart_items">
 		<%= render :partial => 'datecarts/datecart_items' %>
 	</div>
-	
 	<%= render :partial => 'datecarts/datecart_functions' %>
+	
+	<p><%= link_to "Add Something New", wizard_index_path, :class => "loud_button", :remote => true %></p>
+	<p><%= link_to "Plan New Date", new_datecart_path, :class => "loud_button", :remote => true %></p>
 </fieldset>

@@ -79,3 +79,14 @@ hr {
 		color: $footer-bg-color;
 	};
 }
+
+.dialog {
+	display: none;
+}
+
+#di_venue_info {
+	margin-top: 5px;
+	ul {
+		@include horizontal-list(4px, left);
+	}
+}
