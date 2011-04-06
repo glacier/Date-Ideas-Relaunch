@@ -1,0 +1,312 @@
+Happy Valley Fast Food Restaurant,6 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3876579,43.6711091
+Utsav,69 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.3909456,43.6711663
+Annona Resturant,Park Hyatt Hotel,4 Avenue Rd,Toronto,ON,M5R 2E8,Canada,-79.3941567,43.6687178
+Crêpes à GoGo,18 Yorkville Ave,,Toronto,ON,M4W 3Y8,Canada,-79.3881143,43.6717819
+Rawlicious,20 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3881913,43.6709974
+Craft Burger,830 Yonge St,,Toronto,ON,M4W 2H1,Canada,-79.3872275,43.6712973
+Dimmi Bar & Trattoria,140 Cumberland St,,Toronto,ON,M5R 1A8,Canada,-79.3927063,43.6699636
+Sassafraz Restaurant,100 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3910715,43.670373
+BLU Ristorante,17 Yorkville Ave,,Toronto,ON,M4W 1L4,Canada,-79.3888934,43.6716166
+Asuka Japanese Restaurant,108 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3925885,43.6708567
+Pangaea Restaurant,1221 Bay St,,Toronto,ON,M5R 3P5,Canada,-79.3894936,43.6702021
+Jacques' Bistro Du Parc,126 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3920475,43.6701495
+True Restaurant,69 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.3907759,43.6711595
+Ginza Sushi and Thai,1255 Bay St,,Toronto,ON,M5R 2B1,Canada,-79.3900942,43.6712674
+Ciao Wine Bar,133 Yorkville Ave,,Toronto,ON,M5R 1C4,Canada,-79.3935147,43.6706454
+Yamato Japanese Restaurant,18 Bellair St,,Toronto,ON,M4W 1A7,Canada,-79.3909202,43.6703114
+Cafe Nervosa,75 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.391139,43.6710721
+Flo's Diner,70 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3903015,43.6713212
+Sushi Inn,120 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3919017,43.6702139
+Vaticano,25 Bellair St,,Toronto,ON,M5R 3L3,Canada,-79.3908992,43.670366
+Spuntini Restaurant & Bar,116 Avenue Rd,,Toronto,ON,M5R 2H4,Canada,-79.3962507,43.6736263
+Fieramosca,36A Prince Arthur Ave,,Toronto,ON,M5R 1A9,Canada,-79.3973282,43.6694125
+Sotto Sotto Restaurant,116a Avenue Rd,,Toronto,ON,M5R 2H4,Canada,-79.3963050842285,43.6735754912271
+Joso's,202 Davenport Rd,,Toronto,ON,M5R 1J2,Canada,-79.396554,43.6747388
+Opus Restaurant,37 Prince Arthur Ave,,Toronto,ON,M5R 1B2,Canada,-79.3967739,43.6694842
+Live Organic Food Bar,264 Dupont St,,Toronto,ON,M5R 1V7,Canada,-79.406724,43.674929
+Mistura Restaurant,265 Davenport Rd,,Toronto,ON,M5R 1J9,Canada,-79.39833,43.674366
+Le Paradis Brasserie Bistro,166 Bedford Rd,,Toronto,ON,M5R 2K9,Canada,-79.3998786,43.6746616
+Country Style Hungarian Restaurant,450 Bloor St W,,Toronto,ON,M5S 1X8,Canada,-79.4089859,43.6656562
+Peoples Food,176 Dupont St,,Toronto,ON,M5R 2E6,Canada,-79.4035956,43.6757139
+The Host,14 Prince Arthur Ave,,Toronto,ON,M5R 1A9,Canada,-79.3958526,43.6697984
+One Love Vegetarian,854 Bathurst St,,Toronto,ON,M5R 3G3,Canada,-79.4118301,43.6666428
+Big Sushi,388 Bloor St W,,Toronto,ON,M5S 1X4,Canada,-79.4068114,43.6660545
+Insomnia Cafe,563 Bloor St W,,Toronto,ON,M5S 1Y6,Canada,-79.410955,43.665166
+Grapefruit Moon,968 Bathurst St,,Toronto,ON,M5R 3G6,Canada,-79.4129474,43.6696163
+Indian Rice Factory,414 Dupont St,,Toronto,ON,M5R 1V9,Canada,-79.411695,43.673702
+Thai Basil,467 Bloor St W,,Toronto,ON,M5S 1X9,Canada,-79.406706,43.666082
+Sushi Couture,456 Bloor St. W,,Toronto,ON,M5R,Canada,-79.4091184,43.6656787
+Ghazale Restaurant,504 Bloor St W,,Toronto,ON,M5S 1Y3,Canada,-79.410371,43.6654268
+Acme Burger,500 Bloor St W,,Toronto,ON,M5S 1Y3,Canada,-79.4101494,43.6653697
+Happy Valley Fast Food Restaurant,6 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3876579,43.6711091
+Utsav,69 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.3909456,43.6711663
+Annona Resturant,Park Hyatt Hotel,4 Avenue Rd,Toronto,ON,M5R 2E8,Canada,-79.3941567,43.6687178
+Crêpes à GoGo,18 Yorkville Ave,,Toronto,ON,M4W 3Y8,Canada,-79.3881143,43.6717819
+Rawlicious,20 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3881913,43.6709974
+Craft Burger,830 Yonge St,,Toronto,ON,M4W 2H1,Canada,-79.3872275,43.6712973
+Dimmi Bar & Trattoria,140 Cumberland St,,Toronto,ON,M5R 1A8,Canada,-79.3927063,43.6699636
+Sassafraz Restaurant,100 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3910715,43.670373
+BLU Ristorante,17 Yorkville Ave,,Toronto,ON,M4W 1L4,Canada,-79.3888934,43.6716166
+Asuka Japanese Restaurant,108 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3925885,43.6708567
+Pangaea Restaurant,1221 Bay St,,Toronto,ON,M5R 3P5,Canada,-79.3894936,43.6702021
+Jacques' Bistro Du Parc,126 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3920475,43.6701495
+True Restaurant,69 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.3907759,43.6711595
+Ginza Sushi and Thai,1255 Bay St,,Toronto,ON,M5R 2B1,Canada,-79.3900942,43.6712674
+Ciao Wine Bar,133 Yorkville Ave,,Toronto,ON,M5R 1C4,Canada,-79.3935147,43.6706454
+Yamato Japanese Restaurant,18 Bellair St,,Toronto,ON,M4W 1A7,Canada,-79.3909202,43.6703114
+Cafe Nervosa,75 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.391139,43.6710721
+Flo's Diner,70 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3903015,43.6713212
+Sushi Inn,120 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3919017,43.6702139
+Vaticano,25 Bellair St,,Toronto,ON,M5R 3L3,Canada,-79.3908992,43.670366
+Yuzu Sushi & Sake Bar,236 Adelaide St W,,Toronto,ON,M5H 1W7,Canada,-79.3884229,43.6482432
+Victor,30 Mercer St,,Toronto,ON,M5V,Canada,-79.3902114,43.6457831
+Smokeless Joe,125 John St,,Toronto,ON,M5V 2E2,Canada,-79.3904685974121,43.6482492247459
+259 Host,259 Wellington St,,Toronto,ON,M5V,Canada,-79.3906964,43.6449345
+Khao San Road,326 Adelaide St W,,Toronto,ON,M5V 1R3,Canada,-79.3921079,43.6474607
+Joe Mamas,317 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3906858,43.6463091
+Dazzling Modern Restaurant + Bar,291 King St W,,Toronto,ON,M5V 1J5,Canada,-79.389901,43.646546
+Fune Japanese Restaurant,100 Simcoe St,,Toronto,ON,M5H 3G2,Canada,-79.3865653,43.6485995
+Wayne Gretzky's Restaurant,99 Blue Jays Way,,Toronto,ON,M5V 9G9,Canada,-79.3921123,43.6458585
+N'awlins Jazz Bar & Grill,299 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3901885,43.6464091
+Aroma Fine Indian Cuisine,287 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3897641,43.6465764
+Kit Kat Italian Bar & Grill,297 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3901584,43.6464321
+Hey Lucy,295 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3901322,43.6464361
+Smoke's Poutinerie,218 Adelaide St W,,Toronto,ON,M5H 1W7,Canada,-79.3878055,43.6483749
+Le Saint Tropez,315 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3906197,43.6463113
+360 Restaurant,CN Tower,301 Front St W,Toronto,ON,M5V 2T6,Canada,-79.388469,43.644022
+Joe Badali's Ristorante Italiano & Bar,156 Front St W,,Toronto,ON,M5J 2L6,Canada,-79.3841242,43.6450971
+O & B Canteen,330 King St W,TIFF Bell Lightbox,Toronto,ON,M5V 3X2,Canada,-79.389854,43.646624
+McDonalds Restaurants,200 Front St W,,Toronto,ON,M5V 3K2,Canada,-79.3860066,43.6446094
+Tequila Sun Rise Cantina & Grill,212 Adelaide St W,,Toronto,ON,M5H 1W7,Canada,-79.3874345,43.6484633
+Happy Valley Fast Food Restaurant,6 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3876579,43.6711091
+Utsav,69 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.3909456,43.6711663
+Annona Resturant,Park Hyatt Hotel,4 Avenue Rd,Toronto,ON,M5R 2E8,Canada,-79.3941567,43.6687178
+Crêpes à GoGo,18 Yorkville Ave,,Toronto,ON,M4W 3Y8,Canada,-79.3881143,43.6717819
+Rawlicious,20 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3881913,43.6709974
+Craft Burger,830 Yonge St,,Toronto,ON,M4W 2H1,Canada,-79.3872275,43.6712973
+Dimmi Bar & Trattoria,140 Cumberland St,,Toronto,ON,M5R 1A8,Canada,-79.3927063,43.6699636
+Sassafraz Restaurant,100 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3910715,43.670373
+BLU Ristorante,17 Yorkville Ave,,Toronto,ON,M4W 1L4,Canada,-79.3888934,43.6716166
+Asuka Japanese Restaurant,108 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3925885,43.6708567
+Pangaea Restaurant,1221 Bay St,,Toronto,ON,M5R 3P5,Canada,-79.3894936,43.6702021
+Jacques' Bistro Du Parc,126 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3920475,43.6701495
+True Restaurant,69 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.3907759,43.6711595
+Ginza Sushi and Thai,1255 Bay St,,Toronto,ON,M5R 2B1,Canada,-79.3900942,43.6712674
+Ciao Wine Bar,133 Yorkville Ave,,Toronto,ON,M5R 1C4,Canada,-79.3935147,43.6706454
+Yamato Japanese Restaurant,18 Bellair St,,Toronto,ON,M4W 1A7,Canada,-79.3909202,43.6703114
+Cafe Nervosa,75 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.391139,43.6710721
+Flo's Diner,70 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3903015,43.6713212
+Sushi Inn,120 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3919017,43.6702139
+Vaticano,25 Bellair St,,Toronto,ON,M5R 3L3,Canada,-79.3908992,43.670366
+Mengrai Gourmet Thai,82 Ontario St,,Toronto,ON,M5A 2V3,Canada,-79.366817,43.654187
+Happy Valley Fast Food Restaurant,6 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3876579,43.6711091
+Il Mulino,1060 Eglinton Ave W,,Toronto,ON,M6C 2C5,Canada,-79.430707,43.7000061
+Pat's Homestyle Jamaican Restaurant,558 Queen St W,,Toronto,ON,M5V 2B5,Canada,-79.4031088,43.6473965
+Live Organic Food Bar,264 Dupont St,,Toronto,ON,M5R 1V7,Canada,-79.406724,43.674929
+China Gourmet Takeout,235 Carlton St,,Toronto,ON,M5A 2L2,Canada,-79.3683852,43.6640834
+Lee Garden Restaurant,331 Spadina Ave,,Toronto,ON,M5T 2E9,Canada,-79.3986008,43.6546858
+259 Host,259 Wellington St,,Toronto,ON,M5V,Canada,-79.3906964,43.6449345
+Curry Twist Restaurant,3034 Dundas St W,,Toronto,ON,M6P 1Z3,Canada,-79.470522,43.6654883
+Rawlicious,20 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3881913,43.6709974
+Mezes,456 Danforth Ave,,Toronto,ON,M4K 1P4,Canada,-79.3501782,43.6778961
+Wendy's Restaurant,475 Yonge St,,Toronto,ON,M4Y 1X7,Canada,-79.3836899,43.6628829
+Swatow Restaurant,309 Spadina Ave,,Toronto,ON,M5T 2E6,Canada,-79.398259,43.653774
+The Red Tea Box,696 Queen St W,,Toronto,ON,M6J 1E7,Canada,-79.408164,43.646373
+Bangkok Paradise Restaurant,506 Queen St W,,Toronto,ON,M5V 2B3,Canada,-79.4014092,43.6478253
+King's Noodle Restaurant,296 Spadina Ave,,Toronto,ON,M5T 2E7,Canada,-79.3983791,43.6531273
+Mashu Mashu Mediterranean Grill,387 Spadina Rd,,Toronto,ON,M5P 2W1,Canada,-79.4125402,43.6882402
+Hungary Thai Bar & Eatery Restaurant,196 Augusta Ave,,Toronto,ON,M5T 2L6,Canada,-79.4020873,43.6543378
+Asian Legend,418 Dundas St W,,Toronto,ON,M5T 1G7,Canada,-79.394931,43.653587
+Salad King Restaurant,335 Yonge St,,Toronto,ON,M5B 1R7,Canada,-79.38072681427,43.657533399351
+Reposado Bar & Lounge,136 Ossington Ave,,Toronto,ON,M6J 2Z5,Canada,-79.4200071,43.6473194
+Communist's Daughter,1149 Dundas St W,,Toronto,ON,M6J 1X3,Canada,-79.4209724,43.6493242
+Smokeless Joe,125 John St,,Toronto,ON,M5V 2E2,Canada,-79.3904685974121,43.6482492247459
+The Done Right Inn,861 Queen St W,,Toronto,ON,M6J 1G4,Canada,-79.411603,43.6456509
+Rasputin Vodka Bar,780 Queen St E,,Toronto,ON,M4M 1H4,Canada,-79.347206,43.6594892
+Bar 244,244 Adelaide Street W,,Toronto,ON,M5H,Canada,-79.388708,43.648182
+Crooked Star,202 Ossington Ave,,Toronto,ON,M6J 2Z7,Canada,-79.4206227,43.6488352
+Sweaty Betty's,13 Ossington Ave,,Toronto,ON,M6J 2Y8,Canada,-79.419015,43.644596
+The Dakota Tavern,249 Ossington Ave,,Toronto,ON,M6J 3A1,Canada,-79.4207667,43.6497366
+The Double Deuce,1168 Queen St W,,Toronto,ON,M6J 1J5,Canada,-79.4253304,43.6428814
+The Horseshoe Tavern,368 Queen St W,,Toronto,ON,M5V 2A2,Canada,-79.395808,43.648844
+Gladstone Hotel,1214 Queen St W,,Toronto,ON,M6J 1J6,Canada,-79.426844,43.642566
+416 Snack Bar,181 Bathurst St,,Toronto,ON,M5T,Canada,-79.4040008,43.6475463
+P.J. O'Brien's,39 Colborne St,,Toronto,ON,M5E 1E3,Canada,-79.3753471,43.6489232
+The Red Light,1185 Dundas St W,,Toronto,ON,M6J 1X3,Canada,-79.4220419,43.6493611
+The Embassy Bar,223 Augusta Ave,,Toronto,ON,M5T 2L4,Canada,-79.4018202,43.6543294
+Three Speed,1163 Bloor St W,,Toronto,ON,M6H 1M9,Canada,-79.4377696,43.6593478
+Ronnie's Local 069,69 Nassau St,,Toronto,ON,M5T 1M6,Canada,-79.4023668,43.6552101
+Real Sports Bar & Grill,15 York St,,Toronto,ON,M5J 0A3,Canada,-79.381221,43.6423463
+The Curzon,1192 Queen St E,,Toronto,ON,M4M 1L4,Canada,-79.3314674,43.6630009
+Y-Not Lounge,120 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3918433,43.6701776
+The Roof Lounge at The Park Hyatt,4 Avenue Rd,,Toronto,ON,M5S 1T9,Canada,-79.3941567,43.6687178
+Morton's Steak House,4 Avenue Rd,,Toronto,ON,M5R 2E8,Canada,-79.3941567,43.6687178
+Carens Wine & Cheese Bar,158 Cumberland St,,Toronto,ON,M5R 1A8,Canada,-79.3933967,43.6699587
+Avenue,Four Seasons Hotel,21 Avenue Rd,Toronto,ON,M5R 2G1,Canada,-79.3945574,43.6698684
+Asuka Japanese Restaurant,108 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3925885,43.6708567
+KOKO! Share Bar,81 Yorkville Ave,,Toronto,ON,M5R 1C1,Canada,-79.3914424,43.6710677
+Zaza Espresso Bar,75 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.3911715,43.67114
+Sassafraz Restaurant,100 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3910715,43.670373
+Dimmi Bar & Trattoria,140 Cumberland St,,Toronto,ON,M5R 1A8,Canada,-79.3927063,43.6699636
+Hemingway's Restaurant,142 Cumberland St,,Toronto,ON,M5R 1A8,Canada,-79.392698,43.669987
+Remy's Restaurant,115 Yorkville Ave,,Toronto,ON,M5R 1C1,Canada,-79.3928469,43.670736
+The Pilot Tavern,22 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3881995,43.6709202
+Yamato Japanese Restaurant,18 Bellair St,,Toronto,ON,M4W 1A7,Canada,-79.3909202,43.6703114
+Ciao Wine Bar,133 Yorkville Ave,,Toronto,ON,M5R 1C4,Canada,-79.3935147,43.6706454
+Shogun Japanese Restaurant,154 Cumberland St,,Toronto,ON,M5R 1A8,Canada,-79.3932713,43.6699469
+Panorama Lounge & Restaurant,55 Bloor St W,,Toronto,ON,M4W 1A5,Canada,-79.388928,43.669818
+Blarney Stone Irish Pub,12 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3879598,43.6710727
+Amber Restaurant & Bar,119 Yorkville Ave,,Toronto,ON,M5R 1C4,Canada,-79.39294,43.6707147
+Sushi Inn,120 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3919017,43.6702139
+Reposado Bar & Lounge,136 Ossington Ave,,Toronto,ON,M6J 2Z5,Canada,-79.4200071,43.6473194
+Communist's Daughter,1149 Dundas St W,,Toronto,ON,M6J 1X3,Canada,-79.4209724,43.6493242
+Smokeless Joe,125 John St,,Toronto,ON,M5V 2E2,Canada,-79.3904685974121,43.6482492247459
+The Done Right Inn,861 Queen St W,,Toronto,ON,M6J 1G4,Canada,-79.411603,43.6456509
+Rasputin Vodka Bar,780 Queen St E,,Toronto,ON,M4M 1H4,Canada,-79.347206,43.6594892
+Bar 244,244 Adelaide Street W,,Toronto,ON,M5H,Canada,-79.388708,43.648182
+Crooked Star,202 Ossington Ave,,Toronto,ON,M6J 2Z7,Canada,-79.4206227,43.6488352
+Sweaty Betty's,13 Ossington Ave,,Toronto,ON,M6J 2Y8,Canada,-79.419015,43.644596
+The Dakota Tavern,249 Ossington Ave,,Toronto,ON,M6J 3A1,Canada,-79.4207667,43.6497366
+The Double Deuce,1168 Queen St W,,Toronto,ON,M6J 1J5,Canada,-79.4253304,43.6428814
+The Horseshoe Tavern,368 Queen St W,,Toronto,ON,M5V 2A2,Canada,-79.395808,43.648844
+Gladstone Hotel,1214 Queen St W,,Toronto,ON,M6J 1J6,Canada,-79.426844,43.642566
+416 Snack Bar,181 Bathurst St,,Toronto,ON,M5T,Canada,-79.4040008,43.6475463
+P.J. O'Brien's,39 Colborne St,,Toronto,ON,M5E 1E3,Canada,-79.3753471,43.6489232
+The Red Light,1185 Dundas St W,,Toronto,ON,M6J 1X3,Canada,-79.4220419,43.6493611
+The Embassy Bar,223 Augusta Ave,,Toronto,ON,M5T 2L4,Canada,-79.4018202,43.6543294
+Three Speed,1163 Bloor St W,,Toronto,ON,M6H 1M9,Canada,-79.4377696,43.6593478
+Ronnie's Local 069,69 Nassau St,,Toronto,ON,M5T 1M6,Canada,-79.4023668,43.6552101
+Real Sports Bar & Grill,15 York St,,Toronto,ON,M5J 0A3,Canada,-79.381221,43.6423463
+The Curzon,1192 Queen St E,,Toronto,ON,M4M 1L4,Canada,-79.3314674,43.6630009
+Y-Not Lounge,120 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3918433,43.6701776
+The Roof Lounge at The Park Hyatt,4 Avenue Rd,,Toronto,ON,M5S 1T9,Canada,-79.3941567,43.6687178
+Morton's Steak House,4 Avenue Rd,,Toronto,ON,M5R 2E8,Canada,-79.3941567,43.6687178
+Carens Wine & Cheese Bar,158 Cumberland St,,Toronto,ON,M5R 1A8,Canada,-79.3933967,43.6699587
+Avenue,Four Seasons Hotel,21 Avenue Rd,Toronto,ON,M5R 2G1,Canada,-79.3945574,43.6698684
+Asuka Japanese Restaurant,108 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3925885,43.6708567
+KOKO! Share Bar,81 Yorkville Ave,,Toronto,ON,M5R 1C1,Canada,-79.3914424,43.6710677
+Zaza Espresso Bar,75 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.3911715,43.67114
+Sassafraz Restaurant,100 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3910715,43.670373
+Dimmi Bar & Trattoria,140 Cumberland St,,Toronto,ON,M5R 1A8,Canada,-79.3927063,43.6699636
+Hemingway's Restaurant,142 Cumberland St,,Toronto,ON,M5R 1A8,Canada,-79.392698,43.669987
+Remy's Restaurant,115 Yorkville Ave,,Toronto,ON,M5R 1C1,Canada,-79.3928469,43.670736
+The Pilot Tavern,22 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3881995,43.6709202
+Yamato Japanese Restaurant,18 Bellair St,,Toronto,ON,M4W 1A7,Canada,-79.3909202,43.6703114
+Ciao Wine Bar,133 Yorkville Ave,,Toronto,ON,M5R 1C4,Canada,-79.3935147,43.6706454
+Shogun Japanese Restaurant,154 Cumberland St,,Toronto,ON,M5R 1A8,Canada,-79.3932713,43.6699469
+Panorama Lounge & Restaurant,55 Bloor St W,,Toronto,ON,M4W 1A5,Canada,-79.388928,43.669818
+Blarney Stone Irish Pub,12 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3879598,43.6710727
+Amber Restaurant & Bar,119 Yorkville Ave,,Toronto,ON,M5R 1C4,Canada,-79.39294,43.6707147
+Sushi Inn,120 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3919017,43.6702139
+High Park Ski Club,1600 Bloor Street W,,Toronto,ON,M6P 1A7,Canada,-79.4549539,43.6558136
+Kelly Snowden - Christine's Fitness and Personal Training,912 Yonge St,,Toronto,ON,M4W 2H2,Canada,-79.3884391,43.6739384
+Kathleen Trotter,9 Nicholas St,,Toronto,ON,M4Y 1J6,Canada,-79.3857274,43.6654012
+Sherbourne Health Center,333 Sherbourne Street,,Toronto,ON,M5A 2S3,Canada,-79.372505,43.6622399
+lululemon athletica,342 Queen St W,,Toronto,ON,M5V 2A2,Canada,-79.3952079,43.6491634
+High Park,1873 Bloor St W,,Toronto,ON,M6P 3K7,Canada,-79.463939666748,43.6476281585089
+Active Green & Ross Tire & Auto Centre,284 Adelaide Street W,,Toronto,ON,M5V 1P6,Canada,-79.3905001,43.6478903
+Leslie Street Spit Trail,3 Leslie St,,Toronto,ON,M4M 3M9,Canada,-79.3240356445312,43.634832765343
+Wallace Emerson Community Centre,1260 Dufferin St,,Toronto,ON,M6H,Canada,-79.4384957,43.6672228
+Scott Petrie - Hatha Yoga,Yorkville Club,55 Avenue Rd,Toronto,ON,M5R 3L2,Canada,-79.395105,43.671048
+Active Surplus,347 Queen St W,,Toronto,ON,M5V 2A4,Canada,-79.392578,43.649533
+Baby & Me Prenatal,750 Spadina Ave,,Toronto,ON,M5S 2J4,Canada,-79.4038241,43.6666411
+Miles Nadal Jewish Community Centre,750 Spadina Ave,,Toronto,ON,M5S 2J2,Canada,-79.4038155,43.6666291
+CrossFit Toronto,32 Logan Ave,,Toronto,ON,M4M 2M8,Canada,-79.340456,43.655492
+Lululemon Athletica,153 Cumberland St,,Toronto,ON,M5S 1N5,Canada,-79.3931407,43.6698458
+Jimmy Simpson Recreation Centre,870 Queen St E,,Toronto,ON,M4M 3G9,Canada,-79.3455252,43.6598293
+Stanley Park,845 King St W,,Toronto,ON,M5V,Canada,-79.4092897,43.6425557
+Scadding Court Community Centre,707 Dundas St W,,Toronto,ON,M5T 2W6,Canada,-79.4051065,43.6510393
+Leslie Grove Park,1158 Queen St E,,Toronto,ON,M4M,Canada,-79.3329058,43.6626608
+Active Green & Ross Tire & Auto Centre,2639 Dundas Street W,,Toronto,ON,M6P 1X9,Canada,-79.4575649,43.6636189
+Betsey Johnson,102 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3923947,43.6708966
+Y-Not Lounge,120 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3918433,43.6701776
+The Roof Lounge at The Park Hyatt,4 Avenue Rd,,Toronto,ON,M5S 1T9,Canada,-79.3941567,43.6687178
+Carens Wine & Cheese Bar,158 Cumberland St,,Toronto,ON,M5R 1A8,Canada,-79.3933967,43.6699587
+Avenue,Four Seasons Hotel,21 Avenue Rd,Toronto,ON,M5R 2G1,Canada,-79.3945574,43.6698684
+Empire Restaurant and Lounge,50 Cumberland Street,,Toronto,ON,M4W 1J5,Canada,-79.389028,43.6707906
+Remy's Restaurant,115 Yorkville Ave,,Toronto,ON,M5R 1C1,Canada,-79.3928469,43.670736
+The Pilot Tavern,22 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3881995,43.6709202
+Hemingway's Restaurant,142 Cumberland St,,Toronto,ON,M5R 1A8,Canada,-79.392698,43.669987
+Four Seasons Hotel Toronto,21 Avenue Road,,Toronto,ON,M5R 2G1,Canada,-79.393966,43.669525
+Amber Restaurant & Bar,119 Yorkville Ave,,Toronto,ON,M5R 1C4,Canada,-79.39294,43.6707147
+Club V,88 Yorkville Avenue,,Toronto,ON,M5R 1B9,Canada,-79.3917081,43.6711214
+Blarney Stone Irish Pub,12 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3879598,43.6710727
+Panorama Lounge & Restaurant,55 Bloor St W,,Toronto,ON,M4W 1A5,Canada,-79.388928,43.669818
+Betsey Johnson,102 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3923947,43.6708966
+Footwork,425 Adelaide St W,,Toronto,ON,M5V 3C1,Canada,-79.3980002,43.6461354
+Bar 244,244 Adelaide Street W,,Toronto,ON,M5H,Canada,-79.388708,43.648182
+The Second City Mainstage Theatre,51 Mercer St,,Toronto,ON,M5V 9G9,Canada,-79.391241,43.645553
+Reposado Bar & Lounge,136 Ossington Ave,,Toronto,ON,M6J 2Z5,Canada,-79.4200071,43.6473194
+Communist's Daughter,1149 Dundas St W,,Toronto,ON,M6J 1X3,Canada,-79.4209724,43.6493242
+Smokeless Joe,125 John St,,Toronto,ON,M5V 2E2,Canada,-79.3904685974121,43.6482492247459
+One Stop Seat,5184 Yonge St,,North York,ON,M2N 5P6,Canada,-79.4131471,43.7697763
+Massey Hall,178 Victoria St,,Toronto,ON,M5B 1T6,Canada,-79.379061,43.6541698
+The Jester on Yonge,1427 Yonge St,,Toronto,ON,M4T 1Y7,Canada,-79.3939029,43.6876696
+The Drake Underground,1150 Queen St W,,Toronto,ON,M6J 1J3,Canada,-79.4245645,43.6430215
+The Mod Club,722 College St,,Toronto,ON,M6G 1C4,Canada,-79.4191595,43.6553102
+Cadillac Lounge,1296 Queen St W,,Toronto,ON,M6K 1L4,Canada,-79.4305778,43.6418388
+El Convento Rico Club,750 College St,,Toronto,ON,M6G 1C4,Canada,-79.4196266,43.6550523
+Velvet...Fine Food,932 Queen St E,,Toronto,ON,M4M 1J5,Canada,-79.3414966,43.6608471
+Kiwe Kitchen,587 King St W,,Toronto,ON,M5V 1M5,Canada,-79.4001448,43.6443213
+Alleycatz Restaurant Jazz Bar,2409 Yonge St,,Toronto,ON,M4P 2E7,Canada,-79.3990522,43.7101518
+Madison Ave Pub & Restaurant,14 Madison Ave,,Toronto,ON,M5R 2S1,Canada,-79.4032672,43.6678809
+Brant House,522 King St W,,Toronto,ON,M5V 1L7,Canada,-79.3974725,43.6449871
+The Annex Live,296 Brunswick Ave,,Toronto,ON,M5S,Canada,-79.4073523,43.6656046
+Betsey Johnson,102 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3923947,43.6708966
+Footwork,425 Adelaide St W,,Toronto,ON,M5V 3C1,Canada,-79.3980002,43.6461354
+Bar 244,244 Adelaide Street W,,Toronto,ON,M5H,Canada,-79.388708,43.648182
+The Second City Mainstage Theatre,51 Mercer St,,Toronto,ON,M5V 9G9,Canada,-79.391241,43.645553
+Reposado Bar & Lounge,136 Ossington Ave,,Toronto,ON,M6J 2Z5,Canada,-79.4200071,43.6473194
+Communist's Daughter,1149 Dundas St W,,Toronto,ON,M6J 1X3,Canada,-79.4209724,43.6493242
+Smokeless Joe,125 John St,,Toronto,ON,M5V 2E2,Canada,-79.3904685974121,43.6482492247459
+Massey Hall,178 Victoria St,,Toronto,ON,M5B 1T6,Canada,-79.379061,43.6541698
+One Stop Seat,5184 Yonge St,,North York,ON,M2N 5P6,Canada,-79.4131471,43.7697763
+The Jester on Yonge,1427 Yonge St,,Toronto,ON,M4T 1Y7,Canada,-79.3939029,43.6876696
+The Drake Underground,1150 Queen St W,,Toronto,ON,M6J 1J3,Canada,-79.4245645,43.6430215
+The Mod Club,722 College St,,Toronto,ON,M6G 1C4,Canada,-79.4191595,43.6553102
+Cadillac Lounge,1296 Queen St W,,Toronto,ON,M6K 1L4,Canada,-79.4305778,43.6418388
+El Convento Rico Club,750 College St,,Toronto,ON,M6G 1C4,Canada,-79.4196266,43.6550523
+Velvet...Fine Food,932 Queen St E,,Toronto,ON,M4M 1J5,Canada,-79.3414966,43.6608471
+Kiwe Kitchen,587 King St W,,Toronto,ON,M5V 1M5,Canada,-79.4001448,43.6443213
+Alleycatz Restaurant Jazz Bar,2409 Yonge St,,Toronto,ON,M4P 2E7,Canada,-79.3990522,43.7101518
+Madison Ave Pub & Restaurant,14 Madison Ave,,Toronto,ON,M5R 2S1,Canada,-79.4032672,43.6678809
+Brant House,522 King St W,,Toronto,ON,M5V 1L7,Canada,-79.3974725,43.6449871
+The Annex Live,296 Brunswick Ave,,Toronto,ON,M5S,Canada,-79.4073523,43.6656046
+Betsey Johnson,102 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3923947,43.6708966
+Footwork,425 Adelaide St W,,Toronto,ON,M5V 3C1,Canada,-79.3980002,43.6461354
+Bar 244,244 Adelaide Street W,,Toronto,ON,M5H,Canada,-79.388708,43.648182
+The Second City Mainstage Theatre,51 Mercer St,,Toronto,ON,M5V 9G9,Canada,-79.391241,43.645553
+Reposado Bar & Lounge,136 Ossington Ave,,Toronto,ON,M6J 2Z5,Canada,-79.4200071,43.6473194
+Communist's Daughter,1149 Dundas St W,,Toronto,ON,M6J 1X3,Canada,-79.4209724,43.6493242
+Smokeless Joe,125 John St,,Toronto,ON,M5V 2E2,Canada,-79.3904685974121,43.6482492247459
+Massey Hall,178 Victoria St,,Toronto,ON,M5B 1T6,Canada,-79.379061,43.6541698
+One Stop Seat,5184 Yonge St,,North York,ON,M2N 5P6,Canada,-79.4131471,43.7697763
+The Jester on Yonge,1427 Yonge St,,Toronto,ON,M4T 1Y7,Canada,-79.3939029,43.6876696
+The Drake Underground,1150 Queen St W,,Toronto,ON,M6J 1J3,Canada,-79.4245645,43.6430215
+The Mod Club,722 College St,,Toronto,ON,M6G 1C4,Canada,-79.4191595,43.6553102
+Cadillac Lounge,1296 Queen St W,,Toronto,ON,M6K 1L4,Canada,-79.4305778,43.6418388
+El Convento Rico Club,750 College St,,Toronto,ON,M6G 1C4,Canada,-79.4196266,43.6550523
+Velvet...Fine Food,932 Queen St E,,Toronto,ON,M4M 1J5,Canada,-79.3414966,43.6608471
+Kiwe Kitchen,587 King St W,,Toronto,ON,M5V 1M5,Canada,-79.4001448,43.6443213
+Alleycatz Restaurant Jazz Bar,2409 Yonge St,,Toronto,ON,M4P 2E7,Canada,-79.3990522,43.7101518
+Madison Ave Pub & Restaurant,14 Madison Ave,,Toronto,ON,M5R 2S1,Canada,-79.4032672,43.6678809
+Brant House,522 King St W,,Toronto,ON,M5V 1L7,Canada,-79.3974725,43.6449871
+The Annex Live,296 Brunswick Ave,,Toronto,ON,M5S,Canada,-79.4073523,43.6656046
+Rasputin Vodka Bar,780 Queen St E,,Toronto,ON,M4M 1H4,Canada,-79.347206,43.6594892
+The Opera House,735 Queen St E,,Toronto,ON,M4M 1H1,Canada,-79.3487898,43.6589973
+The Comrade,758 Queen St E,,Toronto,ON,M4M 1H4,Canada,-79.347904,43.659312
+Dora Keogh Irish Pub,141 Danforth Ave,,Toronto,ON,M4K 1N2,Canada,-79.3573938,43.6763383
+Terri O's Sports Bar & Grill,185 Danforth Ave,,Toronto,ON,M4K 1N2,Canada,-79.3563885,43.676585
+Prohibition,696 Queen St E,,Toronto,ON,M4M 1G9,Canada,-79.3502317,43.6587878
+Auld Spot Pub,347 Danforth Ave,,Toronto,ON,M4K 1N7,Canada,-79.3531172,43.6772198
+PicNic Wine Bar,747 Queen St E,,Toronto,ON,M4M 1H3,Canada,-79.3481663,43.6592503
+Allen's,143 Danforth Ave,,Toronto,ON,M4K 1N2,Canada,-79.357111,43.6765304
+Lolita's Lust,513 Danforth Ave,,Toronto,ON,M4K 1P5,Canada,-79.3487021,43.6780458
+Brass Taps Pizza Pub,495 Danforth Ave,,Toronto,ON,M4K 1P5,Canada,-79.3492794,43.6779549
+The Court Jester Pub,609 Danforth Ave,,Toronto,ON,M4K 1R2,Canada,-79.3462102,43.6786174
+The Old Nick,123 Danforth Ave,,Toronto,ON,M4K 1N2,Canada,-79.3577679,43.6762626
+Black Swan Tavern,154 Danforth Avenue,,Toronto,ON,M4K 1N1,Canada,-79.357181,43.676534
+Jilly's,106 Broadview Ave,,Toronto,ON,M4M 2G1,Canada,-79.3498514,43.6588991
+Blue Moon Pub,725 Queen Street E,,Toronto,ON,M4M 1H1,Canada,-79.3491035,43.6589433
+521 Cafe & Bar,521 Danforth Ave,,Toronto,ON,M4K 1P7,Canada,-79.348317,43.678115
+The Fox & Fiddle,535 Danforth Ave,,Toronto,ON,M4K 1P7,Canada,-79.3479217,43.6782254

@@ -16,7 +16,7 @@ class DateIdeas::DnaService
     puts("DateIdeas.search:" << venue_type.to_s << ":" << location.to_s << ":" << price_point.to_s << ":" << page.to_s)
     categories = Array.new
     neighbourhoods = Array.new
-    businesses = Business.find(:all,:joins => [:neighbourhoods,:categories], :conditions => ['neighbourhoods.district_subsection=? AND businesses.dna_pricepoint IN (?) AND (categories.parent_name IN (?) or categories.parent_name in (select 1 from categories c1 where c1.parent_name in (?)) )',location, PRICE_RANGE.fetch(price_point),CATEGORIES.fetch(venue_type),CATEGORIES.fetch(venue_type) ] ).paginate(:page => page, :per_page => 4)
+    businesses = Business.find(:all,:joins => [:neighbourhoods,:categories], :conditions => ['neighbourhoods.district_subsection=? AND businesses.dna_pricepoint IN (?) AND (categories.name IN (?) or categories.parent_name IN (?) or categories.parent_name in (select 1 from categories c1 where c1.parent_name in (?)) )',location, PRICE_RANGE.fetch(price_point),CATEGORIES.fetch(venue_type),CATEGORIES.fetch(venue_type),CATEGORIES.fetch(venue_type) ] ).paginate(:page => page, :per_page => 4)
     businesses.each do |b|
       puts("=========================")
       puts("business name:" << b.name)
@@ -45,8 +45,16 @@ class DateIdeas::DnaService
     
     #grab from Yelp
     yelp_businesses = DateIdeas::YelpAdaptor.new(@logger).search(CATEGORIES.fetch(venue_type),neighbourhoods,price_point,page);
-    @logger.info("return:" + yelp_businesses.to_s )
-    return businesses
+
+    yelp_file = File.new("#{RAILS_ROOT}/data/yelp-data.txt","a")
+
+    yelp_businesses.each do |y|
+      yelp_file.puts(y.name.to_s << "," << y.address1.to_s  << "," << y.address2.to_s << "," << y.city << "," << y.province << ","<< y.postal_code << "," << y.country << "," << y.longitude.to_s << "," << y.latitude.to_s )
+    end 
+    yelp_file.close
+
+    mbusinesses = merge(businesses, yelp_businesses)
+    return mbusinesses
   end
   def get_geocode(address)
     puts('starting geocoder call for address: '+address)
@@ -77,5 +85,29 @@ class DateIdeas::DnaService
       address.concat(", ").concat(business.country)
     end
     return address
+  end
+  def merge(businesses, yelp_businesses)
+    if( !yelp_businesses.nil? )
+      businesses.each do | b |
+        @logger.info("======*******************==========")
+        @logger.info("business.name:" +b.name.to_s)
+        @logger.info("business.longitude:" +b.longitude.to_s)
+        @logger.info("business.latitude :" +b.latitude.to_s)
+        yelp_businesses.each do |y|
+          @logger.info("===>")
+          @logger.info("yelp.name:" +y.name.to_s)
+          @logger.info("yelp.longitude:" +y.longitude.to_s)
+          @logger.info("yelp.latitude :" +y.latitude.to_s)
+          @logger.info("y.photo_url" + y.photo_url.to_s)
+          #if( b.longitude == y.longitude && b.latitude == y.latitude )
+          if( (b.name.eql?(y.name)) || (b.address1.eql?(y.address1)) || (b.longitude == y.longitude && b.latitude == y.latitude) )
+            b.photo_url = y.photo_url  
+            #merge the reviews
+            break
+          end
+        end
+      end
+    end
+    return businesses
   end
 end
