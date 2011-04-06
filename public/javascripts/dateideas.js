@@ -88,7 +88,9 @@ $(document).ready(function() {
 
 	//close the dialog if clicked on the modal overlay
 	$(".ui-widget-overlay").live('click', function(){
-		$("#di_edit_dialog").dialog("close");
+		$(".dialog").each(function() {
+			$(this).dialog("close");
+		});
 	});
 	
 	$('a[rel="external"]').click(function(){
