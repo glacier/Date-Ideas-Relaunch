@@ -1,5 +1,5 @@
 class DateIdeas::DnaService
-  PRICE_RANGE = { 'budget' => ['< $10','$10-$25'],
+  PRICE_RANGE = { 'budget' => ['0','< $10','$10-$25'],
                   'moderate' => ['$25-$50'],
                   'high_roller' => ['$50+'],
                  }
@@ -49,7 +49,19 @@ class DateIdeas::DnaService
     yelp_file = File.new("#{RAILS_ROOT}/data/yelp-data.txt","a")
 
     yelp_businesses.each do |y|
-      yelp_file.puts(y.name.to_s << "," << y.address1.to_s  << "," << y.address2.to_s << "," << y.city << "," << y.province << ","<< y.postal_code << "," << y.country << "," << y.longitude.to_s << "," << y.latitude.to_s )
+      cat = String.new
+      cdelim = ""
+      y.categories.each do |c|
+        cat.concat(cdelim).concat(c.name)
+        cdelim="|"
+      end
+      hoods = String.new
+      hdelim = ""
+      y.neighbourhoods.each do |n|
+        hoods.concat(hdelim).concat(n.neighbourhood)
+        hdelim="|"
+      end
+      yelp_file.puts(y.name.to_s << "," << y.address1.to_s  << "," << y.address2.to_s << "," << y.city << "," << y.province << ","<< y.postal_code << "," << y.country << "," << y.longitude.to_s << "," << y.latitude.to_s << "," << cat << "," << hoods)
     end 
     yelp_file.close
 

@@ -58,7 +58,9 @@ class DateIdeas::YelpAdaptor
     business.latitude = business_hash.fetch("latitude")
     business.url = business_hash.fetch("url")
     business.reviews = create_reviews(business_hash.fetch("reviews"))
-    #logger.info("business hash:" << business_hash.to_s )
+    business.categories = create_categories(business_hash.fetch("categories"))
+    business.neighbourhoods = create_neighbourhoods(business_hash.fetch("neighborhoods"))
+    @logger.info("business:" + business_hash.to_s )
     return business
   end
   def create_reviews(reviews_hash)
@@ -75,5 +77,23 @@ class DateIdeas::YelpAdaptor
     review.rating_img_url = review_hash.fetch("rating_img_url")
     review.rating_img_url_small = review_hash.fetch("rating_img_url_small")
     return review
+  end
+  def create_neighbourhoods(neighbourhoods_hash)
+    neighbourhoods = Array.new
+    neighbourhoods_hash.each do |n|
+      neighbourhood = Neighbourhood.new
+      neighbourhood.neighbourhood = n.fetch("name")
+      neighbourhoods.push(neighbourhood)
+    end
+    return neighbourhoods
+  end
+  def create_categories(categories_hash)
+    categories = Array.new
+    categories_hash.each do |c|
+      category = Category.new
+      category.name = c.fetch("category_filter")
+      categories.push(category)
+    end
+    return categories
   end
 end
