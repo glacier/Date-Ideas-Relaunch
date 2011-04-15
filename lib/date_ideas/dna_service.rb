@@ -46,24 +46,23 @@ class DateIdeas::DnaService
     #grab from Yelp
     yelp_businesses = DateIdeas::YelpAdaptor.new(@logger).search(CATEGORIES.fetch(venue_type),neighbourhoods,price_point,page);
 
-    yelp_file = File.new("#{RAILS_ROOT}/data/yelp-data.txt","a")
-
-    yelp_businesses.each do |y|
-      cat = String.new
-      cdelim = ""
-      y.categories.each do |c|
-        cat.concat(cdelim).concat(c.name)
-        cdelim="|"
-      end
-      hoods = String.new
-      hdelim = ""
-      y.neighbourhoods.each do |n|
-        hoods.concat(hdelim).concat(n.neighbourhood)
-        hdelim="|"
-      end
-      yelp_file.puts(y.name.to_s << "," << y.address1.to_s  << "," << y.address2.to_s << "," << y.city << "," << y.province << ","<< y.postal_code << "," << y.country << "," << y.longitude.to_s << "," << y.latitude.to_s << "," << cat << "," << hoods)
-    end 
-    yelp_file.close
+    #yelp_file = File.new("#{RAILS_ROOT}/data/yelp-data.txt","a")
+    #yelp_businesses.each do |y|
+    #  cat = String.new
+    #  cdelim = ""
+    #  y.categories.each do |c|
+    #    cat.concat(cdelim).concat(c.name)
+    #    cdelim="|"
+    #  end
+    #  hoods = String.new
+    #  hdelim = ""
+    #  y.neighbourhoods.each do |n|
+    #    hoods.concat(hdelim).concat(n.neighbourhood)
+    #    hdelim="|"
+    #  end
+      #yelp_file.puts(y.name.to_s << "," << y.address1.to_s  << "," << y.address2.to_s << "," << y.city << "," << y.province << ","<< y.postal_code << "," << y.country << "," << y.longitude.to_s << "," << y.latitude.to_s << "," << cat << "," << hoods)
+    #end 
+    #yelp_file.close
 
     mbusinesses = merge(businesses, yelp_businesses)
     return mbusinesses
@@ -111,10 +110,12 @@ class DateIdeas::DnaService
           @logger.info("yelp.longitude:" +y.longitude.to_s)
           @logger.info("yelp.latitude :" +y.latitude.to_s)
           @logger.info("y.photo_url" + y.photo_url.to_s)
-          #if( b.longitude == y.longitude && b.latitude == y.latitude )
           if( (b.name.eql?(y.name)) || (b.address1.eql?(y.address1)) || (b.longitude == y.longitude && b.latitude == y.latitude) )
             b.photo_url = y.photo_url  
             #merge the reviews
+            b.reviews = y.reviews
+            b.longitude = y.longitude
+            b.latitude = y.latitude
             break
           end
         end
