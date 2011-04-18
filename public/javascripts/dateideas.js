@@ -84,7 +84,7 @@ $(document).ready(function() {
 	$("#print_me").click(function(){
 			window.print();
 	});
-	#lightbox();
+	//lightbox();
 
 	//close the dialog if clicked on the modal overlay
 	$(".ui-widget-overlay").live('click', function(){

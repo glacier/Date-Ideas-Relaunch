@@ -1,5 +1,6 @@
 <% if @datecart.cart_items.empty? %>
 	<p>You haven't got a plan yet!</p>
 <% else %>
-		<ul><%= render @datecart.cart_items %></ul>
+		<!-- <ul><%# render @datecart.cart_items %></ul> -->
+		<%= raw(sort_by_category(@datecart)) %>
 <% end %>

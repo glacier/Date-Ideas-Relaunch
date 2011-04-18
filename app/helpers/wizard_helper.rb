@@ -1,4 +1,5 @@
 module WizardHelper
+
   def display(business)
     display = ""
     display << business.name
