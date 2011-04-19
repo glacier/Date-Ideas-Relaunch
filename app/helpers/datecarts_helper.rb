@@ -2,10 +2,7 @@ module DatecartsHelper
   # display date cart sorted by venue type
   def sort_by_category(datecart)
     display = ""
-    items = datecart.cart_items
-    
-    # y items
-      
+    items = datecart.cart_items      
     category_display = Hash.new
     items.each do |item|
       # only display under the first venue_type that an item is classified under
