@@ -30,15 +30,12 @@
 
 <% content_for :sidebar_cart do %>
 	<div id="di_datecart">
-		<%# Categorizing items: instead of rendering the datecart here, call the helper method %>
 		<%= render @datecart %>
 	</div>
 <% end %>
 
-<!-- venue results listing -->
+<!-- show venue detail -->
 <% @cart_items = @datecart.cart_items %>
-
-<% @wizard.businesses.each do |business| %>
 	<div class="di_biz">
 		<h3 class="di_biz_name"><%= link_to business.name, business_path(business) %></h3>
 		<div class="di_biz_info">
@@ -60,36 +57,8 @@
 			</div>
 		</div>
 	</div>
-<% end %>
-<!-- end of venue results list -->
+<!-- end of venue details -->
 
 <hr/>
-
-<!-- each business popup -->
-<% @wizard.businesses.each do |business| %>
-    <%= content_tag(:div, :id=>business.id, :class=>"popup_block") do %>
-        <table>
-          <tr>
-            <td colspan="2"><%= business.name %></td>
-          </tr>
-          <tr>
-            <td><%= image_tag(business.photo_url) %></td>
-            <td>        
-				<div>
-					<%= content_tag(:div,:id=>String.new("map").concat(business.id), :style=>"width: 350px; height: 400px")  do %>
-					<% end %>
-					<%= raw display_map_info(business) %>
-				</div>           
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2"><%= business.text_excerpt %></td>
-          </tr>
-          <tr>
-            <td colspan="2"><%= display_address(business) %></td>
-          </tr>
-        </table>
-    <% end %>
-<% end %>
 <%= will_paginate @wizard.businesses %>
 <!-- end of each business popup -->
