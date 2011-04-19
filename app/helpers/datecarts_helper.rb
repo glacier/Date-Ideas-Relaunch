@@ -1,24 +1,26 @@
 module DatecartsHelper
-  # add a helper method here to display date cart sorted by category
+  # display date cart sorted by venue type
   def sort_by_category(datecart)
-    # venue = 'food'
     display = ""
-  
+    items = datecart.cart_items      
     category_display = Hash.new
-    datecart.cart_items.each do |item|
+    items.each do |item|
+      # only display under the first venue_type that an item is classified under
+      list = item.business.venue_type.split(",")
+      venue = list[0]
       biz = item.business
-      venue = biz.venue_type
       if category_display[venue].nil?
-        category_display[venue] =  "<li>" <<  biz.name << "</li>"
+        category_display[venue] =  "<li>" <<  biz.name << " " << link_to('Remove', datecart_cart_item_path(datecart, item), :method => :delete, :remote => true) << "</li>"
       else
-        category_display[venue] << " " << "<li>" <<  biz.name << "</li>"
+        category_display[venue] << " " << "<li>" << biz.name << " " << link_to('Remove', datecart_cart_item_path(datecart, item), :method => :delete, :remote => true) << "</li>"
       end
     end
 
     category_display.each { |key,value|
-      display << "<p>" << key << "</p>" 
-      display << "<ul>" << value << "</ul>"
+     display << "<p>" << key << "</p>" 
+     display << "<ul>" << value << "</ul>"
     }
+    
     display
   end
 end
