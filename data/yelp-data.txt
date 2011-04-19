@@ -2528,3 +2528,23 @@ Tappo Wine Bar & Restaurant,55 Mill St,,Toronto,ON,M5A 3C4,Canada,-79.3580246,43
 Boiler House,55 Mill St,,Toronto,ON,M5A 3C4,Canada,-79.3608471,43.6504946,breakfast_brunch|french|steak,Distillery District
 Mill Street Brewery,55 Mill St,,Toronto,ON,M5A 3C4,Canada,-79.3609,43.649709,bars|brasseries,Distillery District
 Pure Spirits Oyster House & Grill,55 Mill St,,Toronto,ON,M5A 3C4,Canada,-79.3580246,43.6507179,seafood,Distillery District
+Yuzu Sushi & Sake Bar,236 Adelaide St W,,Toronto,ON,M5H 1W7,Canada,-79.3884229,43.6482432,sushi|japanese,Entertainment District
+Smokeless Joe,125 John St,,Toronto,ON,M5V 2E2,Canada,-79.3904685974121,43.6482492247459,bars|seafood,Entertainment District
+Victor,30 Mercer St,,Toronto,ON,M5V,Canada,-79.3902114,43.6457831,french,Entertainment District
+Ravi Soups,322 Adelaide St W,,Toronto,ON,M5V 1R1,Canada,-79.392055,43.6474836,sandwiches|soup,Entertainment District
+259 Host,259 Wellington St,,Toronto,ON,M5V,Canada,-79.3906964,43.6449345,indpak,Entertainment District
+Khao San Road,326 Adelaide St W,,Toronto,ON,M5V 1R3,Canada,-79.3921079,43.6474607,thai,Entertainment District
+Joe Mamas,317 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3906858,43.6463091,cajun,Entertainment District
+Kit Kat Italian Bar & Grill,297 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3901584,43.6464321,italian,Entertainment District
+Dazzling Modern Restaurant + Bar,291 King St W,,Toronto,ON,M5V 1J5,Canada,-79.389901,43.646546,asianfusion,Entertainment District
+Fune Japanese Restaurant,100 Simcoe St,,Toronto,ON,M5H 3G2,Canada,-79.3865653,43.6485995,catering|japanese,Entertainment District
+O & B Canteen,330 King St W,TIFF Bell Lightbox,Toronto,ON,M5V 3X2,Canada,-79.389854,43.646624,newamerican,Entertainment District
+N'awlins Jazz Bar & Grill,299 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3901885,43.6464091,tradamerican|cajun,Entertainment District
+Aroma Fine Indian Cuisine,287 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3897641,43.6465764,indpak,Entertainment District
+Wayne Gretzky's Restaurant,99 Blue Jays Way,,Toronto,ON,M5V 9G9,Canada,-79.3921123,43.6458585,tradamerican,Entertainment District
+Hey Lucy,295 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3901322,43.6464361,bars|italian|pizza,Entertainment District
+Kama,214 King St W,,Toronto,ON,M5H 3S6,Canada,-79.3865794,43.6472633,indpak,Entertainment District
+Smoke's Poutinerie,218 Adelaide St W,,Toronto,ON,M5H 1W7,Canada,-79.3878055,43.6483749,hotdogs,Entertainment District
+Le Saint Tropez,315 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3906197,43.6463113,french,Entertainment District
+360 Restaurant,CN Tower,301 Front St W,Toronto,ON,M5V 2T6,Canada,-79.388469,43.644022,newamerican,Entertainment District
+Joe Badali's Ristorante Italiano & Bar,156 Front St W,,Toronto,ON,M5J 2L6,Canada,-79.3841242,43.6450971,italian,Entertainment District
