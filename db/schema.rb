@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20110321162346) do
   create_table "cart_items", :force => true do |t|
     t.integer  "business_id"
     t.integer  "datecart_id"
+    t.string   "venue_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -1,3 +1,4 @@
+<% session['venue_type'] = params['venue'] %>
 <%= stylesheet_link_tag("wizard.css") %>
 <style>
 	.pin-map {
@@ -51,7 +52,7 @@
 					<% @cart_item = @cart_items.find(:first, :conditions => ["business_id = :b", {:b => business.id }]) %>
 					<span id="add_to_date_<%= business.id %>">
 						<% if @cart_item.nil? %>
-							<%= render :partial => 'add', :locals => {:datecart => @datecart, :business => business} %>
+							<%= render :partial => 'add', :locals => {:datecart => @datecart, :business => business, :venue => 'food'} %>
 						<% else %>
 							<%= render :partial => 'remove', :locals => {:datecart => @datecart, :business => business} %>
 						<% end %>

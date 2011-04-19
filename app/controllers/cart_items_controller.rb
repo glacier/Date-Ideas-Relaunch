@@ -51,7 +51,7 @@ class CartItemsController < ApplicationController
     # y @datecart
     business = Business.find(params[:business_id])
     if @datecart
-      @cart_item = @datecart.cart_items.build(:business => business)
+      @cart_item = @datecart.cart_items.build(:business => business, :venue_type => session[:venue_type])
     end
 
     respond_to do |format|
