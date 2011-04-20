@@ -1,0 +1,17 @@
+<h1>DataFarmer</h1>
+<%= form_tag '/data_farmer/farm', :method => :get do %>
+<table>
+  <tr>
+    <td>
+
+      <%= label_tag(:neighbourhood,"Pick a neighbourhood") %>
+    </td><td>
+      <%= select_tag(:neighbourhood, options_for_select(@neighbourhoods_select)) %>
+    </td>
+  </tr>
+    <td colspan="2">
+      <%= submit_tag("Start Farming")  %>
+    </td>
+  </tr>
+</table>
+ <% end %>

@@ -1,4 +1,4 @@
 <!-- Add button for an item in the date cart -->
 <%# link_to('Add to Date', cart_items_path(:business_id => business), :class => "add_button", :remote => true, :method => :post) %>
 
-<%= link_to('Add to Date', datecart_cart_items_url(datecart, :business_id => business.id), :class => "add_button", :remote => true, :method => :post) %>
+<%= link_to('Add to Date', datecart_cart_items_url(datecart, :business_id => business.id, :venue_type => params[:venue_type]), :class => "add_button", :remote => true, :method => :post) %>

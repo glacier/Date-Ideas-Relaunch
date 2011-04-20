@@ -44,7 +44,9 @@ class DateIdeas::DnaService
     end
     
     #grab from Yelp
-    yelp_businesses = DateIdeas::YelpAdaptor.new(@logger).search(CATEGORIES.fetch(venue_type),neighbourhoods,price_point,page);
+    yelp_adaptor = DateIdeas::YelpAdaptorV2.new('Z720kWRw-CAauOQNUbMEAQ','e7999uMADazHkmG5NDVDWBykczc','1Gj9nSZwzv_o5F_egAYGgYDBsdTdeKFZ','Yd98KQPlSAOWXfmHYsTctbihEH4', @logger ,false)
+    yelp_businesses = yelp_adaptor.search('Toronto',CATEGORIES.fetch(venue_type), neighbourhoods)
+    #yelp_businesses = DateIdeas::YelpAdaptorV2.new(@logger).search(CATEGORIES.fetch(venue_type),neighbourhoods,price_point,page);
 
     #yelp_file = File.new("#{RAILS_ROOT}/data/yelp-data.txt","a")
     #yelp_businesses.each do |y|
@@ -100,17 +102,18 @@ class DateIdeas::DnaService
   def merge(businesses, yelp_businesses)
     if( !yelp_businesses.nil? )
       businesses.each do | b |
-        @logger.info("======*******************==========")
-        @logger.info("business.name:" +b.name.to_s)
-        @logger.info("business.longitude:" +b.longitude.to_s)
-        @logger.info("business.latitude :" +b.latitude.to_s)
+#        @logger.info("======*******************==========")
+#        @logger.info("business.name:" +b.name.to_s)
+#        @logger.info("business.longitude:" +b.longitude.to_s)
+#        @logger.info("business.latitude :" +b.latitude.to_s)
         yelp_businesses.each do |y|
-          @logger.info("===>")
-          @logger.info("yelp.name:" +y.name.to_s)
-          @logger.info("yelp.longitude:" +y.longitude.to_s)
-          @logger.info("yelp.latitude :" +y.latitude.to_s)
-          @logger.info("y.photo_url" + y.photo_url.to_s)
-          if( (b.name.eql?(y.name)) || (b.address1.eql?(y.address1)) || (b.longitude == y.longitude && b.latitude == y.latitude) )
+#          @logger.info("===>")
+#          @logger.info("yelp.name:" +y.name.to_s)
+#          @logger.info("yelp.longitude:" +y.longitude.to_s)
+#          @logger.info("yelp.latitude :" +y.latitude.to_s)
+#          @logger.info("y.photo_url" + y.photo_url.to_s)
+#          @logger.info("merging:" +y.to_s )
+          if( (b.name.eql?(y.name) && b.address1.eql?(y.address1)) || (b.name.eql?(y.name) && b.longitude == y.longitude && b.latitude == y.latitude) )
             b.photo_url = y.photo_url  
             #merge the reviews
             b.reviews = y.reviews

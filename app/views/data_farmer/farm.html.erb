@@ -1,0 +1,8 @@
+<h1>DataFarmer Done</h1>
+
+<table>
+  <tr><th>Neighbourhood</th><th>offset</th></tr>
+<% @farmed_info.each do |f_info| %>
+    <tr><td><%= f_info.neighbourhood %></td><td><%= f_info.offset %></td></tr>
+<% end %>
+</table>
