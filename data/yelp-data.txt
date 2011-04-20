@@ -78,3 +78,243 @@ Smoke's Poutinerie,218 Adelaide St W,,Toronto,ON,M5H 1W7,Canada,-79.3878055,43.6
 Le Saint Tropez,315 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3906197,43.6463113,french,Entertainment District
 360 Restaurant,CN Tower,301 Front St W,Toronto,ON,M5V 2T6,Canada,-79.388469,43.644022,newamerican,Entertainment District
 Joe Badali's Ristorante Italiano & Bar,156 Front St W,,Toronto,ON,M5J 2L6,Canada,-79.3841242,43.6450971,italian,Entertainment District
+Mengrai Gourmet Thai,82 Ontario St,,Toronto,ON,M5A 2V3,Canada,-79.366817,43.654187,thai,Corktown
+Happy Valley Fast Food Restaurant,6 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3876579,43.6711091,mideastern,Yorkville
+Il Mulino,1060 Eglinton Ave W,,Toronto,ON,M6C 2C5,Canada,-79.430707,43.7000061,italian,Forest Hill
+Pat's Homestyle Jamaican Restaurant,558 Queen St W,,Toronto,ON,M5V 2B5,Canada,-79.4031088,43.6473965,caribbean,Queen Street West|Alexandra Park
+Live Organic Food Bar,264 Dupont St,,Toronto,ON,M5R 1V7,Canada,-79.406724,43.674929,vegan|raw_food,The Annex
+China Gourmet Takeout,235 Carlton St,,Toronto,ON,M5A 2L2,Canada,-79.3683852,43.6640834,chinese,
+Lee Garden Restaurant,331 Spadina Ave,,Toronto,ON,M5T 2E9,Canada,-79.3986008,43.6546858,chinese,Chinatown
+259 Host,259 Wellington St,,Toronto,ON,M5V,Canada,-79.3906964,43.6449345,indpak,Entertainment District
+Curry Twist Restaurant,3034 Dundas St W,,Toronto,ON,M6P 1Z3,Canada,-79.470522,43.6654883,indpak,High Park
+Rawlicious,20 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3881913,43.6709974,vegan|vegetarian,Yorkville
+Wendy's Restaurant,475 Yonge St,,Toronto,ON,M4Y 1X7,Canada,-79.3836899,43.6628829,hotdogs,
+Swatow Restaurant,309 Spadina Ave,,Toronto,ON,M5T 2E6,Canada,-79.398259,43.653774,chinese,Chinatown
+Mezes,456 Danforth Ave,,Toronto,ON,M4K 1P4,Canada,-79.3501782,43.6778961,greek|mediterranean,Greektown|Playter Estates
+The Red Tea Box,696 Queen St W,,Toronto,ON,M6J 1E7,Canada,-79.408164,43.646373,coffee|tea|asianfusion,
+Hungary Thai Bar & Eatery Restaurant,196 Augusta Ave,,Toronto,ON,M5T 2L6,Canada,-79.4020873,43.6543378,thai|hungarian,Kensington Market
+Bangkok Paradise Restaurant,506 Queen St W,,Toronto,ON,M5V 2B3,Canada,-79.4014092,43.6478253,thai,Queen Street West|Alexandra Park
+King's Noodle Restaurant,296 Spadina Ave,,Toronto,ON,M5T 2E7,Canada,-79.3983791,43.6531273,ethnicmarkets|chinese,Kensington Market
+Mashu Mashu Mediterranean Grill,387 Spadina Rd,,Toronto,ON,M5P 2W1,Canada,-79.4125402,43.6882402,mediterranean|greek,
+Asian Legend,418 Dundas St W,,Toronto,ON,M5T 1G7,Canada,-79.394931,43.653587,dimsum,Chinatown
+Salad King Restaurant,340 Yonge St,,Toronto,ON,M5B 1R7,Canada,-79.38072681427,43.657533399351,thai,
+Happy Valley Fast Food Restaurant,6 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3876579,43.6711091,mideastern,Yorkville
+Utsav,69 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.3909456,43.6711663,restaurants|fooddeliveryservices,Yorkville
+Annona Resturant,Park Hyatt Hotel,4 Avenue Rd,Toronto,ON,M5R 2E8,Canada,-79.3941567,43.6687178,restaurants,Yorkville
+Crêpes à GoGo,18 Yorkville Ave,,Toronto,ON,M4W 3Y8,Canada,-79.3881143,43.6717819,creperies,Yorkville
+Rawlicious,20 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3881913,43.6709974,vegan|vegetarian,Yorkville
+Craft Burger,830 Yonge St,,Toronto,ON,M4W 2H1,Canada,-79.3872275,43.6712973,burgers,Yorkville
+Dimmi Bar & Trattoria,140 Cumberland St,,Toronto,ON,M5R 1A8,Canada,-79.3927063,43.6699636,italian,Yorkville
+Sassafraz Restaurant,100 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3910715,43.670373,french,Yorkville
+BLU Ristorante,17 Yorkville Ave,,Toronto,ON,M4W 1L4,Canada,-79.3888934,43.6716166,italian,Yorkville
+Asuka Japanese Restaurant,108 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3925885,43.6708567,japanese|sushi,Yorkville
+Jacques' Bistro Du Parc,126 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3920475,43.6701495,french,Yorkville
+True Restaurant,69 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.3907759,43.6711595,italian,Yorkville
+Cafe Nervosa,75 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.391139,43.6710721,coffee|italian,Yorkville
+Ginza Sushi and Thai,1255 Bay St,,Toronto,ON,M5R 2B1,Canada,-79.3900942,43.6712674,sushi|thai,Yorkville
+Ciao Wine Bar,133 Yorkville Ave,,Toronto,ON,M5R 1C4,Canada,-79.3935147,43.6706454,italian,Yorkville
+Yamato Japanese Restaurant,18 Bellair St,,Toronto,ON,M4W 1A7,Canada,-79.3909202,43.6703114,japanese|sushi,Yorkville
+Flo's Diner,70 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3903015,43.6713212,diners,Yorkville
+Sushi Inn,120 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3919017,43.6702139,sushi|japanese,Yorkville
+Vaticano,25 Bellair St,,Toronto,ON,M5R 3L3,Canada,-79.3908992,43.670366,italian,Yorkville
+One Restaurant,116 Yorkville Ave,,Toronto,ON,M5R 1C2,Canada,-79.3931367,43.6707431,newamerican,Yorkville
+Opus Restaurant,37 Prince Arthur Ave,,Toronto,ON,M5R 1B2,Canada,-79.3967739,43.6694842,newamerican,The Annex
+Spuntini Restaurant & Bar,116 Ave Rd,,Toronto,ON,M5R 2H4,Canada,-79.3962507,43.6736263,italian,The Annex
+Fieramosca,36A Prince Arthur Ave,,Toronto,ON,M5R 1A9,Canada,-79.3973282,43.6694125,italian,The Annex
+Sotto Sotto Restaurant,116a Avenue Rd,,Toronto,ON,M5R 2H4,Canada,-79.3963050842285,43.6735754912271,italian,The Annex
+Joso's,202 Davenport Rd,,Toronto,ON,M5R 1J2,Canada,-79.396554,43.6747388,seafood,The Annex
+Live Organic Food Bar,264 Dupont St,,Toronto,ON,M5R 1V7,Canada,-79.406724,43.674929,vegan|raw_food,The Annex
+Mistura Restaurant,265 Davenport Rd,,Toronto,ON,M5R 1J9,Canada,-79.39833,43.674366,italian,The Annex
+Le Paradis Brasserie Bistro,166 Bedford Rd,,Toronto,ON,M5R 2K9,Canada,-79.3998786,43.6746616,french,The Annex
+Country Style Hungarian Restaurant,450 Bloor St W,,Toronto,ON,M5S 1X8,Canada,-79.4089859,43.6656562,hungarian,The Annex
+The Host,14 Prince Arthur Ave,,Toronto,ON,M5R 1A9,Canada,-79.3958526,43.6697984,indpak|pakistani|catering,The Annex
+Peoples Food,176 Dupont St,,Toronto,ON,M5R 2E6,Canada,-79.4035956,43.6757139,diners|breakfast_brunch,The Annex
+One Love Vegetarian,854 Bathurst St,,Toronto,ON,M5R 3G3,Canada,-79.4118301,43.6666428,caribbean|vegetarian,The Annex
+Big Sushi,388 Bloor St W,,Toronto,ON,M5S 1X4,Canada,-79.4068114,43.6660545,sushi,The Annex
+Grapefruit Moon,968 Bathurst St,,Toronto,ON,M5R 3G6,Canada,-79.4129474,43.6696163,breakfast_brunch,The Annex
+Insomnia Cafe,563 Bloor St W,,Toronto,ON,M5S 1Y6,Canada,-79.410955,43.665166,french,The Annex
+Thai Basil,467 Bloor St W,,Toronto,ON,M5S 1X9,Canada,-79.406706,43.666082,thai,The Annex
+Indian Rice Factory,414 Dupont St,,Toronto,ON,M5R 1V9,Canada,-79.411695,43.673702,indpak|pakistani,The Annex
+Sushi Couture,456 Bloor St W,,Toronto,ON,M5R,Canada,-79.4091529,43.665674,sushi|japanese,The Annex
+Ghazale Restaurant,504 Bloor St W,,Toronto,ON,M5S 1Y3,Canada,-79.410371,43.6654268,mideastern,The Annex
+Acme Burger,500 Bloor St W,,Toronto,ON,M5S 1Y3,Canada,-79.4101494,43.6653697,burgers,The Annex
+Happy Valley Fast Food Restaurant,6 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3876579,43.6711091,mideastern,Yorkville
+Utsav,69 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.3909456,43.6711663,restaurants|fooddeliveryservices,Yorkville
+Annona Resturant,Park Hyatt Hotel,4 Avenue Rd,Toronto,ON,M5R 2E8,Canada,-79.3941567,43.6687178,restaurants,Yorkville
+Crêpes à GoGo,18 Yorkville Ave,,Toronto,ON,M4W 3Y8,Canada,-79.3881143,43.6717819,creperies,Yorkville
+Rawlicious,20 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3881913,43.6709974,vegan|vegetarian,Yorkville
+Craft Burger,830 Yonge St,,Toronto,ON,M4W 2H1,Canada,-79.3872275,43.6712973,burgers,Yorkville
+Dimmi Bar & Trattoria,140 Cumberland St,,Toronto,ON,M5R 1A8,Canada,-79.3927063,43.6699636,italian,Yorkville
+Sassafraz Restaurant,100 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3910715,43.670373,french,Yorkville
+BLU Ristorante,17 Yorkville Ave,,Toronto,ON,M4W 1L4,Canada,-79.3888934,43.6716166,italian,Yorkville
+Asuka Japanese Restaurant,108 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3925885,43.6708567,japanese|sushi,Yorkville
+Jacques' Bistro Du Parc,126 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3920475,43.6701495,french,Yorkville
+True Restaurant,69 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.3907759,43.6711595,italian,Yorkville
+Cafe Nervosa,75 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.391139,43.6710721,coffee|italian,Yorkville
+Ginza Sushi and Thai,1255 Bay St,,Toronto,ON,M5R 2B1,Canada,-79.3900942,43.6712674,sushi|thai,Yorkville
+Ciao Wine Bar,133 Yorkville Ave,,Toronto,ON,M5R 1C4,Canada,-79.3935147,43.6706454,italian,Yorkville
+Yamato Japanese Restaurant,18 Bellair St,,Toronto,ON,M4W 1A7,Canada,-79.3909202,43.6703114,japanese|sushi,Yorkville
+Flo's Diner,70 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3903015,43.6713212,diners,Yorkville
+Sushi Inn,120 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3919017,43.6702139,sushi|japanese,Yorkville
+Vaticano,25 Bellair St,,Toronto,ON,M5R 3L3,Canada,-79.3908992,43.670366,italian,Yorkville
+One Restaurant,116 Yorkville Ave,,Toronto,ON,M5R 1C2,Canada,-79.3931367,43.6707431,newamerican,Yorkville
+Yuzu Sushi & Sake Bar,236 Adelaide St W,,Toronto,ON,M5H 1W7,Canada,-79.3884229,43.6482432,sushi|japanese,Entertainment District
+Victor,30 Mercer St,,Toronto,ON,M5V,Canada,-79.3902114,43.6457831,french,Entertainment District
+Smokeless Joe,125 John St,,Toronto,ON,M5V 2E2,Canada,-79.3904685974121,43.6482492247459,bars|seafood,Entertainment District
+Ravi Soups,322 Adelaide St W,,Toronto,ON,M5V 1R1,Canada,-79.392055,43.6474836,sandwiches|soup,Entertainment District
+259 Host,259 Wellington St,,Toronto,ON,M5V,Canada,-79.3906964,43.6449345,indpak,Entertainment District
+Khao San Road,326 Adelaide St W,,Toronto,ON,M5V 1R3,Canada,-79.3921079,43.6474607,thai,Entertainment District
+Joe Mamas,317 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3906858,43.6463091,cajun,Entertainment District
+Kit Kat Italian Bar & Grill,297 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3901584,43.6464321,italian,Entertainment District
+Dazzling Modern Restaurant + Bar,291 King St W,,Toronto,ON,M5V 1J5,Canada,-79.389901,43.646546,asianfusion,Entertainment District
+Fune Japanese Restaurant,100 Simcoe St,,Toronto,ON,M5H 3G2,Canada,-79.3865653,43.6485995,catering|japanese,Entertainment District
+Wayne Gretzky's Restaurant,99 Blue Jays Way,,Toronto,ON,M5V 9G9,Canada,-79.3921123,43.6458585,tradamerican,Entertainment District
+O & B Canteen,330 King St W,TIFF Bell Lightbox,Toronto,ON,M5V 3X2,Canada,-79.389854,43.646624,newamerican,Entertainment District
+N'awlins Jazz Bar & Grill,299 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3901885,43.6464091,tradamerican|cajun,Entertainment District
+Aroma Fine Indian Cuisine,287 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3897641,43.6465764,indpak,Entertainment District
+Kama,214 King St W,,Toronto,ON,M5H 3S6,Canada,-79.3865794,43.6472633,indpak|pakistani,Entertainment District
+Hey Lucy,295 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3901322,43.6464361,bars|italian|pizza,Entertainment District
+Smoke's Poutinerie,218 Adelaide St W,,Toronto,ON,M5H 1W7,Canada,-79.3878055,43.6483749,hotdogs,Entertainment District
+Le Saint Tropez,315 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3906197,43.6463113,french,Entertainment District
+360 Restaurant,CN Tower,301 Front St W,Toronto,ON,M5V 2T6,Canada,-79.388469,43.644022,newamerican,Entertainment District
+Joe Badali's Ristorante Italiano & Bar,156 Front St W,,Toronto,ON,M5J 2L6,Canada,-79.3841242,43.6450971,italian,Entertainment District
+Happy Valley Fast Food Restaurant,6 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3876579,43.6711091,mideastern,Yorkville
+Utsav,69 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.3909456,43.6711663,restaurants|fooddeliveryservices,Yorkville
+Annona Resturant,Park Hyatt Hotel,4 Avenue Rd,Toronto,ON,M5R 2E8,Canada,-79.3941567,43.6687178,restaurants,Yorkville
+Crêpes à GoGo,18 Yorkville Ave,,Toronto,ON,M4W 3Y8,Canada,-79.3881143,43.6717819,creperies,Yorkville
+Rawlicious,20 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3881913,43.6709974,vegan|vegetarian,Yorkville
+Craft Burger,830 Yonge St,,Toronto,ON,M4W 2H1,Canada,-79.3872275,43.6712973,burgers,Yorkville
+Dimmi Bar & Trattoria,140 Cumberland St,,Toronto,ON,M5R 1A8,Canada,-79.3927063,43.6699636,italian,Yorkville
+Sassafraz Restaurant,100 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3910715,43.670373,french,Yorkville
+BLU Ristorante,17 Yorkville Ave,,Toronto,ON,M4W 1L4,Canada,-79.3888934,43.6716166,italian,Yorkville
+Asuka Japanese Restaurant,108 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3925885,43.6708567,japanese|sushi,Yorkville
+Jacques' Bistro Du Parc,126 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3920475,43.6701495,french,Yorkville
+True Restaurant,69 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.3907759,43.6711595,italian,Yorkville
+Cafe Nervosa,75 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.391139,43.6710721,coffee|italian,Yorkville
+Ginza Sushi and Thai,1255 Bay St,,Toronto,ON,M5R 2B1,Canada,-79.3900942,43.6712674,sushi|thai,Yorkville
+Ciao Wine Bar,133 Yorkville Ave,,Toronto,ON,M5R 1C4,Canada,-79.3935147,43.6706454,italian,Yorkville
+Yamato Japanese Restaurant,18 Bellair St,,Toronto,ON,M4W 1A7,Canada,-79.3909202,43.6703114,japanese|sushi,Yorkville
+Flo's Diner,70 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3903015,43.6713212,diners,Yorkville
+Sushi Inn,120 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3919017,43.6702139,sushi|japanese,Yorkville
+Vaticano,25 Bellair St,,Toronto,ON,M5R 3L3,Canada,-79.3908992,43.670366,italian,Yorkville
+One Restaurant,116 Yorkville Ave,,Toronto,ON,M5R 1C2,Canada,-79.3931367,43.6707431,newamerican,Yorkville
+Happy Valley Fast Food Restaurant,6 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3876579,43.6711091,mideastern,Yorkville
+Utsav,69 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.3909456,43.6711663,restaurants|fooddeliveryservices,Yorkville
+Annona Resturant,Park Hyatt Hotel,4 Avenue Rd,Toronto,ON,M5R 2E8,Canada,-79.3941567,43.6687178,restaurants,Yorkville
+Crêpes à GoGo,18 Yorkville Ave,,Toronto,ON,M4W 3Y8,Canada,-79.3881143,43.6717819,creperies,Yorkville
+Rawlicious,20 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3881913,43.6709974,vegan|vegetarian,Yorkville
+Craft Burger,830 Yonge St,,Toronto,ON,M4W 2H1,Canada,-79.3872275,43.6712973,burgers,Yorkville
+Dimmi Bar & Trattoria,140 Cumberland St,,Toronto,ON,M5R 1A8,Canada,-79.3927063,43.6699636,italian,Yorkville
+Sassafraz Restaurant,100 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3910715,43.670373,french,Yorkville
+BLU Ristorante,17 Yorkville Ave,,Toronto,ON,M4W 1L4,Canada,-79.3888934,43.6716166,italian,Yorkville
+Asuka Japanese Restaurant,108 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3925885,43.6708567,japanese|sushi,Yorkville
+Jacques' Bistro Du Parc,126 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3920475,43.6701495,french,Yorkville
+True Restaurant,69 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.3907759,43.6711595,italian,Yorkville
+Cafe Nervosa,75 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.391139,43.6710721,coffee|italian,Yorkville
+Ginza Sushi and Thai,1255 Bay St,,Toronto,ON,M5R 2B1,Canada,-79.3900942,43.6712674,sushi|thai,Yorkville
+Ciao Wine Bar,133 Yorkville Ave,,Toronto,ON,M5R 1C4,Canada,-79.3935147,43.6706454,italian,Yorkville
+Yamato Japanese Restaurant,18 Bellair St,,Toronto,ON,M4W 1A7,Canada,-79.3909202,43.6703114,japanese|sushi,Yorkville
+Flo's Diner,70 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3903015,43.6713212,diners,Yorkville
+Sushi Inn,120 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3919017,43.6702139,sushi|japanese,Yorkville
+Vaticano,25 Bellair St,,Toronto,ON,M5R 3L3,Canada,-79.3908992,43.670366,italian,Yorkville
+One Restaurant,116 Yorkville Ave,,Toronto,ON,M5R 1C2,Canada,-79.3931367,43.6707431,newamerican,Yorkville
+Happy Valley Fast Food Restaurant,6 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3876579,43.6711091,mideastern,Yorkville
+Utsav,69 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.3909456,43.6711663,restaurants|fooddeliveryservices,Yorkville
+Annona Resturant,Park Hyatt Hotel,4 Avenue Rd,Toronto,ON,M5R 2E8,Canada,-79.3941567,43.6687178,restaurants,Yorkville
+Crêpes à GoGo,18 Yorkville Ave,,Toronto,ON,M4W 3Y8,Canada,-79.3881143,43.6717819,creperies,Yorkville
+Rawlicious,20 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3881913,43.6709974,vegan|vegetarian,Yorkville
+Craft Burger,830 Yonge St,,Toronto,ON,M4W 2H1,Canada,-79.3872275,43.6712973,burgers,Yorkville
+Dimmi Bar & Trattoria,140 Cumberland St,,Toronto,ON,M5R 1A8,Canada,-79.3927063,43.6699636,italian,Yorkville
+Sassafraz Restaurant,100 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3910715,43.670373,french,Yorkville
+BLU Ristorante,17 Yorkville Ave,,Toronto,ON,M4W 1L4,Canada,-79.3888934,43.6716166,italian,Yorkville
+Asuka Japanese Restaurant,108 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3925885,43.6708567,japanese|sushi,Yorkville
+Jacques' Bistro Du Parc,126 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3920475,43.6701495,french,Yorkville
+True Restaurant,69 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.3907759,43.6711595,italian,Yorkville
+Cafe Nervosa,75 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.391139,43.6710721,coffee|italian,Yorkville
+Ginza Sushi and Thai,1255 Bay St,,Toronto,ON,M5R 2B1,Canada,-79.3900942,43.6712674,sushi|thai,Yorkville
+Ciao Wine Bar,133 Yorkville Ave,,Toronto,ON,M5R 1C4,Canada,-79.3935147,43.6706454,italian,Yorkville
+Yamato Japanese Restaurant,18 Bellair St,,Toronto,ON,M4W 1A7,Canada,-79.3909202,43.6703114,japanese|sushi,Yorkville
+Flo's Diner,70 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3903015,43.6713212,diners,Yorkville
+Sushi Inn,120 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3919017,43.6702139,sushi|japanese,Yorkville
+Vaticano,25 Bellair St,,Toronto,ON,M5R 3L3,Canada,-79.3908992,43.670366,italian,Yorkville
+One Restaurant,116 Yorkville Ave,,Toronto,ON,M5R 1C2,Canada,-79.3931367,43.6707431,newamerican,Yorkville
+Opus Restaurant,37 Prince Arthur Ave,,Toronto,ON,M5R 1B2,Canada,-79.3967739,43.6694842,newamerican,The Annex
+Spuntini Restaurant & Bar,116 Ave Rd,,Toronto,ON,M5R 2H4,Canada,-79.3962507,43.6736263,italian,The Annex
+Fieramosca,36A Prince Arthur Ave,,Toronto,ON,M5R 1A9,Canada,-79.3973282,43.6694125,italian,The Annex
+Sotto Sotto Restaurant,116a Avenue Rd,,Toronto,ON,M5R 2H4,Canada,-79.3963050842285,43.6735754912271,italian,The Annex
+Joso's,202 Davenport Rd,,Toronto,ON,M5R 1J2,Canada,-79.396554,43.6747388,seafood,The Annex
+Live Organic Food Bar,264 Dupont St,,Toronto,ON,M5R 1V7,Canada,-79.406724,43.674929,vegan|raw_food,The Annex
+Mistura Restaurant,265 Davenport Rd,,Toronto,ON,M5R 1J9,Canada,-79.39833,43.674366,italian,The Annex
+Le Paradis Brasserie Bistro,166 Bedford Rd,,Toronto,ON,M5R 2K9,Canada,-79.3998786,43.6746616,french,The Annex
+Country Style Hungarian Restaurant,450 Bloor St W,,Toronto,ON,M5S 1X8,Canada,-79.4089859,43.6656562,hungarian,The Annex
+The Host,14 Prince Arthur Ave,,Toronto,ON,M5R 1A9,Canada,-79.3958526,43.6697984,indpak|pakistani|catering,The Annex
+Peoples Food,176 Dupont St,,Toronto,ON,M5R 2E6,Canada,-79.4035956,43.6757139,diners|breakfast_brunch,The Annex
+One Love Vegetarian,854 Bathurst St,,Toronto,ON,M5R 3G3,Canada,-79.4118301,43.6666428,caribbean|vegetarian,The Annex
+Big Sushi,388 Bloor St W,,Toronto,ON,M5S 1X4,Canada,-79.4068114,43.6660545,sushi,The Annex
+Grapefruit Moon,968 Bathurst St,,Toronto,ON,M5R 3G6,Canada,-79.4129474,43.6696163,breakfast_brunch,The Annex
+Insomnia Cafe,563 Bloor St W,,Toronto,ON,M5S 1Y6,Canada,-79.410955,43.665166,french,The Annex
+Thai Basil,467 Bloor St W,,Toronto,ON,M5S 1X9,Canada,-79.406706,43.666082,thai,The Annex
+Indian Rice Factory,414 Dupont St,,Toronto,ON,M5R 1V9,Canada,-79.411695,43.673702,indpak|pakistani,The Annex
+Sushi Couture,456 Bloor St W,,Toronto,ON,M5R,Canada,-79.4091529,43.665674,sushi|japanese,The Annex
+Ghazale Restaurant,504 Bloor St W,,Toronto,ON,M5S 1Y3,Canada,-79.410371,43.6654268,mideastern,The Annex
+Acme Burger,500 Bloor St W,,Toronto,ON,M5S 1Y3,Canada,-79.4101494,43.6653697,burgers,The Annex
+Happy Valley Fast Food Restaurant,6 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3876579,43.6711091,mideastern,Yorkville
+Utsav,69 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.3909456,43.6711663,restaurants|fooddeliveryservices,Yorkville
+Annona Resturant,Park Hyatt Hotel,4 Avenue Rd,Toronto,ON,M5R 2E8,Canada,-79.3941567,43.6687178,restaurants,Yorkville
+Crêpes à GoGo,18 Yorkville Ave,,Toronto,ON,M4W 3Y8,Canada,-79.3881143,43.6717819,creperies,Yorkville
+Rawlicious,20 Cumberland St,,Toronto,ON,M4W 1J5,Canada,-79.3881913,43.6709974,vegan|vegetarian,Yorkville
+Craft Burger,830 Yonge St,,Toronto,ON,M4W 2H1,Canada,-79.3872275,43.6712973,burgers,Yorkville
+Dimmi Bar & Trattoria,140 Cumberland St,,Toronto,ON,M5R 1A8,Canada,-79.3927063,43.6699636,italian,Yorkville
+Sassafraz Restaurant,100 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3910715,43.670373,french,Yorkville
+BLU Ristorante,17 Yorkville Ave,,Toronto,ON,M4W 1L4,Canada,-79.3888934,43.6716166,italian,Yorkville
+Asuka Japanese Restaurant,108 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3925885,43.6708567,japanese|sushi,Yorkville
+Jacques' Bistro Du Parc,126 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3920475,43.6701495,french,Yorkville
+True Restaurant,69 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.3907759,43.6711595,italian,Yorkville
+Cafe Nervosa,75 Yorkville Ave,,Toronto,ON,M5R 1B8,Canada,-79.391139,43.6710721,coffee|italian,Yorkville
+Ginza Sushi and Thai,1255 Bay St,,Toronto,ON,M5R 2B1,Canada,-79.3900942,43.6712674,sushi|thai,Yorkville
+Ciao Wine Bar,133 Yorkville Ave,,Toronto,ON,M5R 1C4,Canada,-79.3935147,43.6706454,italian,Yorkville
+Yamato Japanese Restaurant,18 Bellair St,,Toronto,ON,M4W 1A7,Canada,-79.3909202,43.6703114,japanese|sushi,Yorkville
+Flo's Diner,70 Yorkville Ave,,Toronto,ON,M5R 1B9,Canada,-79.3903015,43.6713212,diners,Yorkville
+Sushi Inn,120 Cumberland St,,Toronto,ON,M5R 1A6,Canada,-79.3919017,43.6702139,sushi|japanese,Yorkville
+Vaticano,25 Bellair St,,Toronto,ON,M5R 3L3,Canada,-79.3908992,43.670366,italian,Yorkville
+One Restaurant,116 Yorkville Ave,,Toronto,ON,M5R 1C2,Canada,-79.3931367,43.6707431,newamerican,Yorkville
+Yuzu Sushi & Sake Bar,236 Adelaide St W,,Toronto,ON,M5H 1W7,Canada,-79.3884229,43.6482432,sushi|japanese,Entertainment District
+Victor,30 Mercer St,,Toronto,ON,M5V,Canada,-79.3902114,43.6457831,french,Entertainment District
+Smokeless Joe,125 John St,,Toronto,ON,M5V 2E2,Canada,-79.3904685974121,43.6482492247459,bars|seafood,Entertainment District
+Ravi Soups,322 Adelaide St W,,Toronto,ON,M5V 1R1,Canada,-79.392055,43.6474836,sandwiches|soup,Entertainment District
+259 Host,259 Wellington St,,Toronto,ON,M5V,Canada,-79.3906964,43.6449345,indpak,Entertainment District
+Khao San Road,326 Adelaide St W,,Toronto,ON,M5V 1R3,Canada,-79.3921079,43.6474607,thai,Entertainment District
+Joe Mamas,317 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3906858,43.6463091,cajun,Entertainment District
+Kit Kat Italian Bar & Grill,297 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3901584,43.6464321,italian,Entertainment District
+Dazzling Modern Restaurant + Bar,291 King St W,,Toronto,ON,M5V 1J5,Canada,-79.389901,43.646546,asianfusion,Entertainment District
+Fune Japanese Restaurant,100 Simcoe St,,Toronto,ON,M5H 3G2,Canada,-79.3865653,43.6485995,catering|japanese,Entertainment District
+Wayne Gretzky's Restaurant,99 Blue Jays Way,,Toronto,ON,M5V 9G9,Canada,-79.3921123,43.6458585,tradamerican,Entertainment District
+O & B Canteen,330 King St W,TIFF Bell Lightbox,Toronto,ON,M5V 3X2,Canada,-79.389854,43.646624,newamerican,Entertainment District
+N'awlins Jazz Bar & Grill,299 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3901885,43.6464091,tradamerican|cajun,Entertainment District
+Aroma Fine Indian Cuisine,287 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3897641,43.6465764,indpak,Entertainment District
+Kama,214 King St W,,Toronto,ON,M5H 3S6,Canada,-79.3865794,43.6472633,indpak|pakistani,Entertainment District
+Hey Lucy,295 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3901322,43.6464361,bars|italian|pizza,Entertainment District
+Smoke's Poutinerie,218 Adelaide St W,,Toronto,ON,M5H 1W7,Canada,-79.3878055,43.6483749,hotdogs,Entertainment District
+Le Saint Tropez,315 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3906197,43.6463113,french,Entertainment District
+360 Restaurant,CN Tower,301 Front St W,Toronto,ON,M5V 2T6,Canada,-79.388469,43.644022,newamerican,Entertainment District
+Joe Badali's Ristorante Italiano & Bar,156 Front St W,,Toronto,ON,M5J 2L6,Canada,-79.3841242,43.6450971,italian,Entertainment District
+Yuzu Sushi & Sake Bar,236 Adelaide St W,,Toronto,ON,M5H 1W7,Canada,-79.3884229,43.6482432,sushi|japanese,Entertainment District
+Victor,30 Mercer St,,Toronto,ON,M5V,Canada,-79.3902114,43.6457831,french,Entertainment District
+Smokeless Joe,125 John St,,Toronto,ON,M5V 2E2,Canada,-79.3904685974121,43.6482492247459,bars|seafood,Entertainment District
+Ravi Soups,322 Adelaide St W,,Toronto,ON,M5V 1R1,Canada,-79.392055,43.6474836,sandwiches|soup,Entertainment District
+259 Host,259 Wellington St,,Toronto,ON,M5V,Canada,-79.3906964,43.6449345,indpak,Entertainment District
+Khao San Road,326 Adelaide St W,,Toronto,ON,M5V 1R3,Canada,-79.3921079,43.6474607,thai,Entertainment District
+Joe Mamas,317 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3906858,43.6463091,cajun,Entertainment District
+Kit Kat Italian Bar & Grill,297 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3901584,43.6464321,italian,Entertainment District
+Dazzling Modern Restaurant + Bar,291 King St W,,Toronto,ON,M5V 1J5,Canada,-79.389901,43.646546,asianfusion,Entertainment District
+Fune Japanese Restaurant,100 Simcoe St,,Toronto,ON,M5H 3G2,Canada,-79.3865653,43.6485995,catering|japanese,Entertainment District
+Wayne Gretzky's Restaurant,99 Blue Jays Way,,Toronto,ON,M5V 9G9,Canada,-79.3921123,43.6458585,tradamerican,Entertainment District
+O & B Canteen,330 King St W,TIFF Bell Lightbox,Toronto,ON,M5V 3X2,Canada,-79.389854,43.646624,newamerican,Entertainment District
+N'awlins Jazz Bar & Grill,299 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3901885,43.6464091,tradamerican|cajun,Entertainment District
+Aroma Fine Indian Cuisine,287 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3897641,43.6465764,indpak,Entertainment District
+Kama,214 King St W,,Toronto,ON,M5H 3S6,Canada,-79.3865794,43.6472633,indpak|pakistani,Entertainment District
+Hey Lucy,295 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3901322,43.6464361,bars|italian|pizza,Entertainment District
+Smoke's Poutinerie,218 Adelaide St W,,Toronto,ON,M5H 1W7,Canada,-79.3878055,43.6483749,hotdogs,Entertainment District
+Le Saint Tropez,315 King St W,,Toronto,ON,M5V 1J5,Canada,-79.3906197,43.6463113,french,Entertainment District
+360 Restaurant,CN Tower,301 Front St W,Toronto,ON,M5V 2T6,Canada,-79.388469,43.644022,newamerican,Entertainment District
+Joe Badali's Ristorante Italiano & Bar,156 Front St W,,Toronto,ON,M5J 2L6,Canada,-79.3841242,43.6450971,italian,Entertainment District

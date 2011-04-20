@@ -4,7 +4,7 @@
 <fieldset id="cart">
 	<%= render :partial => 'datecarts/date_info' %>
 	<div id="datecart_items">
-		<%= render :partial => 'datecarts/datecart_items' %>
+		<%= render :partial => 'datecarts/datecart_items', :locals => {:venue => params['venue']} %>
 	</div>
 	<%= render :partial => 'datecarts/datecart_functions' %>
 </fieldset>
