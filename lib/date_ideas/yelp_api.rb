@@ -41,6 +41,14 @@ class YelpAPI
     end
 
   end
+  def business_detail(business_id)
+    consumer = OAuth::Consumer.new(@consumer_key, @consumer_secret, {:site => @url })
+    access_token = OAuth::AccessToken.new(consumer, @token, @token_secret)
+    path = "/v2/business/" + business_id
+    p = access_token.get(path).body
+    search_results = JSON.parse(p)
+    puts search_results.to_s
+  end
   def create_business(business_hash)
     business = Business.new
     business.id = business_hash.fetch("id")
@@ -103,5 +111,5 @@ class YelpAPI
 end
 
 yelp_api = YelpAPI.new('Z720kWRw-CAauOQNUbMEAQ','e7999uMADazHkmG5NDVDWBykczc','1Gj9nSZwzv_o5F_egAYGgYDBsdTdeKFZ','Yd98KQPlSAOWXfmHYsTctbihEH4', 'logger',false)
-yelp_api.search_business('Toronto',['restaurants','food'], ['The Annex'])
+yelp_api.business_detail('yuzu-sushi-and-sake-bar-toronto')
 

@@ -8,7 +8,15 @@ class DateIdeas::YelpAdaptorV2
     @token_secret = token_secret
     @logger = logger
     @url = test_mode ? @@TEST_URL : @@PROD_URL
-
+  end
+  def business_detail(business_id)
+    consumer = OAuth::Consumer.new(@consumer_key, @consumer_secret, {:site => @url })
+    access_token = OAuth::AccessToken.new(consumer, @token, @token_secret)
+    path = "/v2/business/" + business_id
+    p = access_token.get(path).body
+    search_results = JSON.parse(p)
+    business = create_business(search_results)
+    return business
   end
   def search(location, categories, neighbourhoods, offset = 0)
     puts "Yelp Adaptor Version 2"
@@ -18,7 +26,7 @@ class DateIdeas::YelpAdaptorV2
     neighbourhoods.each do | n |
       neighbourhood = n.gsub(/[ ]/,'+')
       path="/v2/search?term=%s&location=%s+%s&offset=%s" % [categories.join("+"), neighbourhood, location, offset]
-      p=access_token.get(path).body
+      p = access_token.get(path).body
       search_results = JSON.parse(p)
       businesses_hash = search_results.fetch("businesses")
       r_businesses = Array.new

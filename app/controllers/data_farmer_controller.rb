@@ -51,7 +51,7 @@ class DataFarmerController < ApplicationController
 
 
     yelp_adaptor = DateIdeas::YelpAdaptorV2.new('Z720kWRw-CAauOQNUbMEAQ','e7999uMADazHkmG5NDVDWBykczc','1Gj9nSZwzv_o5F_egAYGgYDBsdTdeKFZ','Yd98KQPlSAOWXfmHYsTctbihEH4', logger ,false)
-    yelp_businesses = yelp_adaptor.search('Toronto',['active','arts','nightlife','food', 'restaurants'], neighbourhoods, offset)
+    yelp_businesses = yelp_adaptor.search('Toronto',['food', 'restaurants'], neighbourhoods, offset)
     yelp_businesses.each do |biz|
       save = true
       biz_h = Array.new
