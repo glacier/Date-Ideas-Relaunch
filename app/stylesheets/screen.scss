@@ -16,6 +16,8 @@
 @include blueprint;
 @include blueprint-scaffolding;
 
+@import "fancy-buttons";
+
 @import "compass/utilities/lists/horizontal-list";
 @import "compass/utilities/links/hover-link";
 @import "compass/utilities/links/bullets";
@@ -29,6 +31,18 @@
 @import "partials/di-application";
 @import "partials/di-wizard";
 @import "partials/di-datecart";
+
+
+
+
+button { @include fancy-button(#2966a8); }
+
+/* Styles all buttons with:
+1. A shiny gradient based on #2966a8 (a nice blue)
+2. Gradient style variations for :hover, :focus, and :active
+3. White text with a darker blue text shadow
+4. A dark blue border.
+*/
 
 
 

@@ -12,6 +12,7 @@ gem "compass", ">= 0.10.6"
 gem "haml"
 gem "will_paginate", "~> 3.0.pre2"
 gem "geokit-rails3"
+gem "fancy-buttons"
 #gem "mail", "2.1.3"
 gem "nokogiri", "1.4.4"
 

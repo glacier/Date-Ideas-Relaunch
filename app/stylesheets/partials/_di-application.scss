@@ -62,7 +62,8 @@ hr {
 		@include quiet_link_button;
 	}
 	.add_button {
-		@include quiet_link_button;
+/*		@include quiet_link_button;*/
+		@include fancy-button(#3AB700);
 	}
 }
 
