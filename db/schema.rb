@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110420034248) do
+ActiveRecord::Schema.define(:version => 20110421042755) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -78,7 +78,6 @@ ActiveRecord::Schema.define(:version => 20110420034248) do
   create_table "cart_items", :force => true do |t|
     t.integer  "business_id"
     t.integer  "datecart_id"
-    t.string   "venue_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -105,6 +104,8 @@ ActiveRecord::Schema.define(:version => 20110420034248) do
     t.integer  "offset"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "categories"
+    t.integer  "loaded"
   end
 
   create_table "neighbourhoods", :force => true do |t|

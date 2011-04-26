@@ -15,7 +15,7 @@ class DateIdeas::YelpAdaptorV2
     path = "/v2/business/" + business_id
     p = access_token.get(path).body
     search_results = JSON.parse(p)
-    business = create_business(search_results)
+    business = create_business(search_results, true)
     return business
   end
   def search(location, categories, neighbourhoods, offset = 0)
@@ -46,7 +46,7 @@ class DateIdeas::YelpAdaptorV2
     end
     return businesses
   end
-  def create_business(business_hash)
+  def create_business(business_hash, extract_reviews = false )
     business = Business.new
     business.external_id = business_hash.fetch("id")
     business.name = business_hash.fetch("name")
@@ -65,7 +65,6 @@ class DateIdeas::YelpAdaptorV2
     if(business_hash.has_key?("image_url"))
       business.photo_url = business_hash.fetch("image_url")
     end
-#    business.distance = business_hash.fetch("distance")
     if( business_hash.has_key?("phone"))
       business.phone_no = business_hash.fetch("phone")
     end
@@ -73,7 +72,9 @@ class DateIdeas::YelpAdaptorV2
     business.longitude = business_hash.fetch("location").fetch("coordinate").fetch("longitude")
     business.latitude = business_hash.fetch("location").fetch("coordinate").fetch("latitude")
     business.url = business_hash.fetch("url")
-#    business.reviews = create_reviews(business_hash.fetch("reviews"))
+    if( extract_reviews )
+      business.reviews = create_reviews(business_hash.fetch("reviews"))
+    end
     business.categories = create_categories(business_hash.fetch("categories"))
     if(business_hash.fetch("location").has_key?("neighborhoods"))
       business.neighbourhoods = create_neighbourhoods(business_hash.fetch("location").fetch("neighborhoods"))
@@ -91,9 +92,10 @@ class DateIdeas::YelpAdaptorV2
   def create_review(review_hash)
     review = Review.new
     review.id = review_hash.fetch("id")
-    review.text_excerpt = review_hash.fetch("text_excerpt")
+    review.rating = review_hash.fetch("rating")
+    review.text_excerpt = review_hash.fetch("excerpt")
     review.rating_img_url = review_hash.fetch("rating_img_url")
-    review.rating_img_url_small = review_hash.fetch("rating_img_url_small")
+    review.rating_img_url_small = review_hash.fetch("rating_image_small_url")
     return review
   end
   def create_neighbourhoods(neighbourhoods_hash)

@@ -164,6 +164,7 @@ DEPENDENCIES
   jquery-rails (>= 0.2.6)
   mongrel (= 1.2.0.pre2)
   mysql2
+  nokogiri (= 1.4.4)
   oa-openid
   omniauth
   rails (= 3.0.3)

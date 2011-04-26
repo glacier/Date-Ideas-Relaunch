@@ -3,12 +3,17 @@
 <table>
   <tr>
     <td>
-
       <%= label_tag(:neighbourhood,"Pick a neighbourhood") %>
     </td><td>
       <%= select_tag(:neighbourhood, options_for_select(@neighbourhoods_select)) %>
     </td>
-  </tr>
+  </tr><tr>
+    <% @categories.each do |cat | %>
+    <td><%= h cat.display_name %></td>
+    <td><%= check_box_tag 'categories[]', cat.name %></td>
+    </tr><tr>
+    <% end %>
+  </tr><tr>
     <td colspan="2">
       <%= submit_tag("Start Farming")  %>
     </td>

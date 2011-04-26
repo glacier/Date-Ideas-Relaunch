@@ -1,42 +1,28 @@
 <h1> Venues index </h1>
 <%= link_to "Add a new venue/business", new_business_path %>
-<table>
+<table width="100%">
 	<tr>
-		<td>Venue Type</td>
 		<td>Name</td>
 		<td>Address</td>
-		<td>Province</td>
-		<td>Postal Code</td>
-		<!-- <td>Country</td> -->
-		<td>Phone number</td>
-		<td>Neighorhood</td>
-		<td>Atmosphere</td>
 		<td>Pricepoint</td>
+      	<td>Neighbourhood</td>
 		<td>Category</td>
-		<td>Dresscode</td>
-		<td>Review</td>
-		<td>Excerpt</td>
-		<td>Actions</td>
+        <td>Has Excerpt</td>
+        <td>Deleted</td>
 	</tr>
 
 <% @businesses.each do |b| %>
 	<tr>
-		<td><%= b.venue_type %></td>
 	  <td><%= b.name %></td>
 	  <td><%= b.address1 %></td>
-	  <td><%= b.province %></td>
-	  <td><%= b.postal_code %></td>
-	  <!-- <td><%# b.country %></td> -->
-    <td><%= b.phone_no %></td>
-		<td><%= b.dna_neighbourhood %></td>
-		<td><%= b.dna_atmosphere %></td>
-		<td><%= b.dna_pricepoint %></td>
-		<td><%= b.dna_category %></td>
-		<td><%= b.dna_dresscode %></td>
-		<td><%= b.dna_review %></td>
-		<td><%= b.dna_excerpt %></td>
-		<td><%= link_to "Edit", edit_business_path(b) %>
-		<%= link_to "Show", business_path(b) %></td>
+	  <td><%= b.dna_pricepoint %></td>
+      <td><%= b.neighbourhoods.collect {|hood| hood.neighbourhood}.join(',') %></td>
+	  <td><%= b.categories.collect {|cat| cat.name}.join(',') %></td>
+      <td><%= (b.dna_excerpt.nil? || b.dna_excerpt.size == 0) ? 'no':'yes' %></td>
+      <td><%= b.deleted %></td>
+	  <td><%= link_to "Edit", edit_business_path(b) %>
+	  <%= link_to "Show", business_path(b) %></td>
 	</tr>
 <% end %>
 </table>
+<%= will_paginate @businesses %>
