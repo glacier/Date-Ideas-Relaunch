@@ -79,7 +79,7 @@ class DateIdeas::YelpAdaptorV2
     if(business_hash.fetch("location").has_key?("neighborhoods"))
       business.neighbourhoods = create_neighbourhoods(business_hash.fetch("location").fetch("neighborhoods"))
     end
-    @logger.info("business:" + business.name )
+#    @logger.info("business:" + business.name )
     return business
   end
   def create_reviews(reviews_hash)
@@ -104,7 +104,7 @@ class DateIdeas::YelpAdaptorV2
       neighbourhood = Neighbourhood.new
       neighbourhood.neighbourhood = n
       neighbourhoods.push(neighbourhood)
-      @logger.info("neighbourhood:" + n )
+#      @logger.info("neighbourhood:" + n )
     end
     return neighbourhoods
   end
@@ -115,7 +115,7 @@ class DateIdeas::YelpAdaptorV2
       category.name = name
       category.display_name = display_name
       categories.push(category)
-      @logger.info("category:" +name )
+#      @logger.info("category:" +name )
     end
     return categories
   end
