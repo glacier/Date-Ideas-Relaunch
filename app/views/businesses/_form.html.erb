@@ -14,17 +14,27 @@
 		<tr><td><%=f.label :name %></td><td><%= f.text_field :name %></td></tr>
 		<tr><td><%=f.label :address1 %></td><td><%= f.text_field :address1 %></td></tr>
 		<tr><td><%=f.label :venue_type %></td><td><%= f.text_field :venue_type %></td></tr>
-	  <tr><td><%=f.label :province %></td><td><%= f.text_field :province %></td></tr>
-	  <tr><td><%=f.label :postal_code %></td><td><%= f.text_field :postal_code %></td></tr>
-	  <tr><td><%=f.label :country %></td><td><%= f.text_field :country %></td></tr>
-	  <tr><td><%=f.label :phone_no %></td><td><%= f.text_field :phone_no %></td></tr>
-		<tr><td><%=f.label :dna_neighbourhood %></td><td><%= f.text_field :dna_neighbourhood %></td></tr>
+	    <tr><td><%=f.label :province %></td><td><%= f.text_field :province %></td></tr>
+	    <tr><td><%=f.label :postal_code %></td><td><%= f.text_field :postal_code %></td></tr>
+	    <tr><td><%=f.label :country %></td><td><%= f.text_field :country %></td></tr>
+	    <tr><td><%=f.label :phone_no %></td><td><%= f.text_field :phone_no %></td></tr>
+		<tr><td><%=f.label :categories %></td><td>
+          <%= select_tag("category_ids[]",
+                         options_for_select(Category.find(:all).collect { |cat| [cat.display_name, cat.id]}, @business.categories.collect {|my_cat| my_cat.id }),
+                         {:multiple => true, :size => 4 }) %>
+        </td></tr>
+        <tr><td><%=f.label :neighbourhoods %></td><td>
+          <%= select_tag("neighbourhood_ids[]",
+                         options_for_select(Neighbourhood.find(:all).collect { |hoods |[hoods.neighbourhood,hoods.id]},@business.neighbourhoods.collect {|my_hood| my_hood.id}),
+                         {:multiple => true, :size => 4 })%>
+        </td></tr>
 		<tr><td><%=f.label :dna_atmosphere %></td><td><%= f.text_field :dna_atmosphere %></td></tr>
 		<tr><td><%=f.label :dna_pricepoint %></td><td><%= f.text_field :dna_pricepoint %></td></tr>
 		<tr><td><%=f.label :dna_category %></td><td><%= f.text_field :dna_category %></td></tr>
 		<tr><td><%=f.label :dna_dresscode %></td><td><%= f.text_field :dna_dresscode %></td></tr>
 		<tr><td><%=f.label :dna_review %></td><td><%= f.text_area :dna_review %></td></tr>
-		<tr><td><%=f.label :dna_excerpt %></td><td><%= f.text_area :dna_excerpt %></td></tr>		
+		<tr><td><%=f.label :dna_excerpt %></td><td><%= f.text_area :dna_excerpt %></td></tr>
+        <tr><td><%=f.label :deleted %></td><td><%= f.check_box(:deleted) %></td></tr>
 	</table>
 	<%= f.submit %>
 <% end %>

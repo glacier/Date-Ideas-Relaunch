@@ -41,6 +41,8 @@ DateIdeas::Application.routes.draw do
       get "search"
     end
   end
+
+
   
   #TODO: allow users to access their profiles using /profiles/:username?
   resources :profiles
@@ -109,4 +111,6 @@ DateIdeas::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
+  match "data_farmer" =>'data_farmer#index'
+  match "data_farmer/farm" => 'data_farmer#farm'
 end

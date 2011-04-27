@@ -14,57 +14,35 @@ class DateIdeas::DnaService
   end
   def search(venue_type,location,price_point = 'budget',page = '1')
     puts("DateIdeas.search:" << venue_type.to_s << ":" << location.to_s << ":" << price_point.to_s << ":" << page.to_s)
-    categories = Array.new
     neighbourhoods = Array.new
-    businesses = Business.find(:all,:joins => [:neighbourhoods,:categories], :conditions => ['neighbourhoods.district_subsection=? AND businesses.dna_pricepoint IN (?) AND (categories.name IN (?) or categories.parent_name IN (?) or categories.parent_name in (select 1 from categories c1 where c1.parent_name in (?)) )',location, PRICE_RANGE.fetch(price_point),CATEGORIES.fetch(venue_type),CATEGORIES.fetch(venue_type),CATEGORIES.fetch(venue_type) ] ).paginate(:page => page, :per_page => 4)
+    businesses = Business.find(:all,:joins => [:neighbourhoods,:categories], :conditions => ['neighbourhoods.district_subsection=? AND businesses.dna_pricepoint IN (?) AND (businesses.deleted IS NULL OR business.deleted = ? ) AND (categories.name IN (?) or categories.parent_name IN (?) or categories.parent_name in (select 1 from categories c1 where c1.parent_name in (?)) )',location, PRICE_RANGE.fetch(price_point),false,CATEGORIES.fetch(venue_type),CATEGORIES.fetch(venue_type),CATEGORIES.fetch(venue_type) ] ).paginate(:page => page, :per_page => 4)
+
+    businesses_for_search = Array.new #business that needs more info from yelp
+    final_businesses = Array.new
+
     businesses.each do |b|
-      puts("=========================")
-      puts("business name:" << b.name)
-      if (! b.categories.nil? && !b.categories[0].nil? ) 
-        @logger.info("category:" << b.categories[0].name.to_s )
-        categories.push( b.categories[0].name )
-      else
-        puts("category: is null")
-      end
-      if (! b.neighbourhoods.nil? && !b.neighbourhoods.empty? && !b.neighbourhoods[0].nil? ) 
-        @logger.info("neighbourhood:" << b.neighbourhoods[0].neighbourhood.to_s )
-        neighbourhoods.push( b.neighbourhoods[0].neighbourhood )
-      else
-        puts("neighbourhood: is null")
-      end
-      if ( b.longitude.nil? || b.latitude.nil? )
-        address = get_address(b)
-        geocode = get_geocode(address)
-        @logger.info("longitude:" + geocode.lng.to_s + ",latitude:" + geocode.lat.to_s )
-        business = Business.find_by_id(b.id)
-        business.longitude = geocode.lng
-        business.latitude  = geocode.lat
-        business.save
+      if ( b.external_id.nil? )
+        if ( b.longitude.nil? || b.latitude.nil? )
+          address = get_address(b)
+          geocode = get_geocode(address)
+          business = Business.find_by_id(b.id)
+          business.longitude = geocode.lng
+          business.latitude  = geocode.lat
+          business.save
+        end
+        businesses_for_search.push(b)
+        b.neighbourhoods.collect {|hood| neighbourhoods.push(hood.neighbourhood) } #flatten list of neighbourhood objects and add it to the list.
       end
     end
-    
-    #grab from Yelp
-    yelp_businesses = DateIdeas::YelpAdaptor.new(@logger).search(CATEGORIES.fetch(venue_type),neighbourhoods,price_point,page);
 
-    #yelp_file = File.new("#{RAILS_ROOT}/data/yelp-data.txt","a")
-    #yelp_businesses.each do |y|
-    #  cat = String.new
-    #  cdelim = ""
-    #  y.categories.each do |c|
-    #    cat.concat(cdelim).concat(c.name)
-    #    cdelim="|"
-    #  end
-    #  hoods = String.new
-    #  hdelim = ""
-    #  y.neighbourhoods.each do |n|
-    #    hoods.concat(hdelim).concat(n.neighbourhood)
-    #    hdelim="|"
-    #  end
-      #yelp_file.puts(y.name.to_s << "," << y.address1.to_s  << "," << y.address2.to_s << "," << y.city << "," << y.province << ","<< y.postal_code << "," << y.country << "," << y.longitude.to_s << "," << y.latitude.to_s << "," << cat << "," << hoods)
-    #end 
-    #yelp_file.close
+    @logger.info("neighbourhoods:" + neighbourhoods.to_s)
+    #grab from Yelp
+    yelp_adaptor = DateIdeas::YelpAdaptorV2.new('Z720kWRw-CAauOQNUbMEAQ','e7999uMADazHkmG5NDVDWBykczc','1Gj9nSZwzv_o5F_egAYGgYDBsdTdeKFZ','Yd98KQPlSAOWXfmHYsTctbihEH4', @logger ,false)
+    yelp_businesses = yelp_adaptor.search('Toronto',CATEGORIES.fetch(venue_type), neighbourhoods)
+
 
     mbusinesses = merge(businesses, yelp_businesses)
+
     return mbusinesses
   end
   def get_geocode(address)
@@ -100,23 +78,16 @@ class DateIdeas::DnaService
   def merge(businesses, yelp_businesses)
     if( !yelp_businesses.nil? )
       businesses.each do | b |
-        @logger.info("======*******************==========")
-        @logger.info("business.name:" +b.name.to_s)
-        @logger.info("business.longitude:" +b.longitude.to_s)
-        @logger.info("business.latitude :" +b.latitude.to_s)
-        yelp_businesses.each do |y|
-          @logger.info("===>")
-          @logger.info("yelp.name:" +y.name.to_s)
-          @logger.info("yelp.longitude:" +y.longitude.to_s)
-          @logger.info("yelp.latitude :" +y.latitude.to_s)
-          @logger.info("y.photo_url" + y.photo_url.to_s)
-          if( (b.name.eql?(y.name)) || (b.address1.eql?(y.address1)) || (b.longitude == y.longitude && b.latitude == y.latitude) )
-            b.photo_url = y.photo_url  
-            #merge the reviews
-            b.reviews = y.reviews
-            b.longitude = y.longitude
-            b.latitude = y.latitude
-            break
+        if(b.external_id.nil?)
+          yelp_businesses.each do |y|
+            if( (b.name.eql?(y.name) && b.address1.eql?(y.address1)) || (b.name.eql?(y.name) && b.longitude == y.longitude && b.latitude == y.latitude) )
+              b.photo_url = y.photo_url
+              #merge the reviews
+              b.reviews = y.reviews
+              b.longitude = y.longitude
+              b.latitude = y.latitude
+              break
+            end
           end
         end
       end

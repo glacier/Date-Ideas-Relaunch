@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110321162346) do
+ActiveRecord::Schema.define(:version => 20110421042755) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -71,12 +71,13 @@ ActiveRecord::Schema.define(:version => 20110321162346) do
     t.integer  "dna_rating_comfort"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "external_id"
+    t.boolean  "deleted"
   end
 
   create_table "cart_items", :force => true do |t|
     t.integer  "business_id"
     t.integer  "datecart_id"
-    t.string   "venue_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -96,6 +97,15 @@ ActiveRecord::Schema.define(:version => 20110321162346) do
     t.string   "name",       :default => "My Date"
     t.string   "datetime",   :default => ""
     t.string   "notes",      :default => "Make it special!"
+  end
+
+  create_table "farmed_infos", :force => true do |t|
+    t.string   "neighbourhood"
+    t.integer  "offset"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "categories"
+    t.integer  "loaded"
   end
 
   create_table "neighbourhoods", :force => true do |t|

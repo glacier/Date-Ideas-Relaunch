@@ -1,6 +1,7 @@
 class BusinessesController < ApplicationController
   def index
-    @businesses = Business.all
+    current_page = params[:page]
+    @businesses = Business.all.paginate(:page => current_page, :per_page => 10)
   end
   
   def show
@@ -37,7 +38,16 @@ class BusinessesController < ApplicationController
   
   def update
     @business = Business.find(params[:id])  
-    # redirect_to(business_url(@venue.id))
+
+    @business.neighbourhoods = Neighbourhood.find(params[:neighbourhood_ids]) if params[:neighbourhood_ids]
+    @business.categories = Category.find(params[:category_ids]) if params[:category_ids]
+    if( params[:deleted] )
+      @business.deleted = true
+    else
+      @business.deleted = false
+    end
+
+    logger.info("deleted:" + @business.deleted.to_s )
     if @business.update_attributes(params[:business])
            redirect_to(businesses_path, :notice => 'Venue listing was successfully updated.')
     end
