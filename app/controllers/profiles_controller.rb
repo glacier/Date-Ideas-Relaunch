@@ -1,7 +1,21 @@
 class ProfilesController < ApplicationController
   #require user sign up/sign in to see own profile
+  load_and_authorize_resource
+  
   def index
     @profiles = Profile.all
+  end
+  
+
+  rescue_from ActiveRecord::RecordNotFound do |exception|
+    # render :text => "This user profile does not exist"
+    logger.debug('profile does not exist')
+    if params[:id].to_i == current_user.id
+      redirect_to new_profile_path
+    else
+      # TODO: Profile not found error
+      render :text => "This user profile does not exist"
+    end
   end
   
   def show

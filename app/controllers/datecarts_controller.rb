@@ -1,6 +1,8 @@
 class DatecartsController < ApplicationController
   # GET /datecarts
   # GET /datecarts.xml
+  load_and_authorize_resource
+  
   def index
     @datecarts = Datecart.all
 

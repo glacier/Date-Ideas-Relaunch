@@ -1,4 +1,6 @@
 DateIdeas::Application.routes.draw do
+  # devise_for :admins 
+
   # resources :cart_items
 
   resources :datecarts do 
@@ -41,8 +43,6 @@ DateIdeas::Application.routes.draw do
       get "search"
     end
   end
-
-
   
   #TODO: allow users to access their profiles using /profiles/:username?
   resources :profiles

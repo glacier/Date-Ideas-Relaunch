@@ -1,5 +1,7 @@
 class WizardController < ApplicationController
   # before_filter :authenticate_user!
+  skip_load_and_authorize_resource
+  
   def index
     @wizard = Wizard.new
     respond_to do |format|
@@ -7,7 +9,6 @@ class WizardController < ApplicationController
       format.html # index.html.erb
     end
   end
-  
   def show
     @wizard = Wizard.new
     respond_to do |format|
