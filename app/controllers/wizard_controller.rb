@@ -28,7 +28,7 @@ class WizardController < ApplicationController
     current_page = params[:page]
     logger.info("creating dnaservice")
     dnaService = DateIdeas::DnaService.new(logger)
-    businesses = dnaService.search(@wizard.venue, @wizard.location, @wizard.price_point, current_page)
+    businesses = dnaService.search(@wizard.venue, @wizard.location, @wizard.price_point, current_page, 10)
     @datecart = current_cart
     @wizard.businesses = businesses
     respond_to do |format|
