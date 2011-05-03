@@ -1,4 +1,7 @@
 class DataFarmerController < ApplicationController
+  # before_filter :authenticate_admin!
+  # skip_load_resource
+  # load_and_authorize_resource
   def index
     @neighbourhoods = Neighbourhood.find_all_by_district("Old City of Toronto")
 #    logger.info("neighbourhoods:" + @neighbourhoods.to_s)
@@ -13,6 +16,8 @@ class DataFarmerController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
     end
+    
+    authorize! :manage, :data_farmer
   end
   def farm
     interval = 20
@@ -99,5 +104,7 @@ class DataFarmerController < ApplicationController
     respond_to do |format|
       format.html
     end
+    
+    authorize! :manage, :data_farmer
   end
 end

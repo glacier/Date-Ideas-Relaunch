@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
                                     :dependent => :destroy
   has_many :followers, :through => :reverse_relationships, :source => :follower
 
+  has_many :assignments
+  has_many :roles, :through => :assignments
+  
   # TODO: link user tips, reviews to user model
   # has_many :tips
   
@@ -47,5 +50,9 @@ class User < ActiveRecord::Base
   def unfollow!(followed)
     # relationships.delete(followed)
     relationships.find_by_followed_id(followed).destroy
+  end
+  
+  def role?(role_sym)
+    roles.any? { |r| r.name.underscore.to_sym == role_sym }
   end
 end

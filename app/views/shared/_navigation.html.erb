@@ -3,11 +3,14 @@
 		<li>Welcome <%= current_user.email %>.</li>
 		<li><%= link_to "Sign out", destroy_user_session_path %></li>
 		<li><%= link_to "Profile", profile_path(current_user.id) %></li>
+		<% if current_user.role? :admin %>
+			<li><%= link_to "Add/Modify Businesses", businesses_path %></li>
+			<li><%= link_to "Farm Data", data_farmer_path %></li>	
+		<% end %>
 	</ul>
-	
 <% else %>
 	<ul>
-		<li><%# link_to "Sign up!", new_user_registration_path %></li>
 		<li><%= link_to "Login", new_user_session_path %></li>
 	</ul>
 <% end %>
+	

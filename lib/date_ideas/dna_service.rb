@@ -12,8 +12,13 @@ class DateIdeas::DnaService
   def initialize(logger)
     @logger = logger
   end
-  def search(venue_type,location,price_point = 'budget',page = '1')
+  def search(venue_type,location,price_point = 'budget',page = '1', per_page=10)
     puts("DateIdeas.search:" << venue_type.to_s << ":" << location.to_s << ":" << price_point.to_s << ":" << page.to_s)
+<<<<<<< HEAD
+=======
+    neighbourhoods = Array.new
+    businesses = Business.find(:all,:joins => [:neighbourhoods,:categories], :conditions => ['neighbourhoods.district_subsection=? AND businesses.dna_pricepoint IN (?) AND (businesses.deleted IS NULL OR businesses.deleted = ? ) AND (categories.name IN (?) or categories.parent_name IN (?) or categories.parent_name in (select 1 from categories c1 where c1.parent_name in (?)) )',location, PRICE_RANGE.fetch(price_point),false,CATEGORIES.fetch(venue_type),CATEGORIES.fetch(venue_type),CATEGORIES.fetch(venue_type) ] ).paginate(:page => page, :per_page => per_page)
+>>>>>>> f594f3300476d3ca031054862818fba279053596
 
     where_clause = String.new
 

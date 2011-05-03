@@ -1,4 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
+  # skip_load_and_authorize_resource
+  
   def create
       build_resource
       if resource.save

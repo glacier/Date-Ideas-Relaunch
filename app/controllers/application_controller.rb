@@ -1,6 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :authenticate_user!
+
+  # before_filter do |controller|
+  #   unless controller.class == Devise::SessionsController
+  #     o = controller.class.cancan_resource_class.new(controller)
+  #     o.load_and_authorize_resource
+  #   end
+  # end
+
   
   private
     # gets the current cart in session or create a new one
@@ -13,5 +21,9 @@ class ApplicationController < ActionController::Base
       cart = Datecart.create
       session[:datecart_id] = cart.id
       cart
+    end
+    
+    def authorize
+      
     end
 end

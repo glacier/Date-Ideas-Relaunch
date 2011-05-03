@@ -1,5 +1,9 @@
 DateIdeas::Application.routes.draw do
+<<<<<<< HEAD
 
+=======
+  # devise_for :admins 
+>>>>>>> f594f3300476d3ca031054862818fba279053596
 
   # resources :cart_items
 
@@ -45,8 +49,6 @@ DateIdeas::Application.routes.draw do
     end
     get :autocomplete_neighbourhood_neighbourhood, :on => :collection
   end
-
-
   
   #TODO: allow users to access their profiles using /profiles/:username?
   resources :profiles

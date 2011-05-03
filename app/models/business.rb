@@ -1,4 +1,7 @@
 class Business < ActiveRecord::Base
+  cattr_reader :per_page
+  @@per_page = 10
+  
   has_many :cart_items
   has_many :business_categories
   has_many :categories, :through => :business_categories

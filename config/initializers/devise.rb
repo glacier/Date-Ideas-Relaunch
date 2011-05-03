@@ -57,7 +57,7 @@ Devise.setup do |config|
   # config.confirm_within = 2.days
 
   # ==> Configuration for :rememberable
-  # The time the user will be remembered without asking for credentials again.
+  # The time the user will be remembered without accountng for credentials again.
   # config.remember_for = 2.weeks
 
   # If true, a valid remember token can be re-used between multiple browsers.
@@ -106,7 +106,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-  # config.scoped_views = true
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes.
