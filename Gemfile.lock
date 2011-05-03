@@ -131,6 +131,9 @@ GEM
       activesupport (= 3.0.3)
       bundler (~> 1.0)
       railties (= 3.0.3)
+    rails3-jquery-autocomplete (0.7.0)
+      rails (~> 3.0.0)
+      yajl-ruby
     railties (3.0.3)
       actionpack (= 3.0.3)
       activesupport (= 3.0.3)
@@ -152,6 +155,7 @@ GEM
     warden (1.0.3)
       rack (>= 1.0.0)
     will_paginate (3.0.pre2)
+    yajl-ruby (0.8.2)
     yelp (1.0.0)
       json (>= 1.1.1)
 
@@ -171,6 +175,7 @@ DEPENDENCIES
   oa-openid
   omniauth
   rails (= 3.0.3)
+  rails3-jquery-autocomplete
   sqlite3
   will_paginate (~> 3.0.pre2)
   yelp

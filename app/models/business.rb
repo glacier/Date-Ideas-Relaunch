@@ -13,7 +13,7 @@ class Business < ActiveRecord::Base
   
   attr_accessible :venue_type, :logo, :dna_excerpt, :dna_neighbourhood, :dna_atmosphere, :dna_pricepoint, :dna_category, :dna_dresscode, :dna_pictures, :dna_review, :dna_rating_conversation, :dna_rating_convenience, :dna_rating_comfort, :deleted
 
-  attr_accessor :distance, :text_excerpt, :avg_rating, :rating_img_url, :reviews, :map
+  attr_accessor :distance, :avg_rating, :rating_img_url, :reviews, :map, :text_excerpt
   
   def init
     @reviews = Array.new

@@ -1,4 +1,5 @@
 class WizardController < ApplicationController
+  autocomplete :neighbourhood, :neighbourhood
   # before_filter :authenticate_user!
   def index
     @wizard = Wizard.new

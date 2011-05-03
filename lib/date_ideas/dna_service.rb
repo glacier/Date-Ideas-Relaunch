@@ -14,13 +14,30 @@ class DateIdeas::DnaService
   end
   def search(venue_type,location,price_point = 'budget',page = '1')
     puts("DateIdeas.search:" << venue_type.to_s << ":" << location.to_s << ":" << price_point.to_s << ":" << page.to_s)
+
+    where_clause = String.new
+
+    where_clause << "neighbourhoods.district_subsection=? \
+                     AND businesses.dna_pricepoint IN (?) \
+                     AND (businesses.deleted IS NULL OR businesses.deleted = ? ) \
+                     AND (categories.name IN (?) \
+                          OR categories.parent_name IN (?) \
+                          OR categories.parent_name in (select 1 from categories c1 where c1.parent_name in (?)) )"
+
     neighbourhoods = Array.new
-    businesses = Business.find(:all,:joins => [:neighbourhoods,:categories], :conditions => ['neighbourhoods.district_subsection=? AND businesses.dna_pricepoint IN (?) AND (businesses.deleted IS NULL OR businesses.deleted = ? ) AND (categories.name IN (?) or categories.parent_name IN (?) or categories.parent_name in (select 1 from categories c1 where c1.parent_name in (?)) )',location, PRICE_RANGE.fetch(price_point),false,CATEGORIES.fetch(venue_type),CATEGORIES.fetch(venue_type),CATEGORIES.fetch(venue_type) ] ).paginate(:page => page, :per_page => 4)
+    db_businesses = Business.find(:all,
+                               :joins => [:neighbourhoods,
+                                          :categories],
+                               :conditions => [where_clause,
+                                               location,
+                                               PRICE_RANGE.fetch(price_point),
+                                               false,
+                                               CATEGORIES.fetch(venue_type),
+                                               CATEGORIES.fetch(venue_type),
+                                               CATEGORIES.fetch(venue_type) ] ).paginate(:page => page, :per_page => 4)
+    db_businesses_no_exerpt = Array.new
 
-    businesses_for_search = Array.new #business that needs more info from yelp
-    final_businesses = Array.new
-
-    businesses.each do |b|
+    db_businesses.each do |b|
       if ( b.external_id.nil? )
         if ( b.longitude.nil? || b.latitude.nil? )
           address = get_address(b)
@@ -30,8 +47,10 @@ class DateIdeas::DnaService
           business.latitude  = geocode.lat
           business.save
         end
-        businesses_for_search.push(b)
         b.neighbourhoods.collect {|hood| neighbourhoods.push(hood.neighbourhood) } #flatten list of neighbourhood objects and add it to the list.
+      elsif( b.text_excerpt.nil? || b.text_excerpt.size == 0 )
+        @logger.info("business with no exerpt :" + b.external_id )
+        db_businesses_no_exerpt.push(b)
       end
     end
 
@@ -40,10 +59,20 @@ class DateIdeas::DnaService
     yelp_adaptor = DateIdeas::YelpAdaptorV2.new('Z720kWRw-CAauOQNUbMEAQ','e7999uMADazHkmG5NDVDWBykczc','1Gj9nSZwzv_o5F_egAYGgYDBsdTdeKFZ','Yd98KQPlSAOWXfmHYsTctbihEH4', @logger ,false)
     yelp_businesses = yelp_adaptor.search('Toronto',CATEGORIES.fetch(venue_type), neighbourhoods)
 
+    merged_businesses = merge(db_businesses, yelp_businesses)
 
-    mbusinesses = merge(businesses, yelp_businesses)
+    #search business details
+    merged_businesses.each do |b|
+      if(!b.external_id.nil? && (b.text_excerpt.nil? ||b.text_excerpt.size == 0))
+        business_detail = yelp_adaptor.business_detail(b.external_id)
+        b.text_excerpt = business_detail.reviews[0].text_excerpt
+        @logger.info("b.excerpt :" +b.text_excerpt)
+      end
+    end
 
-    return mbusinesses
+
+
+    return merged_businesses
   end
   def get_geocode(address)
     puts('starting geocoder call for address: '+address)

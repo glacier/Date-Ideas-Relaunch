@@ -28,12 +28,19 @@ class DateIdeas::YelpAdaptorV2
       path="/v2/search?term=%s&location=%s+%s&offset=%s" % [categories.join("+"), neighbourhood, location, offset]
       p = access_token.get(path).body
       search_results = JSON.parse(p)
-      businesses_hash = search_results.fetch("businesses")
-      r_businesses = Array.new
-      r_businesses = create_businesses(businesses_hash)
-      r_businesses.each do |biz|
-        returned_businesses.push( biz )
+      if ( search_results.has_key?("businesses"))
+        businesses_hash = search_results.fetch("businesses")
+        r_businesses = Array.new
+        r_businesses = create_businesses(businesses_hash)
+        r_businesses.each do |biz|
+          returned_businesses.push( biz )
+        end
+      else
+        #handle errors
+        error_message = search_results.fetch("error").fetch("text")
+        @logger.error("Yelp Server Error Message :" +error_message)
       end
+
     end
 
     return returned_businesses
@@ -58,20 +65,32 @@ class DateIdeas::YelpAdaptorV2
     if( address.size == 3 )
       business.address3 = address[2]
     end
-    business.city = business_hash.fetch("location").fetch("city")
-    business.province = business_hash.fetch("location").fetch("state_code")
-    business.postal_code = business_hash.fetch("location").fetch("postal_code")
-    business.country = business_hash.fetch("location").fetch("country_code")
+    if(business.city = business_hash.fetch("location").has_key?("city") )
+      business.city = business_hash.fetch("location").fetch("city")
+    end
+    if(business_hash.fetch("location").has_key?("state_code"))
+      business.province = business_hash.fetch("location").fetch("state_code")
+    end
+    if( business_hash.fetch("location").has_key?("postal_code") )
+      business.postal_code = business_hash.fetch("location").fetch("postal_code")
+    end
+    if( business_hash.fetch("location").has_key?("country_code") )
+      business.country = business_hash.fetch("location").fetch("country_code")
+    end
     if(business_hash.has_key?("image_url"))
       business.photo_url = business_hash.fetch("image_url")
     end
     if( business_hash.has_key?("phone"))
       business.phone_no = business_hash.fetch("phone")
     end
-    business.text_excerpt = "Some restaurant description...blah blah blah."#business_hash.fetch("text_excerpt")
-    business.longitude = business_hash.fetch("location").fetch("coordinate").fetch("longitude")
-    business.latitude = business_hash.fetch("location").fetch("coordinate").fetch("latitude")
-    business.url = business_hash.fetch("url")
+#    business.text_excerpt = "Some restaurant description...blah blah blah."#business_hash.fetch("text_excerpt")
+    if( business_hash.fetch("location").has_key?("coordinate"))
+      business.longitude = business_hash.fetch("location").fetch("coordinate").fetch("longitude")
+      business.latitude = business_hash.fetch("location").fetch("coordinate").fetch("latitude")
+    end
+    if(business_hash.has_key?("url"))
+      business.url = business_hash.fetch("url")
+    end
     if( extract_reviews )
       business.reviews = create_reviews(business_hash.fetch("reviews"))
     end
@@ -94,7 +113,9 @@ class DateIdeas::YelpAdaptorV2
     review.id = review_hash.fetch("id")
     review.rating = review_hash.fetch("rating")
     review.text_excerpt = review_hash.fetch("excerpt")
-    review.rating_img_url = review_hash.fetch("rating_img_url")
+    if(review_hash.has_key?("rating_img_url") )
+      review.rating_img_url = review_hash.fetch("rating_img_url")
+    end
     review.rating_img_url_small = review_hash.fetch("rating_image_small_url")
     return review
   end

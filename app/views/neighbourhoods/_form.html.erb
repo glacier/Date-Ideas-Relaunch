@@ -1,0 +1,29 @@
+<%= form_for(@neighbourhood) do |f| %>
+  <% if @neighbourhood.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@neighbourhood.errors.count, "error") %> prohibited this neighbourhood from being saved:</h2>
+
+      <ul>
+      <% @neighbourhood.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :district %><br />
+    <%= f.text_field :district %>
+  </div>
+  <div class="field">
+    <%= f.label :district_subsection %><br />
+    <%= f.text_field :district_subsection %>
+  </div>
+  <div class="field">
+    <%= f.label :neighbourhood %><br />
+    <%= f.text_field :neighbourhood %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

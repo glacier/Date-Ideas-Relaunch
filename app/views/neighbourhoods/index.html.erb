@@ -1,0 +1,27 @@
+<h1>Listing neighbourhoods</h1>
+
+<table>
+  <tr>
+    <th>District</th>
+    <th>District subsection</th>
+    <th>Neighbourhood</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @neighbourhoods.each do |neighbourhood| %>
+  <tr>
+    <td><%= neighbourhood.district %></td>
+    <td><%= neighbourhood.district_subsection %></td>
+    <td><%= neighbourhood.neighbourhood %></td>
+    <td><%= link_to 'Show', neighbourhood %></td>
+    <td><%= link_to 'Edit', edit_neighbourhood_path(neighbourhood) %></td>
+    <td><%= link_to 'Destroy', neighbourhood, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Neighbourhood', new_neighbourhood_path %>

@@ -1,4 +1,6 @@
 DateIdeas::Application.routes.draw do
+
+
   # resources :cart_items
 
   resources :datecarts do 
@@ -39,7 +41,9 @@ DateIdeas::Application.routes.draw do
   resources :wizard do
     collection do 
       get "search"
+
     end
+    get :autocomplete_neighbourhood_neighbourhood, :on => :collection
   end
 
 
@@ -52,6 +56,8 @@ DateIdeas::Application.routes.draw do
   resources :relationships, :only => [:create, :destroy]
   
   resources :businesses
+
+  resources :neighbourhoods
   
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
