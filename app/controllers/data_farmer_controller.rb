@@ -59,7 +59,7 @@ class DataFarmerController < ApplicationController
 
     saved_counter = 0
     scrapy = DateIdeas::ScreenScraper.new(logger)
-    yelp_adaptor = DateIdeas::YelpAdaptorV2.new('Z720kWRw-CAauOQNUbMEAQ','e7999uMADazHkmG5NDVDWBykczc','1Gj9nSZwzv_o5F_egAYGgYDBsdTdeKFZ','Yd98KQPlSAOWXfmHYsTctbihEH4', logger ,false)
+    yelp_adaptor = DateIdeas::YelpAdaptorV2.new(logger ,false)
     yelp_businesses = yelp_adaptor.search('Toronto',categories, neighbourhoods, offset)
     yelp_businesses.each do |biz|
       save = true

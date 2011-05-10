@@ -1,32 +1,38 @@
 class DateIdeas::YelpAdaptorV2
   @@PROD_URL = "http://api.yelp.com"
   @@TEST_URL = "http://api.sandbox.yelp.com"
-  def initialize(consumer_key, consumer_secret, token, token_secret, logger, test_mode = false )
-    @consumer_key = consumer_key
-    @consumer_secret = consumer_secret
-    @token = token
-    @token_secret = token_secret
+  @@CONSUMER_KEY = 'Z720kWRw-CAauOQNUbMEAQ'
+  @@CONSUMER_SECRET = 'e7999uMADazHkmG5NDVDWBykczc'
+  @@TOKEN = '1Gj9nSZwzv_o5F_egAYGgYDBsdTdeKFZ'
+  @@TOKEN_SECRET = 'Yd98KQPlSAOWXfmHYsTctbihEH4'
+  def initialize(logger, test_mode = false )
     @logger = logger
     @url = test_mode ? @@TEST_URL : @@PROD_URL
+    @consumer = OAuth::Consumer.new(@@CONSUMER_KEY, @@CONSUMER_SECRET, {:site => @url })
+    @access_token = OAuth::AccessToken.new(@consumer, @@TOKEN, @@TOKEN_SECRET)
   end
   def business_detail(business_id)
-    consumer = OAuth::Consumer.new(@consumer_key, @consumer_secret, {:site => @url })
-    access_token = OAuth::AccessToken.new(consumer, @token, @token_secret)
+
     path = "/v2/business/" + business_id
-    p = access_token.get(path).body
+    p = @access_token.get(path).body
     search_results = JSON.parse(p)
-    business = create_business(search_results, true)
+    if(search_results.has_key?("error"))
+      business = nil
+      error_message = search_results.fetch("error").fetch("text")
+      @logger.error("Yelp Server Error Message :" +error_message)
+    else
+      business = create_business(search_results, true)
+    end
+
     return business
   end
   def search(location, categories, neighbourhoods, offset = 0)
     puts "Yelp Adaptor Version 2"
-    consumer = OAuth::Consumer.new(@consumer_key, @consumer_secret, {:site => @url })
-    access_token = OAuth::AccessToken.new(consumer, @token, @token_secret)
     returned_businesses = Array.new
     neighbourhoods.each do | n |
       neighbourhood = n.gsub(/[ ]/,'+')
       path="/v2/search?term=%s&location=%s+%s&offset=%s" % [categories.join("+"), neighbourhood, location, offset]
-      p = access_token.get(path).body
+      p = @access_token.get(path).body
       search_results = JSON.parse(p)
 
       if ( search_results.has_key?("businesses"))

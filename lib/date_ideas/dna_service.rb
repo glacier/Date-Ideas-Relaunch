@@ -14,27 +14,7 @@ class DateIdeas::DnaService
   end
   def search(venue_type,location,price_point = 'budget',page = '1', per_page=10)
     puts("DateIdeas.search:" << venue_type.to_s << ":" << location.to_s << ":" << price_point.to_s << ":" << page.to_s)
-
-#    where_clause = String.new
-#
-#    where_clause << "neighbourhoods.district_subsection=? \
-#                     AND businesses.dna_pricepoint IN (?) \
-#                     AND (businesses.deleted IS NULL OR businesses.deleted = ? ) \
-#                     AND (categories.name IN (?) \
-#                          OR categories.parent_name IN (?) \
-#                          OR categories.parent_name in (select 1 from categories c1 where c1.parent_name in (?)) )"
-
     neighbourhoods = Array.new
-#    db_businesses = Business.find(:all,
-#                               :joins => [:neighbourhoods,
-#                                          :categories],
-#                               :conditions => [where_clause,
-#                                               location,
-#                                               PRICE_RANGE.fetch(price_point),
-#                                               false,
-#                                               CATEGORIES.fetch(venue_type),
-#                                               CATEGORIES.fetch(venue_type),
-#                                               CATEGORIES.fetch(venue_type) ] ).paginate(:page => page, :per_page => 4)
     sql = String.new
     sql <<
 	  "SELECT b.*                                  \
@@ -90,7 +70,7 @@ class DateIdeas::DnaService
 
     @logger.info("neighbourhoods:" + neighbourhoods.to_s)
     #grab from Yelp
-    yelp_adaptor = DateIdeas::YelpAdaptorV2.new('Z720kWRw-CAauOQNUbMEAQ','e7999uMADazHkmG5NDVDWBykczc','1Gj9nSZwzv_o5F_egAYGgYDBsdTdeKFZ','Yd98KQPlSAOWXfmHYsTctbihEH4', @logger ,false)
+    yelp_adaptor = DateIdeas::YelpAdaptorV2.new(@logger ,false)
     yelp_businesses = yelp_adaptor.search('Toronto',CATEGORIES.fetch(venue_type), neighbourhoods)
 
     merged_businesses = merge(db_businesses, yelp_businesses)
@@ -99,22 +79,20 @@ class DateIdeas::DnaService
     merged_businesses.each do |b|
       if(!b.external_id.nil? && (b.dna_excerpt.nil? ||b.dna_excerpt.size == 0))
         business_detail = yelp_adaptor.business_detail(b.external_id)
-
-        highest_review = Review.new
-        highest_review.rating = 0
-        business_detail.reviews.each do |biz_review |
-          if( biz_review.rating > highest_review.rating )
-            highest_review = biz_review
+        if( !business_detail.nil?)
+          highest_review = Review.new
+          highest_review.rating = 0
+          business_detail.reviews.each do |biz_review |
+            if( biz_review.rating > highest_review.rating )
+              highest_review = biz_review
+            end
           end
-        end
 
-        b.dna_excerpt = highest_review.text_excerpt
-        @logger.info("b.excerpt :" +b.dna_excerpt)
+          b.dna_excerpt = highest_review.text_excerpt
+          @logger.info("b.excerpt :" +b.dna_excerpt)
+        end
       end
     end
-
-
-
     return merged_businesses
   end
   def get_geocode(address)
