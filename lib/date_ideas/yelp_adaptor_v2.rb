@@ -28,7 +28,7 @@ class DateIdeas::YelpAdaptorV2
       path="/v2/search?term=%s&location=%s+%s&offset=%s" % [categories.join("+"), neighbourhood, location, offset]
       p = access_token.get(path).body
       search_results = JSON.parse(p)
-<<<<<<< HEAD
+
       if ( search_results.has_key?("businesses"))
         businesses_hash = search_results.fetch("businesses")
         r_businesses = Array.new
@@ -40,15 +40,6 @@ class DateIdeas::YelpAdaptorV2
         #handle errors
         error_message = search_results.fetch("error").fetch("text")
         @logger.error("Yelp Server Error Message :" +error_message)
-=======
-      if(search_results.has_key?("businesses"))
-      	 businesses_hash = search_results.fetch("businesses")
-      	 r_businesses = Array.new
-     	 r_businesses = create_businesses(businesses_hash)
-     	 r_businesses.each do |biz|
-           returned_businesses.push( biz )
-         end
->>>>>>> f594f3300476d3ca031054862818fba279053596
       end
 
     end

@@ -86,6 +86,16 @@ class DataFarmerController < ApplicationController
       biz.categories = biz_c
       #check if it's already in the database
       tmp_biz = Business.find_by_external_id(biz.external_id)
+
+      if(tmp_biz.nil?)
+        tmp_biz = Business.find(:all, :conditions => ['businesses.name = ? AND businesses.address1 = ?',biz.name,biz.address1])
+        tmp_biz.photo_url = biz.photo_url
+        tmp_biz.longitude = biz.longitude
+        tmp_biz.latitude  = biz.latitude
+        tmp_biz.external_id = biz.external_id
+        tmp_biz.save
+      end
+
       if(!tmp_biz.nil?)
         save=false
       end

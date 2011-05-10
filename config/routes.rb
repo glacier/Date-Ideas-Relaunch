@@ -1,9 +1,6 @@
 DateIdeas::Application.routes.draw do
-<<<<<<< HEAD
+  # devise_for :admins
 
-=======
-  # devise_for :admins 
->>>>>>> f594f3300476d3ca031054862818fba279053596
 
   # resources :cart_items
 

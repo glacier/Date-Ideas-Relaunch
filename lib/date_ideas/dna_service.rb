@@ -14,32 +14,61 @@ class DateIdeas::DnaService
   end
   def search(venue_type,location,price_point = 'budget',page = '1', per_page=10)
     puts("DateIdeas.search:" << venue_type.to_s << ":" << location.to_s << ":" << price_point.to_s << ":" << page.to_s)
-<<<<<<< HEAD
-=======
-    neighbourhoods = Array.new
-    businesses = Business.find(:all,:joins => [:neighbourhoods,:categories], :conditions => ['neighbourhoods.district_subsection=? AND businesses.dna_pricepoint IN (?) AND (businesses.deleted IS NULL OR businesses.deleted = ? ) AND (categories.name IN (?) or categories.parent_name IN (?) or categories.parent_name in (select 1 from categories c1 where c1.parent_name in (?)) )',location, PRICE_RANGE.fetch(price_point),false,CATEGORIES.fetch(venue_type),CATEGORIES.fetch(venue_type),CATEGORIES.fetch(venue_type) ] ).paginate(:page => page, :per_page => per_page)
->>>>>>> f594f3300476d3ca031054862818fba279053596
 
-    where_clause = String.new
-
-    where_clause << "neighbourhoods.district_subsection=? \
-                     AND businesses.dna_pricepoint IN (?) \
-                     AND (businesses.deleted IS NULL OR businesses.deleted = ? ) \
-                     AND (categories.name IN (?) \
-                          OR categories.parent_name IN (?) \
-                          OR categories.parent_name in (select 1 from categories c1 where c1.parent_name in (?)) )"
+#    where_clause = String.new
+#
+#    where_clause << "neighbourhoods.district_subsection=? \
+#                     AND businesses.dna_pricepoint IN (?) \
+#                     AND (businesses.deleted IS NULL OR businesses.deleted = ? ) \
+#                     AND (categories.name IN (?) \
+#                          OR categories.parent_name IN (?) \
+#                          OR categories.parent_name in (select 1 from categories c1 where c1.parent_name in (?)) )"
 
     neighbourhoods = Array.new
-    db_businesses = Business.find(:all,
-                               :joins => [:neighbourhoods,
-                                          :categories],
-                               :conditions => [where_clause,
-                                               location,
-                                               PRICE_RANGE.fetch(price_point),
-                                               false,
-                                               CATEGORIES.fetch(venue_type),
-                                               CATEGORIES.fetch(venue_type),
-                                               CATEGORIES.fetch(venue_type) ] ).paginate(:page => page, :per_page => 4)
+#    db_businesses = Business.find(:all,
+#                               :joins => [:neighbourhoods,
+#                                          :categories],
+#                               :conditions => [where_clause,
+#                                               location,
+#                                               PRICE_RANGE.fetch(price_point),
+#                                               false,
+#                                               CATEGORIES.fetch(venue_type),
+#                                               CATEGORIES.fetch(venue_type),
+#                                               CATEGORIES.fetch(venue_type) ] ).paginate(:page => page, :per_page => 4)
+    sql = String.new
+    sql <<
+	  "SELECT b.*                                  \
+		FROM                                         \
+			businesses b                               \
+		WHERE                                        \
+          b.dna_pricepoint IN (?)                \
+      AND (b.deleted IS NULL OR                  \
+           b.deleted = ? )                       \
+			AND EXISTS ( SELECT 1                      \
+					   FROM business_neighbourhoods bn     \
+                  ,neighbourhoods n              \
+					   WHERE n.id=bn.neighbourhood_id      \
+						   AND bn.business_id=b.id           \
+						   AND n.district_subsection=? )     \
+			AND EXISTS ( SELECT 1                      \
+					   FROM business_categories bc         \
+                  ,categories c                  \
+					  WHERE c.id=bc.category_id            \
+						AND bc.business_id=b.id 	           \
+						AND (c.name IN (?) OR                \
+                 c.parent_name IN (?) OR
+                 c.parent_name IN ( SELECT 1                      \
+                                      FROM categories c1          \
+                                     WHERE c1.parent_name IN (?)) \
+                ))                                                \
+		ORDER BY b.name"
+    db_businesses = Business.find_by_sql([sql,
+                                          PRICE_RANGE.fetch(price_point),
+                                          false,
+                                          location,
+                                          CATEGORIES.fetch(venue_type),
+                                          CATEGORIES.fetch(venue_type),
+                                          CATEGORIES.fetch(venue_type)]).paginate(:page => page, :per_page => 4)
     db_businesses_no_exerpt = Array.new
 
     db_businesses.each do |b|
@@ -68,10 +97,19 @@ class DateIdeas::DnaService
 
     #search business details
     merged_businesses.each do |b|
-      if(!b.external_id.nil? && (b.text_excerpt.nil? ||b.text_excerpt.size == 0))
+      if(!b.external_id.nil? && (b.dna_excerpt.nil? ||b.dna_excerpt.size == 0))
         business_detail = yelp_adaptor.business_detail(b.external_id)
-        b.text_excerpt = business_detail.reviews[0].text_excerpt
-        @logger.info("b.excerpt :" +b.text_excerpt)
+
+        highest_review = Review.new
+        highest_review.rating = 0
+        business_detail.reviews.each do |biz_review |
+          if( biz_review.rating > highest_review.rating )
+            highest_review = biz_review
+          end
+        end
+
+        b.dna_excerpt = highest_review.text_excerpt
+        @logger.info("b.excerpt :" +b.dna_excerpt)
       end
     end
 
