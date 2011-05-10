@@ -1,4 +1,6 @@
 class UserMailer < ActionMailer::Base
+  add_template_helper(WizardHelper)
+  
   default :from => "no-reply@dateideas.ca"
   
   def date_plan_email(user, datecart)

@@ -10,7 +10,8 @@ class Ability
       can :read, :all
       can [:create, :update], [Datecart, Profile, :Relationships]
       can :complete, Datecart
-      
+      can :email, Datecart
+    
       cannot :destroy, [Datecart, Profile]
       cannot :manage, :data_farmer
       

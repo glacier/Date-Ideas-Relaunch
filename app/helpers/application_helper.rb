@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include WizardHelper
+  
   # Use this function in views to dynamically set the page title
   def title(page_title = nil)
     if page_title
