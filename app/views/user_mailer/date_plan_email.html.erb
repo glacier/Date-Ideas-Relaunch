@@ -10,11 +10,6 @@
 			<p>Where: </p>
 			<ul>
 				<% @datecart.cart_items.each do |item| %>
-					<%# @business = item.business %>
-					<!-- <li><%# @business.name %></li>
-					<li><%# @business.address1 %></li>
-					<li><%# @business.city %></li>
-					<li><%# @business.phone_no %></li> -->
 					<%= display_address(item.business) %>
 				<% end %>
 			</ul>

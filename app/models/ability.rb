@@ -9,6 +9,9 @@ class Ability
     else
       can :read, :all
       can [:create, :update], [Datecart, Profile, :Relationships]
+      
+      # Note: can another user see someone's unsaved Datecart? 
+      # I think they can.  This might be a security loop hole.
       can :complete, Datecart
       can :email, Datecart
     
@@ -28,7 +31,7 @@ class Ability
       can :destroy, Datecart do |d|
         d.try(:user) == user
       end
-      
+
       # can :manage, Relationship do |r|
       #   r.try(:follower) == user
       # end
