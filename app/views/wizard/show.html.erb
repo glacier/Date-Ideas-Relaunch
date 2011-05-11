@@ -48,7 +48,7 @@
 				<p><%= business.dna_excerpt %></p>
 				<p><%= display_address(business) %></p>
 				<p>
-					<%= link_to("Read full reviews", "#?w=880", :class => "poplight", :rel => business.id) %>
+					<%= link_to("Reviews", business_path(business), :class => "add_button", :rel => business.id) %>
 					<% @cart_item = @cart_items.find(:first, :conditions => ["business_id = :b", {:b => business.id }]) %>
 					<span id="add_to_date_<%= business.id %>">
 						<% if @cart_item.nil? %>
