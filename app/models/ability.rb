@@ -14,6 +14,7 @@ class Ability
       # I think they can.  This might be a security loop hole.
       can :complete, Datecart
       can :email, Datecart
+      can :print, Datecart
     
       cannot :destroy, [Datecart, Profile]
       cannot :manage, :data_farmer

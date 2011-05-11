@@ -1,0 +1,20 @@
+<!-- print layout  -->
+<h1><%= @datecart.name %></h2>
+<!-- prompt to set a date if no date is set -->
+<h2>Time</h2>
+<p><%= @datecart.datetime %></p>
+
+<h2>My Notes</h2>
+<p><%= @datecart.notes %></p>
+
+<h2>My Itinerary </h2>
+
+<ul>
+	<% @datecart.cart_items.each do |item| %>
+		<li>
+			<span><%= image_tag(item.business.photo_url) %></span>
+			<span><%= item.business.name %></span>
+			<span><%= display_address(item.business) %></span>
+		</li>
+	<% end %>
+</ul>

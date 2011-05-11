@@ -1,10 +1,7 @@
-<!-- print layout  -->
-<h2><%= @datecart.name %></h2>
-<p>When: <%= @datecart.datetime %></p>
-Where:
-<ul><%= render @datecart.cart_items %></ul>
-<p>Notes for my date: <%= @datecart.notes %></p>
+<%= render 'itinerary'%>
 
 <div id="print_me">
 	<%= link_to('Print Me!', 'javascript:void(0);', :class => "add_button") %>
 </div>
+
+<!-- mechanism to return to search results -->

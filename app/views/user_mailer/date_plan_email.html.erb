@@ -4,15 +4,6 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1>Here is your Date Plan!, <%= @user.first_name %></h1>
-			<p>Title: <%= @datecart.name %></p>
-			<p>When: <%= @datecart.datetime %></p>
-			<p>Where: </p>
-			<ul>
-				<% @datecart.cart_items.each do |item| %>
-					<%= display_address(item.business) %>
-				<% end %>
-			</ul>
-			<p>Notes for my date: <%= @datecart.notes %></p> 
+		<%= render 'datecarts/itinerary' %>
   </body>
 </html>
