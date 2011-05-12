@@ -1,0 +1,11 @@
+<span>
+	<%= link_to("Reviews", business_path(business), :class => "add_button", :rel => business.id) %>
+	<% @cart_item = cart_items.find(:first, :conditions => ["business_id = :b", {:b => business.id }]) %>
+</span>
+<span id="add_to_date_<%= business.id %>">
+	<% if @cart_item.nil? %>
+		<%= render :partial => 'add', :locals => {:datecart => @datecart, :business => business, :venue_type => params[:venue_type] } %>
+	<% else %>
+		<%= render :partial => 'remove', :locals => {:datecart => @datecart, :business => business} %>
+	<% end %>
+</span>

@@ -39,7 +39,10 @@
 <% @cart_items = @datecart.cart_items %>
 <% @wizard.businesses.each do |business| %>
 	<div class="di_biz">
-		<%= render :partial => 'venue_item', :locals => {:business => business, :cart_items => @cart_items} %>
+		<%= render :partial => 'shared/venue_item', :locals => {:business => business} %>
+		<div class="di_biz_add">
+			<%= render :partial => 'shared/add_buttons', :locals => {:business => business, :cart_items => @cart_items} %>
+		</div>
 	</div>
 <% end %>
 
