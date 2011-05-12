@@ -14,10 +14,11 @@
 	<div id="di_map">
 		<script type="text/javascript"> 
 			$(document).ready(function(){
+				// maps
 				//	$('#map').jMapping({metadata_options: {type: 'html5'}, link_selector: false, always_show_markers: true });
 				});
 		</script>
-		
+		<!-- maps -->
 		<div id="map" style="width: 270px; height: 270px"></div>
 		<%# Don't display the top three venue links ... %>
 		<%# raw display_main_map_info(@wizard.businesses) %>
@@ -25,7 +26,6 @@
 <% end %>
 
 <% content_for :sidebar_filters do %>
-	<!-- Nothing here yet -->
 	<fieldset id="di_filters">TODO: Filters goes here</fieldset>
 <% end %>
 
@@ -36,61 +36,14 @@
 	</div>
 <% end %>
 
-<!-- venue results listing -->
 <% @cart_items = @datecart.cart_items %>
-
 <% @wizard.businesses.each do |business| %>
 	<div class="di_biz">
-		<h3 class="di_biz_name"><%= link_to business.name, business_path(business) %></h3>
-		<div class="di_biz_info">
-			<div class="di_biz_photo"><%= image_tag(business.photo_url) %></div>
-			<div class="di_biz_desc">
-				<p><%= business.dna_excerpt %></p>
-				<p><%= display_address(business) %></p>
-				<p>
-					<%= link_to("Reviews", business_path(business), :class => "add_button", :rel => business.id) %>
-					<% @cart_item = @cart_items.find(:first, :conditions => ["business_id = :b", {:b => business.id }]) %>
-					<span id="add_to_date_<%= business.id %>">
-						<% if @cart_item.nil? %>
-							<%= render :partial => 'add', :locals => {:datecart => @datecart, :business => business, :venue_type => params[:venue_type] } %>
-						<% else %>
-							<%= render :partial => 'remove', :locals => {:datecart => @datecart, :business => business} %>
-						<% end %>
-					</span>
-				</p>
-			</div>
-		</div>
+		<%= render :partial => 'venue_item', :locals => {:business => business, :cart_items => @cart_items} %>
 	</div>
 <% end %>
-<!-- end of venue results list -->
 
 <hr/>
 
-<!-- each business popup -->
-<% @wizard.businesses.each do |business| %>
-    <%= content_tag(:div, :id=>business.id, :class=>"popup_block") do %>
-        <table>
-          <tr>
-            <td colspan="2"><%= business.name %></td>
-          </tr>
-          <tr>
-            <td><%= image_tag(business.photo_url) %></td>
-            <td>        
-				<div>
-					<%= content_tag(:div,:id=>String.new("map").concat(business.id), :style=>"width: 350px; height: 400px")  do %>
-					<% end %>
-					<%= raw display_map_info(business) %>
-				</div>           
-            </td>
-          </tr>
-          <tr>
-            <td colspan="2"><%= business.text_excerpt %></td>
-          </tr>
-          <tr>
-            <td colspan="2"><%= display_address(business) %></td>
-          </tr>
-        </table>
-    <% end %>
-<% end %>
 <%= will_paginate @wizard.businesses %>
-<!-- end of each business popup -->
+
