@@ -1,0 +1,15 @@
+<h1><%= datecart.name %></h2>
+<!-- TODO: link for prompting to set a date if no date is set -->
+<p><%= datecart.datetime %></p>
+
+<h2>My Notes</h2>
+<p><%= datecart.notes %></p>
+
+<!-- TODO: link for prompting to set a time for each venue if no time is set -->
+<h2>My Itinerary</h2>
+<ul>
+	<% datecart.cart_items.each do |item| %>
+		<%= render :partial => 'shared/venue_item', :locals => {:business => item.business} %>
+		<hr/>
+	<% end %>
+</ul>

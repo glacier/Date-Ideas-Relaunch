@@ -1,4 +1,4 @@
-<%= render 'itinerary'%>
+<%= render :partial => 'shared/itinerary', :locals => {:datecart => @datecart} %>
 
 <div id="print_me">
 	<%= link_to('Print Me!', 'javascript:void(0);', :class => "add_button") %>

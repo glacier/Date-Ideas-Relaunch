@@ -32,7 +32,6 @@
 
 <% if current_user?(@user) %>
 	<%= render :partial => 'date_plans', :locals => {:user => @user} %>
-
-	<%= link_to "Start Planning!", wizard_index_path, :class => "add_button" %>
+	<%= link_to "Plan a Date!", wizard_index_path, :class => "add_button" %>
 <% end %>
 
