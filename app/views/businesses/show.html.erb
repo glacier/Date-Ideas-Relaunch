@@ -1,30 +1,30 @@
-<h1><%= @business.name %></h1>
-<div id="di_venue_photo"><%= image_tag "generic_restaurant.jpg" %></div>
+<h2><%= @business.name %></h2>
+<div id="di_venue_photo"><%= image_tag @business.photo_url %></div>
 <% content_for :sidebar_map do %>
-<div id="di_venue_map"><%= image_tag "map_generic.png"%></div>
+<div id="di_venue_map">
+ <%= gmaps({"markers" => {"data" => @markers}, "map_options" => {"processing" => "json", "auto_adjust" => true, "auto_zoom" => false, "zoom" => 15}}) %>
+</div>
 <% end %>
 
-<h2>About</h2>
+<h3>About</h3>
 <div id="di_venue_excerpt"><%= @business.dna_excerpt %></div>
 
 <div id="di_venue_info">
-	<ul>
-	<li><%= @business.dna_neighbourhood %></li>
-	<li><%= @business.dna_atmosphere %></li>
-	<li><%= @business.dna_pricepoint %></li>
-	<li><%= @business.dna_category %></li>
-	<li><%= @business.dna_dresscode %></li>
-	</ul>
+    <table>
+      <tr>
+        <td>Price Point</td><td><%= @business.dna_pricepoint %></td>
+        <td>Dress Code</td><td><%= @business.dna_dresscode %></td>
+      </tr><tr>
+        <td>Reservations</td><td><%= @business.takes_reservations %></td>
+        <td>Hours</td><td><%=  raw ((@business.hours.nil?) ? "":@business.hours.join("<br/>")) %></td>
+      </tr><tr>
+        <td>Group date friendly</td><td><%= @business.group_date_friendly %></td>
+        <td>Kid friendly</td><td><%= @business.kids_friendly %></td>
+      </tr>
+    </table>
 </div>
 
-<h2>Leave a tip</h2>
-<div id="di_venue_tips">TODO: Tips go here</div>
-
-<h2>Date Ideas Review</h2>
-<div id="di_venue_reviews"><%= @business.dna_review %></div>
-
-<h2>From other Date-izens</h2>
-TODO
-
-<h2>Yelp</h2>
-TODO
+<div id="di_reviews">
+    <%= image_tag ("/images/reviews_from_yelp.gif") %>
+    <%= raw display_reviews(@business) %>
+</div>

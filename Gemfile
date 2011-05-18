@@ -17,6 +17,7 @@ gem "rails3-jquery-autocomplete"
 #gem "mail", "2.1.3"
 gem "nokogiri", "1.4.4"
 gem "cancan"
+gem "gmaps4rails", ">= 0.8.5"
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -27,7 +28,7 @@ gem "cancan"
 gem 'mysql2'
 
 # Use unicorn as the web server
-# gem 'unicorn'
+# gem 'unicorn'           cd d
 
 # Deploy with Capistrano
 # gem 'capistrano'

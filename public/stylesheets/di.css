@@ -22,3 +22,7 @@ h1 small{
 	float: left;
 	width: 560px;
 }*/
+#gmaps4rails_map {
+  width: 250px;
+  height: 300px;
+}

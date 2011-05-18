@@ -89,7 +89,6 @@ class DateIdeas::YelpAdaptorV2
     if( business_hash.has_key?("phone"))
       business.phone_no = business_hash.fetch("phone")
     end
-#    business.text_excerpt = "Some restaurant description...blah blah blah."#business_hash.fetch("text_excerpt")
     if( business_hash.fetch("location").has_key?("coordinate"))
       business.longitude = business_hash.fetch("location").fetch("coordinate").fetch("longitude")
       business.latitude = business_hash.fetch("location").fetch("coordinate").fetch("latitude")
@@ -100,11 +99,12 @@ class DateIdeas::YelpAdaptorV2
     if( extract_reviews )
       business.reviews = create_reviews(business_hash.fetch("reviews"))
     end
-    business.categories = create_categories(business_hash.fetch("categories"))
+    if(business_hash.has_key?("categories"))
+      business.categories = create_categories(business_hash.fetch("categories"))
+    end
     if(business_hash.fetch("location").has_key?("neighborhoods"))
       business.neighbourhoods = create_neighbourhoods(business_hash.fetch("location").fetch("neighborhoods"))
     end
-#    @logger.info("business:" + business.name )
     return business
   end
   def create_reviews(reviews_hash)
@@ -116,13 +116,26 @@ class DateIdeas::YelpAdaptorV2
   end
   def create_review(review_hash)
     review = Review.new
-    review.id = review_hash.fetch("id")
     review.rating = review_hash.fetch("rating")
     review.text_excerpt = review_hash.fetch("excerpt")
-    if(review_hash.has_key?("rating_img_url") )
-      review.rating_img_url = review_hash.fetch("rating_img_url")
+    if(review_hash.has_key?('rating_image_url') )
+      review.rating_img_url = review_hash.fetch('rating_image_url')
     end
+    #review.rating_img_url = review_hash.fetch("rating_img_url")
     review.rating_img_url_small = review_hash.fetch("rating_image_small_url")
+
+    if(review_hash.has_key?("user"))
+      if(review_hash.fetch("user").has_key?("image_url") )
+        review.user_photo_url_small = review_hash.fetch("user").fetch("image_url")
+      end
+      if(review_hash.fetch("user").has_key?("id") )
+        review.id = review_hash.fetch("user").fetch("id")
+      end
+      if( review_hash.fetch('user').has_key?('name'))
+        review.name = review_hash.fetch('user').fetch('name')
+      end
+    end
+
     return review
   end
   def create_neighbourhoods(neighbourhoods_hash)
@@ -131,7 +144,6 @@ class DateIdeas::YelpAdaptorV2
       neighbourhood = Neighbourhood.new
       neighbourhood.neighbourhood = n
       neighbourhoods.push(neighbourhood)
-#      @logger.info("neighbourhood:" + n )
     end
     return neighbourhoods
   end
@@ -142,7 +154,6 @@ class DateIdeas::YelpAdaptorV2
       category.name = name
       category.display_name = display_name
       categories.push(category)
-#      @logger.info("category:" +name )
     end
     return categories
   end
