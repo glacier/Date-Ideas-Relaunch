@@ -1,11 +1,9 @@
 module DatecartsHelper
   # display date cart sorted by venue type
   def sort_by_category(datecart)
-
-                 
     display = ""
     items = datecart.cart_items    
-    display_text = { "food" => "Eats", "bars" => "Drinks", "activities_events" => "Activities", "nightlife" => 'Nightlife', 'arts_entertainment' => 'Arts and Entertainment'}
+    display_text = { "food" => "Dining", "bars" => "Drinks", "activities_events" => "Activities & Events", "nightlife" => 'Nightlife', 'arts_entertainment' => 'Arts and Entertainment'}
                      
     category_display = Hash.new
     items.each do |item|
