@@ -18,14 +18,14 @@ gem "rails3-jquery-autocomplete"
 gem "nokogiri", "1.4.4"
 gem "cancan"
 gem "gmaps4rails", ">= 0.8.5"
-
+gem 'eventfulapi'  
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 # Need this to fix the uninitialized constant Rack::Session::Abstract::SessionHash 
 # exception
 # gem "rack", :git => "git://github.com/rack/rack.git"
 
-gem 'mysql2'
+gem 'mysql2', '< 0.3'
 
 # Use unicorn as the web server
 # gem 'unicorn'           cd d
