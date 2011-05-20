@@ -97,5 +97,15 @@ $(document).ready(function() {
 	$('a[rel="external"]').click(function(){
 		this.target = "_blank";
 	});
-
+	
+	//Attach a spinner while waiting for the completion of an ajax call
+	$('.add_button')  
+	.live("ajax:beforeSend", function() {
+		$(this).parent().html("<img src='/images/ajax-loader.gif' />");
+	});                                                                
+	
+	$('.remove_button')
+	.live("ajax:beforeSend", function() {
+		$(this).parent().html("<img src='/images/ajax-loader.gif' />");
+	});
 });

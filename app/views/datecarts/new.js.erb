@@ -15,7 +15,7 @@ var dialogOpts = {
 	draggable: false,
 	open: function() {
 		//display correct dialog content
-		$("#di_new_date").html("<%= escape_javascript(render 'form', :format => :html) %>");
+		$("#di_new_date").html("<%= escape_javascript(render 'wizard/form', :format => :html) %>");
 	}
 };
 

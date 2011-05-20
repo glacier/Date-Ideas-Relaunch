@@ -47,6 +47,12 @@ $loud-blue: #00c9f2;
 
 /*$link-color: $loud-bg-color;
 $link-visited-color: $loud-bg-color;
-$link-active-color: $loud-bg-color;*/
+$link-active-color: $loud-bg-color;*/ 
+
+// for fancy buttons
+$fancy-green: darken(#57b42c, 8);
+$fancy-orange: #F0EEE4;
+$fancy-silver: #B7B7B7;
+$fancy-red: adjust_hue($fancy-green, -100);
 
 

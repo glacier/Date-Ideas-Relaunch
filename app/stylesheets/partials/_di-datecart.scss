@@ -64,6 +64,17 @@ fieldset {
 		@include horizontal-list;
 }
 
-.loud_button {
-	@include quiet_link_button;
+/*$green: darken(#57b42c, 8)
+$blue: adjust_hue($green, 110)
+$red: adjust_hue($green, -100)
+$heart_button: saturate(lighten($red, 2), 20)
+*/
+/* Styles for Datecart buttons */
+.function_buttons {
+	@include fancy-button-matte($fancy-silver, 10px, 0.30em, 1px);
+	@include fancy-button-colors-matte(#ddd);   
 }
+.datecart_buttons {
+	@include fancy-button-matte(adjust_hue($fancy-green, 110), 14px, 0.30em, 1px);
+}
+                                   
