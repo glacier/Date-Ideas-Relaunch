@@ -72,6 +72,7 @@ $(document).ready(function() {
 	
 	var cart = $('#di_cart_front');
 	var map = $('#sidebar_left_pinned');
+   
 	// console.log(cart);
 	if(cart.length){
 		pin($(window), cart, "pin-cart");
@@ -96,4 +97,5 @@ $(document).ready(function() {
 	$('a[rel="external"]').click(function(){
 		this.target = "_blank";
 	});
+
 });

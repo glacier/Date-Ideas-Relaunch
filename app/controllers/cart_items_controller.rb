@@ -49,9 +49,9 @@ class CartItemsController < ApplicationController
     @datecart = Datecart.find(params[:datecart_id])
     # y 'in cart_items#create'
     # y @datecart
-    business = Business.find(params[:business_id])
+    @business = Business.find(params[:business_id])
     if @datecart
-      @cart_item = @datecart.cart_items.build(:business => business, :venue_type => session['venue_type'])
+      @cart_item = @datecart.cart_items.build(:business => @business, :venue_type => session['venue_type'])
     end
 
     respond_to do |format|

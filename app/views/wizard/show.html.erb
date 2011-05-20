@@ -7,17 +7,22 @@
 		width: 270px;
 	}
 </style>
+<script type="text/javascript"> 
+	$(document).ready(function(){
+		// maps
+		//	$('#map').jMapping({metadata_options: {type: 'html5'}, link_selector: false, always_show_markers: true });
+			
+			$('.add_button')  
+			.live("ajax:beforeSend", function() {
+				$(this).parent().html("<img src='/images/ajax-loader.gif' />");
+			});
+		});
+</script>
 
 <%= title("Search") %>
 
 <% content_for :sidebar_map do %>
 	<div id="di_map">
-		<script type="text/javascript"> 
-			$(document).ready(function(){
-				// maps
-				//	$('#map').jMapping({metadata_options: {type: 'html5'}, link_selector: false, always_show_markers: true });
-				});
-		</script>
 		<!-- maps -->
 		<div id="map" style="width: 270px; height: 270px"></div>
 		<%# raw display_main_map_info(@wizard.businesses) %>
