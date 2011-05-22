@@ -22,8 +22,9 @@ class DateIdeas::EventfulAdaptor
                              :units => 'km',
                              :mature => 'normal',
                              :sort_order => 'popularity'
-                             
-    return create_events(results['events']['event'])
+    unless results['events'].nil?
+      return create_events(results['events']['event'])
+    end
   end
   
   def create_events(events_hash)
