@@ -1,0 +1,16 @@
+<h3 class="di_biz_name"><%= link_to event.title, event.url %></h3>
+<div class="di_biz_info">
+	<div class="di_biz_photo"><%= image_tag(image_url('event', event.photo_url)) %></div>
+	<div class="di_biz_desc">
+		<p id="venue_name">At <%= event.venue_name %></p>
+		<p><%= display_time(event.start_time, event.end_time) %></p>
+		<p><%= event.venue_address %></p>
+	</div>
+	<div class="attribution">
+		<div class="eventful-badge eventful-small">
+		  <img src="http://api.eventful.com/images/powered/eventful_58x20.gif"
+		    alt="Local Events, Concerts, Tickets">
+		  <p><a href="http://eventful.com/">Events</a> by Eventful</p>
+		</div>
+	</div>
+</div>

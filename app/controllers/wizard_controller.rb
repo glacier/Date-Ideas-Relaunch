@@ -23,12 +23,18 @@ class WizardController < ApplicationController
     logger.info("creating dnaservice")
     dnaService = DateIdeas::DnaService.new(logger)   
     eventful = DateIdeas::EventfulAdaptor.new
- 
+
     businesses = dnaService.search(@wizard.venue, @wizard.location, @wizard.price_point, current_page, 10)
+    #grab events
     events = eventful.search(@wizard.venue, 'toronto')
     
+    logger.info(events)
+
+     
     @datecart = current_cart
     @wizard.businesses = businesses
+    @wizard.events = events
+    
     respond_to do |format|
         format.html { render :action =>"show" }
     end

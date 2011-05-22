@@ -28,4 +28,20 @@ module ApplicationHelper
       default_url
     end
   end
+  
+  def image_url(thing, url)
+    default_url = "#{root_url}images/#{thing}_placeholder.jpg"
+    if url.nil?
+      return default_url
+    else
+      return url
+    end
+  end
+  def display_time(start_time, end_time)
+    if end_time.nil?
+      return "On " + start_time
+    else
+      return "From " + start_time + " to " + end_time
+    end
+  end
 end

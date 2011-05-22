@@ -1,42 +1,62 @@
 require 'eventful/api'
+
 #Implements a rails adaptor for the eventful api
 class DateIdeas::EventfulAdaptor
   def initialize
-    #dateideas eventful api key
-    @app_key = '7zXsjWk67F7qVKtq'
-    @eventful = Eventful::API.new @app_key  
+    begin
+      @app_key = '7zXsjWk67F7qVKtq'
+      @eventful = Eventful::API.new @app_key
+    rescue Eventful::APIError => e
+      logger.info("There was a problem with the API: #{e}")
+    end
   end
   def search(query, location)
-    #  begin
-    # 
-    #   # Start an API session with a username and password
-    #   eventful = Eventful::API.new 'application_key',
-    #                                :user => 'username',
-    #                                :password => 'password'
-    # 
-    #   # Lookup an event by its unique id
-    #   event = eventful.call 'events/get',
-    #                         :id => 'E0-001-001042544-7'
-    # 
-    #   puts "Event Title: #{event['title']}"
-    # 
-    #   # Get information about that event's venue
-    #   venue = eventful.call 'venues/get',
-    #                         :id => event['venue_id']
-    # 
-    #   puts "Venue: #{venue['name']}"
-    # 
-    # rescue Eventful::APIError => e
-    #   puts "There was a problem with the API: #{e}"
-    # end
-    
     # search for events
+    
+    # result is a ruby hash
     results = @eventful.call 'events/search',
+                             :date => 'future',     
                              :keywords => query,
                              :location => location,
-                             :page_size => 5
-# example
-# http://api.eventful.com/rest/events/search?...&keywords=books&location=San+Diego&date=Future
-    
+                             :page_size => 3,
+                             :units => 'km',
+                             :mature => 'normal',
+                             :sort_order => 'popularity'
+                             
+    return create_events(results['events']['event'])
+  end
+  
+  def create_events(events_hash)
+    events = Array.new
+    events_hash.each do |hash|
+      events.push(create_event(hash))
+    end
+    return events
+  end
+  
+  def create_event(event_hash)
+    event = Event.new
+    event.title = event_hash['title']
+    event.url = event_hash['url']
+    event.photo_url = get_photo_url(event_hash, 'medium')
+    event.start_time = get_time(event_hash['start_time'])
+    event.end_time = get_time(event_hash['end_time'])
+    event.venue_name = event_hash['venue_name']
+    event.venue_address = event_hash['venue_address']
+    event.city_name = event_hash['city_name']
+    event.region_name = event_hash['region_name']
+    event.latitude = event_hash['latitude']
+    event.longitude = event_hash['longitude']
+    return event
+  end
+  def get_time(time)
+    return Time.parse(time).strftime("%a, %b %d, %I:%M %p") if time
+  end
+  def get_photo_url(event_hash, photo_size)
+    photo_url = "events_placeholder.jpg"
+    unless event_hash['image'].nil?
+      photo_url = event_hash['image'][photo_size]['url']
+    end
+    return photo_url
   end
 end
