@@ -36,6 +36,9 @@
 <% end %>
 
 <% @cart_items = @datecart.cart_items %>
+
+<p>TODO: display events here </p> 
+
 <% @wizard.businesses.each do |business| %>
 	<div class="di_biz">
 		<%= render :partial => 'shared/venue_item', :locals => {:business => business} %>
