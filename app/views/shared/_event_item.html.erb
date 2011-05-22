@@ -2,9 +2,11 @@
 <div class="di_biz_info">
 	<div class="di_biz_photo"><%= image_tag(image_url('event', event.photo_url)) %></div>
 	<div class="di_biz_desc">
-		<p id="venue_name">At <%= event.venue_name %></p>
+		<h4>When</h4> 
 		<p><%= display_time(event.start_time, event.end_time) %></p>
-		<p><%= event.venue_address %></p>
+		<h4>Where</h4> 
+		<p><%= event.venue_name %></p>
+		<p><%= event.venue_address %>, <%= event.city_name %>, <%= event.region_name %>, <%=event.postal_code %></p>
 	</div>
 	<div class="attribution">
 		<div class="eventful-badge eventful-small">
