@@ -1,7 +1,5 @@
 DateIdeas::Application.routes.draw do
   # devise_for :admins
-
-
   # resources :cart_items
 
   resources :datecarts do 
@@ -17,14 +15,14 @@ DateIdeas::Application.routes.draw do
     
     resources :cart_items
   end
-  
-  
-  # devise_for :admins
 
   # TODO: handle user abuse of application urls?
   
   match '/auth/:provider/callback' => 'authentications#create'
 
+  #Docs for devise routes here:
+  #http://rubydoc.info/github/plataformatec/devise/master/ActionDispatch/Routing/Mapper#devise_for-instance_method
+  
   # devise_for :users, :controllers => {:registrations => "registrations"}
   devise_for :users
   

@@ -10,6 +10,7 @@ class WizardController < ApplicationController
       format.html # index.html.erb
     end
   end
+
   def show
     @wizard = Wizard.new
     respond_to do |format|
@@ -17,6 +18,7 @@ class WizardController < ApplicationController
       format.html # index.html.erb
     end
   end
+
   def search
     @wizard = Wizard.new(params[:venue], params[:location], params[:price_point])
     current_page = params[:page]

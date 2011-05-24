@@ -1,12 +1,10 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
-gem 'sqlite3', "< 1.3.1"
-gem 'yelp'
 gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
 gem 'omniauth'
 gem 'oa-openid', :require => 'omniauth/openid'
-gem 'mongrel', '1.2.0.pre2', :group => :development
+
 gem 'jquery-rails','>=0.2.6'
 gem "compass", ">= 0.10.6"
 gem "haml"
