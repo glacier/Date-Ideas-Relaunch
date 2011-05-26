@@ -118,6 +118,7 @@ class DateIdeas::YelpAdaptorV2
     review = Review.new
     review.rating = review_hash.fetch("rating")
     review.text_excerpt = review_hash.fetch("excerpt")
+    review.id = review_hash.fetch("id")
     if(review_hash.has_key?('rating_image_url') )
       review.rating_img_url = review_hash.fetch('rating_image_url')
     end
@@ -129,7 +130,7 @@ class DateIdeas::YelpAdaptorV2
         review.user_photo_url_small = review_hash.fetch("user").fetch("image_url")
       end
       if(review_hash.fetch("user").has_key?("id") )
-        review.id = review_hash.fetch("user").fetch("id")
+        review.user_id = review_hash.fetch("user").fetch("id")
       end
       if( review_hash.fetch('user').has_key?('name'))
         review.name = review_hash.fetch('user').fetch('name')

@@ -2,20 +2,23 @@ module BusinessesHelper
 
   def display_reviews(business)
     html = String.new
-    html.concat("<table>")
     if(!business.reviews.nil?)
       business.reviews.each do | review |
-        user_review = String.new
-        user_info = String.new
-        user_info   = "<tr><td><img width='40' height='40' src='%s'/><br/>%s</td><td><img src='%s'/></td></tr>" % [review.user_photo_url_small,review.name, review.rating_img_url ]
-        user_review = "<tr><td colspan=\"2\">%s</td></tr>" % [review.text_excerpt ]
-        html.concat(user_info).concat(user_review)
+        html_part = String.new
+        html_part = <<EOF
+        <ul class="yelp_review">
+          <li class="review_list_item_profile">
+            <img src="#{review.user_photo_url_small}" alt="#{review.name}">
+          </li>
+          <li class="review_list_item_excerpt"><img src="#{review.rating_img_url}" alt="Yelp Rating"><br>#{review.text_excerpt}<a href="http://www.yelp.com/biz/#{business.external_id}#hrid:#{review.id}" target="_blank">read more</a>.</li>
+          <li class="review_list_item_poster">Posted by <a href="http://www.yelp.com/user_details?userid=#{review.user_id}" target="_blank">#{review.name}</a> on <a href="http://www.yelp.com" target="_blank">Yelp.com</a>
+          </li>
+      </ul>
+EOF
+        html.concat(html_part)
       end
-    else
-      html.concat("<tr><td>No reviews</td</tr>")
 
     end
-    html.concat("</table>")
     return html
   end
 end
