@@ -90,9 +90,9 @@ class DataFarmerController < ApplicationController
       if(tmp_biz.nil?)
         tmp_biz = Business.find(:first, :conditions => ['businesses.name = ? AND businesses.address1 = ?',biz.name,biz.address1])
         if(!tmp_biz.nil?)
-          tmp_biz.photo_url = biz.photo_url
-          tmp_biz.longitude = biz.longitude
-          tmp_biz.latitude  = biz.latitude
+          tmp_biz.photo_url   = biz.photo_url
+          tmp_biz.longitude   = biz.longitude
+          tmp_biz.latitude    = biz.latitude
           tmp_biz.external_id = biz.external_id
           tmp_biz.save
         end
@@ -110,8 +110,11 @@ class DataFarmerController < ApplicationController
         biz.save
       end
     end
-    farmed_info.loaded = farmed_info.loaded + saved_counter
-    farmed_info.save
+    if( saved_counter > 0)
+      farmed_info.loaded = farmed_info.loaded + saved_counter
+      farmed_info.save
+    end
+
 
     @farmed_info = FarmedInfo.all
 
