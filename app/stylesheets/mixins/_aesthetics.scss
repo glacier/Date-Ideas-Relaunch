@@ -1,4 +1,14 @@
 // mixins for beautifying
+
+@mixin small_header {
+	font:{
+		size: 12px;
+		weight: normal;
+	};
+	padding-top:5px;
+	margin:0;
+}
+
 @mixin loud_text {
 	font:{
 		size: 16px;
