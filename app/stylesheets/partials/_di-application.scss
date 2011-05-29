@@ -91,6 +91,10 @@ hr {
 	display: none;
 }
 
+#di_related_info {
+	padding-left: 0px;
+	padding-right: 5px;
+}
 #di_venue_info {
 	margin-top: 5px;
 	ul {
@@ -101,4 +105,24 @@ hr {
 .admin {
 		color: red;
 }
+
+/* styles for pinning various elements on the page */
+.pin-left {
+	position: fixed;
+	top: 10px;
+	width: 270px;
+}
+
+.pin-right {
+	position: fixed;
+	top: 10px;
+	width: 220px;
+}
+
+.pin-info {
+	position: fixed;
+	top: 280px;
+	width: 220px;
+}
+
 

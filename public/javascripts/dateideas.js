@@ -70,17 +70,17 @@ $(document).ready(function() {
 		});
 	}
 	
-	var cart = $('#di_cart_front');
-	var map = $('#sidebar_left_pinned');
-   
+	var right = $('#sidebar_right_pinned');
+	var left = $('#sidebar_left_pinned');
+   	var info = $('#di_related_info');
+
 	// console.log(cart);
-	if(cart.length){
-		pin($(window), cart, "pin-cart");
+	if(right.length){
+		pin($(window), right, "pin-right");
 	}
-	if(map.length){
-		pin($(window), map, "pin-map");
+	if(left.length){
+		pin($(window), left, "pin-left");
 	}
-	
 	//open print dialog
 	$("#print_me").click(function(){
 			window.print();

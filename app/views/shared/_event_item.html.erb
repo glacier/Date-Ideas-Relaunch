@@ -1,18 +1,9 @@
-<h3 class="di_biz_name"><%= link_to event.title, event.url %></h3>
-<div class="di_biz_info">
-	<div class="di_biz_photo"><%= image_tag(image_url('event', event.photo_url)) %></div>
-	<div class="di_biz_desc">
-		<h4>When</h4> 
-		<p><%= display_time(event.start_time, event.end_time) %></p>
-		<h4>Where</h4> 
-		<p><%= event.venue_name %></p>
-		<p><%= event.venue_address %> <%= event.city_name %>, <%= event.region_name %>, <%=event.postal_code %></p>
-	</div>
-	<div class="attribution">
-		<div class="eventful-badge eventful-small">
-		  <img src="http://api.eventful.com/images/powered/eventful_58x20.gif"
-		    alt="Local Events, Concerts, Tickets">
-		  <p><a href="http://eventful.com/">Events</a> by Eventful</p>
-		</div>
-	</div>
+<div class="di_event">
+	<h3 class="di_biz_name event_title_small"><%= link_to event.title, event.url %></h3>
+	<div class="di_biz_photo"><%= image_tag(image_url('event', event.photo_url), :height=>'60', :width=>'60') %></div>
+	<div class="di_event_info">
+		<p id="event_venue_name"><%= event.venue_name %></p>
+		<p id='event_time'><%= display_time(event.start_time, event.end_time) %></p>
+		<p id='event_address'><%= event.venue_address %></p>
 </div>
+<hr/>
