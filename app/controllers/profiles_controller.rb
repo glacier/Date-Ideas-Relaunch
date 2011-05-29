@@ -6,7 +6,6 @@ class ProfilesController < ApplicationController
     @profiles = Profile.all
   end
   
-
   rescue_from ActiveRecord::RecordNotFound do |exception|
     # render :text => "This user profile does not exist"
     logger.debug('profile does not exist')
@@ -20,8 +19,8 @@ class ProfilesController < ApplicationController
   
   def show
     respond_to do |format|
-      if Profile.exists?(:user_id => params[:id])
-        @profile = Profile.find_by_user_id(params[:id])
+      @profile = Profile.find_by_user_id(params[:id])
+      if @profile
         format.html
       else
         logger.debug('profile does not exist')

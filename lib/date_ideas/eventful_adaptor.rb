@@ -22,8 +22,11 @@ class DateIdeas::EventfulAdaptor
                              :units => 'km',
                              :mature => 'normal',
                              :sort_order => 'popularity'
-                             
-    return create_events(results['events']['event'])
+    unless results['events'].nil?
+      return create_events(results['events']['event'])
+    end
+    
+    return Array.new
   end
   
   def create_events(events_hash)
@@ -45,6 +48,7 @@ class DateIdeas::EventfulAdaptor
     event.venue_address = event_hash['venue_address']
     event.city_name = event_hash['city_name']
     event.region_name = event_hash['region_name']
+    event.postal_code = event_hash['postal_code']
     event.latitude = event_hash['latitude']
     event.longitude = event_hash['longitude']
     return event

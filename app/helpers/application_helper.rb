@@ -39,7 +39,7 @@ module ApplicationHelper
   end
   def display_time(start_time, end_time)
     if end_time.nil?
-      return "On " + start_time
+      return start_time
     else
       return "From " + start_time + " to " + end_time
     end

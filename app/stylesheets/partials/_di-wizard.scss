@@ -31,7 +31,18 @@
 				left:10px;
 				bottom:10px;
 			}
+			h4 {
+				margin-bottom: 0.5em;
+				font-weight: bold;
+			}
+			p {
+				margin-bottom: 0.75em;
+			}
 		}
+	}
+	.di_biz_add {
+/*		float: right;*/
+		text-align: center;
 	}
 
 	.di_biz_yelp_reviews {
@@ -44,7 +55,7 @@
 	margin-bottom: 20px;
 	padding: 10px; 
 
-	
+	@include pie-clearfix;
 	@include box-shadow;
 	@include border-radius(5px);
 }
@@ -67,12 +78,9 @@
 	float: left;
 }
 
-
-/*.di_biz_addr{
-    text-align:left
+/* yelp logo */
+.yelp-badge {
+	float: left;
+	margin-right: 10px;
 }
-*/
 
-/*a.menu:hover{ 
-  background-color: #A29C9C;
-}*/

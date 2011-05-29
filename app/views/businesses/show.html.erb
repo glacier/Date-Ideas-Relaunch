@@ -1,13 +1,18 @@
+<%= link_to "Back to results",:back %>
 <h2><%= @business.name %></h2>
-<div id="di_venue_photo"><%= image_tag @business.photo_url %></div>
+<div id="di_venue_photo">
+  <%= image_tag @business.photo_url %>
+</div>
 <% content_for :sidebar_map do %>
 <div id="di_venue_map">
  <%= gmaps({"markers" => {"data" => @markers}, "map_options" => {"processing" => "json", "auto_adjust" => true, "auto_zoom" => false, "zoom" => 15}}) %>
 </div>
 <% end %>
 
-<h3>About</h3>
-<div id="di_venue_excerpt"><%= @business.dna_excerpt %></div>
+
+<div id="di_venue_excerpt">
+  <%= raw (@business.reviews.nil? || @business.reviews.size == 0 ) ? "<h3>About</h3>".concat(@business.dna_excerpt) : "" %>
+</div>
 
 <div id="di_venue_info">
     <table>
