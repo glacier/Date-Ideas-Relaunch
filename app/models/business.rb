@@ -17,7 +17,7 @@ class Business < ActiveRecord::Base
   
   attr_accessible :venue_type, :logo, :dna_excerpt, :dna_neighbourhood, :dna_atmosphere, :dna_pricepoint, :dna_category, :dna_dresscode, :dna_pictures, :dna_review, :dna_rating_conversation, :dna_rating_convenience, :dna_rating_comfort, :deleted
 
-  attr_accessor :distance, :avg_rating, :rating_img_url, :reviews, :map, :text_excerpt,:group_date_friendly,:takes_reservations,:hours,:kids_friendly
+  attr_accessor :distance, :avg_rating, :rating_img_url, :reviews, :map, :text_excerpt,:group_date_friendly,:takes_reservations,:hours,:kids_friendly,:gmaps
   
   def init
     @reviews = Array.new
