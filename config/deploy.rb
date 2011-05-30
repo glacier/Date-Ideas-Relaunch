@@ -8,10 +8,11 @@ set :rvm_type, :user
 set :rvm_ruby_string, "ruby-1.9.2-p136"
 
 set :deploy_to, "/mnt/apps/dateideas"
+set :deploy_via, :remote_cache
 set :rails_env, "production"
 
 default_run_options[:pty] = true
-set :use_sudo, false
+set :use_sudo, true
 
 set :default_environment, {
   'PATH' => "/home/dateideas/.rvm/bin:/home/dateideas/.rvm/gems/ruby-1.9.2-p136/bin:/home/dateideas/.rvm/gems/ruby-1.9.2-p136@global/bin:/home/dateideas/.rvm/rubies/ruby-1.9.2-p136/bin:/usr/local/bin:/usr/bin:/bin:/usr/games",
@@ -35,14 +36,18 @@ role :db,  "www1.getdateideas.com", :primary => true # This is where Rails migra
 namespace :deploy do
   
   task :start do 
-    run "cd /mnt/apps/dateideas/current/ ; rvmsudo passenger start -p80 -eproduction -d --user=dateideas"
+    run "cd /mnt/apps/dateideas/current/ ; rvmsudo passenger start -p80 -eproduction -d --user=dateideas --pid-file /mnt/apps/dateideas/shared/pids/passenger.80.pid --log-file /mnt/apps/dateideas/shared/log/passenger.log"
   end
 
   task :stop do 
-    run "cd /mnt/apps/dateideas/current/ ; rvmsudo passenger stop -p80"
+    run "rvmsudo passenger stop -p80 --pid-file /mnt/apps/dateideas/shared/pids/passenger.80.pid"
   end
 
   task :restart, :roles => :app, :except => { :no_release => true } do
-    run "touch #{File.join(current_path,'tmp','restart.txt')}"
+    run "rvmsudo passenger stop -p80 --pid-file /mnt/apps/dateideas/shared/pids/passenger.80.pid"
+    run "cd /mnt/apps/dateideas/current/ ; rvmsudo passenger start -p80 -eproduction -d --user=dateideas --pid-file /mnt/apps/dateideas/shared/pids/passenger.80.pid --log-file /mnt/apps/dateideas/shared/log/passenger.log"
   end
 end
+
+
+
