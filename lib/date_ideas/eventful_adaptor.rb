@@ -2,6 +2,7 @@ require 'eventful/api'
 
 #Implements a rails adaptor for the eventful api
 class DateIdeas::EventfulAdaptor
+
   def initialize
     begin
       @app_key = '7zXsjWk67F7qVKtq'
@@ -10,6 +11,7 @@ class DateIdeas::EventfulAdaptor
       logger.info("There was a problem with the API: #{e}")
     end
   end
+
   def search(query, location)
     # search for events
     
@@ -53,9 +55,11 @@ class DateIdeas::EventfulAdaptor
     event.longitude = event_hash['longitude']
     return event
   end
+
   def get_time(time)
     return Time.parse(time).strftime("%a, %b %d, %I:%M %p") if time
   end
+
   def get_photo_url(event_hash, photo_size)
     photo_url = "events_placeholder.jpg"
     unless event_hash['image'].nil?
@@ -63,4 +67,5 @@ class DateIdeas::EventfulAdaptor
     end
     return photo_url
   end
+
 end
