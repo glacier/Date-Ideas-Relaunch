@@ -17,6 +17,8 @@ gem "nokogiri", "1.4.4"
 gem "cancan"
 gem "gmaps4rails", ">= 0.8.5"
 gem 'eventfulapi'  
+gem 'dalli'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 # Need this to fix the uninitialized constant Rack::Session::Abstract::SessionHash 
@@ -47,3 +49,4 @@ gem 'mysql2', '< 0.3'
 # group :development, :test do
 #   gem 'webrat'
 # end
+

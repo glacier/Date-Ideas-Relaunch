@@ -11,8 +11,6 @@ class DateIdeas::EventfulAdaptor
     end
   end
   def search(query, location)
-    # search for events
-    
     # result is a ruby hash
     results = @eventful.call 'events/search',
                              :date => 'future',     

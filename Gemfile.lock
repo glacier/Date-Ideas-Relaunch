@@ -48,7 +48,7 @@ GEM
       fssm (>= 0.2.7)
       sass (~> 3.1)
     crack (0.1.8)
-    daemons (1.0.10)
+    dalli (1.0.4)
     erubis (2.6.6)
       abstract (>= 1.0.0)
     eventfulapi (2.2.1)
@@ -60,7 +60,6 @@ GEM
       multipart-post (~> 1.1.0)
       rack (>= 1.1.0, < 2)
     fssm (0.2.7)
-    gem_plugin (0.2.3)
     geokit (1.5.0)
     geokit-rails3 (0.1.2)
       geokit (~> 1.5.0)
@@ -78,9 +77,6 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.16)
-    mongrel (1.2.0.pre2)
-      daemons (~> 1.0.10)
-      gem_plugin (~> 0.2.3)
     multi_json (1.0.2)
     multi_xml (0.2.2)
     multipart-post (1.1.1)
@@ -174,6 +170,7 @@ PLATFORMS
 DEPENDENCIES
   cancan
   compass (>= 0.10.6)
+  dalli
   devise!
   eventfulapi
   fancy-buttons
@@ -181,7 +178,6 @@ DEPENDENCIES
   gmaps4rails (>= 0.8.5)
   haml
   jquery-rails (>= 0.2.6)
-  mongrel (= 1.2.0.pre2)
   mysql2 (< 0.3)
   nokogiri (= 1.4.4)
   oa-openid
