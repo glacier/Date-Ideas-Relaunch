@@ -57,7 +57,14 @@ class DateIdeas::EventfulAdaptor
   end
 
   def get_time(time)
-    return Time.parse(time).strftime("%a, %b %d, %I:%M %p") if time
+   if time 
+    if time.is_a? Time
+      result = time.strftime("%a, %b %d, %I:%M %p")
+    else 
+      result = Time.parse(time).strftime("%a, %b %d, %I:%M %p")
+    end
+   end
+   return result
   end
 
   def get_photo_url(event_hash, photo_size)
