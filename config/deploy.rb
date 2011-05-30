@@ -1,7 +1,7 @@
 set :application, "DateIdeas"
 set :scm, :git
 set :repository,  "git@github.com:will-lam/Date-Ideas-Relaunch.git"
-set :branch, "deploy"
+set :branch, "prod"
 
 # Use single user installation settings
 set :rvm_ruby_string, "ruby-1.9.2-p180"
@@ -29,23 +29,29 @@ role :web, "www1.getdateideas.com"                          # Your HTTP server, 
 role :app, "www1.getdateideas.com"                          # This may be the same as your `Web` server
 role :db,  "www1.getdateideas.com", :primary => true # This is where Rails migrations will run
 
+pid = "--pid-file /mnt/apps/dateideas/shared/pids/passenger.80.pid"
+log = "--log-file /mnt/apps/dateideas/shared/log/passenger.log"
+start_task = "cd /mnt/apps/dateideas/current/ ; rvmsudo passenger start -p80 -eproduction -d --user=dateideas #{pid} #{log}"
+end_task = "rvmsudo passenger stop -p80 #{pid}"
+
 namespace :deploy do
   
   task :start do 
     init_sudo
-    run "cd /mnt/apps/dateideas/current/ ; rvmsudo passenger start -p80 -eproduction -d --user=dateideas --pid-file /mnt/apps/dateideas/shared/pids/passenger.80.pid --log-file /mnt/apps/dateideas/shared/log/passenger.log"
+    run "#{start_task}"
   end
 
   task :stop do 
     init_sudo
-    run "rvmsudo passenger stop -p80 --pid-file /mnt/apps/dateideas/shared/pids/passenger.80.pid"
+    run "#{end_task}"
   end
 
   task :restart, :roles => :app, :except => { :no_release => true } do
     init_sudo
-    run "rvmsudo passenger stop -p80 --pid-file /mnt/apps/dateideas/shared/pids/passenger.80.pid"
-    run "cd /mnt/apps/dateideas/current/ ; rvmsudo passenger start -p80 -eproduction -d --user=dateideas --pid-file /mnt/apps/dateideas/shared/pids/passenger.80.pid --log-file /mnt/apps/dateideas/shared/log/passenger.log"
+    run "#{end_task}"
+    run "#{start_task}"
   end
+
 end
 
 task "init_sudo" do
@@ -64,4 +70,3 @@ task "backup", :roles => :db, :only => { :primary => true }  do
   run "mkdir -p #{out_dir}"
   run "mysqldump -u#{db['username']} -p#{db["password"]} #{db["database"]} | gzip -c > #{out_dir}/#{filename}"
 end
-
