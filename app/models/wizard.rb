@@ -20,6 +20,7 @@ class Wizard
                     }
 
   attr_accessor :venue, :location, :price_point, :response, :businesses, :restaurant, :activity, :dessert, :neighbourhood_name, :events
+  
   def initialize(venue="", location="", price_point="")
     @venue = venue
     @location = location

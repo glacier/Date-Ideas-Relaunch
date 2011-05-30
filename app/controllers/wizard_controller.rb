@@ -31,7 +31,6 @@ class WizardController < ApplicationController
     events = eventful.search(@wizard.venue, 'toronto')
     
     # logger.info(events)
-
      
     @datecart = current_cart
     @wizard.businesses = businesses
