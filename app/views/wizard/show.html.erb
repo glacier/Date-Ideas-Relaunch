@@ -23,8 +23,10 @@
 
 <% content_for :sidebar_info do %>
 	<div id="di_related_info">
+		<%# Event api calls are handled by the Evenfulapi gem %>
 		<% @wizard.events.each do |event| %>
 			<%= render :partial => 'shared/event_item', :locals => {:event => event} %>
+			<p> TODO Add/remove button here </p>
 		<% end %>
 		
 		<div class="attribution">
@@ -34,7 +36,7 @@
 			  <p><a href="http://eventful.com/">Events</a> by Eventful</p>
 			</div>
 		</div>
-		<p>TODO: see more at eventful </p>
+		<p>TODO see more at eventful </p>
 	</div>
 <% end %>
 

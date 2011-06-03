@@ -28,11 +28,13 @@ class DateIdeas::EventfulAdaptor
     
     return Array.new
   end
-  
+ 
   def create_events(events_hash)
     events = Array.new
     events_hash.each do |hash|
-      events.push(create_event(hash))
+      e = create_event(hash)
+      Rails.cache.write("e_" + e.title + "_" + e.start_time, e, :expires_in => 30.minutes)
+      events.push(e)
     end
     return events
   end

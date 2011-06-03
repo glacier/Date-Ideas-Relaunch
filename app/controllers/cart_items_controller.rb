@@ -44,11 +44,7 @@ class CartItemsController < ApplicationController
   # POST /cart_items.xml
   # accept a business id
   def create
-    # @cart_item = CartItem.new(params[:cart_item])
-    # @datecart = current_cart
     @datecart = Datecart.find(params[:datecart_id])
-    # y 'in cart_items#create'
-    # y @datecart
     @business = Business.find(params[:business_id])
     if @datecart
       @cart_item = @datecart.cart_items.build(:business => @business, :venue_type => session['venue_type'])
@@ -67,6 +63,9 @@ class CartItemsController < ApplicationController
       end
     end
   end
+
+  # TODO: implement creating a cart_item for an event
+
 
   # PUT /cart_items/1
   # PUT /cart_items/1.xml
