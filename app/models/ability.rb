@@ -1,4 +1,6 @@
 class Ability
+  # Grants authorization abilities to different types of app users
+  # Uses the cancan gem
   include CanCan::Ability
   
   def initialize(user)
