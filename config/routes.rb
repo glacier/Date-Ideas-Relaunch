@@ -11,6 +11,7 @@ DateIdeas::Application.routes.draw do
       put "complete"
       get "email"
       get "print"
+      get "calendar"
     end
     
     resources :cart_items

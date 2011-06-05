@@ -9,7 +9,7 @@ module ApplicationHelper
         end
     else
       content_for(:title) do 
-        "page_title"
+        "DateIdeas.ca"
       end
     end
   end

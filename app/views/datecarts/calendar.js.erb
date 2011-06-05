@@ -1,0 +1,24 @@
+//define config object
+var dialogOpts = {
+	title: "Add To Calendar",
+	modal: true,
+	overlay: { 
+		background: "url(img/modal.png) repeat" 
+	},
+	// buttons: {
+	// 	"Ok": function() { $(this).dialog("close"); }
+	// },
+	closeOnEscape: true,
+	width: 450,
+	autoOpen: false,
+	resizable: false,
+	draggable: false,
+	open: function() {
+		//display correct dialog content
+		$("#di_calendar_dialog").html("<%= escape_javascript(render 'add_to_calendar', :format => :html) %>");
+	}
+};
+
+$("#di_calendar_dialog").dialog(dialogOpts);
+$("#di_calendar_dialog").dialog("open");
+

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DateIdeas.ca | <%= content_for?(:title) ? yield(:title) : 'Make it a great Date.' %></title>
+  <title>DateIdeas.ca | <%= content_for?(:title) ? content_for(:title) : 'Make it a great Date.' %></title>
   <%= yield :head %>
   <%= stylesheet_link_tag 'di.css' %>
   <%= stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection' %>

@@ -129,4 +129,8 @@ class DatecartsController < ApplicationController
     # render print view
     @datecart = Datecart.find(params[:id])
   end
+
+  def calendar
+    @datecart = Datecart.find(params[:id])
+  end
 end
