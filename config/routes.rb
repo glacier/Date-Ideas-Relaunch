@@ -3,25 +3,18 @@ DateIdeas::Application.routes.draw do
   # resources :cart_items
 
   resources :datecarts do 
-    # collection do
-    #   post "clear_cart"
-    # end
     member do
       delete "clear_cart"
       put "complete"
       get "email"
       get "print"
     end
-    
     resources :cart_items
   end
 
   # TODO: handle user abuse of application urls?
   
   match '/auth/:provider/callback' => 'authentications#create'
-
-  #Docs for devise routes here:
-  #http://rubydoc.info/github/plataformatec/devise/master/ActionDispatch/Routing/Mapper#devise_for-instance_method
   
   # devise_for :users, :controllers => {:registrations => "registrations"}
   devise_for :users
@@ -40,7 +33,6 @@ DateIdeas::Application.routes.draw do
   resources :wizard do
     collection do 
       get "search"
-
     end
     get :autocomplete_neighbourhood_neighbourhood, :on => :collection
   end
