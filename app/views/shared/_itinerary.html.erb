@@ -9,7 +9,11 @@
 <h2>My Itinerary</h2>
 <ul>
 	<% datecart.cart_items.each do |item| %>
-		<%= render :partial => 'shared/venue_item', :locals => {:business => item.business} %>
+		<% if item.type == 'event' %>
+			<%= render :partial => 'shared/event_item', :locals => {:event => item.event} %>
+		<% else %>
+			<%= render :partial => 'shared/venue_item', :locals => {:business => item.business} %>
+		<% end %>
 		<hr/>
 	<% end %>
 </ul>

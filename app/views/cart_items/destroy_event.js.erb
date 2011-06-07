@@ -1,0 +1,2 @@
+$("#datecart_items").html("<%= escape_javascript(render :partial => 'datecarts/datecart_items') %>")
+$("#event_<%= @cart_item.event.eventid %>").html("<%= escape_javascript(render :partial => 'wizard/add_event', :locals => {:datecart => @datecart, :event => @cart_item.event}) %>")
