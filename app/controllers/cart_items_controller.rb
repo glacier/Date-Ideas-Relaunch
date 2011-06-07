@@ -71,7 +71,11 @@ class CartItemsController < ApplicationController
     # find in the cache the given event_id.  What should be event_id?
     # Eventful offers event ids E0-001-000278174-6
     # assume that its stored in params[:event_id]
+    y 'event_id'
+    y params[:event_id]
     @event = Rails.cache.fetch(params[:event_id])
+    y 'fetched from cache'
+    y @event
     
     if @datecart
       @cart_item = @datecart.cart_items.build(:event => @event, :venue_type => 'event')

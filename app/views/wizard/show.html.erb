@@ -25,8 +25,8 @@
 	<div id="di_related_info">
 		<%# Event api calls are handled by the Evenfulapi gem %>
 		<% @wizard.events.each do |event| %>
-			<%= render :partial => 'shared/event_item', :locals => {:event => event, :event_id => event.event_id} %>
-			<p> TODO Add/remove button </p>
+			<%= render :partial => 'shared/event_item', :locals => {:event => event} %>
+			<p><%= link_to('Add Event', create_event_datecart_cart_items_url(@datecart, :event_id => event.eventid), :class => "add_button", :remote => true, :method => :post) %></p>
 		<% end %>
 		
 		<div class="attribution">

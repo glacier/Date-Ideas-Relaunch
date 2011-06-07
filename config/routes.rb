@@ -9,7 +9,11 @@ DateIdeas::Application.routes.draw do
       get "email"
       get "print"
     end
-    resources :cart_items
+    resources :cart_items do
+      collection do
+        post "create_event"
+      end
+    end
   end
 
   # TODO: handle user abuse of application urls?

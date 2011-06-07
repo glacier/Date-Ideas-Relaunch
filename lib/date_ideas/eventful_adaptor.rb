@@ -32,7 +32,10 @@ class DateIdeas::EventfulAdaptor
     events = Array.new
     events_hash.each do |hash|
       e = create_event(hash)
-      Rails.cache.write(hash['id'], e, :expires_in => 30.minutes)
+      y 'creating and caching event'
+      y hash['id']
+      return_code = Rails.cache.write(hash['id'], e, :expires_in => 30.minutes)
+      y return_code
       events.push(e)
     end
     return events
@@ -40,7 +43,7 @@ class DateIdeas::EventfulAdaptor
   
   def create_event(event_hash)
     event = Event.new
-    event.event_id = event_hash['id']
+    event.eventid = event_hash['id']
     event.title = event_hash['title']
     event.url = event_hash['url']
     event.photo_url = get_photo_url(event_hash, 'medium')

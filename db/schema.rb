@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110603020708) do
+ActiveRecord::Schema.define(:version => 20110606205525) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20110603020708) do
 
   create_table "cart_items", :force => true do |t|
     t.integer  "business_id"
+    t.integer  "event_id"
     t.integer  "datecart_id"
     t.string   "venue_type"
     t.datetime "created_at"
@@ -124,6 +125,7 @@ ActiveRecord::Schema.define(:version => 20110603020708) do
     t.string "postal_code"
     t.string "latitude"
     t.string "longitude"
+    t.string "eventid"
   end
 
   create_table "farmed_infos", :force => true do |t|
