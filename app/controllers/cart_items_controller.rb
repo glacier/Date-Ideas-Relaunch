@@ -67,7 +67,18 @@ class CartItemsController < ApplicationController
   def create_event
     @datecart = Datecart.find(params[:datecart_id])
     @event = Rails.cache.fetch(params[:event_id])
-    @event.save
+    # unfreeze events from cache
+    @event_copy = @event.dup
+    # @event_copy.save
+    if @datecart
+      @cart_item = @datecart.cart_items.build(:event => @event_copy, :venue_type => session['venue_type'])
+    end
+      
+    respond_to do |format|
+      if @cart_item.save
+        format.js
+      end
+    end
   end
 
   # PUT /cart_items/1
