@@ -37,11 +37,26 @@ module ApplicationHelper
       return url
     end
   end
+  
   def display_time(start_time, end_time)
     if end_time.nil?
       return start_time
     else
       return "From " + start_time + " to " + end_time
     end
+  end
+  
+  # builds an eventful.com uri request
+  # eg. http://eventful.com/toronto/events?q=music+and+food&t=Next+7+days&sort_order=Popularity
+  def eventful_url(location, keywords, time, sorting)
+    params = {
+      "q" => keywords,
+      "t" => time,
+      "sort_order" => sorting 
+    }
+    query_params = params.collect {|k,v| "#{k}=#{v}"}
+    query = query_params.join("&")
+    uri = URI::HTTP.build([nil, "eventful.com", nil, "/" + location + "/" + "events", query, nil]).to_s
+    uri.to_s
   end
 end

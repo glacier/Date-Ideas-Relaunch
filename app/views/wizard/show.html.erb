@@ -37,7 +37,7 @@
 			  <p><a href="http://eventful.com/">Events</a> by Eventful</p>
 			</div>
 		</div>
-		<p>TODO see more events at eventful.com >> </p>
+		<p><%= link_to "See more at eventful.com >>", eventful_url("Toronto", params['venue'], "Next+7+Days","Popularity") %></p>
 	</div>
 <% end %>
 

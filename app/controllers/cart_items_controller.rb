@@ -35,14 +35,12 @@ class CartItemsController < ApplicationController
 
   # GET /cart_items/1/edit
   def edit
-    # @cart_item = CartItem.find(params[:id])
     @datecart = Datecart.find(params[:datecart_id])
     @cart_item = @datecart.cart_items.find(params[:id])
   end
 
   # POST /cart_items
   # POST /cart_items.xml
-  # accept a business id
   def create
     @datecart = Datecart.find(params[:datecart_id])
     @business = Business.find(params[:business_id])
@@ -56,10 +54,8 @@ class CartItemsController < ApplicationController
         format.html { 
           redirect_to(@cart_item, :notice => 'Cart item was successfully created.')
         }
-        format.xml  { render :xml => @cart_item, :status => :created, :location => @cart_item }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @cart_item.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -102,11 +98,8 @@ class CartItemsController < ApplicationController
     @cart_item = @datecart.cart_items.find(params[:id])
   
     @cart_item.destroy
-    y 'cart_items#destroy'
-    y @cart_item
     respond_to do |format|
       if @cart_item.business_id.nil?
-        y 'business_id is nil'
         format.js { 
           render :action => "destroy_event"
         }

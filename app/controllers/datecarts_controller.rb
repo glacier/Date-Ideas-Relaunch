@@ -125,8 +125,8 @@ class DatecartsController < ApplicationController
     end
   end
   
+  # render print view
   def print
-    # render print view
     @datecart = Datecart.find(params[:id])
   end
 end
