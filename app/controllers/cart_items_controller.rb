@@ -64,36 +64,10 @@ class CartItemsController < ApplicationController
     end
   end
 
-  # TODO: implement creating a cart_item for an event
-  # Need to add proper routes to make this work
   def create_event
     @datecart = Datecart.find(params[:datecart_id])
-    # find in the cache the given event_id.  What should be event_id?
-    # Eventful offers event ids E0-001-000278174-6
-    # assume that its stored in params[:event_id]
-    y 'event_id'
-    y params[:event_id]
     @event = Rails.cache.fetch(params[:event_id])
-    y 'fetched from cache'
-    y @event
-    
-    if @datecart
-      @cart_item = @datecart.cart_items.build(:event => @event, :venue_type => 'event')
-    end
-    # What happens if datecart_id doesn't exist???
-    
-    respond_to do |format|
-      if @cart_item.save
-        format.js
-        format.html { 
-          redirect_to(@cart_item, :notice => 'Cart item was successfully created.')
-        }
-        format.xml  { render :xml => @cart_item, :status => :created, :location => @cart_item }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @cart_item.errors, :status => :unprocessable_entity }
-      end
-    end
+    @event.save
   end
 
   # PUT /cart_items/1
