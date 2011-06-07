@@ -23,12 +23,11 @@
 
 <% content_for :sidebar_info do %>
 	<div id="di_related_info">
-		<%# Event api calls are handled by the Evenfulapi gem %>
 		<% @wizard.events.each do |event| %>
 			<%= render :partial => 'shared/event_item', :locals => {:event => event} %>
-			<% y event.eventid %>
-			<% y html_escape(event.eventid) %>
-			<p><%= link_to('Add Event', create_event_datecart_cart_items_url(@datecart, :event_id => html_escape(event.eventid)), :class => "add_button", :remote => true, :method => :post) %></p>
+			<div class="di_event_add">
+				<%= render :partial => 'shared/add_event_buttons', :locals => {:event => event, :cart_items => @cart_items} %>
+			</div>
 		<% end %>
 		
 		<div class="attribution">
@@ -38,7 +37,7 @@
 			  <p><a href="http://eventful.com/">Events</a> by Eventful</p>
 			</div>
 		</div>
-		<p>TODO see more at eventful </p>
+		<p>TODO see more events at eventful.com >> </p>
 	</div>
 <% end %>
 

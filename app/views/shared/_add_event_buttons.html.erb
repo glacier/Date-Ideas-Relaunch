@@ -1,21 +1,10 @@
 <!-- This is the master view for event add/remove buttons -->
-<span>
-<!-- fetch event from cart -->
-
-</span>
-<span id="event">
-<!-- Check if the event is in the cart, if its not in cart
-	Show add button
-	else if it is in the cart
-	Show remove button
- -->
-	<% if @cart_item.events.nil? %>
-		<%= render :partial => 'add', :locals => {:datecart => @datecart, :event_id => TODO_EVENT_ID, :venue_type => 'event'} %>
+<% @cart_item = CartItem.joins(:event).where(:events=>{:eventid => event.eventid}, :datecart_id => @datecart.id).first %>
+<% y @cart_item %>
+<span id="event_<%= event.eventid %>">
+	<% if @cart_item.nil? %>
+		<%= render :partial => 'add_event', :locals => {:datecart => @datecart, :event => event, :venue_type => params[:venue_type]} %>
 	<% else %>
-		<%= render :partial => 'remove', :locals => {:datecart => @datecart, :event_id => TODO_EVENT_ID} %>
+		<%= render :partial => 'remove', :locals => {:datecart => @datecart} %>
 	<% end %>
-</span>
-
-<span id="add_to_date_<%= business.id %>">
-
 </span>

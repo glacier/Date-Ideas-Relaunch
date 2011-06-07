@@ -1,6 +1,7 @@
 require 'eventful/api'
 
 #Implements a rails adaptor for the eventful api
+#Uses the eventfulapi gem
 class DateIdeas::EventfulAdaptor
   def initialize
     begin

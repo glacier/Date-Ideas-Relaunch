@@ -1,2 +1,2 @@
 <!-- Add button for an event item in the date cart -->
-<%= link_to('Add Event', datecart_cart_items_url(datecart, :event_id => TODO), :class => "add_button", :remote => true, :method => :post) %>
+<%= link_to('Add Event', create_event_datecart_cart_items_url(@datecart, :event_id => html_escape(event.eventid)), :class => "add_button", :remote => true, :method => :post) %>

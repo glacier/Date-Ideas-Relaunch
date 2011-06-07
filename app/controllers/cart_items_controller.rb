@@ -69,11 +69,9 @@ class CartItemsController < ApplicationController
     @event = Rails.cache.fetch(params[:event_id])
     # unfreeze events from cache
     @event_copy = @event.dup
-    # @event_copy.save
     if @datecart
       @cart_item = @datecart.cart_items.build(:event => @event_copy, :venue_type => session['venue_type'])
     end
-      
     respond_to do |format|
       if @cart_item.save
         format.js
@@ -101,14 +99,22 @@ class CartItemsController < ApplicationController
   # DELETE /cart_items/1.xml
   def destroy
     @datecart = Datecart.find(params[:datecart_id])
-    # @cart_item = CartItem.find(params[:id])
     @cart_item = @datecart.cart_items.find(params[:id])
+  
     @cart_item.destroy
-
+    y 'cart_items#destroy'
+    y @cart_item
     respond_to do |format|
-      format.js
-      format.html { redirect_to(cart_items_url) }
-      format.xml  { head :ok }
+      if @cart_item.business_id.nil?
+        y 'business_id is nil'
+        format.js { 
+          render :action => "destroy_event"
+        }
+        format.html { redirect_to(cart_items_url) }
+        format.xml  { head :ok }
+      else
+        format.js
+      end
     end
   end
 end

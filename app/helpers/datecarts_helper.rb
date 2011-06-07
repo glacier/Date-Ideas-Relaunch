@@ -6,16 +6,9 @@ module DatecartsHelper
     display_text = { "food" => "Dining", "bars" => "Drinks", "activities_events" => "Activities & Events", "nightlife" => 'Nightlife', 'arts_entertainment' => 'Arts and Entertainment'}
                      
     category_display = Hash.new
-    y 'cart items'
-    y items
     items.each do |item|
       # only display under the first venue_type that an item is classified under
-      # list = item.business.venue_type.split(",")
-      # venue = list[0]
       type = item.venue_type
-      y type
-      y item.business
-      y item.event
       venue = item.business
       if venue.nil?
         venue = item.event
@@ -24,10 +17,11 @@ module DatecartsHelper
         venue_name = venue.name
       end
       
+      html_str = "<li>" <<  venue_name << " " << link_to('Remove', datecart_cart_item_path(datecart, item), :method => :delete, :remote => true) << "</li>"
       if category_display[type].nil?
-        category_display[type] =  "<li>" <<  venue_name << " " << link_to('Remove', datecart_cart_item_path(datecart, item), :method => :delete, :remote => true) << "</li>"
+        category_display[type] = html_str
       else
-        category_display[type] << " " << "<li>" << venue_name << " " << link_to('Remove', datecart_cart_item_path(datecart, item), :method => :delete, :remote => true) << "</li>"
+        category_display[type] << " " << html_str
       end
     end
 

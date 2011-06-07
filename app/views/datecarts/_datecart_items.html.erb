@@ -1,7 +1,6 @@
-<% if @datecart.cart_items.empty? %>
+<% if @datecart.cart_empty? %>
 	<p>You haven't got a plan yet!</p>
 <% else %>
 	<%= raw(sort_by_category(@datecart)) %>
-	<%# @datecart %>
 <% end %>
 
