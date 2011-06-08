@@ -17,7 +17,9 @@ DateIdeas::Application.routes.draw do
     resources :cart_items
   end
 
-  # TODO: handle user abuse of application urls?
+  namespace :dashboard do
+    resource :significant_dates
+  end
   
   match '/auth/:provider/callback' => 'authentications#create'
 
@@ -60,6 +62,8 @@ DateIdeas::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => "wizard#index"
+
+  match "dashboard/" => "dashboard#index"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

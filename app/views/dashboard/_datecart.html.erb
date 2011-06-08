@@ -1,0 +1,19 @@
+<% id_prefix = "datecart_partial_#{datecart.id}" %>
+<div id="<%= id_prefix %>" class="dashboard_item">
+  <div id="<%= id_prefix + "_title" %>" class="datecart_title">
+    <p class="title_text"><%= format_date_header datecart.datetime, datecart.significant_date_id %></p>
+  </div>
+  <div class="business_static_map">
+      <%= image_tag "https://maps.google.com/maps/api/staticmap?#{format_google_maps_api_call_parameters(datecart.cart_items)}", :class => "map" %>
+    </div>
+  <div id="<%= id_prefix + "_content" %>" class="datecart_content">
+    <% unless (cart_items = datecart.cart_items).blank? #TODO: remove once validations are implemented  %>
+        <%= render :partial => "datecart_business", :collection => datecart.cart_items %>
+    <% end %>
+
+    <%= render :partial => "datecart_notes", :locals => { :datecart => datecart} %>
+    <%= render :partial => "datecart_actions", :locals => { :datecart => datecart} %>
+  </div>
+
+
+</div>

@@ -1,0 +1,9 @@
+<% @business = Business.find(datecart_business.business_id) %>
+<div id="business_<%=@business.id %>" class="business_item">
+  <div class="business_title">
+    <%= link_to @business.name, business_path(@business) %>
+  </div>
+  <div class="business_location">
+    <%= "#{@business.address1},  #{@business.city},  #{number_to_phone @business.phone_no}" %>
+  </div>
+</div>

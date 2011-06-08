@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_one :profile
   has_many :datecarts
+  has_many :significant_dates
   has_many :authentications
   #model association with following users
   has_many :relationships, :foreign_key => "follower_id", :dependent => :destroy

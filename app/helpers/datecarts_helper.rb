@@ -26,4 +26,9 @@ module DatecartsHelper
     
     display
   end
+
+  def format_yahoo_calendar_link datecart
+    "http://calendar.yahoo.com/?v=60&amp;view=d&amp;type=20&amp;title=Eventful:+NKOTBSB+Tour%3A+New+Kids+On+The+Block+and+Backstreet+Boys&amp;st=20110608T193000&amp;desc=&amp;in_loc=Air+Canada+Centre&amp;in_st=40+Bay+Street&amp;in_csz=Toronto,+ON,+"
+    url = "http://calendar.yahoo.com/?v=60&view=d"
+  end
 end

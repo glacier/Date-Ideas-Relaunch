@@ -1,0 +1,8 @@
+<% size = ParamFile.new.datecart_action_icon_size %>
+<div class="datecart_action_icons">
+  <%= link_to image_tag("calendar.png", :height => size , :class => "action_icon"), calendar_datecart_path(datecart), :remote => true %>
+  <%= image_tag "email_icon.png", :height => size , :class => "action_icon" %>
+  <%= image_tag "printer.jpg", :height => size , :class => "action_icon"%>
+  <div id="datecart_<%=datecart.id%>_calendar_dialog" class="dialog"></div>
+  <div id="calendar_dialog" class="dialog"></div>
+</div>

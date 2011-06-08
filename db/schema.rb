@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110603020708) do
+ActiveRecord::Schema.define(:version => 20110606202440) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -105,9 +105,10 @@ ActiveRecord::Schema.define(:version => 20110603020708) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name",       :default => "My Date"
-    t.string   "datetime",   :default => ""
-    t.string   "notes",      :default => "Make it special!"
+    t.string   "name",                :default => "My Date"
+    t.datetime "datetime"
+    t.text     "notes"
+    t.integer  "significant_date_id"
   end
 
   create_table "events", :force => true do |t|
@@ -166,6 +167,14 @@ ActiveRecord::Schema.define(:version => 20110603020708) do
 
   create_table "roles", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "significant_dates", :force => true do |t|
+    t.string   "title"
+    t.datetime "date"
+    t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

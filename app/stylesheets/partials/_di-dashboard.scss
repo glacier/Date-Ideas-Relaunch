@@ -1,0 +1,64 @@
+.dashboard_item {
+    position:relative;
+    margin-bottom:10px;
+    width: 600px;
+    height: 250px;
+    border: solid;
+    border-width: 1px;
+
+    .datecart_title {
+        height:20px;
+        margin-bottom:5px;
+        .title_text {
+            padding-left: 5px;
+            a {
+                color: white;
+            }
+            background:#ef416c;
+            font-weight:bold;
+            font-size:15px;
+        }
+    }
+
+    .datecart_notes_title {
+        font-weight: bold;
+        font-size:15px;
+
+        padding:0px;
+        margin:0px;
+        position:absolute;
+        bottom:80px;
+    }
+        
+    .datecart_notes {
+        position:absolute;
+        width:300px;
+        bottom:0px;
+        height:80px;
+        overflow-y:scroll;
+        
+        border: solid;
+        border-width: 1px;
+
+    }
+
+    .datecart_action_icons {
+        position: absolute;
+        bottom:0px;
+        right:0px;
+        .action_icon {
+            margin-right: 25px;
+
+        }
+    }
+    .map {
+        position: absolute;
+        right: 0px;
+        top:-25px;
+        width:200px;
+    }
+
+    /*@include pie-clearfix;*/
+	/*@include box-shadow;*/
+	/*@include border-radius(5px);*/
+}
