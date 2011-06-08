@@ -13,6 +13,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :postal_code
       t.string :latitude
       t.string :longitude
+      t.string :eventid
     end
   end
 
