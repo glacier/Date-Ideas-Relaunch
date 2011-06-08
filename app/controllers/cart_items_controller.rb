@@ -99,7 +99,11 @@ class CartItemsController < ApplicationController
   def destroy
     @datecart = Datecart.find(params[:datecart_id])
     @cart_item = @datecart.cart_items.find(params[:id])
-    @deleted_eventid = @cart_item.event.eventid
+    
+    if @cart_item.type == 'event'
+      @deleted_eventid = @cart_item.event.eventid
+    end
+    
     @cart_item.destroy
     
     respond_to do |format|
