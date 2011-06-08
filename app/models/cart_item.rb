@@ -1,7 +1,6 @@
 class CartItem < ActiveRecord::Base
-  validates :business_id, :presence => true
-  validates :event_id, :presence => true
-  
+  validates :business, :presence => {:unless => "event"}
+    
   belongs_to :business
   belongs_to :event
   belongs_to :datecart
