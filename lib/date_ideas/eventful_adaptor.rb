@@ -1,8 +1,8 @@
 require 'eventful/api'
-
 #Implements a rails adaptor for the eventful api
 #Uses the eventfulapi gem
 class DateIdeas::EventfulAdaptor
+  
   def initialize
     begin
       @app_key = '7zXsjWk67F7qVKtq'
@@ -33,14 +33,7 @@ class DateIdeas::EventfulAdaptor
     events = Array.new
     events_hash.each do |hash|
       e = create_event(hash)
-      y 'creating and caching event'
-      y hash['id']
-      y e.eventid
-      
       return_code = Rails.cache.write(e.eventid, e, :expires_in => 30.minutes)
-      
-      y return_code
-      
       events.push(e)
     end
     return events
@@ -49,7 +42,7 @@ class DateIdeas::EventfulAdaptor
   def create_event(event_hash)
     event = Event.new
     event_id = event_hash['id']
-    # remove @ char because it converts to %40 in the url
+    # substitute '@' with a '-' because @ converts to %40 in the url
     event.eventid = event_id.gsub('@','-')
     event.title = event_hash['title']
     event.url = event_hash['url']

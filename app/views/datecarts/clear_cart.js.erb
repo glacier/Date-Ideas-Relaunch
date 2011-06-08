@@ -1,5 +1,9 @@
 $("#datecart_items").html("<%= escape_javascript(render 'datecarts/datecart_items') %>")
 
 <% @cleared_items.each do |item| %>
-	$("#add_to_date_<%= item.business_id %>").html("<%= escape_javascript(render :partial => 'wizard/add', :locals => {:datecart => @datecart, :business => item.business}) %>")
+	<% if item.business %>
+		$("#add_to_date_<%= item.business_id %>").html("<%= escape_javascript(render :partial => 'wizard/add', :locals => {:datecart => @datecart, :business => item.business}) %>")
+	<% elsif item.event %>
+		$("#event_<%= item.event.eventid %>").html("<%= escape_javascript(render :partial => 'wizard/add_event', :locals => {:datecart => @datecart, :eventid => item.event.eventid}) %>")
+	<% end %>
 <% end %>

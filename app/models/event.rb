@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
+  validates_uniqueness_of :eventid
   has_many :cart_items
   
   attr_accessible :eventid, :title, :url, :photo_url, :start_time, :end_time, :venue_name, :venue_address, :city_name, :region_name, :postal_code, :latitude, :longitude

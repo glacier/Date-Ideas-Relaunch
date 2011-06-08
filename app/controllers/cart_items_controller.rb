@@ -62,11 +62,14 @@ class CartItemsController < ApplicationController
 
   def create_event
     @datecart = Datecart.find(params[:datecart_id])
-    @event = Rails.cache.fetch(params[:event_id])
-    # unfreeze events from cache
-    @event_copy = @event.dup
+    @event = Event.find_by_eventid(params[:event_id])
+    if @event.nil?
+      @cached = Rails.cache.fetch(params[:event_id])
+      @event = @cached.dup
+    end
+    
     if @datecart
-      @cart_item = @datecart.cart_items.build(:event => @event_copy, :venue_type => session['venue_type'])
+      @cart_item = @datecart.cart_items.build(:event => @event, :venue_type => session['venue_type'])
     end
     respond_to do |format|
       if @cart_item.save
@@ -96,8 +99,9 @@ class CartItemsController < ApplicationController
   def destroy
     @datecart = Datecart.find(params[:datecart_id])
     @cart_item = @datecart.cart_items.find(params[:id])
-  
+    @deleted_eventid = @cart_item.event.eventid
     @cart_item.destroy
+    
     respond_to do |format|
       if @cart_item.business_id.nil?
         format.js { 
