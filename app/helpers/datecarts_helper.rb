@@ -10,8 +10,9 @@ module DatecartsHelper
       # only display under the first venue_type that an item is classified under
       type = item.venue_type
       venue = item.business
-      if venue.nil?
+      if venue.blank?
         venue = item.event
+        next if venue.blank?
         venue_name = venue.title
       else
         venue_name = venue.name
