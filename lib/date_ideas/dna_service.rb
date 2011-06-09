@@ -89,7 +89,9 @@ class DateIdeas::DnaService
           end
 
           b.dna_excerpt = highest_review.text_excerpt
+          b.has_yelp_data = true
           @logger.info("b.excerpt :" +b.dna_excerpt)
+          @logger.info("b.has_yelp_data:" +b.has_yelp_data.to_s )
         end
       end
     end

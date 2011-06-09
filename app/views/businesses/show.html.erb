@@ -11,7 +11,7 @@
 
 
 <div id="di_venue_excerpt">
-  <%= raw (!@business.dna_excerpt.nil?) ? "<h3>About</h3>".concat(@business.dna_excerpt) : "" %>
+  <%= raw (!@business.dna_excerpt.nil? && !@business.has_yelp_data.nil? ) ? "<h3>About</h3>".concat(@business.dna_excerpt) : "" %>
 </div>
 
 <div id="di_venue_info">

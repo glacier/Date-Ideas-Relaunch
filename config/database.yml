@@ -10,9 +10,9 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: di_development
+  database: di_dev
   username: root
-  password: password
+  password:
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

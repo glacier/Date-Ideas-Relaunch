@@ -13,14 +13,19 @@ class Business < ActiveRecord::Base
   
   validates_presence_of :name, :message => "can't be empty"
   
-  attr_accessible :map, :photo_url, :name, :url, :longitude, :latitude, :address1,:address2,:address3,:city, :province, :postal_code, :country, :phone_no, :text_excerpt, :distance, :avg_rating, :rating_img_url, :reviews #:id
+  attr_accessible :map, :photo_url, :name, :url, :longitude, :latitude, :address1,:address2,:address3,:city,
+                  :province, :postal_code, :country, :phone_no, :text_excerpt, :distance, :avg_rating, :rating_img_url, :reviews #:id
   
-  attr_accessible :venue_type, :logo, :dna_excerpt, :dna_neighbourhood, :dna_atmosphere, :dna_pricepoint, :dna_category, :dna_dresscode, :dna_pictures, :dna_review, :dna_rating_conversation, :dna_rating_convenience, :dna_rating_comfort, :deleted
+  attr_accessible :venue_type, :logo, :dna_excerpt, :dna_neighbourhood, :dna_atmosphere, :dna_pricepoint,
+                  :dna_category, :dna_dresscode, :dna_pictures, :dna_review, :dna_rating_conversation,
+                  :dna_rating_convenience, :dna_rating_comfort, :deleted
 
-  attr_accessor :distance, :avg_rating, :rating_img_url, :reviews, :map, :text_excerpt,:group_date_friendly,:takes_reservations,:hours,:kids_friendly,:gmaps
+  attr_accessor :distance, :avg_rating, :rating_img_url, :reviews, :map, :text_excerpt,:group_date_friendly,
+                :takes_reservations,:hours,:kids_friendly,:gmaps, :has_yelp_data
   
   def init
     @reviews = Array.new
+    @has_yelp_data = false
   end
 
   def add_review(review)

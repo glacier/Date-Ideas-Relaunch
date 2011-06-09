@@ -4,15 +4,12 @@
 <%= title("Search") %>
 
 <% content_for :sidebar_map do %>
-	<div id="di_map">
-		<!-- maps -->
-		<div id="map" style="width: 270px; height: 270px"></div>
-		<%# raw display_main_map_info(@wizard.businesses) %>
-	</div>
 <% end %>
 
 <% content_for :sidebar_filters do %>
-	<fieldset id="di_filters">TODO: Filters goes here</fieldset>
+	<fieldset id="di_filters">
+        <%= render "filter" %>
+	</fieldset>
 <% end %>
 
 <% content_for :sidebar_cart do %>
@@ -23,13 +20,14 @@
 
 <% content_for :sidebar_info do %>
 	<div id="di_related_info">
+      <% if ( !@wizard.events.nil? ) %>
 		<% @wizard.events.each do |event| %>
 			<%= render :partial => 'shared/event_item', :locals => {:event => event} %>
 			<div class="di_event_add">
 				<%= render :partial => 'shared/add_event_buttons', :locals => {:event => event, :cart_items => @cart_items} %>
 			</div>
 		<% end %>
-		
+      <% end %>
 		<div class="attribution">
 			<div class="eventful-badge eventful-small">
 			  <img src="http://api.eventful.com/images/powered/eventful_58x20.gif"

@@ -28,13 +28,13 @@ class WizardController < ApplicationController
 
     businesses = dnaService.search(@wizard.venue, @wizard.location, @wizard.price_point, current_page, 10)
     #grab events
-    events = eventful.search(@wizard.venue, 'toronto')
+#    events = eventful.search(@wizard.venue, 'toronto')
     
     # logger.info(events)
      
     @datecart = current_cart
     @wizard.businesses = businesses
-    @wizard.events = events
+#    @wizard.events = events
     
     respond_to do |format|
         format.html { render :action =>"show" }

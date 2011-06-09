@@ -11,7 +11,6 @@
 # It's strongly recommended to check this file into your version control system.
 
 ActiveRecord::Schema.define(:version => 20110608062134) do
-
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
     t.integer  "role_id"
@@ -190,7 +189,6 @@ ActiveRecord::Schema.define(:version => 20110608062134) do
     t.date     "birthday"
     t.string   "postal_code"
     t.string   "gender"
-    t.string   "role_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
