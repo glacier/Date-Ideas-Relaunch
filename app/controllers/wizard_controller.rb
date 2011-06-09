@@ -21,20 +21,22 @@ class WizardController < ApplicationController
 
   def search
     @wizard = Wizard.new(params[:venue], params[:location], params[:price_point])
+    @wizard.neighbourhood = params[:neighbourhood]
     current_page = params[:page]
     logger.info("creating dnaservice")
-    dnaService = DateIdeas::DnaService.new(logger)   
+    dnaService = DateIdeas::DnaService.new(logger)
     eventful = DateIdeas::EventfulAdaptor.new
+    @neighbourhoods = Neighbourhood.find_all_by_district_subsection(@wizard.location)
 
-    businesses = dnaService.search(@wizard.venue, @wizard.location, @wizard.price_point, current_page, 10)
+    businesses = dnaService.search(@wizard.venue, @wizard.location, @wizard.price_point, current_page, 10, @wizard.neighbourhood)
     #grab events
-#    events = eventful.search(@wizard.venue, 'toronto')
-    
+    events = eventful.search(@wizard.venue, 'toronto')
+
     # logger.info(events)
-     
+
     @datecart = current_cart
     @wizard.businesses = businesses
-#    @wizard.events = events
+    @wizard.events = events
     
     respond_to do |format|
         format.html { render :action =>"show" }

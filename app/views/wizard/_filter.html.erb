@@ -7,5 +7,13 @@
 	}
 </style>
 <fieldset id="di_filter_front">
-	<p><%= link_to "Neighbourhoods", wizard_index_path, :class => "datecart_buttons", :remote => true %></p>
+<div class="di_filter">
+  <%= form_tag '/wizard/search', :method => :get do %>
+    <h4 class="filter_header">Let's get specific</h4>
+    <%= hidden_field_tag(:location, @wizard.location) %>
+    <%= select_tag(:neighbourhood, options_for_select(@neighbourhoods.collect { |hood| [hood.neighbourhood]}, @wizard.neighbourhood), :onchange => "this.form.submit();") %>
+    <%= select_tag(:venue, options_for_select(Wizard::VENUES,@wizard.venue), :onchange => "this.form.submit();")%>
+    <%= select_tag(:price_point, options_for_select(Wizard::PRICE_POINTS), :onchange => "this.form.submit();") %>
+  <% end %>
+</div>
 </fieldset>

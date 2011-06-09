@@ -12,43 +12,80 @@ class DateIdeas::DnaService
   def initialize(logger)
     @logger = logger
   end
-  def search(venue_type,location,price_point = 'budget',page = '1', per_page=10)
+  def search(venue_type,location,price_point = 'budget',page = '1', per_page=10, neighbourhood = nil )
     puts("DateIdeas.search:" << venue_type.to_s << ":" << location.to_s << ":" << price_point.to_s << ":" << page.to_s)
     neighbourhoods = Array.new
     sql = String.new
-    sql <<
-	  "SELECT b.*                                  \
-		FROM                                         \
-			businesses b                               \
-		WHERE                                        \
-          b.dna_pricepoint IN (?)                \
-      AND (b.deleted IS NULL OR                  \
-           b.deleted = ? )                       \
-			AND EXISTS ( SELECT 1                      \
-					   FROM business_neighbourhoods bn     \
-                  ,neighbourhoods n              \
-					   WHERE n.id=bn.neighbourhood_id      \
-						   AND bn.business_id=b.id           \
-						   AND n.district_subsection=? )     \
-			AND EXISTS ( SELECT 1                      \
-					   FROM business_categories bc         \
-                  ,categories c                  \
-					  WHERE c.id=bc.category_id            \
-						AND bc.business_id=b.id 	           \
-						AND (c.name IN (?) OR                \
-                 c.parent_name IN (?) OR
-                 c.parent_name IN ( SELECT 1                      \
-                                      FROM categories c1          \
-                                     WHERE c1.parent_name IN (?)) \
-                ))                                                \
-		ORDER BY b.name"
-    db_businesses = Business.find_by_sql([sql,
-                                          PRICE_RANGE.fetch(price_point),
-                                          false,
-                                          location,
-                                          CATEGORIES.fetch(venue_type),
-                                          CATEGORIES.fetch(venue_type),
-                                          CATEGORIES.fetch(venue_type)]).paginate(:page => page, :per_page => 4)
+    if( neighbourhood.nil? )
+        sql <<
+      "SELECT b.*                                  \
+      FROM                                         \
+        businesses b                               \
+      WHERE                                        \
+            b.dna_pricepoint IN (?)                \
+        AND (b.deleted IS NULL OR                  \
+             b.deleted = ? )                       \
+        AND EXISTS ( SELECT 1                      \
+               FROM business_neighbourhoods bn     \
+                    ,neighbourhoods n              \
+               WHERE n.id=bn.neighbourhood_id      \
+                 AND bn.business_id=b.id           \
+                 AND n.district_subsection=? )     \
+        AND EXISTS ( SELECT 1                      \
+               FROM business_categories bc         \
+                    ,categories c                  \
+              WHERE c.id=bc.category_id            \
+              AND bc.business_id=b.id 	           \
+              AND (c.name IN (?) OR                \
+                   c.parent_name IN (?) OR
+                   c.parent_name IN ( SELECT 1                      \
+                                        FROM categories c1          \
+                                       WHERE c1.parent_name IN (?)) \
+                  ))                                                \
+      ORDER BY b.name"
+        db_businesses = Business.find_by_sql([sql,
+                                              PRICE_RANGE.fetch(price_point),
+                                              false,
+                                              location,
+                                              CATEGORIES.fetch(venue_type),
+                                              CATEGORIES.fetch(venue_type),
+                                              CATEGORIES.fetch(venue_type)]).paginate(:page => page, :per_page => 4)
+    else
+        sql <<
+      "SELECT b.*                                  \
+      FROM                                         \
+        businesses b                               \
+      WHERE                                        \
+            b.dna_pricepoint IN (?)                \
+        AND (b.deleted IS NULL OR                  \
+             b.deleted = ? )                       \
+        AND EXISTS ( SELECT 1                      \
+               FROM business_neighbourhoods bn     \
+                    ,neighbourhoods n              \
+               WHERE n.id=bn.neighbourhood_id      \
+                 AND bn.business_id=b.id           \
+                 AND n.neighbourhood=? )           \
+        AND EXISTS ( SELECT 1                      \
+               FROM business_categories bc         \
+                    ,categories c                  \
+              WHERE c.id=bc.category_id            \
+              AND bc.business_id=b.id 	           \
+              AND (c.name IN (?) OR                \
+                   c.parent_name IN (?) OR
+                   c.parent_name IN ( SELECT 1                      \
+                                        FROM categories c1          \
+                                       WHERE c1.parent_name IN (?)) \
+                  ))                                                \
+      ORDER BY b.name"
+        db_businesses = Business.find_by_sql([sql,
+                                              PRICE_RANGE.fetch(price_point),
+                                              false,
+                                              neighbourhood,
+                                              CATEGORIES.fetch(venue_type),
+                                              CATEGORIES.fetch(venue_type),
+                                              CATEGORIES.fetch(venue_type)]).paginate(:page => page, :per_page => 4)
+
+    end
     db_businesses_no_exerpt = Array.new
 
     db_businesses.each do |b|
