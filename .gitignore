@@ -8,3 +8,5 @@ server/**/*
 public/stylesheets/compiled
 config/database.yml
 public/images/businesses
+.sass-cache
+andytemp/
