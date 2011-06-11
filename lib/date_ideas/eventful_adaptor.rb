@@ -2,7 +2,6 @@ require 'eventful/api'
 #Implements a rails adaptor for the eventful api
 #Uses the eventfulapi gem
 class DateIdeas::EventfulAdaptor
-  
   def initialize
     begin
       @app_key = '7zXsjWk67F7qVKtq'
@@ -12,16 +11,20 @@ class DateIdeas::EventfulAdaptor
     end
   end
 
-  def search(query, location)
+  def search(venue_type, location, num_pages)
     # result is a ruby hash
+    category = Event.EVENT_CATEGORY.fetch(venue_type)
+    keywords = Event.EVENT_KEYWORDS.fetch(venue_type)
     results = @eventful.call 'events/search',
-                             :date => 'future',     
-                             :keywords => query,
+                             :date => 'future',
+                             :keywords => keywords,
+                             :category => category,
+                             :within => 5,
                              :location => location,
-                             :page_size => 3,
+                             :page_size => num_pages,
                              :units => 'km',
                              :mature => 'normal',
-                             :sort_order => 'popularity'
+                             :sort_order => 'date'
     unless results['events'].nil?
       return create_events(results['events']['event'])
     end

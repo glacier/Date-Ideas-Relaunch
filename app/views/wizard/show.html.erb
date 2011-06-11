@@ -22,7 +22,7 @@
 	<div id="di_related_info">
       <% if ( !@wizard.events.nil? ) %>
 		<% @wizard.events.each do |event| %>
-			<%= render :partial => 'shared/event_item', :locals => {:event => event} %>
+			<%= render :partial => 'shared/event_item', :locals => {:event => event, :title_size => 'event_title_small', :size => 60} %>
 			<div class="di_event_add">
 				<%= render :partial => 'shared/add_event_buttons', :locals => {:event => event, :cart_items => @cart_items} %>
 			</div>

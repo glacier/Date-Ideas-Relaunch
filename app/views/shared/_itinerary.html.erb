@@ -10,7 +10,7 @@
 <ul>
 	<% datecart.cart_items.each do |item| %>
 		<% if item.type == 'event' %>
-			<%= render :partial => 'shared/event_item', :locals => {:event => item.event} %>
+			<%= render :partial => 'shared/event_item', :locals => {:event => item.event, :title_size => 'event_title_small', :size => '60'} %>
 		<% else %>
 			<%= render :partial => 'shared/venue_item', :locals => {:business => item.business} %>
 		<% end %>
