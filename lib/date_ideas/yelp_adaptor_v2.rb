@@ -11,8 +11,11 @@ class DateIdeas::YelpAdaptorV2
     @consumer = OAuth::Consumer.new(@@CONSUMER_KEY, @@CONSUMER_SECRET, {:site => @url })
     @access_token = OAuth::AccessToken.new(@consumer, @@TOKEN, @@TOKEN_SECRET)
   end
-  def business_detail(business_id)
 
+
+
+  def business_detail(business_id)
+    begin
     path = "/v2/business/" + business_id
     p = @access_token.get(path).body
     search_results = JSON.parse(p)
@@ -23,9 +26,13 @@ class DateIdeas::YelpAdaptorV2
     else
       business = create_business(search_results, true)
     end
-
-    return business
+    rescue Exception => e
+      Rails.logger.error "YELP ADAPTOR ERROR: #{__LINE__}: #{e.message}"
+      return nil
+    end
+    business
   end
+  
   def search(location, categories, neighbourhoods, offset = 0)
     puts "Yelp Adaptor Version 2"
     returned_businesses = Array.new

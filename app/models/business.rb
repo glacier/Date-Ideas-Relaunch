@@ -11,30 +11,16 @@ class Business < ActiveRecord::Base
 
   # before_destroy :ensure_not_referenced_by_any_line_item
   
-  validates_presence_of :name, :message => "can't be empty"
-  
-  attr_accessible :map, :photo_url, :name, :url, :longitude, :latitude, :address1,:address2,:address3,:city, :province, :postal_code, :country, :phone_no, :text_excerpt, :distance, :avg_rating, :rating_img_url, :reviews #:id
-  
-  attr_accessible :venue_type, :logo, :dna_excerpt, :dna_neighbourhood, :dna_atmosphere, :dna_pricepoint, :dna_category, :dna_dresscode, :dna_pictures, :dna_review, :dna_rating_conversation, :dna_rating_convenience, :dna_rating_comfort, :deleted
+  validates :venue_type, :name, :address1, :province, :city, :presence => true
 
-  attr_accessor :distance, :avg_rating, :rating_img_url, :reviews, :map, :text_excerpt,:group_date_friendly,:takes_reservations,:hours,:kids_friendly,:gmaps
+  attr_accessor :distance, :avg_rating, :rating_img_url, :reviews, :map, :text_excerpt, :group_date_friendly, :takes_reservations, :hours,:kids_friendly,:gmaps
   
   def init
-    @reviews = Array.new
+    @reviews = []
   end
 
   def add_review(review)
     @reviews.push(review)
-  end
-
-  def display_address
-    d_address = String.new
-    d_address.concat(address1)
-    if(! address2.nil? )
-      d_address.concat(",").concat(address2)
-    end
-    d_address.concat(",").concat(city)
-    d_address.concat(",").concat(province)
   end
 
   # hook method
@@ -50,11 +36,22 @@ class Business < ActiveRecord::Base
   acts_as_gmappable
 
   def gmaps4rails_address
-    return display_address
+    display_address
   end
   
   def gmaps4rails_infowindow
     # add here whatever html content you desire, it will be displayed when users clicks on the marker
-    "#{self.name}<br/>#{self.display_address}<br/>#{self.phone_no}"
+    "#{name}<br/>#{display_address}<br/>#{phone_no}"
+  end
+
+  private
+  
+  def display_address
+    d_address = ""
+    d_address << address1
+    if(! address2.nil? )
+      d_address << ",#{address2}"
+    end
+    d_address << ",#{city},#{province}"
   end
 end

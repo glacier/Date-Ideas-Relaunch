@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110608062134) do
+ActiveRecord::Schema.define(:version => 20110612042142) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(:version => 20110608062134) do
   end
 
   create_table "business_types", :force => true do |t|
-    t.string   "business_id"
+    t.integer  "business_id"
     t.string   "category_name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -113,7 +113,6 @@ ActiveRecord::Schema.define(:version => 20110608062134) do
   end
 
   create_table "events", :force => true do |t|
-    t.string "events"
     t.string "title"
     t.string "url"
     t.string "photo_url"
@@ -126,6 +125,7 @@ ActiveRecord::Schema.define(:version => 20110608062134) do
     t.string "postal_code"
     t.string "latitude"
     t.string "longitude"
+    t.string "eventid"
   end
 
   create_table "farmed_infos", :force => true do |t|
@@ -203,13 +203,5 @@ ActiveRecord::Schema.define(:version => 20110608062134) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
-
-  create_table "wizards", :force => true do |t|
-    t.string   "venue"
-    t.string   "location"
-    t.integer  "priceRange"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end
