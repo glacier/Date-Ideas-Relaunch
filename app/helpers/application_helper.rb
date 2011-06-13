@@ -48,9 +48,9 @@ module ApplicationHelper
   
   # builds an eventful.com uri request
   # eg. http://eventful.com/toronto/events?q=music+and+food&t=Next+7+days&sort_order=Popularity
-  def eventful_url(location, keywords, time, sorting)
+  def eventful_url(location, venue_type, time, sorting)
     params = {
-      "q" => keywords,
+      "c" => Event.EVENT_CATEGORY.fetch(venue_type),
       "t" => time,
       "sort_order" => sorting 
     }

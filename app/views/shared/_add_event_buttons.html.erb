@@ -1,4 +1,9 @@
-<!-- This is the master view for event add/remove buttons -->
+<span>
+	<%= link_to("Read More", event.url, :class => "add_button") %>
+</span>
+
+<%# Check if an event has been added to the cart %>
+<%# Why is this join here? %>
 <% @cart_item = CartItem.joins(:event).where(:events=>{:eventid => event.eventid}, :datecart_id => @datecart.id).first %>
 <span id="event_<%= event.eventid %>">
 	<% if @cart_item.nil? %>
