@@ -61,7 +61,9 @@ class DateIdeas::YelpAdaptorV2
   end
   def create_business(business_hash, extract_reviews = false )
     business = Business.new
-    business.external_id = business_hash.fetch("id")
+    if( business_hash.has_key?("id"))
+      business.external_id = business_hash.fetch("id")
+    end
     business.name = business_hash.fetch("name")
     address = business_hash.fetch("location").fetch("address")
     business.address1 = address[0]

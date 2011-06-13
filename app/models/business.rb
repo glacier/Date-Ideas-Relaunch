@@ -21,7 +21,7 @@ class Business < ActiveRecord::Base
                   :dna_rating_convenience, :dna_rating_comfort, :deleted
 
   attr_accessor :distance, :avg_rating, :rating_img_url, :reviews, :map, :text_excerpt,:group_date_friendly,
-                :takes_reservations,:hours,:kids_friendly,:gmaps, :has_yelp_data
+                :takes_reservations,:hours,:kids_friendly,:gmaps, :has_yelp_data, :review
   
   def init
     @reviews = Array.new
