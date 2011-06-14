@@ -1,5 +1,7 @@
 class SignificantDate < ActiveRecord::Base
   has_many :datecarts
+  belongs_to :user
 
-  validates :date, :title, :presence => true
+  # Waiting on will's validations
+#  validates :date, :title, :presence => true
 end

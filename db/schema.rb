@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110612042142) do
+ActiveRecord::Schema.define(:version => 20110613011709) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -178,6 +178,7 @@ ActiveRecord::Schema.define(:version => 20110612042142) do
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|

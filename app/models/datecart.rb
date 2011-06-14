@@ -4,5 +4,6 @@ class Datecart < ActiveRecord::Base
   belongs_to :user
   belongs_to :significant_date
 
-  validates :user_id, :name, :datetime, :presence => true
+  # Waiting on WIll's confirmation of all validations
+  # validates :user_id, :name, :datetime, :presence => true
 end

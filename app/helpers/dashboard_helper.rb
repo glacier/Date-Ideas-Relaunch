@@ -43,7 +43,10 @@ module DashboardHelper
   def format_google_maps_markers cart_items
     markers = ""
     cart_items.each do |cart_item|
+      next unless cart_item.business_id
       business = cart_item.business
+      puts business
+      Rails.logger.debug business
         markers << "markers=color:blue|label:#{business.name}|#{business.address1},#{business.city},#{business.province},#{business.postal_code},#{business.country}&"
     end
     markers

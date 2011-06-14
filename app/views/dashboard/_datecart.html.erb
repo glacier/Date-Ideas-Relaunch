@@ -8,12 +8,10 @@
     </div>
   <div id="<%= id_prefix + "_content" %>" class="datecart_content">
     <% unless (cart_items = datecart.cart_items).blank? #TODO: remove once validations are implemented  %>
-        <%= render :partial => "datecart_business", :collection => datecart.cart_items %>
+        <%= render :partial => "datecart_cartitem", :collection => datecart.cart_items %>
     <% end %>
 
     <%= render :partial => "datecart_notes", :locals => { :datecart => datecart} %>
     <%= render :partial => "datecart_actions", :locals => { :datecart => datecart} %>
   </div>
-
-
 </div>

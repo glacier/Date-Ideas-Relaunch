@@ -20,7 +20,7 @@ class Ability
 
       # Note: can another user see someone's unsaved Datecart?
       # I think they can.  This might be a security loop hole.
-      can [:complete, :email, :print, :clear_cart], Datecart
+      #can [:complete, :email, :print, :clear_cart, :calendar, :download_to_calendar], Datecart
       
       # Allow user to manage their own user account
       # Seems to be a linear search -- will it scale to many users/profiles?

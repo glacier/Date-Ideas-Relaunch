@@ -18,11 +18,12 @@ class User < ActiveRecord::Base
   # TODO: link user tips, reviews to user model
   # has_many :tips
 
+  # Waiting on will's validations
   # Email is validated by devise.
-  validates :email, :username, :first_name, :last_name, :birthday, :postal_code, :gender, :role_id,
-            :encrypted_password, :presence => true
+#  validates :email, :username, :first_name, :last_name, :birthday, :postal_code, :gender, :role_id,
+#            :encrypted_password, :presence => true
 
-  validates :postal_code, :length => {:maximum => 7}
+#  validates :postal_code, :length => {:maximum => 7}
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable

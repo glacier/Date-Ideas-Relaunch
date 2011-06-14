@@ -10,8 +10,8 @@ class Business < ActiveRecord::Base
   has_many :neighbourhoods, :through => :business_neighbourhoods
 
   # before_destroy :ensure_not_referenced_by_any_line_item
-  
-  validates :venue_type, :name, :address1, :province, :city, :presence => true
+  # Waiting on will's validations
+  #validates :venue_type, :name, :address1, :province, :city, :presence => true
 
   attr_accessor :distance, :avg_rating, :rating_img_url, :reviews, :map, :text_excerpt, :group_date_friendly, :takes_reservations, :hours,:kids_friendly,:gmaps
   

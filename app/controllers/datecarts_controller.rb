@@ -2,6 +2,7 @@ class DatecartsController < ApplicationController
   # GET /datecarts
   # GET /datecarts.xml
   load_and_authorize_resource
+  include DatecartsHelper
   
   def index
     @datecarts = Datecart.all
@@ -132,5 +133,40 @@ class DatecartsController < ApplicationController
 
   def calendar
     @datecart = Datecart.find(params[:id])
+  end
+
+  def download_to_calendar
+    @datecart = Datecart.find(params[:id])
+
+
+    send_data generate_vcalendar(@datecart), :filename => "my_date.ics", :type => "text/calendar"
+  end
+
+  private
+
+  # ical: 'webcal://eventful.com/toronto/ical/events/nkotbsb-tour-new-kids-block-and-backstreet-boys-/E0-001-035309535-0'
+  #outlook: 'http://eventful.com/toronto/ical/events/nkotbsb-tour-new-kids-block-and-backstreet-boys-/E0-001-035309535-0'
+
+  def generate_vcalendar datecart
+<<-VCAL
+BEGIN:VCALENDAR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//gdi//GetDateIdeas//EN
+VERSION:2.0
+BEGIN:VEVENT
+DTSTAMP:#{format_time DateTime.now}Z
+DTSTART:#{format_time datecart.datetime}Z
+DTEND:#{format_time datecart.datetime+1.hour}Z
+SUMMARY: #{datecart.name}
+PRIORITY:0
+CATEGORIES:DATE
+CLASS:PRIVATE
+URL:#{request.env["REQUEST_URI"]}
+DESCRIPTION: #{datecart.notes}
+LOCATION: SOMEHWEREEERERERE
+END:VEVENT
+END:VCALENDAR
+VCAL
   end
 end
