@@ -1,7 +1,6 @@
 class CreateEvents < ActiveRecord::Migration
   def self.up
     create_table :events do |t|
-      t.string :events
       t.string :title
       t.string :url
       t.string :photo_url
@@ -14,6 +13,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :postal_code
       t.string :latitude
       t.string :longitude
+      t.string :eventid
     end
   end
 

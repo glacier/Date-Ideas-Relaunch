@@ -19,7 +19,7 @@ class Wizard
                       5.0 => "/images/five_hearts.gif",
                     }
 
-  attr_accessor :venue, :location, :price_point, :response, :businesses, :restaurant, :activity, :dessert, :neighbourhood_name, :events
+  attr_accessor :venue, :location, :price_point, :response, :businesses, :restaurant, :activity, :dessert, :neighbourhood_name, :events, :neighbourhoods, :neighbourhood
   
   def initialize(venue="", location="", price_point="")
     @venue = venue

@@ -1,4 +1,8 @@
 class User < ActiveRecord::Base
+  # Should be handled by Devise
+  # validates_presence_of :email
+  # validates_format_of :email, :with => ...., :message => "a valid email must be provided"
+  
   has_one :profile
   has_many :datecarts
   has_many :significant_dates

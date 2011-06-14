@@ -35,14 +35,12 @@ class CartItemsController < ApplicationController
 
   # GET /cart_items/1/edit
   def edit
-    # @cart_item = CartItem.find(params[:id])
     @datecart = Datecart.find(params[:datecart_id])
     @cart_item = @datecart.cart_items.find(params[:id])
   end
 
   # POST /cart_items
   # POST /cart_items.xml
-  # accept a business id
   def create
     @datecart = Datecart.find(params[:datecart_id])
     @business = Business.find(params[:business_id])
@@ -56,16 +54,29 @@ class CartItemsController < ApplicationController
         format.html { 
           redirect_to(@cart_item, :notice => 'Cart item was successfully created.')
         }
-        format.xml  { render :xml => @cart_item, :status => :created, :location => @cart_item }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @cart_item.errors, :status => :unprocessable_entity }
       end
     end
   end
 
-  # TODO: implement creating a cart_item for an event
-
+  def create_event
+    @datecart = Datecart.find(params[:datecart_id])
+    @event = Event.find_by_eventid(params[:event_id])
+    if @event.nil?
+      @cached = Rails.cache.fetch(params[:event_id])
+      @event = @cached.dup
+    end
+    
+    if @datecart
+      @cart_item = @datecart.cart_items.build(:event => @event, :venue_type => session['venue_type'])
+    end
+    respond_to do |format|
+      if @cart_item.save
+        format.js
+      end
+    end
+  end
 
   # PUT /cart_items/1
   # PUT /cart_items/1.xml
@@ -87,14 +98,24 @@ class CartItemsController < ApplicationController
   # DELETE /cart_items/1.xml
   def destroy
     @datecart = Datecart.find(params[:datecart_id])
-    # @cart_item = CartItem.find(params[:id])
     @cart_item = @datecart.cart_items.find(params[:id])
+    
+    if @cart_item.type == 'event'
+      @deleted_eventid = @cart_item.event.eventid
+    end
+    
     @cart_item.destroy
-
+    
     respond_to do |format|
-      format.js
-      format.html { redirect_to(cart_items_url) }
-      format.xml  { head :ok }
+      if @cart_item.business_id.nil?
+        format.js { 
+          render :action => "destroy_event"
+        }
+        format.html { redirect_to(cart_items_url) }
+        format.xml  { head :ok }
+      else
+        format.js
+      end
     end
   end
 end

@@ -17,6 +17,13 @@ module DatecartsHelper
       else
         category_display[venue] << " " << "<li>" << biz.name << " " << link_to('Remove', datecart_cart_item_path(datecart, item), :method => :delete, :remote => true) << "</li>"
       end
+      
+      html_str = "<li>" <<  venue_name << " " << link_to('Remove', datecart_cart_item_path(datecart, item), :method => :delete, :remote => true) << "</li>"
+      if category_display[type].nil?
+        category_display[type] = html_str
+      else
+        category_display[type] << " " << html_str
+      end
     end
 
     category_display.keys.sort.each { |key|

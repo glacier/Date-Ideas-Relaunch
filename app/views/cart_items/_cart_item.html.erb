@@ -1,6 +1,6 @@
 <%# A single item displayed in the date cart %>
 <li>
 <%= params['venue'] %>
-<%= cart_item.business.name %>
+<%= show_name(cart_item) %>
 <%= link_to('Remove', datecart_cart_item_path(@datecart, cart_item), :method => :delete, :remote => true) %>
 </li>

@@ -1,4 +1,8 @@
 class CartItem < ActiveRecord::Base
+  validates_presence_of :business, :unless => "event"
+  validates_presence_of :datecart
+  validates_associated :event
+  
   belongs_to :business
   belongs_to :event
   belongs_to :datecart
@@ -11,7 +15,14 @@ class CartItem < ActiveRecord::Base
   private
 
   # xor? Need to check if we want to limit whether an event can also be associated with a business
-  def has_an_event_or_business?
-    business_id || event_id
+
+  def type
+    if business.nil? 
+      return 'event'
+    end
+    if event.nil?
+      return 'business'
+    end
+    return 'none'
   end
 end

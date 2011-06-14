@@ -1,5 +1,4 @@
 class Business < ActiveRecord::Base
-
   cattr_reader :per_page
   @@per_page = 10
   
@@ -17,6 +16,7 @@ class Business < ActiveRecord::Base
   
   def init
     @reviews = []
+    @has_yelp_data = false
   end
 
   def add_review(review)

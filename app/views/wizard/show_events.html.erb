@@ -1,0 +1,44 @@
+<% session['venue_type'] = params['venue'] %>
+<%= stylesheet_link_tag("wizard.css") %>
+
+<%= title("Search") %>
+
+<% content_for :sidebar_map do %>
+<% end %>
+
+<% content_for :sidebar_filters do %>
+	<fieldset id="di_filters">
+        <%= render "filter" %>
+	</fieldset>
+<% end %>
+
+<% content_for :sidebar_cart do %>
+	<div id="di_datecart">
+		<%= render @datecart %>
+	</div>
+<% end %>
+
+<% content_for :sidebar_info do %>
+<% end %>
+
+<% @cart_items = @datecart.cart_items %>
+<% if ( !@wizard.events.nil? ) %>
+	<% @wizard.events.each do |event| %>
+		<div class="di_biz">
+			<%= render :partial => 'shared/event_item', :locals => {:event => event, :title_size => '', :size => 128} %>
+			<div class="di_biz_add">
+				<%= render :partial => 'shared/add_event_buttons', :locals => {:event => event, :cart_items => @cart_items} %>
+			</div>
+		</div>
+	<% end %>
+	<hr/>
+	<div class="attribution">
+		<div class="eventful-badge eventful-small">
+		  <img src="http://api.eventful.com/images/powered/eventful_58x20.gif"
+		    alt="Local Events, Concerts, Tickets">
+		  <p><a href="http://eventful.com/">Events</a> by Eventful</p>
+		</div>
+	</div>
+<% end %>
+<%= will_paginate @wizard.events %>
+

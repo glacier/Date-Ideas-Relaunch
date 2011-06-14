@@ -1,8 +1,8 @@
 <h3 class="di_biz_name"><%= link_to business.name, business_path(business) %></h3>
 <div class="di_biz_info">
-	<div class="di_biz_photo"><%= image_tag(business.photo_url) %></div>
+	<div class="di_biz_photo"><%= image_tag(business.photo_url, :height => 128, :width => 128) %></div>
 	<div class="di_biz_desc">
-		<p><%= business.dna_excerpt %></p>
+		<p><%=  raw (!business.review.nil?) ? display_review(business) : business.dna_excerpt %></p>
 		<p><%= display_address(business) %></p>
 	</div>
 </div>
