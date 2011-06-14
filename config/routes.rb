@@ -12,7 +12,8 @@ DateIdeas::Application.routes.draw do
       get "email"
       get "print"
       get "calendar"
-      get "download_to_calendar"
+      get "download_calendar"
+      get "subscribe"
     end
     
     resources :cart_items

@@ -3,6 +3,8 @@ class DatecartsController < ApplicationController
   # GET /datecarts.xml
   load_and_authorize_resource
   include DatecartsHelper
+
+  before_filter :authenticate_user!, :except => :subscribe
   
   def index
     @datecarts = Datecart.all
@@ -135,11 +137,14 @@ class DatecartsController < ApplicationController
     @datecart = Datecart.find(params[:id])
   end
 
-  def download_to_calendar
+  def download_calendar
     @datecart = Datecart.find(params[:id])
+    send_data generate_vcalendar(@datecart, :download), :filename => "my_date.ics", :type => "text/calendar"
+  end
 
-
-    send_data generate_vcalendar(@datecart), :filename => "my_date.ics", :type => "text/calendar"
+  def subscribe
+    @datecart = Datecart.find(params[:id])
+    render :text => generate_vcalendar(@datecart, :subscribe)
   end
 
   private
@@ -147,7 +152,7 @@ class DatecartsController < ApplicationController
   # ical: 'webcal://eventful.com/toronto/ical/events/nkotbsb-tour-new-kids-block-and-backstreet-boys-/E0-001-035309535-0'
   #outlook: 'http://eventful.com/toronto/ical/events/nkotbsb-tour-new-kids-block-and-backstreet-boys-/E0-001-035309535-0'
 
-  def generate_vcalendar datecart
+  def generate_vcalendar datecart, type
 <<-VCAL
 BEGIN:VCALENDAR
 CALSCALE:GREGORIAN

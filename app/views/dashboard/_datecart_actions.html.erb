@@ -1,8 +1,13 @@
 <% size = ParamFile.new.datecart_action_icon_size %>
 <div class="datecart_action_icons">
-  <%= link_to image_tag("calendar.png", :height => size , :class => "action_icon"), calendar_datecart_path(datecart), :remote => true %>
-  <%= image_tag "email_icon.png", :height => size , :class => "action_icon" %>
-  <%= image_tag "printer.jpg", :height => size , :class => "action_icon"%>
-  <div id="datecart_<%=datecart.id%>_calendar_dialog" class="dialog"></div>
-  <div id="calendar_dialog" class="dialog"></div>
+  <% unless datecart.cart_items.blank? %>
+      <%= link_to image_tag("calendar.png", :height => size, :class => "action_icon"), calendar_datecart_path(datecart), :remote => true %>
+  <% else %>
+      <%= link_to image_tag("calendar.png", :height => size, :class => "action_icon"), edit_datecart_path(datecart), :remote => true %>
+  <% end %>
+  <%= image_tag "email_icon.png", :height => size, :class => "action_icon" %>
+  <%= link_to image_tag("printer.jpg", :height => size, :class => "action_icon"), print_datecart_path(datecart), :rel => 'external' %>
+
+  <div id="datecart_<%= datecart.id %>_calendar_dialog" class="dialog"></div>
+  <div id="di_edit_dialog" class="dialog">Dialog</div>
 </div>
