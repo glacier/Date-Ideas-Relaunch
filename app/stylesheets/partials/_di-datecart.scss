@@ -13,22 +13,11 @@
 	@include no-bullets;
 
 }
+/*
 #di_filter {
     margin: 5px;
 }
-
-/*#sidebar_float {
-	position:absolute;
-	width:100px;
-	height:500px;
-	top:200px;
-	left:10%;
-/*	padding-top: 100px;*/
-/*	background:#FFFFFF;
-	border:2px solid #2266AA;
-	z-index:100;
-	@include pie-clearfix;*/
-/*}*/
+*/
 
 fieldset {
 	border:0px;
@@ -61,9 +50,12 @@ fieldset {
 }
 
 #di_datecart_functions {
-		@include horizontal-list;
+	@include horizontal-list(2px);
 }
 
+fieldset .datecart {
+	padding: 0;
+}
 /*$green: darken(#57b42c, 8)
 $blue: adjust_hue($green, 110)
 $red: adjust_hue($green, -100)

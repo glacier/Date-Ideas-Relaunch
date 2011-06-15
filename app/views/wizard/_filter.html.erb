@@ -1,19 +1,11 @@
-<%# View of the cart shown at the front page %>
-<style>
-/*	.pin-cart {
-		position: fixed;
-		top: 10px;
-		width: 220px;
-	}*/
-</style>
 <fieldset id="di_filter_front">
-<div class="di_filter">
-  <%= form_tag '/wizard/search', :method => :get do %>
-    <h4 class="filter_header">Let's get specific</h4>
-    <%= hidden_field_tag(:location, @wizard.location) %>
-    <%= select_tag(:neighbourhood, options_for_select(@neighbourhoods.collect { |hood| [hood.neighbourhood]}, @wizard.neighbourhood), :onchange => "this.form.submit();") %>
-    <%= select_tag(:venue, options_for_select(Wizard::VENUES,@wizard.venue), :onchange => "this.form.submit();")%>
-    <%= select_tag(:price_point, options_for_select(Wizard::PRICE_POINTS), :onchange => "this.form.submit();") %>
-  <% end %>
-</div>
+	<h4 class="filter_header">Let's get specific:</h4>
+	<%= form_tag '/wizard/search', :method => :get do %>
+		<%= hidden_field_tag(:location, @wizard.location) %>
+		<ul id='filter_options'>
+			<li><%= select_tag(:neighbourhood, options_for_select(@neighbourhoods.collect { |hood| [hood.neighbourhood]}, @wizard.neighbourhood), :onchange => "this.form.submit();") %></li>
+			<li><%= select_tag(:venue, options_for_select(Wizard::VENUES,@wizard.venue), :onchange => "this.form.submit();")%></li>
+			<li><%= select_tag(:price_point, options_for_select(Wizard::PRICE_POINTS), :onchange => "this.form.submit();") %></li>
+		</ul>
+	<% end %>
 </fieldset>

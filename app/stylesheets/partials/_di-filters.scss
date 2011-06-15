@@ -1,0 +1,28 @@
+#di_filter_front, #di_breadcrumb {
+	margin: 0;
+	padding:{
+		top: 0;
+	};
+	h4 {
+		margin:{
+			bottom: 2px;
+		}
+	}
+}
+
+#di_filter {
+	padding:{
+		top: 0;
+	};
+}
+
+#search_params {
+	@include horizontal-list;
+}
+
+#filter_options {
+	@include inline-block-list;
+	li {
+		padding-left:4px;
+	}
+}

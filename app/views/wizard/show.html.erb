@@ -4,12 +4,20 @@
 <%= title("Search") %>
 
 <% content_for :sidebar_map do %>
+	<%# Design decision: No map with results (for now)%>
 <% end %>
 
 <% content_for :sidebar_filters do %>
-	<fieldset id="di_filters">
-        <%= render "filter" %>
+	<fieldset id="di_breadcrumb">
+		<h4>Your search:</h4>
+		<ul id='search_params'>
+			<li>'<%= get_display_text(params['venue']) %>'</li>
+			<li>in '<%= params['location'] %>' </li>
+			<li>with '<%= params['price_point'] %>' prices</li>
+		</ul>
 	</fieldset>
+
+   <%= render "filter" %>
 <% end %>
 
 <% content_for :sidebar_cart do %>
@@ -18,15 +26,17 @@
 	</div>
 <% end %>
 
-<% content_for :sidebar_info do %>
+<% content_for :main_related do %>
+	<h2>Related Events</h2>
 	<div id="di_related_info">
       <% if ( !@wizard.events.nil? ) %>
-		<% @wizard.events.each do |event| %>
-			<%= render :partial => 'shared/event_item', :locals => {:event => event, :title_size => 'event_title_small', :size => 60} %>
-			<div class="di_event_add">
-				<%= render :partial => 'shared/add_event_buttons', :locals => {:event => event, :cart_items => @cart_items} %>
-			</div>
-		<% end %>
+				<% @wizard.events.each do |event| %>
+					<%= render :partial => 'shared/event_item', :locals => {:event => event, :title_size => 'event_title_small', :size => 60} %>
+					<div class="di_event_add">
+						<%= render :partial => 'shared/add_event_buttons', :locals => {:event => event, :cart_items => @cart_items} %>
+					</div>
+					<hr/>
+				<% end %>
       <% end %>
 		<div class="attribution">
 			<div class="eventful-badge eventful-small">
@@ -40,7 +50,7 @@
 <% end %>
 
 <% @cart_items = @datecart.cart_items %>
-
+<h2> Results for <span class='dynamic_text'><%= get_display_text(params['venue']) %></span> </h2>
 <% @wizard.businesses.each do |business| %>
 	<div class="di_biz">
 		<%= render :partial => 'shared/venue_item', :locals => {:business => business} %>

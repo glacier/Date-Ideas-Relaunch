@@ -61,16 +61,6 @@ hr {
 	.poplight {
 		@include quiet_link_button;
 	}
-	/* Elements */
-	.add_button {
-		@include fancy-button-structure(14px, 0.30em, 1px);		         
-		@include fancy-button-colors($fancy-green);
-	}
-	
-	.remove_button {
-		@include fancy-button-structure(14px, 0.30em, 1px);		         
-		@include fancy-button-colors($fancy-red);
-	}
 }
 
 #sidebar_right {
@@ -104,6 +94,27 @@ hr {
 
 .admin {
 		color: red;
+}
+
+/* Elements */
+.add_button {
+	@include fancy-button-structure(14px, 0.30em, 1px);		         
+	@include fancy-button-colors($fancy-green);
+}
+
+.add_button_mute {
+	@include fancy-button-structure(12px, 0.1em, 1px);		         
+	@include fancy-button-colors($fancy-silver);
+}
+
+.remove_button {
+	@include fancy-button-structure(14px, 0.30em, 1px);		         
+	@include fancy-button-colors($fancy-red);
+}
+
+.remove_button_mute {
+	@include fancy-button-structure(12px, 0.1em, 1px);		         
+	@include fancy-button-colors($fancy-red);
 }
 
 /* styles for pinning various elements on the page */

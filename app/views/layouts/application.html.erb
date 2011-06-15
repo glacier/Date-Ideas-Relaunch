@@ -50,19 +50,20 @@
 		<div id="content" class="span-25 last">
 			<div id="sidebar_left" class="span-7">
 				<div id="sidebar_left_pinned" class="span-7">
-					<%= yield :sidebar_map %>
-					<hr/>
+					<%# yield :sidebar_map %>
 					<%= yield :sidebar_filters %>
 				</div>
 			</div>
 			<div id="main" class="span-12">
 				<%= yield %>
+				<hr/>
+				<%= yield :main_related %>
 			</div>
 			<div id="sidebar_right" class="span-6 last">
 				<div id="sidebar_right_pinned" class="span-6">
 					<%= yield :sidebar_cart %>
-					<hr/>
-					<%= yield :sidebar_info %>
+					<!-- <hr/> -->
+					<%# yield :sidebar_info %>
 				</div>
 			</div>
 		</div>
