@@ -101,7 +101,11 @@ class DatecartsController < ApplicationController
         format.html {redirect_to(@datecart)}
       end
   end
-  
+
+  def begin_complete
+    @datecart = Datecart.find(params[:id])
+    render :save_datecart
+  end
   # complete date planning
   def complete
     if current_user

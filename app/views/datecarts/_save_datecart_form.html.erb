@@ -1,0 +1,43 @@
+<script type="text/javascript">
+	$(document).ready(function(){
+		//show date picker pop up
+		$('#datecart_datetime').datetimepicker({
+		        ampm: true,
+		        hourGrid: 4,
+		        minuteGrid: 10
+		});
+	});
+</script>
+
+<%= form_for(@datecart) do |f| %>
+  <% if @datecart.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@datecart.errors.count, "error") %> prohibited this datecart from being saved:</h2>
+
+      <ul>
+      <% @datecart.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+		<%= f.text_field :name %>
+  </div>
+
+	<div class="field">
+    <%= f.label :datetime %>
+		<%= f.text_field :datetime %>
+  </div>
+
+	<div class="field">
+    <%= f.label :notes %>
+		<%= f.text_field :notes %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Save" %>
+  </div>
+<%end%>

@@ -44,6 +44,7 @@ class CartItemsController < ApplicationController
   def create
     @datecart = Datecart.find(params[:datecart_id])
     @business = Business.find(params[:business_id])
+
     if @datecart
       @cart_item = @datecart.cart_items.build(:business => @business, :venue_type => session['venue_type'])
     end
@@ -51,9 +52,7 @@ class CartItemsController < ApplicationController
     respond_to do |format|
       if @cart_item.save
         format.js
-        format.html { 
-          redirect_to(@cart_item, :notice => 'Cart item was successfully created.')
-        }
+        format.html
       else
         format.html { render :action => "new" }
       end

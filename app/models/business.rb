@@ -1,7 +1,7 @@
 class Business < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = 10
-  
+
   has_many :cart_items
   has_many :business_categories
   has_many :categories, :through => :business_categories
@@ -11,9 +11,9 @@ class Business < ActiveRecord::Base
   # before_destroy :ensure_not_referenced_by_any_line_item
   # Waiting on will's validations
   #validates :venue_type, :name, :address1, :province, :city, :presence => true
+  attr_accessor :distance, :avg_rating, :rating_img_url, :reviews, :map, :text_excerpt, :group_date_friendly,
+                :takes_reservations, :hours, :kids_friendly, :gmaps, :has_yelp_data, :review
 
-  attr_accessor :distance, :avg_rating, :rating_img_url, :reviews, :map, :text_excerpt, :group_date_friendly, :takes_reservations, :hours,:kids_friendly,:gmaps
-  
   def init
     @reviews = []
     @has_yelp_data = false
@@ -38,18 +38,18 @@ class Business < ActiveRecord::Base
   def gmaps4rails_address
     display_address
   end
-  
+
   def gmaps4rails_infowindow
     # add here whatever html content you desire, it will be displayed when users clicks on the marker
     "#{name}<br/>#{display_address}<br/>#{phone_no}"
   end
 
   private
-  
+
   def display_address
     d_address = ""
     d_address << address1
-    if(! address2.nil? )
+    if (!address2.nil?)
       d_address << ",#{address2}"
     end
     d_address << ",#{city},#{province}"

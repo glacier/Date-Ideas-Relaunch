@@ -10,12 +10,6 @@ class CartItem < ActiveRecord::Base
   # Waiting on will's validations
 #  validates :venue_type, :datecart_id, :presence => true
 
-#  validate :has_an_event_or_business?
-
-  private
-
-  # xor? Need to check if we want to limit whether an event can also be associated with a business
-
   def type
     if business.nil? 
       return 'event'

@@ -5,6 +5,7 @@ DateIdeas::Application.routes.draw do
   resources :datecarts do 
     member do
       delete "clear_cart"
+      get "begin_complete"
       put "complete"
       get "email"
       get "print"
