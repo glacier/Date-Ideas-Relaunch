@@ -1,14 +1,16 @@
 <h1>Listing datecarts</h1>
 
 <table>
-	<% @datecarts.each do |datecart| %>
-	  <tr>
-			<td><%= datecart.id %></td>
-			<td><%= datecart.name %></td>
-	    <td><%= link_to 'Show', datecart %></td>
-	    <td><%= link_to 'Edit', edit_datecart_path(datecart) %></td>
-	    <td><%= link_to 'Destroy', datecart, :confirm => 'Are you sure?', :method => :delete %></td>
-	  </tr>
+	<% unless @datecarts.nil? %>
+		<% @datecarts.each do |datecart| %>
+		  <tr>
+				<td><%= datecart.id %></td>
+				<td><%= datecart.name %></td>
+		    <td><%= link_to 'Show', datecart %></td>
+		    <td><%= link_to 'Edit', edit_datecart_path(datecart) %></td>
+		    <td><%= link_to 'Destroy', datecart, :confirm => 'Are you sure?', :method => :delete %></td>
+		  </tr>
+		<% end %>
 	<% end %>
 </table>
 
