@@ -2,23 +2,19 @@ class DashboardController < ApplicationController
   def index
     @user = current_user # This is ensured by authenticate_user! in the pre-block of app controller
     datecarts = @user.datecarts
-    puts datecarts
 
     # Define our sorting algorithm here
-    datecarts.sort_by do |cart|
-      cart.datetime
-    end
-
-puts     datecarts.collect {|c| c.datetime}
     @current_datecarts = []
     @past_datecarts = []
 
     counter = {:upcoming => 0, :past => 0}
+
     datecarts.each do |cart|
       if t = cart.datetime
         if t <= Time.now
           if counter[:past] < 2
-            @past_datecarts << cart
+            @current_datecarts << cart
+#            @past_datecarts << cart
             counter[:past] += 1
           end
         else

@@ -5,7 +5,7 @@
       <%= link_to "+ Add Something New", wizard_index_path, :class => "datecart_buttons center", :remote => true %>
       <div id="di_add_to_date" class="dialog"></div>
   <% else %>
-      <%= render :partial => "dashboard/datecart", :collection => @datecarts %>
+      <%= render :partial => "dashboard/datecart", :collection => @current_datecarts %>
   <% end %>
 
   <% if @unfinished_datecarts.blank? %>
