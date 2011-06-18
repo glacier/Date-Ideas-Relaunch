@@ -18,7 +18,8 @@ module DatecartsHelper
         venue_name = venue.name
       end
       
-      html_str = "<tr><td>" <<  venue_name << "</td><td>" << link_to('Remove', datecart_cart_item_path(datecart, item), :method => :delete, :remote => true) << "</td></tr>"
+      html_str = "<tr><td>" <<  venue_name << "</td><td>" << link_to(content_tag(:span, "", :class => 'ui-icon ui-icon-trash'), datecart_cart_item_path(datecart, item), :method => :delete, :remote => true) << "</td></tr>"
+      
       if category_display[type].nil?
         category_display[type] = html_str
       else

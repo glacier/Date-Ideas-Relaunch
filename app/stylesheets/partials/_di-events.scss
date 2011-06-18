@@ -1,3 +1,5 @@
+/* Date Ideas events related CSS */
+
 /* Eventful required css for logo */
 .eventful-badge,
 .eventful-badge * {
@@ -17,7 +19,6 @@
   line-height: 8px     !important;
 }
 
-/* events */
 .di_event {
 	margin-top: 20px;
 	padding: {
@@ -33,15 +34,6 @@
 	@include border-radius(5px);
 }
 
-.di_event_name {
-/*	padding-bottom: 10px;*/
-}
-
-.event_title_small {
-/*	padding-top: 5px;*/
-/*	@include small_header;*/
-}
-
 #event_venue_name,#event_address,#event_time {
 	margin:0;
 	padding-left: 2px;
@@ -49,7 +41,6 @@
 
 .di_event_info {
 	@include pie-clearfix;
-/*	text-align: center;*/
 	.di_event_desc {
 		float: left;
 		position:relative;
@@ -73,7 +64,14 @@
 	border: 1px;
 }
 
+/* Some unstyled elements */
+/*.di_event_name {
 
+}
+
+.event_title_small {
+
+}
 
 .event_venue_name {
 	
@@ -86,5 +84,5 @@
 .event_time {
 	
 }
-
+*/
 

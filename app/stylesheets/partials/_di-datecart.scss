@@ -1,20 +1,14 @@
 #di_map {
 	margin: 5px;
 }
+
 #di_datecart {
 	ul {
 		padding-left: 0;
 		margin-left: 0;
 	}
-/*	padding-top: 10px;*/
 	@include no-bullets;
-
 }
-/*
-#di_filter {
-    margin: 5px;
-}
-*/
 
 fieldset {
 	border:0px;
@@ -44,6 +38,16 @@ fieldset {
 	
 }
 
+#di_datecart_choices {
+	@include pie-clearfix;
+	position:relative;
+	left: 50px;
+	a {
+		span {
+			float: left;
+		}
+	}
+}
 #di_datecart_functions {
 	@include horizontal-list(2px);
 }
@@ -51,11 +55,13 @@ fieldset {
 .datecart {
 	padding: 0;
 }
+
 /*$green: darken(#57b42c, 8)
 $blue: adjust_hue($green, 110)
 $red: adjust_hue($green, -100)
 $heart_button: saturate(lighten($red, 2), 20)
 */
+
 /* Styles for Datecart buttons */
 .function_buttons {
 	@include fancy-button-matte($fancy-silver, 10px, 0.30em, 1px);

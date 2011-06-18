@@ -29,7 +29,6 @@ hr {
 		padding: 5px;
 		float: left;
 	}
-	
 	#user_nav {
 		padding: 5px;
 		background:{
@@ -66,20 +65,14 @@ hr {
 }
 
 #main {
-/*	padding-left: 10px;*/
 	h2 {
-/*		width: 400px;*/
-/*		border-top: 1px solid #CCC;*/
 	}
 }
 
 #sidebar_right {
 	padding-top: 10px;
 	height: 100%;
-/*	width: 219px;*/
 }
-
-
 
 #footer {
 	padding: 5px;
@@ -97,6 +90,7 @@ hr {
 	padding-left: 0px;
 	padding-right: 5px;
 }
+
 #di_venue_info {
 	margin-top: 5px;
 	ul {
@@ -108,9 +102,13 @@ hr {
 		color: red;
 }
 
-/* Elements */
+/* Site Elements */
+/* Use the blue icons from jquery-ui */
+.ui-state-dateideas .ui-icon { 
+	background-image: url(../images/ui-icons_3572ac_256x240.png); 
+}
+
 .di_module_section {
-/*	border-bottom: 1px solid #CCC;*/
 	padding-top: 5px;
 	fieldset {
 		text-align: center;

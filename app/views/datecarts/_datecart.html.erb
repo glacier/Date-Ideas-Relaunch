@@ -8,10 +8,11 @@
 		<fieldset id="datecart_items" class="datecart">
 			<%= render :partial => 'datecarts/datecart_items' %>
 		</fieldset>
-	
+		<hr/>
 		<fieldset id="functions" class="datecart">
 			<%= render :partial => 'datecarts/datecart_functions' %>
 		</fieldset>
+		<hr/>
 		<p><%= link_to "Plan New Date", new_datecart_path, :class => "datecart_buttons", :remote => true %></p>
 	</div>
 </div>
