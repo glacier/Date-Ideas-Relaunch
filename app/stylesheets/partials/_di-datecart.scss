@@ -2,9 +2,6 @@
 	margin: 5px;
 }
 #di_datecart {
-	h2 {
-		font-size: 14px;
-	}
 	ul {
 		padding-left: 0;
 		margin-left: 0;
@@ -24,15 +21,6 @@ fieldset {
 }
 
 #di_cart_front {
-	h2 {
-		text-align: center;
-		background: {
-			color: $nav-bg-color;
-		};
-		color: #FFF;
-		@include border-top-radius(5px);
-	}
-	
 	ul {
 		margin-bottom: 5px;
 	}
@@ -53,7 +41,7 @@ fieldset {
 	@include horizontal-list(2px);
 }
 
-fieldset .datecart {
+.datecart {
 	padding: 0;
 }
 /*$green: darken(#57b42c, 8)

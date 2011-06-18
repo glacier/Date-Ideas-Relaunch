@@ -8,22 +8,12 @@
 <% end %>
 
 <% content_for :sidebar_filters do %>
-	<fieldset id="di_breadcrumb">
-		<h4>Your search:</h4>
-		<ul id='search_params'>
-			<li>'<%= get_display_text(params['venue']) %>'</li>
-			<li>in '<%= params['location'] %>' </li>
-			<li>with '<%= params['price_point'] %>' prices</li>
-		</ul>
-	</fieldset>
-
-   <%= render "filter" %>
+	<%= render 'breadcrumb' %>
+  <%= render "filter" %>
 <% end %>
 
 <% content_for :sidebar_cart do %>
-	<div id="di_datecart">
-		<%= render @datecart %>
-	</div>
+	<%= render @datecart %>
 <% end %>
 
 <% content_for :main_related do %>

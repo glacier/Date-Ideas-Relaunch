@@ -6,6 +6,9 @@
 }
 
 body {
+	h2 {
+		margin-bottom: 0px;
+	}
 	a {
 		@include hover-link;
 	}
@@ -45,7 +48,7 @@ hr {
 
 #sidebar_left {
 	@include pie-clearfix;
-	width: 270px;
+/*	width: 270px;*/
 	height: 600px;
 }
 
@@ -57,14 +60,16 @@ hr {
 }
 
 #main {
-	padding-top: 5px;
-	.poplight {
-		@include quiet_link_button;
+	h2 {
+		padding-left: 10px;
+		width: 400px;
+		border-top: 1px solid #CCC;
 	}
 }
 
 #sidebar_right {
 	height: 100%;
+	width: 219px;
 /*	padding-top: 0px;
 	margin-top: 0px;*/
 }
@@ -97,6 +102,17 @@ hr {
 }
 
 /* Elements */
+.di_module {
+	h4 {
+		text-align: center;
+		background: {
+			color: $nav-bg-color;
+		};
+		color: #FFF;
+		@include border-top-radius(5px);
+	}
+}
+
 .add_button {
 	@include fancy-button-structure(14px, 0.30em, 1px);		         
 	@include fancy-button-colors($fancy-green);
@@ -121,19 +137,19 @@ hr {
 .pin-left {
 	position: fixed;
 	top: 10px;
-	width: 270px;
+	width: inherit;
 }
 
 .pin-right {
 	position: fixed;
 	top: 10px;
-	width: 220px;
+	width: inherit;;
 }
 
 .pin-info {
 	position: fixed;
 	top: 280px;
-	width: 220px;
+	width: inherit;
 }
 
 

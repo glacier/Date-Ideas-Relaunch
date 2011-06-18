@@ -26,19 +26,13 @@
   <%# javascript_include_tag "jquery.lightbox-0.5.js" %>
 	<%= javascript_include_tag "jquery-ui-timepicker-addon.js" %>
 	
-  <!-- jquery google maps plugin -->
-  <%# javascript_include_tag "markermanager.js" %>
-  <%# javascript_include_tag "StyledMarker.js" %>
-  <%# javascript_include_tag "jquery.metadata.js" %>
-  <%# javascript_include_tag "jquery.jmapping.js" %>
-	
 	<!-- dateideas -->
   <%= javascript_include_tag "dateideas.js" %>
 
 </head>
 <body>
 	<div class="container">			
-		<div id="header" class="span-25 last">
+		<div id="header" class="span-23 last">
 			<!-- <p class="notice">Notices: <%= notice %></p> -->
 			<div id="user_nav" class="last">
 				<%= render 'shared/navigation' %>
@@ -47,20 +41,20 @@
 			<%= yield :header %>
 		</div>
 		<hr/>
-		<div id="content" class="span-25 last">
-			<div id="sidebar_left" class="span-7">
-				<div id="sidebar_left_pinned" class="span-7">
+		<div id="content" class="span-23 last">
+			<div id="sidebar_left" class="span-6">
+				<div id="sidebar_left_pinned">
 					<%# yield :sidebar_map %>
 					<%= yield :sidebar_filters %>
 				</div>
 			</div>
-			<div id="main" class="span-12">
+			<div id="main" class="span-11">
 				<%= yield %>
 				<hr/>
 				<%= yield :main_related %>
 			</div>
 			<div id="sidebar_right" class="span-6 last">
-				<div id="sidebar_right_pinned" class="span-6">
+				<div id="sidebar_right_pinned">
 					<%= yield :sidebar_cart %>
 					<!-- <hr/> -->
 					<%# yield :sidebar_info %>
@@ -69,8 +63,7 @@
 		</div>
 		<hr/>
 		<div id="footer" class="last">© 2010 Date Ideas</div>
-
 	</div>
-    <%= yield :scripts %>
+  <%= yield :scripts %>
 </body>
 </html>
