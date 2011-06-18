@@ -22,12 +22,19 @@ fieldset {
 
 #di_cart_front {
 	ul {
+		text-align: left;
 		margin-bottom: 5px;
+		.list_item {
+			width: 207px;
+		}
+		.icon {
+			width: 20px;
+		}
 	}
 	p {
 		padding:{
-			top: 15px;
-			bottom: 0px;
+			top: 5px;
+			bottom: 10px;
 		};
 		margin: 0;
 		text-align: center;

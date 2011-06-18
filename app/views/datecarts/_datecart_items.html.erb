@@ -1,7 +1,7 @@
 <% link_name = "+ Add more things to do ..." %>
 <% if @datecart.cart_empty? %>
 	<p>You haven't got a plan yet!</p>
-	<% link_name = "+ Add something ..." %>
+	<% link_name = "+ Add something" %>
 <% else %>
 	<%= raw(sort_by_category(@datecart)) %>
 <% end %>

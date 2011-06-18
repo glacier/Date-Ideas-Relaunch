@@ -37,27 +37,33 @@
 			<div id="user_nav" class="last">
 				<%= render 'shared/navigation' %>
 			</div>
-			<h1 id="logo"><%= link_to root_path do %> <%=image_tag "logo_beta.png"%><% end %></h1>
+			<div id="logo">
+				<%= link_to root_path do %> 
+					<%=image_tag "logo_beta.png"%>
+				<% end %>
+			</div>
 			<%= yield :header %>
 		</div>
 		<hr/>
 		<div id="content" class="span-23 last">
 			<div id="sidebar_left" class="span-6">
-				<div id="sidebar_left_pinned">
-					<%# yield :sidebar_map %>
-					<%= yield :sidebar_filters %>
+				<div id="sidebar_left_content" class="span-5">
+					<div id="sidebar_left_pinned">
+						<%# yield :sidebar_map %>
+						<%= yield :sidebar_filters %>
+					</div>
 				</div>
 			</div>
-			<div id="main" class="span-11">
+			<div id="main" class="span-10">
 				<%= yield %>
 				<hr/>
 				<%= yield :main_related %>
 			</div>
-			<div id="sidebar_right" class="span-6 last">
-				<div id="sidebar_right_pinned">
-					<%= yield :sidebar_cart %>
-					<!-- <hr/> -->
-					<%# yield :sidebar_info %>
+			<div id="sidebar_right" class="span-7 last">
+				<div id="sidebar_right_content" class="span-6">
+					<div id="sidebar_right_pinned">
+						<%= yield :sidebar_cart %>
+					</div>
 				</div>
 			</div>
 		</div>

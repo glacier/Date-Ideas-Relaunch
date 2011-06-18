@@ -16,40 +16,36 @@
 	<%= render @datecart %>
 <% end %>
 
-<% content_for :main_related do %>
-	<h2>Related Events</h2>
-	<div id="di_related_info">
-      <% if ( !@wizard.events.nil? ) %>
-				<% @wizard.events.each do |event| %>
-					<%= render :partial => 'shared/event_item', :locals => {:event => event, :title_size => 'event_title_small', :size => 60} %>
-					<div class="di_event_add">
-						<%= render :partial => 'shared/add_event_buttons', :locals => {:event => event, :cart_items => @cart_items} %>
-					</div>
-					<hr/>
-				<% end %>
-      <% end %>
-		<div class="attribution">
-			<div class="eventful-badge eventful-small">
-			  <img src="http://api.eventful.com/images/powered/eventful_58x20.gif"
-			    alt="Local Events, Concerts, Tickets">
-			  <p><a href="http://eventful.com/">Events</a> by Eventful</p>
-			</div>
-		</div>
-		<p><%= link_to "See more at eventful.com >>", eventful_url("Toronto", params['venue'], "Next+7+Days","Popularity") %></p>
-	</div>
-<% end %>
-
 <% @cart_items = @datecart.cart_items %>
-<h2> Results for <span class='dynamic_text'><%= get_display_text(params['venue']) %></span> </h2>
+<h2> 
+	Results for 
+	<span class='dynamic_text'><%= get_display_text(params['venue']) %></span> 
+</h2>
 <% @wizard.businesses.each do |business| %>
 	<div class="di_biz">
 		<%= render :partial => 'shared/venue_item', :locals => {:business => business} %>
-
 		<div class="di_biz_add">
 			<%= render :partial => 'shared/add_buttons', :locals => {:business => business, :cart_items => @cart_items} %>
 		</div>
 	</div>
 <% end %>
-<hr/>
+
+<% content_for :main_related do %>
+	<h3>Related Events</h3>
+	<div id="di_related_info">
+    <% if ( !@wizard.events.nil? ) %>
+			<% @wizard.events.each do |event| %>
+				<div class="di_event">
+					<%= render :partial => 'shared/event_item', :locals => {:event => event, :title_size => 'event_title_small', :size => 100} %>
+					<div class="di_event_add">
+						<%= render :partial => 'shared/add_event_buttons', :locals => {:event => event, :cart_items => @cart_items} %>
+					</div>
+				</div>
+			<% end %>
+    <% end %>
+		<p><%= link_to "See more at eventful.com >>", eventful_url("Toronto", params['venue'], "Next+7+Days","Popularity") %></p>
+	</div>
+<% end %>
+
 <%= will_paginate @wizard.businesses %>
 

@@ -1,6 +1,6 @@
 <div id="di_filter" class="di_module">
 	<h4 class="filter_header">Let's get specific</h4>
-	<div id="di_filter_section">
+	<div id="di_filter_section" class="di_module_section">
 		<fieldset>
 		  <%= form_tag '/wizard/search', :method => :get do %>
 		    <%= select_tag(:location, options_for_select(Wizard::LOCATIONS,@wizard.location), :onchange=> "this.form.submit();") %>

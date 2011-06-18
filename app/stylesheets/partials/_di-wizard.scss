@@ -16,12 +16,10 @@
 	margin-top: 20px;
 	padding: {
 		top: 5px;
-		left: 10px;
+		bottom: 10px;
 	}
-	
-/*	border: 1px solid #CCC;*/
+
 	width: 400px;
-	
 	@include pie-clearfix;
 	@include box-shadow(#CCC 2px 2px 1px);
 	@include border-radius(5px);
@@ -39,10 +37,10 @@
 				left:10px;
 				bottom:10px;
 			}
-			h4 {
+/*			h4 {
 				margin-bottom: 0.5em;
 				font-weight: bold;
-			}
+			}*/
 			p {
 				margin-bottom: 0.75em;
 			}
@@ -50,7 +48,8 @@
 	}
 	
 	.di_biz_add {
-		text-align: center;
+		position: relative;
+		left: 45px;
 	}
 
 	.di_biz_yelp_reviews {
@@ -79,9 +78,12 @@
 	float: left;
 }
 
+
 /* yelp logo */
-.yelp-badge {
+.yelp-badge, .eventful-badge {
 	float: left;
 	margin-right: 10px;
+	position: relative;
+	left: 20px;
 }
 

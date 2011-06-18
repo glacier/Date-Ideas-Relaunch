@@ -1,9 +1,17 @@
-<div class="di_event">
-	<h3 class="di_biz_name <%= title_size %>"><%= link_to event.title, event.url %></h3>
-	<div class="di_biz_photo"><%= image_tag(image_url('event', event.photo_url), :height => size, :width => size) %></div>
-	<div class="di_event_info">
+<h4 class="di_event_name <%= title_size %>"><%= link_to event.title, event.url %></h4>
+<div class="di_event_info">
+	<div class="di_event_photo">
+		<%= image_tag(image_url('event', event.photo_url), :width => size) %>
+	</div>
+	<div class="di_event_desc">
 		<p id="event_venue_name">Where: <%= event.venue_name %></p>
 		<p id='event_address'><%= event.venue_address %></p>
 		<p id='event_time'>When: <%= display_time(event.start_time, event.end_time) %></p>
 	</div>
 </div>
+<div class="attribution eventful-badge eventful-small">
+	<img src="http://api.eventful.com/images/powered/eventful_58x20.gif"
+	  alt="Local Events, Concerts, Tickets">
+	<p><a href="http://eventful.com/">Events</a> by Eventful</p>
+</div>
+
