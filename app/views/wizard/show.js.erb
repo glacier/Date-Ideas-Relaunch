@@ -1,0 +1,2 @@
+$("#main_results").html("<%= escape_javascript(render :partial => 'business_results', :locals => {:cart_items => @cart_items}) %>");
+$("#pagination").html("<%= escape_javascript(will_paginate @wizard.businesses) %>");

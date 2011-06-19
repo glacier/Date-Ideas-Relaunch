@@ -98,14 +98,20 @@ $(document).ready(function() {
 		this.target = "_blank";
 	});
 	
-	//Attach a spinner while waiting for the completion of an ajax call
-	$('.add_button')  
-	.live("ajax:beforeSend", function() {
+	//Attach spinners while waiting for the completion of an ajax call
+	$('.add_button').live("ajax:beforeSend", function() {
 		$(this).parent().html("<img src='/images/ajax-loader.gif' />");
 	});                                                                
 	
-	$('.remove_button')
-	.live("ajax:beforeSend", function() {
+	$('.remove_button').live("ajax:beforeSend", function() {
 		$(this).parent().html("<img src='/images/ajax-loader.gif' />");
+	});
+	
+	// highjack get requests that comes from clicking on a will_paginate generated link
+	$('.pagination a').attr('data-remote', 'true');
+	$('.pagination a').live("ajax:beforeSend", function(){
+		$('#main_results').addClass('ajax_load_and_fade');
+	}).live("ajax:complete", function(){
+		$('#main_results').removeClass('ajax_load_and_fade');
 	});
 });

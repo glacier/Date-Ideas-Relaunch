@@ -12,6 +12,7 @@ class WizardController < ApplicationController
   end
 
   def show
+    y 'got here'
     @wizard = Wizard.new
     respond_to do |format|
       format.js
@@ -47,8 +48,9 @@ class WizardController < ApplicationController
     current_page_events = 1
     if @wizard.venue == 'activities_events'
       per_page = 10
-      current_page_events = params[:page]
+      current_page_events = current_page
     end
+
     #grab events from eventful.com
     events = eventful.search(@wizard.venue, 'toronto', 30).paginate(:page => current_page_events, :per_page => per_page)
 
@@ -58,8 +60,10 @@ class WizardController < ApplicationController
     
     respond_to do |format|
       if @wizard.venue == 'activities_events'
+        format.js { render :action => "show_events"}
         format.html { render :action => "show_events"}
       else
+        format.js { render :action => "show"}
         format.html { render :action => "show"}
       end
     end

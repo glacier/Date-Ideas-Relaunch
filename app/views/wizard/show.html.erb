@@ -17,18 +17,15 @@
 <% end %>
 
 <% @cart_items = @datecart.cart_items %>
+
 <h2> 
 	Results for 
 	<span class='dynamic_text'><%= get_display_text(params['venue']) %></span> 
 </h2>
-<% @wizard.businesses.each do |business| %>
-	<div class="di_biz">
-		<%= render :partial => 'shared/venue_item', :locals => {:business => business} %>
-		<div class="di_biz_add">
-			<%= render :partial => 'shared/add_buttons', :locals => {:business => business, :cart_items => @cart_items} %>
-		</div>
-	</div>
-<% end %>
+<hr/>
+<div id="main_results">
+	<%= render :partial => 'business_results', :locals => {:cart_items => @cart_items} %>
+</div>
 
 <% content_for :main_related do %>
 	<h3>Related Events</h3>
@@ -47,5 +44,6 @@
 	</div>
 <% end %>
 
-<%= will_paginate @wizard.businesses %>
-
+<div id="pagination">
+	<%= will_paginate @wizard.businesses %>
+</div>

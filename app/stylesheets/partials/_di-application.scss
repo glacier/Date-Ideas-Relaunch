@@ -76,10 +76,6 @@ hr {
 
 #footer {
 	padding: 5px;
-	@include loud_text;
-	background:{
-		color: $footer-bg-color;
-	};
 }
 
 .dialog {
@@ -145,6 +141,13 @@ hr {
 .remove_button {
 	@include fancy-button-structure(12px, 0.10em, 1px);		         
 	@include fancy-button-colors($fancy-red);
+}
+
+/* ajax update container fading */
+.ajax_load_and_fade {
+/*	background: rgb(255, 0, 0);*/
+	opacity: 0.2;
+	background: #FFF url('/images/ajax-loader-large.gif') no-repeat fixed center;
 }
 
 /* styles for pinning various elements on the page */

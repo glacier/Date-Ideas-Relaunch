@@ -2,8 +2,9 @@
 <div class="di_biz_info">
 	<div class="di_biz_photo"><%= image_tag(business.photo_url, :height => 100, :width => 100) %></div>
 	<div class="di_biz_desc">
-		<p><%=  raw (!business.review.nil?) ? display_review(business) : business.dna_excerpt %></p>
 		<p><%= display_address(business) %></p>
+		<p><%= display_phone_no(business) %></p>
+		<p><%= raw (!business.review.nil?) ? display_review(business) : business.dna_excerpt %></p>
 	</div>
 </div>
 <div class="attribution yelp-badge">
