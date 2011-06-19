@@ -41,13 +41,13 @@ class WizardController < ApplicationController
     sub_categories = Category.find_by_sql(["SELECT c.* FROM categories c WHERE c.parent_name in (?)",DateIdeas::DnaService::CATEGORIES.fetch(@wizard.venue)])
     @wizard.sub_categories = sub_categories
 
-    businesses = dnaService.search(@wizard.venue, @wizard.location, @wizard.price_point, current_page, 10, @wizard.neighbourhood,@wizard.sub_category)
+    businesses = dnaService.search(@wizard.venue, @wizard.location, @wizard.price_point, current_page, 8, @wizard.neighbourhood,@wizard.sub_category)
     
     
     per_page = 3
     current_page_events = 1
     if @wizard.venue == 'activities_events'
-      per_page = 10
+      per_page = 8
       current_page_events = current_page
     end
 
