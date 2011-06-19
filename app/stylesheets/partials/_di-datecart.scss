@@ -38,7 +38,7 @@ fieldset {
 	
 }
 
-#di_datecart_choices {
+.ui-state-dateideas {
 	@include pie-clearfix;
 	position:relative;
 	left: 50px;
@@ -48,8 +48,15 @@ fieldset {
 		}
 	}
 }
+
 #di_datecart_functions {
 	@include horizontal-list(2px);
+}
+
+#di_cart_status {
+	text-align: center;
+	color: #999999;
+	font-size: small;
 }
 
 .datecart {

@@ -12,6 +12,13 @@
 		<fieldset id="functions" class="datecart">
 			<%= render :partial => 'datecarts/datecart_functions' %>
 		</fieldset>
+		<div id="di_cart_status">
+			<% if @datecart.cart_saved? %>
+				Date plan has been saved.
+			<% else %>
+				Date plan has not been saved.
+			<% end %>
+		</div>
 		<hr/>
 		<p><%= link_to "Plan New Date", new_datecart_path, :class => "datecart_buttons", :remote => true %></p>
 	</div>

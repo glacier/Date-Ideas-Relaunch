@@ -12,4 +12,11 @@ class Datecart < ActiveRecord::Base
     end
     return false
   end
+  
+  def cart_saved?
+    if user
+      return true
+    end
+    return false
+  end
 end
