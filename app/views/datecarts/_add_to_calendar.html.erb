@@ -1,4 +1,6 @@
-<%= link_to "Yahoo", format_yahoo_calendar_link(@datecart), :border => "0", :alt => "Add to Yahoo Calendar"  %>
-<%= link_to "Google Calendar", format_google_calendar_link(@datecart), :alt => "Add to Google Calendar" %>
-<%= link_to "Outlook", download_calendar_datecart_path(@datecart), :alt => "Add to Outlook" %>
-<%= link_to "iCal", { :controller => :datecarts, :action => :subscribe, :id => @datecart.id, :format => :ics, :protocol => "webcal", :only_path => false }, :alt => "Add to iCal"  %>
+<ul>
+  <li><%= link_to "Yahoo! Calendar", format_yahoo_calendar_link(@datecart), :border => "0", :alt => "Add to Yahoo Calendar" %></li>
+  <li><%= link_to "Google Calendar", format_google_calendar_link(@datecart), :alt => "Add to Google Calendar" %></li>
+  <li><%= link_to "Outlook", download_calendar_datecart_path(@datecart), :alt => "Add to Outlook" %></li>
+  <li><%= link_to "iCal", {:controller => :datecarts, :action => :subscribe, :id => @datecart.id, :format => :ics, :protocol => "webcal", :only_path => false}, :alt => "Add to iCal" %></li>
+</ul>

@@ -3,27 +3,24 @@ class DashboardController < ApplicationController
     @user = current_user # This is ensured by authenticate_user! in the pre-block of app controller
     datecarts = @user.datecarts
 
-    # Define our sorting algorithm here
-    @current_datecarts = []
-    @past_datecarts = []
-
-    counter = {:upcoming => 0, :past => 0}
+    current_datecarts = []
+    past_counter = 0
 
     datecarts.each do |cart|
       if t = cart.datetime
         if t <= Time.now
-          if counter[:past] < 2
-            @current_datecarts << cart
-#            @past_datecarts << cart
-            counter[:past] += 1
-          end
+          past_counter += 1
+          @past_datecart = cart if rand(past_counter) == 0 # Give each past date an equal probability of being chosen
         else
-          if counter[:upcoming] < 2
-            @current_datecarts << cart
-            counter[:upcoming] += 1
-          end
+          current_datecarts << cart
         end
       end
+    end
+
+    @upcoming_datecarts = [] #Store upcoming dates here
+    current_datecarts.sort_by { |c| c.datetime }
+    2.times do
+      @upcoming_datecarts << current_datecarts.pop unless current_datecarts.empty?
     end
 
     @significant_dates = @user.significant_dates
@@ -40,5 +37,9 @@ class DashboardController < ApplicationController
       # What do we do here if they haven't completed a profile?
       # Why is there a distinction between a profile and a user?
     end
+
+
+    puts @profile.attributes if @profile
+    puts @past_datecart.attributes if @past_datecart
   end
 end

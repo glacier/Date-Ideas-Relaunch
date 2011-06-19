@@ -2,6 +2,7 @@
 	$(document).ready(function(){
 		//show date picker pop up
 		$('#datecart_datetime').datetimepicker({
+                dateFormat: 'yy/mm/dd', // See format options on parseDate
 		        ampm: true,
 		        hourGrid: 4,
 		        minuteGrid: 10
@@ -9,11 +10,10 @@
 	});
 </script>
 
-<%= form_for(@datecart) do |f| %>
+<%= form_for(@datecart, :url => "/datecarts/#{@datecart.id}/complete") do |f| %>
   <% if @datecart.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@datecart.errors.count, "error") %> prohibited this datecart from being saved:</h2>
-
       <ul>
       <% @datecart.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>

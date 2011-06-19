@@ -5,7 +5,7 @@
   <% else %>
       <%= link_to image_tag("calendar.png", :height => size, :class => "action_icon"), edit_datecart_path(datecart), :remote => true %>
   <% end %>
-  <%= image_tag "email_icon.png", :height => size, :class => "action_icon" %>
+  <%= link_to (image_tag "email_icon.png", :height => size, :class => "action_icon") ,  email_datecart_path(datecart)%>
   <%= link_to image_tag("printer.jpg", :height => size, :class => "action_icon"), print_datecart_path(datecart), :rel => 'external' %>
 
   <div id="datecart_<%= datecart.id %>_calendar_dialog" class="dialog"></div>

@@ -88,4 +88,17 @@ $("##{div}").dialog("open");
     MODAL
   end
 
+  def format_datetime *args
+    return "" if args.blank?
+    options = args.extract_options!
+    datetime = args.shift
+
+    return "" unless datetime
+    # Make this modular, we may want to keep customizing it for other purposes later
+    if options[:past]
+      datetime.to_formatted_s(:long_ordinal_past)
+    else
+      datetime.to_formatted_s(:long_ordinal) #Formats as June 11th, 2011 hh:mm (handles timezones)
+    end
+  end
 end

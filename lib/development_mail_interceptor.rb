@@ -2,6 +2,6 @@
 class DevelopmentMailInterceptor
   def self.delivering_email(message)
     message.subject = "#{message.to} #{message.subject}"
-    message.to = "grace@dateideas.ca"
+    message.to = "fakeaccount@mailinator.com"
   end
 end
