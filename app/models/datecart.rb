@@ -19,15 +19,10 @@ class Datecart < ActiveRecord::Base
     return false
   end
 
-  private
-
-  def has_date_when_saved?
-    if user_id
-      unless datetime
-        @errors.add :base, "Can't save a datecart without selecting a time."
-        return false
-      end
+  def cart_saved?
+    if user
+      return true
     end
-    true
+    return false
   end
 end

@@ -3,6 +3,6 @@
 	<li id="save"><%= link_to 'Save', begin_complete_datecart_path(@datecart), :class => 'function_buttons', :remote => true%></li>
 	<li id="print"><%= link_to 'Print View', print_datecart_path(@datecart), :class => 'function_buttons', :rel => 'external' %></li>
 	<li id="email"><%= link_to 'Email',  email_datecart_path(@datecart), :class => 'function_buttons' %></li>
-	<li id="edit"><%= link_to 'Edit', edit_datecart_path(@datecart), :class => 'function_buttons', :remote => true %></li>
     <li id="calendar"><%= link_to "Add to Calendar", calendar_datecart_path(@datecart), :class => "function_buttons", :remote => true %></li>
+	 <!--<li id="edit"><%# link_to 'Edit', edit_datecart_path(@datecart), :class => 'function_buttons', :remote => true %></li> -->
 </ul>

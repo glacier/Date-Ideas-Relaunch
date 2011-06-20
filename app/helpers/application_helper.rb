@@ -1,6 +1,16 @@
 module ApplicationHelper
   include WizardHelper
-
+  def get_display_text(venue)
+    display_text = { "food" => "Dining", 
+                    "bars" => "Drinks", 
+                    "activities_events" => "Activities & Events", 
+                    "nightlife" => 'Nightlife', 
+                    "arts_entertainment" => "Arts and Entertainment"
+                    }
+      
+    display_text[venue]
+  end
+  
   # Use this function in views to dynamically set the page title
   def title(page_title = nil)
     if page_title

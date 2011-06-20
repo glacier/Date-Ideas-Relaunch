@@ -1,0 +1,24 @@
+#di_filter {
+	padding:{
+		top: 0;
+	};
+	select {
+		width: 175px;
+	}
+}
+
+#search_params {
+	@include inline-block-list;
+}
+
+#filter_options {
+	@include inline-block-list;
+	li {
+		padding-left:4px;
+	}
+}
+
+/*#di_filter_front, #di_breadcrumb {
+
+}
+*/

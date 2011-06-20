@@ -1,6 +1,10 @@
 <span>
 	<%= link_to("Reviews", business_path(business), :class => "add_button", :rel => business.id) %>
-	<% @cart_item = cart_items.find(:first, :conditions => ["business_id = :b", {:b => business.id }]) %>
+	<% 
+		unless cart_items.blank?
+			@cart_item = cart_items.find(:first, :conditions => ["business_id = :b", {:b => business.id }])
+		end
+	%>
 </span>
 
 <span id="add_to_date_<%= business.id %>">

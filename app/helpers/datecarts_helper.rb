@@ -9,17 +9,19 @@ module DatecartsHelper
     category_display = Hash.new
     items.each do |item|
       # only display under the first venue_type that an item is classified under
+      html_str = "<tr><td>"
       type = item.venue_type
       venue = item.business
       if venue.blank?
         venue = item.event
-        next if venue.blank?
         venue_name = venue.title
+        html_str << link_to(venue_name, venue.url)
       else
         venue_name = venue.name
+        html_str << link_to(venue_name, business_path(venue))
       end
 
-      html_str = "<li>" <<  venue_name << " " << link_to('Remove', datecart_cart_item_path(datecart, item), :method => :delete, :remote => true) << "</li>"
+      html_str = html_str<< "</td><td>" << link_to(content_tag(:span, "", :class => 'ui-icon ui-icon-trash'), datecart_cart_item_path(datecart, item), :method => :delete, :remote => true) << "</td></tr>"
       if category_display[type].nil?
         category_display[type] = html_str
       else
@@ -28,8 +30,8 @@ module DatecartsHelper
     end
 
     category_display.keys.sort.each { |key|
-     display << "<p>" << display_text[key] << "</p>"
-     display << "<ul>" << category_display[key] << "</ul>"
+     display << "<p>" << display_text[key] << "</p>" 
+     display << "<table>" << category_display[key] << "</table>"
     }
 
     display

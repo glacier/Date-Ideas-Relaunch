@@ -39,7 +39,7 @@ class DashboardController < ApplicationController
     end
 
 
-    puts @profile.attributes if @profile
-    puts @past_datecart.attributes if @past_datecart
+#    puts @profile.attributes if @profile
+#    puts @past_datecart.attributes if @past_datecart
   end
 end

@@ -13,15 +13,21 @@
 }
 
 .di_biz {
-	background: {
-		color: $quiet-pink;
+	margin-top: 20px;
+	padding: {
+		top: 5px;
+		bottom: 10px;
 	}
-	
-	padding-bottom: 10px;
+
+	width: 400px;
+	@include pie-clearfix;
+	@include box-shadow(#CCC 2px 2px 1px);
+	@include border-radius(5px);
 	
 	.di_biz_name {
 	    font-weight: bold;
 	}
+	
 	.di_biz_info {
 		@include pie-clearfix;
 		.di_biz_desc {
@@ -31,18 +37,15 @@
 				left:10px;
 				bottom:10px;
 			}
-			h4 {
-				margin-bottom: 0.5em;
-				font-weight: bold;
-			}
 			p {
 				margin-bottom: 0.75em;
 			}
 		}
 	}
+	
 	.di_biz_add {
-/*		float: right;*/
-		text-align: center;
+		position: relative;
+		left: 45px;
 	}
 
 	.di_biz_yelp_reviews {
@@ -51,13 +54,6 @@
 	.di_biz_hr {
 		visibility: hidden;
 	}
-	
-	margin-bottom: 20px;
-	padding: 10px; 
-
-	@include pie-clearfix;
-	@include box-shadow;
-	@include border-radius(5px);
 }
 
 .di_biz_photo {
@@ -79,8 +75,10 @@
 }
 
 /* yelp logo */
-.yelp-badge {
+.yelp-badge, .eventful-badge {
 	float: left;
 	margin-right: 10px;
+	position: relative;
+	left: 20px;
 }
 

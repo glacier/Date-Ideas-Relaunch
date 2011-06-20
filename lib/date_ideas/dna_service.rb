@@ -55,7 +55,7 @@ class DateIdeas::DnaService
                                               location,
                                               categories,
                                               categories,
-                                              categories]).paginate(:page => page, :per_page => 4)
+                                              categories]).paginate(:page => page, :per_page => per_page)
     else
         sql <<
       "SELECT b.*                                  \

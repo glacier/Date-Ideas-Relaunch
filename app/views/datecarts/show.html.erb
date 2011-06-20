@@ -9,5 +9,19 @@
 	</div>
 	<%= render :partial => 'datecarts/datecart_functions' %>
 </fieldset>
+<div id="di_add_to_date" class="dialog">Dialog</div>
 
+<h2>Your date </h2>
+<%= render :partial => 'datecarts/date_info' %>
+<div id="datecart_items">
+	<%= render :partial => 'datecarts/datecart_items', :locals => {:venue => params['venue']} %>
+	
+	<div class='ui-state-dateideas'>
+		<%= link_to edit_datecart_path(@datecart), :remote => true do %>
+				<span class="ui-icon ui-icon-pencil"></span>
+				<span>Edit date plan</span>
+		<% end %>
+	</div>
+</div>
+<%= render :partial => 'datecarts/datecart_functions' %>
 <%= link_to "Start Planning!", wizard_index_path, :class => "add_button" %>
