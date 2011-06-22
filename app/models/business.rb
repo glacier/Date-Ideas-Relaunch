@@ -34,11 +34,18 @@ class Business < ActiveRecord::Base
   def display_address
     d_address = String.new
     d_address.concat(address1)
-    if(! address2.nil? )
+    
+    if(! address2.nil?)
       d_address.concat(",").concat(address2)
     end
-    d_address.concat(",").concat(city)
-    d_address.concat(",").concat(province)
+    
+    if(! city.nil?)
+      d_address.concat(",").concat(city)
+    end
+    
+    if(! province.nil?)
+      d_address.concat(",").concat(province)
+    end
   end
 
   # hook method
