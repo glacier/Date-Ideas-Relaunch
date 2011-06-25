@@ -77,4 +77,12 @@ $(document).ready(function() {
 		$('select').attr('disabled', 'disabled');
 		$('input').attr('disabled', 'disabled');
 	});
+	
+	$('#di_filter_section select').change(function(){
+		$("form:first").live("ajax:beforeSend", function(){
+			$('#main_results').addClass('ajax_load_and_fade');
+		}).live("ajax:complete", function(){
+			$('#main_results').removeClass('ajax_load_and_fade');
+		}).submit();
+	});
 });
