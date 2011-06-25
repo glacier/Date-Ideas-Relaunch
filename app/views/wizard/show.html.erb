@@ -3,16 +3,16 @@
 
 <%= title("Search") %>
 
-<% content_for :sidebar_map do %>
+<%= content_for :sidebar_map do %>
 	<%# Design decision: No map with results (for now)%>
 <% end %>
 
-<% content_for :sidebar_filters do %>
+<%= content_for :sidebar_filters do %>
 	<%= render 'breadcrumb' %>
   <%= render "filter" %>
 <% end %>
 
-<% content_for :sidebar_cart do %>
+<%= content_for :sidebar_cart do %>
 	<%= render @datecart %>
 <% end %>
 
@@ -27,7 +27,7 @@
 	<%= render :partial => 'business_results', :locals => {:cart_items => @cart_items} %>
 </div>
 
-<% content_for :main_related do %>
+<%= content_for :main_related do %>
 	<h3>Related Events</h3>
 	<div id="di_related_info">
     <% if ( !@wizard.events.nil? ) %>

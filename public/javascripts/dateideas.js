@@ -114,4 +114,18 @@ $(document).ready(function() {
 	}).live("ajax:complete", function(){
 		$('#main_results').removeClass('ajax_load_and_fade');
 	});
+	
+	$('.pagination a').live("ajax:beforeSend", function(){
+		$('#main_results').addClass('ajax_load_and_fade');
+	}).live("ajax:complete", function(){
+		$('#main_results').removeClass('ajax_load_and_fade');
+	});
+	
+	$('#main input[name="commit"]').click(function(){
+		// $(this).submit();
+		$("form:first").submit();
+		$('#wizard_loader').attr('style', 'display:block');
+		$('select').attr('disabled', 'disabled');
+		$('input').attr('disabled', 'disabled');
+	});
 });

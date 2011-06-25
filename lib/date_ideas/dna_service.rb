@@ -88,8 +88,7 @@ class DateIdeas::DnaService
                                               false,
                                               neighbourhood,
                                               categories,
-                                              categories,
-                                              categories]).paginate(:page => page, :per_page => 4)
+                                              categories,                                              categories]).paginate(:page => page, :per_page => per_page)
 
     end
     db_businesses_no_exerpt = Array.new
