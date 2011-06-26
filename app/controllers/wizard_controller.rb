@@ -12,7 +12,6 @@ class WizardController < ApplicationController
   end
 
   def show
-    y 'got here'
     @wizard = Wizard.new
     respond_to do |format|
       format.js

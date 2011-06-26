@@ -1,14 +1,6 @@
 <div id="di_filter" class="di_module">
 	<h4 class="filter_header">Let's get specific</h4>
 	<div id="di_filter_section" class="di_module_section">
-		<fieldset>
-		  <%= form_tag '/wizard/search', :method => :get, :remote => true do %>
-		    <%= select_tag(:location, options_for_select(Wizard::LOCATIONS,@wizard.location)) %>
-		    <%= select_tag(:neighbourhood, options_for_select(@neighbourhoods.collect { |hood| [hood.neighbourhood]}.push(["All Neighbourhoods", "all_neighbourhoods"]).sort, @wizard.neighbourhood)) %>
-		    <%= select_tag(:venue, options_for_select(Wizard::VENUES,@wizard.venue))%>
-		    <%= select_tag(:sub_category, options_for_select(@wizard.sub_categories.collect {|c| [c.display_name, c.name ]}.push(['All Subcategories', 'all']).sort, @wizard.sub_category)) %>
-		    <%= select_tag(:price_point, options_for_select(Wizard::PRICE_POINTS)) %>
-		  <% end %>
-		</fieldset>
+		<%= render :partial => 'filter_form' %>
 	</div>
 </div>

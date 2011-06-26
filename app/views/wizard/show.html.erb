@@ -9,7 +9,7 @@
 
 <%= content_for :sidebar_filters do %>
 	<%= render 'breadcrumb' %>
-  <%= render "filter" %>
+	<%= render "filter" %>
 <% end %>
 
 <%= content_for :sidebar_cart do %>
@@ -28,20 +28,20 @@
 </div>
 
 <%= content_for :main_related do %>
-	<h3>Related Events</h3>
-	<div id="di_related_info">
-    <% if ( !@wizard.events.nil? ) %>
-			<% @wizard.events.each do |event| %>
-				<div class="di_event">
-					<%= render :partial => 'shared/event_item', :locals => {:event => event, :title_size => 'event_title_small', :size => 100} %>
-					<div class="di_event_add">
-						<%= render :partial => 'shared/add_event_buttons', :locals => {:event => event, :cart_items => @cart_items} %>
+  <% if ( !@wizard.events.nil? ) %>
+		<div id="di_related_info">
+			<h3>Related Events</h3>
+				<% @wizard.events.each do |event| %>
+					<div class="di_event">
+						<%= render :partial => 'shared/event_item', :locals => {:event => event, :title_size => 'event_title_small', :size => 100} %>
+						<div class="di_event_add">
+							<%= render :partial => 'shared/add_event_buttons', :locals => {:event => event, :cart_items => @cart_items} %>
+						</div>
 					</div>
-				</div>
-			<% end %>
-    <% end %>
-		<p><%= link_to "See more at eventful.com >>", eventful_url("Toronto", params['venue'], "Next+7+Days","Popularity") %></p>
-	</div>
+				<% end %>
+			<p><%= link_to "See more at eventful.com >>", eventful_url("Toronto", params['venue'], "Next+7+Days","Popularity") %></p>
+		</div>
+  <% end %>
 <% end %>
 
 <div id="pagination">
