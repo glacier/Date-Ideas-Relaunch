@@ -7,12 +7,11 @@ class WizardController < ApplicationController
     @wizard = Wizard.new
     respond_to do |format|
       format.js
-      format.html # index.html.erb
+      format.html { render :layout => 'wizard' }
     end
   end
 
   def show
-    y 'got here'
     @wizard = Wizard.new
     respond_to do |format|
       format.js
@@ -60,11 +59,11 @@ class WizardController < ApplicationController
     
     respond_to do |format|
       if @wizard.venue == 'activities_events'
-        format.js { render :action => "show_events"}
-        format.html { render :action => "show_events"}
+        format.js { render :action => "show_events", :layout => 'results'}
+        format.html { render :action => "show_events", :layout => 'results'}
       else
-        format.js { render :action => "show"}
-        format.html { render :action => "show"}
+        format.js { render :action => "show", :layout => 'results'}
+        format.html { render :action => "show", :layout => 'results'}
       end
     end
   end

@@ -2,33 +2,35 @@
 <%= form_tag '/wizard/search', :method => :get do %>
 <table>
   <tr>
-    <td>
-      <%= label_tag(:venue,"1. What do you want to do?") %>
+    <td class="question">
+      <%= label_tag(:venue,"What do you want to do?") %>
     </td>
 		<td>
       <%= select_tag(:venue, options_for_select(Wizard::VENUES))%>
     </td>
   </tr>
+  <tr class="blank">
+	<tr>
   <tr>
-    <td>
-        <%= label_tag(:location,"2. What area do you want to go to?") %>
+    <td class="question">
+        <%= label_tag(:location,"What area do you want to go to?") %>
     </td>
 		<td>
         <%= select_tag(:location, options_for_select(Wizard::LOCATIONS)) %>
     </td>
   </tr>
+	<tr class="blank">
+	<tr>
   <tr>
-    <td>
-        <%= label_tag(:price_point,"3. What is your price point") %>
+    <td class="question">
+        <%= label_tag(:price_point,"What is your price point") %>
     </td>
 		<td>
         <%= select_tag(:price_point, options_for_select(Wizard::PRICE_POINTS)) %>
     </td>
   </tr>
-  <tr>
-    <td colspan="2" align="left">
-      <%= submit_tag("Search")  %>
-    </td>
-  </tr>
+	<tr class="blank">
+	<tr>
 </table>
+  <%= submit_tag("Search")  %>
 <% end %>

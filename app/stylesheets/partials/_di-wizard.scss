@@ -1,3 +1,54 @@
+/* CSS according to Jonathan's mockups */
+.di_wizard {
+	form,table {
+		font: 18px helvetica;
+	}
+	#logo {
+		padding:{
+			bottom: 23px;
+		};
+	}
+	h1 {
+		font: 57px helvetica,arial,sans-serif;
+		text-align: center;
+	}
+	
+	tr {
+		background-color: #40c0cb;
+	}
+	
+	tr.blank {
+		background-color: #FFF;
+		height: 10px;
+	}
+	
+	td {
+		margin:0;
+		padding:{
+			left: 30px;
+			top: 26px;
+			bottom: 26px;
+		};
+	}
+	
+	td.question {
+		padding-right: 20px;
+		color: white;
+		
+		label {
+			font-weight: normal;
+		}
+		
+		text-align: right;
+		text-transform: uppercase;
+	}
+	
+	select {
+/*		font: 18px helvetica;*/
+		width: 200px;
+	}
+}
+
 .di_bullet{
   width: 5em; height: 5em;
   -webkit-border-radius: 5em; -moz-border-radius: 5em;
