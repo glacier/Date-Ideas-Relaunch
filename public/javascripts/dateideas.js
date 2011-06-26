@@ -56,19 +56,15 @@ $(document).ready(function() {
 	});
 	
 	// Ajax pagination
-	$('.pagination a').attr('data-remote', 'true');
+	$('#ajax_paginate a').attr('data-remote', 'true');
 	$('.pagination a').live("ajax:beforeSend", function(){
+		console.log('pagination: beforeSend');
 		$('#main_results').addClass('ajax_load_and_fade');
 	}).live("ajax:complete", function(){
+		console.log('pagination: complete');
 		$('#main_results').removeClass('ajax_load_and_fade');
 	});
-	
-	$('.pagination a').live("ajax:beforeSend", function(){
-		$('#main_results').addClass('ajax_load_and_fade');
-	}).live("ajax:complete", function(){
-		$('#main_results').removeClass('ajax_load_and_fade');
-	});
-	
+		
 	// Wizard UI indicator while loading results
 	$('#main input[name="commit"]').click(function(){
 		$("form:first").submit();

@@ -3,8 +3,9 @@ $("#di_filter_section").html("<%= escape_javascript(render :partial => 'filter_f
 
 $("#main_results").html("<%= escape_javascript(render :partial => 'business_results', :locals => {:cart_items => @cart_items}) %>");
 $("#main_results").removeClass('ajax_load_and_fade');
-$("#pagination").html("<%= escape_javascript(will_paginate @wizard.businesses) %>");
-$('.pagination a').attr('data-remote', 'true');
+
+$("#ajax_paginate").html("<%= escape_javascript(will_paginate @wizard.businesses) %>");
+$('#ajax_paginate a').attr('data-remote', 'true');
 
 $("#main h2").html("Results for <%= get_display_text(params['venue']) %>");
 
