@@ -6,10 +6,15 @@
     <%= select_tag(:neighbourhood, options_for_select(@neighbourhoods.collect { |hood| [hood.neighbourhood]}.push(["All Neighbourhoods", "all_neighbourhoods"]).sort, @wizard.neighbourhood), :disabled => value) %>
 
     <%= select_tag(:venue, options_for_select(Wizard::VENUES,@wizard.venue))%>
-
+		
+		<% if @wizard.venue == 'activities_events' %>
+			<%= select_tag(:event_cat, options_for_select(Event::EVENTFUL_CATEGORIES, @wizard.event_category)) %>
+			<%= select_tag(:event_date, options_for_select(Event::TIMES, @wizard.event_date)) %>
+		<% end %>
+		
     <%= select_tag(:sub_category, options_for_select(@wizard.sub_categories.collect {|c| [c.display_name, c.name ]}.push(['All Subcategories', 'all']).sort, @wizard.sub_category), :disabled => value) %>
 
     <%= select_tag(:price_point, options_for_select(Wizard::PRICE_POINTS), :disabled => value) %>
-		<p>TODO: Events: today tomorrow next 7 days next month</p>
+
   <% end %>
 </fieldset>
