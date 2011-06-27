@@ -10,11 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20110626192510) do
-=======
-ActiveRecord::Schema.define(:version => 20110608062134) do
->>>>>>> 46fd6814de1698caa89fa4dbced1f271a58f1f8e
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"

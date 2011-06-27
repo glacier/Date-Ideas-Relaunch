@@ -1,25 +1,3 @@
-<<<<<<< HEAD
-<%# View of the cart shown at the front page %>
-<style>
-/*	.pin-cart {
-		position: fixed;
-		top: 10px;
-		width: 220px;
-	}*/
-</style>
-<fieldset id="di_filter_front">
-<div class="di_filter">
-  <%= form_tag '/wizard/search', :method => :get do %>
-    <h4 class="filter_header">Let's get specific</h4>
-    <%= select_tag(:location, options_for_select(Wizard::LOCATIONS,@wizard.location), :onchange=> "this.form.submit();") %>
-    <%= select_tag(:neighbourhood, options_for_select(@neighbourhoods.collect { |hood| [hood.neighbourhood]}.sort.insert(0,['All Neighbourhoods', 'all_neighbourhoods']), @wizard.neighbourhood), :onchange => "this.form.submit();") %>
-    <%= select_tag(:venue, options_for_select(Wizard::VENUES,@wizard.venue), :onchange => "this.form.submit();")%>
-    <%= select_tag(:sub_category, options_for_select(@wizard.sub_categories.collect {|c| [c.display_name, c.name ]}.sort.insert(0,['All Subcategories', 'all']), @wizard.sub_category), :onchange => "this.form.submit();") %>
-    <%= select_tag(:price_point, options_for_select(Wizard::PRICE_POINTS, @wizard.price_point), :onchange => "this.form.submit();") %>
-  <% end %>
-</div>
-</fieldset>
-=======
 <div id="di_filter" class="di_module">
 	<h4 class="filter_header">Let's get specific</h4>
 	<div id="di_filter_section" class="di_module_section">
@@ -34,4 +12,3 @@
 		</fieldset>
 	</div>
 </div>
->>>>>>> 46fd6814de1698caa89fa4dbced1f271a58f1f8e
