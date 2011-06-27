@@ -36,8 +36,8 @@ class WizardController < ApplicationController
     logger.info("creating dnaservice")
     dnaService = DateIdeas::DnaService.new(logger)
     eventful = DateIdeas::EventfulAdaptor.new
-    @neighbourhoods = Neighbourhood.find_all_by_district_subsection(@wizard.location)
-    sub_categories = Category.find_by_sql(["SELECT c.* FROM categories c WHERE c.parent_name in (?)",DateIdeas::DnaService::CATEGORIES.fetch(@wizard.venue)])
+    @neighbourhoods = Neighbourhood.find_by_sql(["SELECT n.* FROM neighbourhoods n WHERE n.district_subsection=? AND EXISTS ( SELECT 1 FROM business_neighbourhoods bn WHERE bn.neighbourhood_id=n.id)", @wizard.location])
+    sub_categories = Category.find_by_sql(["SELECT c.* FROM categories c WHERE c.parent_name in (?) AND EXISTS ( SELECT 1 FROM business_categories bc WHERE bc.category_id=c.id)",DateIdeas::DnaService::CATEGORIES.fetch(@wizard.venue)])
     @wizard.sub_categories = sub_categories
 
     businesses = dnaService.search(@wizard.venue, @wizard.location, @wizard.price_point, current_page, 10, @wizard.neighbourhood,@wizard.sub_category)

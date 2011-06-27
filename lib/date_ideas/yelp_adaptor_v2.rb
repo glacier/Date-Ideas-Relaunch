@@ -29,25 +29,42 @@ class DateIdeas::YelpAdaptorV2
   def search(location, categories, neighbourhoods, offset = 0)
     puts "Yelp Adaptor Version 2"
     returned_businesses = Array.new
-    neighbourhoods.each do | n |
-      neighbourhood = n.gsub(/[ ]/,'+')
-      path="/v2/search?term=%s&location=%s+%s&offset=%s" % [categories.join("+"), neighbourhood, location, offset]
-      p = @access_token.get(path).body
-      search_results = JSON.parse(p)
+    if(!neighbourhoods.nil? && neighbourhoods.size > 0)
+      neighbourhoods.each do | n |
+        if(!n.nil?)
+          neighbourhood = n.gsub(/[ ]/,'+')
+          path="/v2/search?term=%s&location=%s+%s&offset=%s" % [categories.join("+"), CGI.escape(neighbourhood), CGI.escape(location), offset]
+          puts path
+          p = @access_token.get(path).body
+          search_results = JSON.parse(p)
 
-      if ( search_results.has_key?("businesses"))
-        businesses_hash = search_results.fetch("businesses")
-        r_businesses = Array.new
-        r_businesses = create_businesses(businesses_hash)
-        r_businesses.each do |biz|
-          returned_businesses.push( biz )
+          if ( search_results.has_key?("businesses"))
+            businesses_hash = search_results.fetch("businesses")
+            r_businesses = Array.new
+            r_businesses = create_businesses(businesses_hash)
+            r_businesses.each do |biz|
+              returned_businesses.push( biz )
+            end
+          else
+            #handle errors
+            error_message = search_results.fetch("error").fetch("text")
+            @logger.error("Yelp Server Error Message :" +error_message)
+          end
         end
-      else
-        #handle errors
-        error_message = search_results.fetch("error").fetch("text")
-        @logger.error("Yelp Server Error Message :" +error_message)
       end
-
+    else
+       path="/v2/search?term=%s&location=%s&offset=%s" % [categories.join("+"),CGI.escape(location), offset]
+       puts path
+       p = @access_token.get(path).body
+       search_results = JSON.parse(p)
+       if ( search_results.has_key?("businesses"))
+          businesses_hash = search_results.fetch("businesses")
+          returned_businesses = Array.new
+          returned_businesses = create_businesses(businesses_hash)
+       else
+          error_message = search_results.fetch("error").fetch("text")
+          @logger.error("Yelp Server Error Message :" +error_message)
+      end
     end
     return returned_businesses
   end

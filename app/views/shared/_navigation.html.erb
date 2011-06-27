@@ -6,7 +6,7 @@
 		<% if current_user.role? :admin %>
 			<li><%= link_to "Add/Modify Businesses", businesses_path %></li>
             <li><%= link_to "Add/Modify Neighbourhoods", neighbourhoods_path %></li>
-			<li><%= link_to "Farm Data", data_farmer_path %></li>
+			<li><%= link_to "Farm Data", data_farmers_path %></li>
 
 		<% end %>
 	</ul>

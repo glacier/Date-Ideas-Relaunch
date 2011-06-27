@@ -110,6 +110,12 @@ DateIdeas::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
-  match "data_farmer" =>'data_farmer#index'
-  match "data_farmer/farm" => 'data_farmer#farm'
+
+  resources :data_farmers do
+    collection do
+      post "farm"
+    end
+  end
+  #match "data_farmers/farm" => 'data_farmers#farm'
+  match 'data_farmers/update_neighbourhood_select/:city', :controller=>'data_farmers', :action => 'update_neighbourhood_select'
 end
