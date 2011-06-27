@@ -1,0 +1,3 @@
+$("#main_results").html("<%= escape_javascript(render('event_results')) %>");
+$("#pagination").html("<%= escape_javascript(will_paginate @wizard.events) %>");
+$('.pagination a').attr('data-remote', 'true');

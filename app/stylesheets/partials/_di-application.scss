@@ -6,6 +6,9 @@
 }
 
 body {
+	h2 {
+		margin-bottom: 0px;
+	}
 	a {
 		@include hover-link;
 	}
@@ -24,7 +27,7 @@ hr {
 #header {
 	#logo {
 		padding: 5px;
-
+		float: left;
 	}
 	#user_nav {
 		padding: 5px;
@@ -43,48 +46,36 @@ hr {
 	}
 }
 
-#sidebar_left {
-	@include pie-clearfix;
-	width: 270px;
-	height: 600px;
-}
-
 #content {
 	margin: 0 auto;
+	padding-top: 20px;
 	background: {
 		color: $quiet-pink; //$quiet-bg-color;
 	}
 }
 
+#sidebar_left {
+	padding-top: 10px;
+	@include pie-clearfix;
+	height: 600px;
+}
+
+#sidebar_left_content, #sidebar_right_content {
+	margin-left: 20px;
+}
+
 #main {
-	padding-top: 5px;
-	.poplight {
-		@include quiet_link_button;
-	}
-	/* Elements */
-	.add_button {
-		@include fancy-button-structure(14px, 0.30em, 1px);		         
-		@include fancy-button-colors($fancy-green);
-	}
-	
-	.remove_button {
-		@include fancy-button-structure(14px, 0.30em, 1px);		         
-		@include fancy-button-colors($fancy-red);
+	h2 {
 	}
 }
 
 #sidebar_right {
+	padding-top: 10px;
 	height: 100%;
-/*	padding-top: 0px;
-	margin-top: 0px;*/
 }
 
 #footer {
 	padding: 5px;
-	@include loud_text;
-	background:{
-		color: $footer-bg-color;
-	};
 }
 
 .dialog {
@@ -95,6 +86,7 @@ hr {
 	padding-left: 0px;
 	padding-right: 5px;
 }
+
 #di_venue_info {
 	margin-top: 5px;
 	ul {
@@ -106,23 +98,75 @@ hr {
 		color: red;
 }
 
+/* Site Elements */
+/* Use the blue icons from jquery-ui */
+.ui-state-dateideas .ui-icon { 
+	background-image: url(../images/ui-icons_3572ac_256x240.png); 
+}
+
+.di_module_section {
+	padding-top: 5px;
+	fieldset {
+		text-align: center;
+	}
+}
+
+.di_module {
+	margin-bottom: 20px;
+	h4 {
+		margin-bottom: 0px;
+		text-align: center;
+		background: {
+			color: $nav-bg-color;
+		};
+		color: #FFF;
+		@include border-top-radius(5px);
+	}
+	fieldset {
+		padding:0;
+		margin:0;
+	}
+}
+
+.di_related_info {
+	p {
+		margin-top: 10px;
+	}
+}
+.add_button {
+	@include fancy-button-structure(12px, 0.10em, 1px);		         
+	@include fancy-button-colors($fancy-green);
+}
+
+.remove_button {
+	@include fancy-button-structure(12px, 0.10em, 1px);		         
+	@include fancy-button-colors($fancy-red);
+}
+
+/* ajax update container fading */
+.ajax_load_and_fade {
+/*	background: rgb(255, 0, 0);*/
+	opacity: 0.2;
+	background: #FFF url('/images/ajax-loader-large.gif') no-repeat fixed center;
+}
+
 /* styles for pinning various elements on the page */
 .pin-left {
 	position: fixed;
 	top: 10px;
-	width: 270px;
+	width: inherit;
 }
 
 .pin-right {
 	position: fixed;
 	top: 10px;
-	width: 220px;
+	width: inherit;;
 }
 
 .pin-info {
 	position: fixed;
 	top: 280px;
-	width: 220px;
+	width: inherit;
 }
 
 

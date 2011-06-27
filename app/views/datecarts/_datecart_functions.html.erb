@@ -1,7 +1,8 @@
 <ul id="di_datecart_functions">
 	<li id="clear"><%= link_to 'Clear', clear_cart_datecart_path(@datecart), :class => 'function_buttons', :method => :delete, :remote => true %></li>
 	<li id="save"><%= link_to 'Save', complete_datecart_path(@datecart), :class => 'function_buttons', :method => :put %></li>
-	<li id="print"><%= link_to 'Print View', print_datecart_path(@datecart), :class => 'function_buttons', :rel => 'external' %></li> 
+	<li id="print"><%= link_to 'Print', print_datecart_path(@datecart), :class => 'function_buttons', :rel => 'external' %></li> 
 	<li id="email"><%= link_to 'Email',  email_datecart_path(@datecart), :class => 'function_buttons' %></li>
-	<li id="edit"><%= link_to 'Edit', edit_datecart_path(@datecart), :class => 'function_buttons', :remote => true %></li>
+	<%# GL - Edit function is removed for aesthetic purposes. %>
+	<!-- <li id="edit"><%# link_to 'Edit', edit_datecart_path(@datecart), :class => 'function_buttons', :remote => true %></li> -->
 </ul>

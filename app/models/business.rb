@@ -38,7 +38,8 @@ class Business < ActiveRecord::Base
   def display_address
     d_address = String.new
     d_address.concat(address1)
-    if(! address2.nil? )
+    
+    if(! address2.nil?)
       d_address.concat(",").concat(address2)
     end
     if(!city.nil?)

@@ -1,0 +1,12 @@
+<% if @wizard.events.nil? %>
+ <p> Sorry, we've got nothing for you this time :( </p>
+<% else %>
+	<% @wizard.events.each do |event| %>
+		<div class="di_biz">
+			<%= render :partial => 'shared/event_item', :locals => {:event => event, :title_size => '', :size => 100} %>
+			<div class="di_biz_add">
+				<%= render :partial => 'shared/add_event_buttons', :locals => {:event => event, :cart_items => @cart_items} %>
+			</div>
+		</div>
+	<% end %>
+<% end %>

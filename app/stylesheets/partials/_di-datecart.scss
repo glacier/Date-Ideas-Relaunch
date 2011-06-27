@@ -1,56 +1,34 @@
 #di_map {
 	margin: 5px;
 }
+
 #di_datecart {
-	h2 {
-		font-size: 14px;
-	}
 	ul {
 		padding-left: 0;
 		margin-left: 0;
 	}
-/*	padding-top: 10px;*/
 	@include no-bullets;
-
 }
-#di_filter {
-    margin: 5px;
-}
-
-/*#sidebar_float {
-	position:absolute;
-	width:100px;
-	height:500px;
-	top:200px;
-	left:10%;
-/*	padding-top: 100px;*/
-/*	background:#FFFFFF;
-	border:2px solid #2266AA;
-	z-index:100;
-	@include pie-clearfix;*/
-/*}*/
 
 fieldset {
 	border:0px;
 }
 
 #di_cart_front {
-	h2 {
-		text-align: center;
-		background: {
-			color: $nav-bg-color;
-		};
-		color: #FFF;
-		@include border-top-radius(5px);
-	}
-	
 	ul {
+		text-align: left;
 		margin-bottom: 5px;
+		.list_item {
+			width: 207px;
+		}
+		.icon {
+			width: 20px;
+		}
 	}
 	p {
 		padding:{
-			top: 15px;
-			bottom: 0px;
+			top: 5px;
+			bottom: 10px;
 		};
 		margin: 0;
 		text-align: center;
@@ -60,8 +38,29 @@ fieldset {
 	
 }
 
+.ui-state-dateideas {
+	@include pie-clearfix;
+	position:relative;
+	left: 50px;
+	a {
+		span {
+			float: left;
+		}
+	}
+}
+
 #di_datecart_functions {
-		@include horizontal-list;
+	@include horizontal-list(2px);
+}
+
+#di_cart_status {
+	text-align: center;
+	color: #999999;
+	font-size: small;
+}
+
+.datecart {
+	padding: 0;
 }
 
 /*$green: darken(#57b42c, 8)
@@ -69,6 +68,7 @@ $blue: adjust_hue($green, 110)
 $red: adjust_hue($green, -100)
 $heart_button: saturate(lighten($red, 2), 20)
 */
+
 /* Styles for Datecart buttons */
 .function_buttons {
 	@include fancy-button-matte($fancy-silver, 10px, 0.30em, 1px);
