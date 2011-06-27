@@ -1,4 +1,5 @@
 /* CSS according to Jonathan's mockups */
+
 .di_wizard {
 	form,table {
 		font: 18px helvetica;
@@ -9,29 +10,32 @@
 		};
 	}
 	h1 {
-		font: 57px helvetica,arial,sans-serif;
+		font: bold 56px helvetica,arial,sans-serif;
 		text-align: center;
+		color: #535353;
 	}
-	
+	select {
+		/*font: 18px helvetica;*/
+		width: 200px;
+	}
 	tr {
-		background-color: #40c0cb;
+/*		background-color: #40c0cb;*/
+		background-color: #FFF;
 	}
-	
+	td {
+		margin:0;
+		padding: 0px 30px 0px 0px;
+		height: 67px;
+	}
 	tr.blank {
 		background-color: #FFF;
 		height: 10px;
 	}
-	
-	td {
-		margin:0;
-		padding:{
-			left: 30px;
-			top: 26px;
-			bottom: 26px;
-		};
+	td.banner {
+		background: #FFF url("/images/di_wizard_tail2.png") no-repeat;
 	}
-	
-	td.question {
+	td.question_text {
+		background: url("/images/di_wizard_bg_sliver.png") repeat-x;
 		padding-right: 20px;
 		color: white;
 		
@@ -41,11 +45,6 @@
 		
 		text-align: right;
 		text-transform: uppercase;
-	}
-	
-	select {
-/*		font: 18px helvetica;*/
-		width: 200px;
 	}
 }
 

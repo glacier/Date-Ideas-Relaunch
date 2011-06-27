@@ -1,36 +1,41 @@
 <%# The wizard search form view %>
 <%= form_tag '/wizard/search', :method => :get do %>
 <table>
-  <tr>
-    <td class="question">
+  <tr class="question">
+	  <td class="banner"></td>
+    <td class="question_text">
       <%= label_tag(:venue,"What do you want to do?") %>
     </td>
-		<td>
+		<td class="question_text">
       <%= select_tag(:venue, options_for_select(Wizard::VENUES))%>
     </td>
   </tr>
   <tr class="blank">
-	<tr>
-  <tr>
-    <td class="question">
+  </tr>
+  <tr class="question">
+	  <td class="banner"></td>
+    <td class="question_text">
         <%= label_tag(:location,"What area do you want to go to?") %>
     </td>
-		<td>
+		<td class="question_text">
         <%= select_tag(:location, options_for_select(Wizard::LOCATIONS)) %>
     </td>
   </tr>
 	<tr class="blank">
-	<tr>
-  <tr>
-    <td class="question">
+	</tr>
+  <tr class="question">
+		<td class="banner"></td>
+    <td class="question_text">
         <%= label_tag(:price_point,"What is your price point") %>
     </td>
-		<td>
+		<td class="question_text">
         <%= select_tag(:price_point, options_for_select(Wizard::PRICE_POINTS)) %>
     </td>
   </tr>
 	<tr class="blank">
-	<tr>
+	</tr>
 </table>
-  <%= submit_tag("Search")  %>
+<div class="prepend-5">
+	<%= submit_tag("Search", :class => "search-btn-large")  %>
+</div>
 <% end %>
