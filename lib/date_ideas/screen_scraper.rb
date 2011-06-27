@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class DateIdeas::ScreenScraper
 
   PRICE_RANGE = { '$'    => '< $10',

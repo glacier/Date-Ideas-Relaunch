@@ -1,5 +1,10 @@
 <% title("Wizard") %>
 <%# stylesheet_link_tag("wizard.css") %>
 <h1>Find the perfect date spot.</h1>
+
 <%= render 'form' %>
 
+<div id="wizard_loader" style="display:none"> 
+	<p>Searching ...</p>
+	<p><%= image_tag 'ajax-loader-bar.gif' %></p>
+</div>

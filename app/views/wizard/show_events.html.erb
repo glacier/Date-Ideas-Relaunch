@@ -4,14 +4,14 @@
 
 <%= title("Search") %>
 
-<% content_for :sidebar_filters do %>
+<%= content_for :sidebar_filters do %>
 	<fieldset id="di_filters">
 			<%= render 'breadcrumb' %>
       <%= render "filter" %>
 	</fieldset>
 <% end %>
 
-<% content_for :sidebar_cart do %>
+<%= content_for :sidebar_cart do %>
 	<div id="di_datecart">
 		<%= render @datecart %>
 	</div>
@@ -24,6 +24,6 @@
 	<%= render :partial => 'event_results' %>
 </div>
 
-<div id="pagination">
+<div id="ajax_paginate">
 	<%= will_paginate @wizard.events %>
 </div>

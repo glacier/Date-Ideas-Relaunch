@@ -3,7 +3,7 @@
 <div id="di_venue_photo">
   <%= image_tag @business.photo_url %>
 </div>
-<% content_for :sidebar_map do %>
+<%= content_for :sidebar_map do %>
 <div id="di_venue_map">
  <%= gmaps({"markers" => {"data" => @markers}, "map_options" => {"processing" => "json", "auto_adjust" => true, "auto_zoom" => false, "zoom" => 15}}) %>
 </div>
