@@ -4,7 +4,7 @@
     <p class="title_text"><%= format_date_header datecart.datetime, datecart.significant_date_id %></p>
   </div>
   <div class="business_static_map">
-      <%= image_tag "https://maps.google.com/maps/api/staticmap?#{format_google_maps_api_call_parameters(datecart.cart_items)}", :class => "map" %>
+      <%= image_tag "https://maps.google.com/maps/api/staticmap?#{format_google_maps_api_call_parameters(datecart.cart_items)}", :class => "map", :alt => "Date Map" %>
     </div>
   <div id="<%= id_prefix + "_content" %>" class="datecart_content">
     <% unless (cart_items = datecart.cart_items).blank? #TODO: remove once validations are implemented  %>
