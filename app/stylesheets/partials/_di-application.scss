@@ -25,25 +25,29 @@ hr {
 }
 
 #header {
+	height: 75px;
+	background-color: #000;
+	color: #FFF;
+	a {
+		color: #FFF;
+	}
 	#logo {
 		padding: 5px;
 		float: left;
 	}
+	
 	#user_nav {
-		padding: 5px;
-		background:{
-			color: black;
-/*			$nav-bg-color;*/
-		};
-		a {
-			@include loud_text;
-		}
+		float: right;
+		position: relative;
+		right: 200px;
+		padding-top: 25px;
 		ul {
-			@include horizontal-list(4px, right);
+			@include horizontal-list(10px, left);
+			font:{
+				size: 16px;
+			};
+			color: #FFF;
 		}
-	}
-	background: {
-		color: $quiet-pink;
 	}
 }
 
@@ -76,7 +80,8 @@ hr {
 }
 
 #footer {
-	padding: 5px;
+	font-size: 14px;
+	@include horizontal-list(10px, left);
 }
 
 .dialog {

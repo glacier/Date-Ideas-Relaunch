@@ -27,20 +27,20 @@
   <%= javascript_include_tag "dateideas.js" %>
 </head>
 <body>
-	<div class="container">			
-		<div id="header" class="span-24 last">
-			<!-- <p class="notice">Notices: <%= notice %></p> -->
-			<div id="user_nav" class="last">
-				<%= render 'shared/navigation' %>
-			</div>
-			<%= yield :header %>
+	<div id="header">
+		<!-- <p class="notice">Notices: <%= notice %></p> -->
+		<div id="user_nav" class="last">
+			<%= render 'shared/navigation' %>
 		</div>
-		<hr/>
+		<%= yield :header %>
+	</div>
+	<hr/>
+	<div class="container">			
 		<div id="content" class="span-24 last">
 			<%= content_for?(:content) ? yield(:content) : yield %>
 		</div>
 		<hr/>
-		<div id="footer" class="last">© 2011 Date Ideas <span id="random"></span></div>
+		<%= render 'shared/footer' %>
 	</div>
   <%= yield :scripts %>
 </body>

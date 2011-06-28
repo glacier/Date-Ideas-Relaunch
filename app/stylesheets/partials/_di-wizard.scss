@@ -1,21 +1,20 @@
 /* CSS according to Jonathan's mockups */
 
 .di_wizard {
-	form,table {
+	form, table {
 		font: 18px helvetica;
 	}
-	#logo {
-		padding:{
-			bottom: 23px;
-		};
+	table {
+		margin-bottom: 12px;
 	}
 	h1 {
 		font: bold 56px helvetica,arial,sans-serif;
 		text-align: center;
 		color: #535353;
+		margin-bottom: 20px;
 	}
 	select {
-		/*font: 18px helvetica;*/
+		font-size: 18px;
 		width: 200px;
 	}
 	tr {
@@ -45,6 +44,39 @@
 		
 		text-align: right;
 		text-transform: uppercase;
+	}
+	.ajax-hidden {
+		display:none;
+	}
+	
+	#logo {
+		padding:{
+			bottom: 40px;
+		};
+	}
+	
+	#di_whatis_icons {
+		padding-left: 30px;
+		padding-top: 45px;
+		padding:{
+			left: 30px;
+			top: 45px;
+			bottom: 25px;
+		};
+	}
+
+	#di_whatis_text {
+		@include pie-clearfix;
+		padding-bottom: 40px;
+		p {
+/*			padding: 0;
+			margin: 0;
+*/			display: inline;
+			float: left;
+			width: 210px;
+			font: bold 16px helvetica;
+			text-align: center;
+		}
 	}
 }
 
