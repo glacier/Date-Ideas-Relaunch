@@ -1,12 +1,8 @@
-/* Wizard: Large green search button */
-.search-btn-large {
-	@include fancy-button-structure(26px, 0.4em, 0px);
-	@include fancy-button-colors-matte(darken(#aee239, 10));
+@mixin di_button($font-size, $button-color) {
+	@include fancy-button-structure($font-size, 0.4em, 0px);
+	@include fancy-button-colors-matte(darken($button-color, 10));
 	/* override */
 	font-family: Helvetica;
-	width: 300px;
-	height: 60px;
-	
 	/* courtesy of ZURB super awesome buttons */
 	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
 	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);

@@ -1,10 +1,4 @@
 // dateideas custom css
-.container {
-	background:{
-		color: $quiet-pink;
-	};
-}
-
 body {
 	h2 {
 		margin-bottom: 0px;
@@ -13,7 +7,7 @@ body {
 		@include hover-link;
 	}
 	background: {
-/*		color: $loud-blue;*/
+		color: #FFF;
 	}
 }
 
@@ -32,14 +26,12 @@ hr {
 		color: #FFF;
 	}
 	#logo {
-		padding: 5px;
+		padding-top: 10px;
 		float: left;
 	}
 	
 	#user_nav {
 		float: right;
-		position: relative;
-		right: 200px;
 		padding-top: 25px;
 		ul {
 			@include horizontal-list(10px, left);
@@ -53,14 +45,10 @@ hr {
 
 #content {
 	margin: 0 auto;
-	padding-top: 20px;
-	background: {
-		color: $quiet-pink; //$quiet-bg-color;
-	}
 }
 
 #sidebar_left {
-	padding-top: 10px;
+	padding-top: 45px;
 	@include pie-clearfix;
 	height: 600px;
 }
@@ -70,15 +58,26 @@ hr {
 }
 
 #main {
+	padding-top: 45px;
 	h2 {
+		font-size: 25px;
+		font-weight: bold;
+		color: #535353;
+	}
+	.di_biz_name a {
+		color: #40c0cb;
 	}
 }
 
 #sidebar_right {
-	padding-top: 10px;
-	height: 100%;
+	padding-top: 45px;
+	height: 1152px;
+	background-color: #F9F2E7;	
 }
 
+#sidebar_right_pinned {
+	background-color: #FFF;
+}
 #footer {
 	font-size: 14px;
 	@include horizontal-list(10px, left);
@@ -119,18 +118,38 @@ hr {
 
 .di_module {
 	margin-bottom: 20px;
+	#di_module_header_tail {
+		float: left;
+		background: #FFF url("/images/right_tail_shorter.png") no-repeat right;
+		height: 35px;
+		width: 31px;
+	}
 	h4 {
-		margin-bottom: 0px;
-		text-align: center;
-		background: {
-			color: $nav-bg-color;
-		};
+		margin:{
+			right: 0px;
+			bottom: 15px;
+		}
+		span {
+			float: left;
+			position: relative;			
+			left: 20px;
+			top: 10px;
+			text-transform: uppercase;
+		}
+		span.icon {
+			float: right;
+			position: relative;
+			top: 8px;
+			left: -10px;
+		}
+		background: #FFF url("/images/sliver_shorter.png") repeat-x;
 		color: #FFF;
-		@include border-top-radius(5px);
+		height: 35px;
+		/* add box shadow */
 	}
 	fieldset {
 		padding:0;
-		margin:0;
+		margin-bottom: 15px;
 	}
 }
 
@@ -140,13 +159,17 @@ hr {
 	}
 }
 .add_button {
-	@include fancy-button-structure(12px, 0.10em, 1px);		         
-	@include fancy-button-colors($fancy-green);
+/*	@include fancy-button-structure(12px, 0.10em, 1px);		         
+	@include fancy-button-colors($fancy-green);*/
+	@include di_button(14px, #aee239);
+	height: 20px;
 }
 
 .remove_button {
-	@include fancy-button-structure(12px, 0.10em, 1px);		         
-	@include fancy-button-colors($fancy-red);
+/*	@include fancy-button-structure(12px, 0.10em, 1px);*/	
+/*	@include fancy-button-colors($fancy-red);*/
+	@include di_button(14px, #40c0cb);
+	height: 20px;
 }
 
 /* ajax update container fading */

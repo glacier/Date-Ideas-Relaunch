@@ -80,6 +80,13 @@
 	}
 }
 
+/* Wizard: Large green search button */
+.search-btn-large {
+	@include di_button(26px, #aee239);
+	width: 300px;
+	height: 60px;
+}
+
 .di_bullet{
   width: 5em; height: 5em;
   -webkit-border-radius: 5em; -moz-border-radius: 5em;
@@ -95,15 +102,19 @@
 }
 
 .di_biz {
-	margin-top: 20px;
+	margin-top: 15px;
 	padding: {
-		top: 5px;
+		left: 20px;
+		top: 20px;
 		bottom: 10px;
 	}
-
-	width: 400px;
+	h3 {
+		font-size: 20px;
+	}
+/*	width: 400px;*/
+	border: 1px solid #CCC;
 	@include pie-clearfix;
-	@include box-shadow(#CCC 2px 2px 1px);
+/*	@include box-shadow(#CCC 2px 2px 1px);*/
 	@include border-radius(5px);
 	
 	.di_biz_name {
@@ -116,18 +127,18 @@
 			float: left;
 			width: 280px;
 			margin: {
-				left:10px;
-				bottom:10px;
+				left: 20px;
+				bottom: 10px;
 			}
 			p {
-				margin-bottom: 0.75em;
+				margin-bottom: 0;
 			}
 		}
 	}
 	
 	.di_biz_add {
 		position: relative;
-		left: 45px;
+		left: 59px;
 	}
 
 	.di_biz_yelp_reviews {

@@ -6,12 +6,18 @@
 	ul {
 		padding-left: 0;
 		margin-left: 0;
+		@include no-bullets;
 	}
-	@include no-bullets;
+	li {
+		padding-bottom: 20px;
+	}		
+	fieldset {
+		text-align: center;
+	}
 }
 
 fieldset {
-	border:0px;
+	border: 0px;
 }
 
 #di_cart_front {
@@ -50,7 +56,11 @@ fieldset {
 }
 
 #di_datecart_functions {
-	@include horizontal-list(2px);
+/*	@include horizontal-list(2px);*/
+/*	@include inline-block-list;*/
+	ul {
+		@include no-bullets;
+	}
 }
 
 #di_cart_status {
@@ -71,9 +81,17 @@ $heart_button: saturate(lighten($red, 2), 20)
 
 /* Styles for Datecart buttons */
 .function_buttons {
-	@include fancy-button-matte($fancy-silver, 10px, 0.30em, 1px);
-	@include fancy-button-colors-matte(#ddd);   
+/*	@include fancy-button-matte($fancy-silver, 10px, 0.30em, 1px);
+	@include fancy-button-colors-matte(#ddd);   */
+	@include di_button(14px, #aee239);
+	width:100px;
+	height:20px;
+	text-align: center;
+	li {
+		padding-bottom: 10px;
+	}
 }
+
 .datecart_buttons {
 	@include fancy-button-matte(adjust_hue($fancy-green, 110), 14px, 0.30em, 1px);
 }
