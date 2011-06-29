@@ -1,33 +1,35 @@
-class DataFarmerController < ApplicationController
+class DataFarmersController < ApplicationController
   # before_filter :authenticate_admin!
   # skip_load_resource
   # load_and_authorize_resource
+  def update_neighbourhood_select
+    logger.info("update neighbourhood select ")
+    @data_farmer = DataFarmer.new
+    neighbourhoods = Neighbourhood.where(:city=>params[:city]).order(:neighbourhood) unless params[:city].blank?
+    logger.info("neighbourhood size:" + neighbourhoods.length.to_s )
+    render :partial => "neighbourhoods", :locals => { :neighbourhoods => neighbourhoods }
+  end
   def index
-    @neighbourhoods = Neighbourhood.find_all_by_district("Old City of Toronto")
-#    logger.info("neighbourhoods:" + @neighbourhoods.to_s)
+    @data_farmer = DataFarmer.new
     @categories = Category.find_all_by_parent_name('')
-    @neighbourhoods_select = Array.new
-    @neighbourhoods.each do |n|
-      neighbourhood_element = Array.new
-      neighbourhood_element.push(n.neighbourhood)
-      neighbourhood_element.push(n.neighbourhood)
-      @neighbourhoods_select.push(neighbourhood_element)
-    end
+    @neighbourhoods = Neighbourhood.find_by_city('Toronto')
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
     end
     
-    authorize! :manage, :data_farmer
+    authorize! :manage, :data_farmers
   end
   def farm
+    @data_farmer = DataFarmer.new
     interval = 20
     neighbourhoods = Array.new
     neighbourhood = params[:neighbourhood]
+    city = params[:data_farmer][:city]
+    logger.info("city:" + city.to_s)
+
     neighbourhoods.push(neighbourhood)
     categories =  params[:categories]
 
-    logger.info("neighbourhood selected:" + neighbourhood)
-    logger.info("categories :" + categories.to_s )
 
     db_neighbourhoods_hash = Hash.new
     db_neighbourhoods = Neighbourhood.all
@@ -42,9 +44,15 @@ class DataFarmerController < ApplicationController
       db_categories_hash[c.name] = c
     end
 
+    if( !neighbourhood.nil? && !categories.nil? )
+      farmed_info = FarmedInfo.find_by_neighbourhood_and_categories(neighbourhood, categories.join(','))
+    elsif( !neighbourhood.nil? )
+      farmed_info = FarmedInfo.find_by_neighbourhood(neighbourhood)
+    else
+    end
 
-    farmed_info = FarmedInfo.find_by_neighbourhood_and_categories(neighbourhood, categories.join(','))
     offset = 0
+
     if(farmed_info.nil? )
       farmed_info = FarmedInfo.new
       farmed_info.neighbourhood = neighbourhood
@@ -60,7 +68,7 @@ class DataFarmerController < ApplicationController
     saved_counter = 0
     scrapy = DateIdeas::ScreenScraper.new(logger)
     yelp_adaptor = DateIdeas::YelpAdaptorV2.new(logger ,false)
-    yelp_businesses = yelp_adaptor.search('Toronto',categories, neighbourhoods, offset)
+    yelp_businesses = yelp_adaptor.search(city,categories, neighbourhoods, offset)
     yelp_businesses.each do |biz|
       save = true
       biz_h = Array.new
@@ -122,6 +130,6 @@ class DataFarmerController < ApplicationController
       format.html
     end
     
-    authorize! :manage, :data_farmer
+    authorize! :manage, :data_farmers
   end
 end

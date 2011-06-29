@@ -1,0 +1,31 @@
+<h1>DataFarmer</h1>
+<%= form_tag '/data_farmers/farm', :method => :get  do %>
+<table>
+  <tr>
+    <td>
+      <%= label_tag(:city,"Select a city") %>
+    </td>
+    <td>
+        <%= select_tag(:city, options_for_select(Neighbourhood.find_by_sql('SELECT distinct(n.city) from neighbourhoods n').collect{|c| [c.city]}, :required => true, :remote => true )) %>
+    </td>
+  </tr><tr>
+    <td>
+      <%= label_tag(:neighbourhood,"Select a neighbourhood") %>
+    </td><td>
+        <div id="neighbourhoods">
+          <%= render :partial => 'neighbourhoods' %>
+        </div>
+    </td>
+  </tr><tr>
+    <% @categories.each do |cat | %>
+    <td><%= h cat.display_name %></td>
+    <td><%= check_box_tag 'categories[]', cat.name %></td>
+    </tr><tr>
+    <% end %>
+  </tr><tr>
+    <td colspan="2">
+      <%= submit_tag("Start Farming")  %>
+    </td>
+  </tr>
+</table>
+ <% end %>

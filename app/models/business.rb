@@ -1,4 +1,8 @@
 class Business < ActiveRecord::Base
+  PRICE_RANGE = { 'budget' => ['0','< $10','$10-$25'],
+                  'moderate' => ['$25-$50'],
+                  'high_roller' => ['$50+'],
+                 }
   cattr_reader :per_page
   @@per_page = 10
 
@@ -23,6 +27,16 @@ class Business < ActiveRecord::Base
     @reviews.push(review)
   end
 
+  def display_address
+    d_address = String.new
+    d_address.concat(address1)
+    if(! address2.nil? )
+      d_address.concat(",").concat(address2)
+    end
+    d_address.concat(",").concat(city)
+    d_address.concat(",").concat(province)
+  end
+
   # hook method
   def ensure_not_referenced_by_any_line_item
     if cart_items.count.zero?
@@ -41,17 +55,6 @@ class Business < ActiveRecord::Base
 
   def gmaps4rails_infowindow
     # add here whatever html content you desire, it will be displayed when users clicks on the marker
-    "#{name}<br/>#{display_address}<br/>#{phone_no}"
-  end
-
-  private
-
-  def display_address
-    d_address = ""
-    d_address << address1
-    if (!address2.nil?)
-      d_address << ",#{address2}"
-    end
-    d_address << ",#{city},#{province}"
+    "#{self.name}<br/>#{self.display_address}<br/>#{self.phone_no}"
   end
 end

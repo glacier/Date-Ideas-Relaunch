@@ -1,8 +1,5 @@
 class DateIdeas::DnaService
-  PRICE_RANGE = { 'budget' => ['0','< $10','$10-$25'],
-                  'moderate' => ['$25-$50'],
-                  'high_roller' => ['$50+'],
-                 }
+
   CATEGORIES = { 'food' => ['food','restaurants'],
                  'bars' => ['bars'],
                  'activities_events' => ['active'],
@@ -23,74 +20,9 @@ class DateIdeas::DnaService
       categories.push(sub_category)
     end
     if( neighbourhood.nil? || "all_neighbourhoods".eql?(neighbourhood) )
-        sql <<
-      "SELECT b.*                                  \
-      FROM                                         \
-        businesses b                               \
-      WHERE                                        \
-            b.dna_pricepoint IN (?)                \
-        AND (b.deleted IS NULL OR                  \
-             b.deleted = ? )                       \
-        AND EXISTS ( SELECT 1                      \
-               FROM business_neighbourhoods bn     \
-                    ,neighbourhoods n              \
-               WHERE n.id=bn.neighbourhood_id      \
-                 AND bn.business_id=b.id           \
-                 AND n.district_subsection=? )     \
-        AND EXISTS ( SELECT 1                      \
-               FROM business_categories bc         \
-                    ,categories c                  \
-              WHERE c.id=bc.category_id            \
-              AND bc.business_id=b.id 	           \
-              AND (c.name IN (?) OR                \
-                   c.parent_name IN (?) OR
-                   c.parent_name IN ( SELECT 1                      \
-                                        FROM categories c1          \
-                                       WHERE c1.parent_name IN (?)) \
-                  ))                                                \
-      ORDER BY b.name"
-        db_businesses = Business.find_by_sql([sql,
-                                              PRICE_RANGE.fetch(price_point),
-                                              false,
-                                              location,
-                                              categories,
-                                              categories,
-                                              categories]).paginate(:page => page, :per_page => per_page)
+      db_businesses = Business.search_by_district_subsection('Toronto',location,price_point,categories,page)
     else
-        sql <<
-      "SELECT b.*                                  \
-      FROM                                         \
-        businesses b                               \
-      WHERE                                        \
-            b.dna_pricepoint IN (?)                \
-        AND (b.deleted IS NULL OR                  \
-             b.deleted = ? )                       \
-        AND EXISTS ( SELECT 1                      \
-               FROM business_neighbourhoods bn     \
-                    ,neighbourhoods n              \
-               WHERE n.id=bn.neighbourhood_id      \
-                 AND bn.business_id=b.id           \
-                 AND n.neighbourhood=? )           \
-        AND EXISTS ( SELECT 1                      \
-               FROM business_categories bc         \
-                    ,categories c                  \
-              WHERE c.id=bc.category_id            \
-              AND bc.business_id=b.id 	           \
-              AND (c.name IN (?) OR                \
-                   c.parent_name IN (?) OR
-                   c.parent_name IN ( SELECT 1                      \
-                                        FROM categories c1          \
-                                       WHERE c1.parent_name IN (?)) \
-                  ))                                                \
-      ORDER BY b.name"
-        db_businesses = Business.find_by_sql([sql,
-                                              PRICE_RANGE.fetch(price_point),
-                                              false,
-                                              neighbourhood,
-                                              categories,
-                                              categories,
-                                              categories]).paginate(:page => page, :per_page => 4)
-
+      db_businesses = Business.search_by_neighbourhood('Toronto',neighbourhood,price_point,categories,page)
     end
     db_businesses_no_exerpt = Array.new
 
