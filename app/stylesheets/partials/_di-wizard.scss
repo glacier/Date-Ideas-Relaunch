@@ -1,5 +1,4 @@
-/* CSS according to Jonathan's mockups */
-
+/* Wizard view */
 .di_wizard {
 	form, table {
 		font: 18px helvetica;
@@ -87,91 +86,9 @@
 	height: 60px;
 }
 
-.di_bullet{
+.di_bullet {
   width: 5em; height: 5em;
   -webkit-border-radius: 5em; -moz-border-radius: 5em;
 }
 
-.di_results_main {
-	@include pie-clearfix;
-	.di_main_biz {
-		.di_biz_photo {
-			width:100px;
-		}
-	}
-}
-
-.di_biz {
-	margin-top: 15px;
-	padding: {
-		left: 20px;
-		top: 20px;
-		bottom: 10px;
-	}
-	h3 {
-		font-size: 20px;
-	}
-/*	width: 400px;*/
-	border: 1px solid #CCC;
-	@include pie-clearfix;
-/*	@include box-shadow(#CCC 2px 2px 1px);*/
-	@include border-radius(5px);
-	
-	.di_biz_name {
-	    font-weight: bold;
-	}
-	
-	.di_biz_info {
-		@include pie-clearfix;
-		.di_biz_desc {
-			float: left;
-			width: 280px;
-			margin: {
-				left: 20px;
-				bottom: 10px;
-			}
-			p {
-				margin-bottom: 0;
-			}
-		}
-	}
-	
-	.di_biz_add {
-		position: relative;
-		left: 59px;
-	}
-
-	.di_biz_yelp_reviews {
-	}
-	
-	.di_biz_hr {
-		visibility: hidden;
-	}
-}
-
-.di_biz_photo {
-	float: left;
-	display: block;
-	border: 1px;
-}
-
-.ratings {
-	@include horizontal-list;
-	float: left;
-	width:150px;
-}
-
-.di_main_biz {
-	@include pie-clearfix;
-	width:150px;
-	float: left;
-}
-
-/* yelp logo */
-.yelp-badge, .eventful-badge {
-	float: left;
-	margin-right: 10px;
-	position: relative;
-	left: 20px;
-}
 

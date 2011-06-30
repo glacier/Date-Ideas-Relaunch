@@ -25,6 +25,7 @@
 	
 	<!-- dateideas -->
   <%= javascript_include_tag "dateideas.js" %>
+  <%= yield :scripts %>
 </head>
 <body>
 	<div id="header">
@@ -37,14 +38,11 @@
 	</div>
 	
 	<div class="container">
-		<div id="wrapper">
-			<div id="content" class="span-24 last">
-				<%= content_for?(:content) ? yield(:content) : yield %>
-			</div>
+		<div id="content" class="span-24 last">
+			<%= content_for?(:content) ? yield(:content) : yield %>
 		</div>
 		<hr/>
 		<%= render 'shared/footer' %>
 	</div>
-  <%= yield :scripts %>
 </body>
 </html>
