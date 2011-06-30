@@ -1,14 +1,14 @@
 <% session['venue_type'] = params['venue'] %>
 <%= stylesheet_link_tag("wizard.css") %>
 
-<%= title("Search") %>
+<%= title("Search - Venues") %>
 
 <%= content_for :sidebar_map do %>
 	<%# Design decision: No map with results (for now)%>
 <% end %>
 
 <%= content_for :sidebar_filters do %>
-	<%= render 'breadcrumb' %>
+  <%= render :partial => "breadcrumb", :locals => {:location_text => nil} %>
 	<%= render "filter" %>
 <% end %>
 
@@ -17,12 +17,6 @@
 <% end %>
 
 <% @cart_items = @datecart.cart_items %>
-
-<h2> 
-	Results for 
-	<span class='dynamic_text'><%= get_display_text(params['venue']) %></span> 
-</h2>
-<hr/>
 <div id="main_results">
 	<%= render :partial => 'business_results', :locals => {:cart_items => @cart_items} %>
 </div>

@@ -1,6 +1,7 @@
 $("#di_filter_section").html("<%= escape_javascript(render :partial => 'filter_form') %>");
+// $("di_bread_crumb").html("<%= escape_javascript(render :partial => 'breadcrumb', :locals =>{ :location_text => 'Toronto'}) %>");
 $("#main h2").html("Results for <%= get_display_text(params['venue']) %>");
 $("#main_results").html("<%= escape_javascript(render('event_results')) %>").removeClass('ajax_load_and_fade');
 $("#di_related_info").html("");
-$("#pagination").html("<%= escape_javascript(will_paginate @wizard.events) %>");
+$("#ajax_paginate").html("<%= escape_javascript(will_paginate @wizard.events) %>");
 $('.pagination a').attr('data-remote', 'true');

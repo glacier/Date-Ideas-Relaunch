@@ -1,6 +1,6 @@
 // render to show disabled attributes
 $("#di_filter_section").html("<%= escape_javascript(render :partial => 'filter_form') %>");
-
+// $("di_breadcrumb").html("<%= escape_javascript(render :partial => 'breadcrumb', :locals => {:location_text => nil}) %>");
 $("#main_results").html("<%= escape_javascript(render :partial => 'business_results', :locals => {:cart_items => @cart_items}) %>");
 $("#main_results").removeClass('ajax_load_and_fade');
 

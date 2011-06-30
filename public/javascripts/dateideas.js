@@ -78,7 +78,10 @@ $(document).ready(function() {
 		$('#di_filter_section select').attr('disabled', false);
 		$("form:first").live("ajax:beforeSend", function(){			
 			$('#main_results').addClass('ajax_load_and_fade');
-		}).submit();
+		}).submit();		
+		// Show spinners around the page to indicate results are being loaded
+		$('.filter_loaders').removeClass('ajax-hidden');
+		$('select').attr('disabled', 'disabled');
 	});
 	
 });

@@ -4,8 +4,12 @@
 		<fieldset>
 			<ul id='search_params'>
 			  <li>'<%= get_display_text(params['venue']) %>'</li>
-				<li>in '<%= params['location'] %>' </li>
-				<li>with '<%= params['price_point'] %>' prices</li>
+				<li>in '<%= location_text.nil? ? params['location'] : location_text %>' </li>
+				<% if params['venue'] == 'activities_events' %>
+					<li> that are happening '<%= params['event_date'].blank? ? 'Today' : params['event_date'] %>'<li>
+				<% else %>
+					<li>with '<%= params['price_point'] %>' prices</li>
+				<% end %>
 			</ul>
 		</fieldset>
 	</div>

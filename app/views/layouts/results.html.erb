@@ -16,6 +16,10 @@
 		</div>
 	</div>
 	<div id="main" class="span-10">
+		<h2>Results for <span class='dynamic_text'><%= get_display_text(params['venue']) %></span>
+				<span class='filter_loaders ajax-hidden'><%= image_tag 'ajax-loader-medium.gif' %></span>
+		</h2>
+		<hr/>
 		<%= yield %>
 		<hr/>
 		<%= yield :main_related %>
