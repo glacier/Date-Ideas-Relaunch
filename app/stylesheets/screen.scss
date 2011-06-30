@@ -1,3 +1,4 @@
+
 // This import applies a global reset to any page that imports this stylesheet.
 @import "blueprint/reset";
 
@@ -19,16 +20,18 @@
 @import "fancy-buttons";
 
 @import "compass/utilities/lists/horizontal-list";
+@import "compass/typography/lists/inline-list";
 @import "compass/typography/lists/inline-block-list";
 @import "compass/utilities/links/hover-link";
 /*@import "compass/utilities/links/bullets";*/
-
+@import "compass/css3";
 @import "compass/css3/box-shadow";
 @import "compass/css3/border-radius";
 
 //dateideas styles
-@import "mixins/aesthetics";
+/*@import "mixins/aesthetics";*/
 @import "partials/di-dashboard";
+@import "mixins/di-common-elements";
 @import "partials/di-application";
 @import "partials/di-events";
 @import "partials/di-wizard";

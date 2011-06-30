@@ -7,12 +7,11 @@ class WizardController < ApplicationController
     @wizard = Wizard.new
     respond_to do |format|
       format.js
-      format.html # index.html.erb
+      format.html { render :layout => 'wizard' }
     end
   end
 
   def show
-    y 'got here'
     @wizard = Wizard.new
     respond_to do |format|
       format.js
@@ -21,7 +20,11 @@ class WizardController < ApplicationController
   end
 
   def search
-    @wizard = Wizard.new(params[:venue], params[:location], params[:price_point])
+    event_cat = params['event_cat'] || params[:venue]
+    event_date = params['event_date'] || 'today'
+  
+    @wizard = Wizard.new(params[:venue], event_cat, event_date, params[:location], params[:price_point])
+      
     neighbourhood = params[:neighbourhood]
     if( neighbourhood.nil? )
       neighbourhood = 'all_neighbourhoods'
@@ -52,7 +55,7 @@ class WizardController < ApplicationController
     end
 
     #grab events from eventful.com
-    events = eventful.search(@wizard.venue, 'toronto', 30).paginate(:page => current_page_events, :per_page => per_page)
+    events = eventful.search(event_cat, event_date, 'toronto', 30).paginate(:page => current_page_events, :per_page => per_page)
 
     @datecart = current_cart
     @wizard.businesses = businesses
@@ -60,11 +63,11 @@ class WizardController < ApplicationController
     
     respond_to do |format|
       if @wizard.venue == 'activities_events'
-        format.js { render :action => "show_events"}
-        format.html { render :action => "show_events"}
+        format.js { render :action => "show_events", :layout => 'results'}
+        format.html { render :action => "show_events", :layout => 'results'}
       else
-        format.js { render :action => "show"}
-        format.html { render :action => "show"}
+        format.js { render :action => "show", :layout => 'results'}
+        format.html { render :action => "show", :layout => 'results'}
       end
     end
   end

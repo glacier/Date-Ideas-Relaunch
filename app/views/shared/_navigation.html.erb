@@ -1,13 +1,12 @@
 <% if user_signed_in? %>
 	<ul>
-		<li>Welcome <%= current_user.email %>.</li>
+		<li><%= current_user.email %></li>
 		<li><%= link_to "Sign out", destroy_user_session_path %></li>
 		<li><%= link_to "Profile", profile_path(current_user.id) %></li>
 		<% if current_user.role? :admin %>
 			<li><%= link_to "Add/Modify Businesses", businesses_path %></li>
-            <li><%= link_to "Add/Modify Neighbourhoods", neighbourhoods_path %></li>
+      <li><%= link_to "Add/Modify Neighbourhoods", neighbourhoods_path %></li>
 			<li><%= link_to "Farm Data", data_farmers_path %></li>
-
 		<% end %>
 	</ul>
 <% else %>

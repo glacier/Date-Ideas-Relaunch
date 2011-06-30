@@ -2,11 +2,11 @@
 
 <%= stylesheet_link_tag("wizard.css") %>
 
-<%= title("Search") %>
+<%= title("Search - Events") %>
 
 <%= content_for :sidebar_filters do %>
 	<fieldset id="di_filters">
-			<%= render 'breadcrumb' %>
+			<%= render :partial => 'breadcrumb', :locals => { :location_text => "Toronto" } %>
       <%= render "filter" %>
 	</fieldset>
 <% end %>
@@ -16,8 +16,6 @@
 		<%= render @datecart %>
 	</div>
 <% end %>
-
-<h2>Results for <span class='dynamic_text'><%= get_display_text(params['venue']) %></span></h2>
 
 <% @cart_items = @datecart.cart_items %>
 <div id="main_results">

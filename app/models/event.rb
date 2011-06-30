@@ -8,7 +8,30 @@ class Event < ActiveRecord::Base
     'arts_entertainment' => 'performing_arts', #performing_arts, art, music
     'bars' => 'singles_social',
     'nightlife' => 'singles_social',
-    'food' => 'food',
+    'food' => 'food'
+  }
+  
+  EVENTFUL_CATEGORIES = {
+    'Concerts and Tour Dates' => 'music',
+    'Kids and Family' => 'family_fun_kids',
+    'Festivals' => 'festivals_parades',
+    'Film' => 'movies_film',
+    'Food and Wine' => 'food' ,
+    'Art Galleries and Exhibits' => 'art',
+    'Literary and Books' => 'books',
+    'Museums and Attractions' => 'attractions',
+    'Nightlife and Singles' => 'singles_social' ,
+    'Outdoors and Recreation' => 'outdoors_recreation',
+    'Performing Arts' => 'performing_arts',
+    'Pets' => 'animals',
+    'Sports' => 'sports'
+  }
+  
+  TIMES = {
+    'Today' => 'Today',
+    'This Week' => 'This Week',
+    'Next Week' => 'Next Week',
+    'This Month' => 'July'
   }
   
   #define some keywords to narrow down search within a category
