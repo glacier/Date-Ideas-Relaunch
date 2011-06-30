@@ -20,18 +20,7 @@
 }
 
 .di_event {
-	margin-top: 20px;
-	padding: {
-		top: 5px;
-		bottom: 10px;
-	}
-	h4 {
-		margin-bottom: 5px;
-	}
-	width: 400px;
-	@include pie-clearfix;
-	@include box-shadow(#CCC 2px 2px 1px);
-	@include border-radius(5px);
+	@include results_container;
 }
 
 #event_venue_name,#event_address,#event_time {

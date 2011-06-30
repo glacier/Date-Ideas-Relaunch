@@ -32,9 +32,11 @@
 @import "mixins/di-common-elements";
 @import "partials/di-application";
 @import "partials/di-events";
+@import "partials/di-results";
 @import "partials/di-wizard";
 @import "partials/di-datecart";
 @import "partials/di-filters";
+
 /*button { @include fancy-button(#2966a8); }*/
 /* Styles all buttons with:
 1. A shiny gradient based on #2966a8 (a nice blue)

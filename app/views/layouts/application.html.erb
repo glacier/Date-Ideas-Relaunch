@@ -25,23 +25,24 @@
 	
 	<!-- dateideas -->
   <%= javascript_include_tag "dateideas.js" %>
+  <%= yield :scripts %>
 </head>
 <body>
 	<div id="header">
-		<!-- <p class="notice">Notices: <%= notice %></p> -->
-		<div id="user_nav" class="last">
-			<%= render 'shared/navigation' %>
+		<div class="container">
+			<div id="user_nav" class="last">
+				<%= render 'shared/navigation' %>
+			</div>
+			<%= yield :header %>
 		</div>
-		<%= yield :header %>
 	</div>
-	<hr/>
-	<div class="container">			
+	
+	<div class="container">
 		<div id="content" class="span-24 last">
 			<%= content_for?(:content) ? yield(:content) : yield %>
 		</div>
 		<hr/>
 		<%= render 'shared/footer' %>
 	</div>
-  <%= yield :scripts %>
 </body>
 </html>
