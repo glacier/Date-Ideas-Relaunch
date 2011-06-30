@@ -1,4 +1,8 @@
 class Business < ActiveRecord::Base
+  PRICE_RANGE = { 'budget' => ['0','< $10','$10-$25'],
+                  'moderate' => ['$25-$50'],
+                  'high_roller' => ['$50+'],
+                 }
   cattr_reader :per_page
   @@per_page = 10
   
@@ -38,12 +42,10 @@ class Business < ActiveRecord::Base
     if(! address2.nil?)
       d_address.concat(",").concat(address2)
     end
-    
-    if(! city.nil?)
+    if(!city.nil?)
       d_address.concat(",").concat(city)
     end
-    
-    if(! province.nil?)
+    if(!province.nil?)
       d_address.concat(",").concat(province)
     end
   end
@@ -67,5 +69,84 @@ class Business < ActiveRecord::Base
   def gmaps4rails_infowindow
     # add here whatever html content you desire, it will be displayed when users clicks on the marker
     "#{self.name}<br/>#{self.display_address}<br/>#{self.phone_no}"
+  end
+
+  def Business.search_by_district_subsection(city,district_subsection, price_point, categories, page )
+    sql = String.new
+    sql <<
+      "SELECT b.*                                  \
+      FROM                                         \
+        businesses b                               \
+      WHERE                                        \
+            b.dna_pricepoint IN (?)                \
+        AND (b.deleted IS NULL OR                  \
+             b.deleted = ? )                       \
+        AND EXISTS ( SELECT 1                      \
+               FROM business_neighbourhoods bn     \
+                    ,neighbourhoods n              \
+               WHERE n.id=bn.neighbourhood_id      \
+                 AND bn.business_id=b.id           \
+                 AND n.district_subsection=?       \
+                 AND n.city=? )                    \
+        AND EXISTS ( SELECT 1                      \
+               FROM business_categories bc         \
+                    ,categories c                  \
+              WHERE c.id=bc.category_id            \
+              AND bc.business_id=b.id 	           \
+              AND (c.name IN (?) OR                \
+                   c.parent_name IN (?) OR
+                   c.parent_name IN ( SELECT 1                      \
+                                        FROM categories c1          \
+                                       WHERE c1.parent_name IN (?)) \
+                  ))                                                \
+      ORDER BY b.name"
+      db_businesses = Business.find_by_sql([sql,
+                                            PRICE_RANGE.fetch(price_point),
+                                            false,
+                                            district_subsection,
+                                            city,
+                                            categories,
+                                            categories,
+                                            categories]).paginate(:page => page, :per_page => 8)
+      return db_businesses
+  end
+  def Business.search_by_neighbourhood(city,neighbourhood, price_point, categories, page)
+      sql = String.new
+      sql <<
+      "SELECT b.*                                  \
+      FROM                                         \
+        businesses b                               \
+      WHERE                                        \
+            b.dna_pricepoint IN (?)                \
+        AND (b.deleted IS NULL OR                  \
+             b.deleted = ? )                       \
+        AND EXISTS ( SELECT 1                      \
+               FROM business_neighbourhoods bn     \
+                    ,neighbourhoods n              \
+               WHERE n.id=bn.neighbourhood_id      \
+                 AND bn.business_id=b.id           \
+                 AND n.neighbourhood=?             \
+                 AND n.city=? )                    \
+        AND EXISTS ( SELECT 1                      \
+               FROM business_categories bc         \
+                    ,categories c                  \
+              WHERE c.id=bc.category_id            \
+              AND bc.business_id=b.id 	           \
+              AND (c.name IN (?) OR                \
+                   c.parent_name IN (?) OR
+                   c.parent_name IN ( SELECT 1                      \
+                                        FROM categories c1          \
+                                       WHERE c1.parent_name IN (?)) \
+                  ))                                                \
+      ORDER BY b.name"
+      db_businesses = Business.find_by_sql([sql,
+                                            PRICE_RANGE.fetch(price_point),
+                                            false,
+                                            neighbourhood,
+                                            city,
+                                            categories,
+                                            categories,
+                                            categories]).paginate(:page => page, :per_page => 8)
+      return db_businesses
   end
 end

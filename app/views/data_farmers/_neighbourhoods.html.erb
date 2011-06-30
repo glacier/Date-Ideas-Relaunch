@@ -1,0 +1,7 @@
+<%= form_for @data_farmer, :remote => true, :url => { :action => 'farm' } do  |form|  %>
+        <% if !neighbourhoods.blank? %>
+          <%= select_tag(:neighbourhood, options_for_select(:collection=>neighbourhoods.collect{|n| [n.neighbourhood]}.insert(0,['All Neighbourhoods','all_neighbourhoods']))) %>
+        <% else %>
+          <%= select_tag(:neighbourhood, options_for_select([['All Neighbourhoods','all_neighbourhoods']])) %>
+        <% end %>
+<% end %>

@@ -68,7 +68,8 @@ $(document).ready(function() {
 	// Wizard UI indicator while loading results
 	$('#main input[name="commit"]').click(function(){
 		$("form:first").submit();
-		$('#wizard_loader').attr('style', 'display:block');
+		$('#wizard_loader img').removeClass('ajax-hidden');
+		
 		$('select').attr('disabled', 'disabled');
 		$('input').attr('disabled', 'disabled');
 	});

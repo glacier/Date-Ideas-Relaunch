@@ -1,0 +1,17 @@
+/* Wizard: Large green search button */
+.search-btn-large {
+	@include fancy-button-structure(26px, 0.4em, 0px);
+	@include fancy-button-colors-matte(darken(#aee239, 10));
+	/* override */
+	font-family: Helvetica;
+	width: 300px;
+	height: 60px;
+	
+	/* courtesy of ZURB super awesome buttons */
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+	border-top: 1px solid rgba(0,0,0,0.1);
+	border-bottom: 1px solid rgba(0,0,0,0.25);
+  	text-shadow: #3e5900 0px 1px 1px;
+}
