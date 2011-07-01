@@ -1,19 +1,18 @@
-/* dateideas application-wide custom css */
+/* DateIdeas application-wide styles */
 html, body {
 	height: 100%;
 }
 body {
-	h2 {
-		margin-bottom: 0px;
-	}
 	a {
 		@include hover-link;
 	}
-	background: {
-		color: #FFF;
-	}
+	background: #fcfcfc url('/images/di-body-background.png') repeat fixed; 
+/*	background-color: #fcfcfc;*/
 }
 
+input[type="text"] {
+	color: #CCCCCC;
+}
 hr {
 	height:0px;
 	background:{
@@ -25,6 +24,7 @@ hr {
 	height: 75px;
 	background-color: #000;
 	color: #FFF;
+	
 	a {
 		color: #FFF;
 	}
@@ -32,10 +32,10 @@ hr {
 		padding-top: 10px;
 		float: left;
 	}
-	
 	#user_nav {
 		float: right;
 		padding-top: 25px;
+		
 		ul {
 			@include horizontal-list(10px, left);
 			font:{
@@ -52,8 +52,8 @@ hr {
 }
 
 #sidebar_left {
-	padding-top: 45px;
 	@include pie-clearfix;
+	padding-top: 45px;
 	height: 600px;
 }
 
@@ -62,12 +62,9 @@ hr {
 }
 
 #main {
+	@include heading2;
 	padding-top: 45px;
-	h2 {
-		font-size: 25px;
-		font-weight: bold;
-		color: #535353;
-	}
+	
 	.di_biz_name a {
 		color: #40c0cb;
 	}
@@ -75,15 +72,16 @@ hr {
 
 #sidebar_right {
 	padding-top: 45px;
-	background-color: #F9F2E7;	
+	background-color: #F9F2E7;
 }
 
 #sidebar_right_pinned {
 	background-color: #FFF;
 }
+
 #footer {
-	font-size: 14px;
 	@include horizontal-list(10px, left);
+	font-size: 14px;
 }
 
 .dialog {
@@ -92,7 +90,7 @@ hr {
 
 
 .admin {
-		color: red;
+	color: red;
 }
 
 /* Site Elements */
@@ -103,49 +101,37 @@ hr {
 
 .di_module_section {
 	padding-top: 5px;
+	
 	fieldset {
 		text-align: center;
 	}
 }
 
 .di_module {
+	@include heading5;
 	margin-bottom: 20px;
-	#di_module_header_tail {
-		float: left;
-		background: #FFF url("/images/right_tail_shorter.png") no-repeat right;
-		height: 35px;
-		width: 31px;
-	}
-	h4 {
-		margin:{
-			right: 0px;
-			bottom: 15px;
-		}
-		span {
-			float: left;
-			position: relative;			
-			left: 20px;
-			top: 10px;
-			text-transform: uppercase;
-		}
-		span.icon {
-			float: right;
-			position: relative;
-			top: 8px;
-			left: -10px;
-		}
-		background: #FFF url("/images/sliver_shorter.png") repeat-x;
-		color: #FFF;
-		height: 35px;
-		/* add box shadow */
-	}
+	
 	fieldset {
 		padding:0;
 		margin-bottom: 15px;
 	}
 }
 
+.di_module_large {
+	@include heading3;
+}
 
+.di_module_medium {
+	@include heading4;
+	padding-left: 30px;
+}
+
+.di_module_header_tail {
+	float: left;
+	background: url("/images/right_tail_shorter.png") no-repeat right;
+	height: 35px;
+	width: 31px;
+}
 
 /* ajax update container fading */
 .ajax_load_and_fade {

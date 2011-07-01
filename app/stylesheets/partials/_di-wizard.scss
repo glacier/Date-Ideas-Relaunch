@@ -1,24 +1,16 @@
 /* Wizard view */
 .di_wizard {
+	@include heading1;
+	
 	form, table {
 		font: 18px helvetica;
 	}
 	table {
 		margin-bottom: 12px;
 	}
-	h1 {
-		font: bold 56px helvetica,arial,sans-serif;
-		text-align: center;
-		color: #535353;
-		margin-bottom: 20px;
-	}
 	select {
 		font-size: 18px;
 		width: 200px;
-	}
-	tr {
-/*		background-color: #40c0cb;*/
-		background-color: #FFF;
 	}
 	td {
 		margin:0;
@@ -30,7 +22,7 @@
 		height: 10px;
 	}
 	td.banner {
-		background: #FFF url("/images/di_wizard_tail2.png") no-repeat;
+		background: url("/images/di_wizard_tail2.png") no-repeat;
 	}
 	td.question_text {
 		background: url("/images/di_wizard_bg_sliver.png") repeat-x;
@@ -47,13 +39,11 @@
 	.ajax-hidden {
 		display:none;
 	}
-	
 	#logo {
 		padding:{
 			bottom: 40px;
 		};
 	}
-	
 	#di_whatis_icons {
 		padding-left: 30px;
 		padding-top: 45px;
@@ -63,7 +53,6 @@
 			bottom: 25px;
 		};
 	}
-
 	#di_whatis_text {
 		@include pie-clearfix;
 		padding-bottom: 40px;

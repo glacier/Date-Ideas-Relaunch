@@ -10,10 +10,10 @@
 
 .di_biz {
 	@include results_container;
+
 	.di_biz_name {
 	    font-weight: bold;
 	}
-	
 	.di_biz_info {
 		@include pie-clearfix;
 		.di_biz_desc {
@@ -28,7 +28,6 @@
 			}
 		}
 	}
-	
 	.di_biz_add {
 		position: relative;
 		left: 45px;
@@ -36,7 +35,6 @@
 			text-align: center;
 		}
 	}
-
 	.di_biz_yelp_reviews {
 	}
 	
