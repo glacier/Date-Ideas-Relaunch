@@ -1,32 +1,27 @@
 /* DateIdeas application-wide styles */
-html, body {
-	height: 100%;
-}
 body {
-	a {
-		@include hover-link;
+	background: $body-bg-color url('/images/di-body-background-1.png') repeat fixed;
+	input[type="text"], input[type="password"] {
+		color: #CCC;
+		border-radius: 4px;
+		width:180px;
 	}
-	background: #fcfcfc url('/images/di-body-background.png') repeat fixed; 
-/*	background-color: #fcfcfc;*/
+	a {
+		@include unstyled-link;
+		color: $link-color;
+	}
 }
 
-input[type="text"] {
-	color: #CCCCCC;
-}
 hr {
-	height:0px;
-	background:{
-		color: $quiet-bg-color;
-	};
+	border:0px !important;
 }
 
 #header {
 	height: 75px;
-	background-color: #000;
-	color: #FFF;
-	
+	background-color: $header-bg-color;
+	color: $header-txt-color;
 	a {
-		color: #FFF;
+		color: $header-txt-color;
 	}
 	#logo {
 		padding-top: 10px;
@@ -41,7 +36,6 @@ hr {
 			font:{
 				size: 16px;
 			};
-			color: #FFF;
 		}
 	}
 }
@@ -64,19 +58,15 @@ hr {
 #main {
 	@include heading2;
 	padding-top: 45px;
-	
-	.di_biz_name a {
-		color: #40c0cb;
-	}
 }
 
 #sidebar_right {
 	padding-top: 45px;
-	background-color: #F9F2E7;
+	background-color: $sidebar-right-bg-color;
 }
 
 #sidebar_right_pinned {
-	background-color: #FFF;
+	background-color: $sidebar-left-bg-color;
 }
 
 #footer {
@@ -123,14 +113,14 @@ hr {
 
 .di_module_medium {
 	@include heading4;
-	padding-left: 30px;
+	padding-left: 20px;
 }
 
 .di_module_header_tail {
 	float: left;
-	background: url("/images/right_tail_shorter.png") no-repeat right;
-	height: 35px;
-	width: 31px;
+	background: url("/images/right_tail_shorter-1.png") no-repeat right;
+	height: 37px;
+	width: 30px;
 }
 
 /* ajax update container fading */

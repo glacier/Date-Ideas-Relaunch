@@ -1,3 +1,19 @@
+// Helper functions for toggling input text fields
+function clear_input(inputbox){
+    input_text = inputbox.val();
+    if(input_text == inputbox.attr('title')){
+        inputbox.val('');                           
+    }
+}
+
+function show_input(inputbox) {
+    input_text = inputbox.val();
+    if (input_text == '' || input_text == ' ') {
+        inputbox.val(inputbox.attr('title'));
+        inputbox.css("color", "#CCC");
+    }
+}
+
 //dateideas core javascript
 $(document).ready(function() {
 	//pin an element to the page
@@ -82,4 +98,19 @@ $(document).ready(function() {
 			$('#main_results').removeClass('ajax_load_and_fade');
 		}).submit();
 	});
+	
+	//Toggle all input text and password fields on site
+	//Set title attribute of input to show toggle texts
+	$('input[type="text"],input[type="password"]').each(function(){
+		$(this).val($(this).attr('title'));
+	});
+	
+	$('input[type="text"],input[type="password"]').focus(function(){
+		console.log("test");
+        $(this).css("color","black");
+        clear_input($(this));
+    }).blur(function(){
+        show_input($(this));
+    });
+
 });

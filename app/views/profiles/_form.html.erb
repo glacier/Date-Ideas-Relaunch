@@ -13,23 +13,28 @@
 	<table>
 		<tbody>
 			<tr>
-				<td><%= f.text_field :city, :value=>"Toronto" %></td>
+				<td><%=f.label :city %></td>
+				<td><%= f.select(:city, [['Toronto', 'toronto'], ['Montreal', 'montreal']]) %></td>
 				<td>Your default location</td>
 			</tr>
 			<tr>
-				<td><%= f.text_field :relationship_status, :value=>"Relationship Status" %></td>
+				<td><%=f.label :relationship_status %></td>
+				<td><%= f.select :relationship_status, [['Single', 'single'], ['Dating', 'dating'], ['Long-term relationship', 'long_term'], ['Engaged', 'engaged'], ['Married', 'married']], {:include_blank => 'Not telling'} %></td>
 				<td></td>
 			</tr>
 			<tr>
-				<td><%= f.text_field :sig_other_name, :value=>"Name of significant other" %></td>
+				<td><%=f.label :sig_other_name %></td>
+				<td><%= f.text_field :sig_other_name, :title=>"Name of significant other" %></td>
 				<td></td>
 			</tr>
 			<tr>
+				<td><%=f.label :anniversary %></td>
 				<!-- use date picker here? -->
 				<td><%= f.date_select :anniversary, :include_blank => true %></td>
 			</tr>
 			<tr>
-				<td><%= f.text_field :about_me, :value =>"Bio" %></td>
+				<td><%=f.label :about_me %></td>
+				<td><%= f.text_field :about_me, :title =>"Bio" %></td>
 				<td></td>
 			</tr>
 		</tbody>

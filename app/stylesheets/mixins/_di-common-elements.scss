@@ -8,12 +8,11 @@
 
 @mixin heading-banner-common($size, $color:#FFF, $weight:normal) { 
 	@include heading-common($size, $color, $weight);
-	background: #FFF url("/images/sliver_shorter.png") repeat-x;
-	height: 35px;
+	background: #FFF url("/images/sliver_shorter-1.png") repeat-x;
+	height: 37px;
 	
-	/* add box shadow */
 	margin:{
-		right: 0px;
+		right: 0px !important;
 		bottom: 15px;
 	}
 	span {
