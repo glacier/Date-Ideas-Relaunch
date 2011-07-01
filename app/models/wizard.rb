@@ -12,13 +12,15 @@ class Wizard
                   ['Moderate','moderate'],
                   ['High Roller','high_roller']]
 
-  attr_accessor :venue, :location, :price_point, :response, :businesses, :restaurant,
+  attr_accessor :venue, :event_category, :event_date, :location, :price_point, :response, :businesses, :restaurant,
                 :activity, :dessert, :neighbourhood_name, :events, :neighbourhoods, :neighbourhood,
                 :sub_categories, :sub_category
   
-  def initialize(venue="", location="", price_point="")
+  def initialize(venue="", event_cat="", event_date="", location="", price_point="")
     @venue = venue
     @location = location
+    @event_category = event_cat
+    @event_date = event_date
     @price_point = price_point
     @businesses = Array.new
   end

@@ -1,15 +1,15 @@
 <% session['venue_type'] = params['venue'] %>
 <%= stylesheet_link_tag("wizard.css") %>
 
-<%= title("Search") %>
+<%= title("Search - Venues") %>
 
 <%= content_for :sidebar_map do %>
 	<%# Design decision: No map with results (for now)%>
 <% end %>
 
 <%= content_for :sidebar_filters do %>
-	<%= render 'breadcrumb' %>
-  <%= render "filter" %>
+  <%= render :partial => "breadcrumb", :locals => {:location_text => nil} %>
+	<%= render "filter" %>
 <% end %>
 
 <%= content_for :sidebar_cart do %>
@@ -17,31 +17,25 @@
 <% end %>
 
 <% @cart_items = @datecart.cart_items %>
-
-<h2> 
-	Results for 
-	<span class='dynamic_text'><%= get_display_text(params['venue']) %></span> 
-</h2>
-<hr/>
 <div id="main_results">
 	<%= render :partial => 'business_results', :locals => {:cart_items => @cart_items} %>
 </div>
 
 <%= content_for :main_related do %>
-	<h2>Related Events</h2>
-	<div id="di_related_info">
-    <% if ( !@wizard.events.nil? ) %>
-			<% @wizard.events.each do |event| %>
-				<div class="di_event">
-					<%= render :partial => 'shared/event_item', :locals => {:event => event, :title_size => 'event_title_small', :size => 100} %>
-					<div class="di_event_add">
-						<%= render :partial => 'shared/add_event_buttons', :locals => {:event => event, :cart_items => @cart_items} %>
+  <% if ( !@wizard.events.nil? ) %>
+		<div id="di_related_info">
+			<h3>Related Events</h3>
+				<% @wizard.events.each do |event| %>
+					<div class="di_event">
+						<%= render :partial => 'shared/event_item', :locals => {:event => event, :title_size => 'event_title_small', :size => 100} %>
+						<div class="di_event_add">
+							<%= render :partial => 'shared/add_event_buttons', :locals => {:event => event, :cart_items => @cart_items} %>
+						</div>
 					</div>
-				</div>
-			<% end %>
-    <% end %>
-		<p><%= link_to "See more at eventful.com >>", eventful_url("Toronto", params['venue'], "Next+7+Days","Popularity") %></p>
-	</div>
+				<% end %>
+			<p><%= link_to "See more at eventful.com >>", eventful_url("Toronto", params['venue'], "Next+7+Days","Popularity") %></p>
+		</div>
+  <% end %>
 <% end %>
 
 <div id="ajax_paginate">

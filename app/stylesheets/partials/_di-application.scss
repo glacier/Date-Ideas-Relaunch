@@ -130,6 +130,10 @@ hr {
 	background: #FFF url('/images/ajax-loader-large.gif') no-repeat fixed center;
 }
 
+.ajax-hidden {
+	display:none;
+}
+
 /* styles for pinning various elements on the page */
 .pin-left {
 	position: fixed;

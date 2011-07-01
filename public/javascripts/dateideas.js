@@ -83,7 +83,6 @@ $(document).ready(function() {
 		
 	// Wizard UI indicator while loading results
 	$('#main input[name="commit"]').click(function(){
-		// $(this).submit();
 		$("form:first").submit();
 		$('#wizard_loader img').removeClass('ajax-hidden');
 		
@@ -91,12 +90,14 @@ $(document).ready(function() {
 		$('input').attr('disabled', 'disabled');
 	});
 	
-	$('#di_filter_section select').change(function(){
-		$("form:first").live("ajax:beforeSend", function(){
+	$('#di_filter_section select').live('change', function(){
+		$('#di_filter_section select').attr('disabled', false);
+		$("form:first").live("ajax:beforeSend", function(){			
 			$('#main_results').addClass('ajax_load_and_fade');
-		}).live("ajax:complete", function(){
-			$('#main_results').removeClass('ajax_load_and_fade');
-		}).submit();
+		}).submit();		
+		// Show spinners around the page to indicate results are being loaded
+		$('.filter_loaders').removeClass('ajax-hidden');
+		$('select').attr('disabled', 'disabled');
 	});
 	
 	//Toggle all input text and password fields on site
@@ -112,5 +113,4 @@ $(document).ready(function() {
     }).blur(function(){
         show_input($(this));
     });
-
 });
