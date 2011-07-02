@@ -10,6 +10,17 @@
       <%= select_tag(:venue, options_for_select(Wizard::VENUES))%>
     </td>
   </tr>
+	<tr class="blank">
+	</tr>
+  <tr class="question">
+		<td class="banner"></td>
+    <td class="question_text">
+        <%= label_tag(:price_point,"Choose your city:") %>
+    </td>
+		<td class="question_text">
+        <%= select_tag(:city, options_for_select(Wizard::CITY)) %>
+    </td>
+  </tr>
   <tr class="blank">
   </tr>
   <tr class="question">
@@ -32,6 +43,7 @@
         <%= select_tag(:price_point, options_for_select(Wizard::PRICE_POINTS)) %>
     </td>
   </tr>
+
 </table>
 <div class="prepend-5">
 	<div id="wizard_loader" class="prepend-1" style="height:35px"> 

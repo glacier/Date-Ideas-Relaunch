@@ -1,4 +1,5 @@
 class Wizard
+  CITY = [['Toronto', 'toronto'], ['Montreal', 'montreal']]
   VENUES = [['Food','food'],
             ['Bars','bars'],
             ['Arts & Entertainment','arts_entertainment'],
