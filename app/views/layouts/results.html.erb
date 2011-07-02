@@ -1,21 +1,28 @@
-<% content_for :header do %>
+<%= content_for :header do %>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			height = $('#content').outerHeight() + 112;
+			$('#sidebar_right').height(height);
+		});
+	</script>
+<% end %>
+
+<%= content_for :header do %>
 <div id="logo">
 	<%= link_to root_path do %> 
-		<%=image_tag "logo_beta.png"%>
+		<%=image_tag "di_logo_white.png", :width => 90, :height => 60 %>
 	<% end %>
 </div>
 <% end %>
 
-<% content_for :content do %>
-	<div id="sidebar_left" class="span-7">
-		<div id="sidebar_left_content" class="span-5">
-			<div id="sidebar_left_pinned">
-				<%# yield :sidebar_map %>
-				<%= yield :sidebar_filters %>
-			</div>
+<%= content_for :content do %>
+	<div id="sidebar_left" class="span-6 append-1">
+		<div id="sidebar_left_pinned">
+			<%# yield :sidebar_map %>
+			<%= yield :sidebar_filters %>
 		</div>
 	</div>
-	<div id="main" class="span-10">
+	<div id="main" class="span-11 append-1">
 		<h2>Results for <span class='dynamic_text'><%= get_display_text(params['venue']) %></span>
 				<span class='filter_loaders ajax-hidden'><%= image_tag 'ajax-loader-medium.gif' %></span>
 		</h2>
@@ -24,12 +31,12 @@
 		<hr/>
 		<%= yield :main_related %>
 	</div>
-	<div id="sidebar_right" class="span-7 last">
-		<div id="sidebar_right_content" class="span-6">
-			<div id="sidebar_right_pinned">
-				<%= yield :sidebar_cart %>
-			</div>
+	
+	<div id="sidebar_right" class="span-5 last">
+		<div id="sidebar_right_pinned">
+			<%= yield :sidebar_cart %>
 		</div>
 	</div>
 <% end %>
+
 <%= render :file => 'layouts/application' %>

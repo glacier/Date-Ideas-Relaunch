@@ -1,37 +1,6 @@
 /* Date Ideas events related CSS */
-
-/* Eventful required css for logo */
-.eventful-badge,
-.eventful-badge * {
-  margin: 0             !important;
-  padding: 0            !important;
-  border: 0             !important;
-/*  text-align: center    !important;*/
-  color: #CCC           !important;
-  font-family: Arial    !important;
-  text-decoration: none !important;
-}                                     
-.eventful-small {     
-  position: relative    !important;
-  left: 20px;
-/*  width: 139px          !important;*/
-  font-size: 8px       !important;
-  line-height: 8px     !important;
-}
-
 .di_event {
-	margin-top: 20px;
-	padding: {
-		top: 5px;
-		bottom: 10px;
-	}
-	h4 {
-		margin-bottom: 5px;
-	}
-	width: 400px;
-	@include pie-clearfix;
-	@include box-shadow(#CCC 2px 2px 1px);
-	@include border-radius(5px);
+	@include results_container;
 }
 
 #event_venue_name,#event_address,#event_time {
@@ -62,6 +31,25 @@
 	float: left;
 	display: block;
 	border: 1px;
+}
+
+/* Eventful required css for logo */
+.eventful-badge,
+.eventful-badge * {
+  margin: 0             !important;
+  padding: 0            !important;
+  border: 0             !important;
+/*  text-align: center    !important;*/
+  color: #CCC           !important;
+  font-family: Arial    !important;
+  text-decoration: none !important;
+}                                     
+.eventful-small {     
+  position: relative    !important;
+  left: 20px;
+/*  width: 139px          !important;*/
+  font-size: 8px       !important;
+  line-height: 8px     !important;
 }
 
 /* Some unstyled elements */

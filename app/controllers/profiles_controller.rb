@@ -21,7 +21,7 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
     respond_to do |format|
       if @profile
-        format.html
+        format.html { render :action => 'show', :layout => 'dashboard' }
       else
         logger.debug('profile does not exist')
         if params[:id].to_i == current_user.id
@@ -44,6 +44,7 @@ class ProfilesController < ApplicationController
 
   def edit    
     @profile = current_user.profile
+    render :layout => 'dashboard'
   end
 
   # POST /profiles
