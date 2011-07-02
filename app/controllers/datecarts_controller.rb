@@ -2,14 +2,17 @@ class DatecartsController < ApplicationController
   # GET /datecarts
   # GET /datecarts.xml
   load_and_authorize_resource
-  
+  include DatecartsHelper
+
+  before_filter :authenticate_user!, :except => :subscribe
+
   def index
     @datecarts = Datecart.all
 
     respond_to do |format|
       format.js
       format.html # index.html.erb
-      format.xml  { render :xml => @datecarts }
+      format.xml { render :xml => @datecarts }
     end
   end
 
@@ -20,7 +23,7 @@ class DatecartsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @datecart }
+      format.xml { render :xml => @datecart }
     end
   end
 
@@ -28,12 +31,12 @@ class DatecartsController < ApplicationController
   # GET /datecarts/new.xml
   def new
     @datecart = Datecart.new
-      
+
     session[:datecart_id] = @datecart.id
     respond_to do |format|
       format.js
       format.html # new.html.erb
-      format.xml  { render :xml => @datecart }
+      format.xml { render :xml => @datecart }
     end
   end
 
@@ -50,10 +53,10 @@ class DatecartsController < ApplicationController
     respond_to do |format|
       if @datecart.save
         format.html { redirect_to(@datecart, :notice => 'Datecart was successfully created.') }
-        format.xml  { render :xml => @datecart, :status => :created, :location => @datecart }
+        format.xml { render :xml => @datecart, :status => :created, :location => @datecart }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @datecart.errors, :status => :unprocessable_entity }
+        format.xml { render :xml => @datecart.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -66,10 +69,10 @@ class DatecartsController < ApplicationController
     respond_to do |format|
       if @datecart.update_attributes(params[:datecart])
         format.html { redirect_to(@datecart, :notice => 'Datecart was successfully updated.') }
-        format.xml  { head :ok }
+        format.xml { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @datecart.errors, :status => :unprocessable_entity }
+        format.xml { render :xml => @datecart.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -81,37 +84,44 @@ class DatecartsController < ApplicationController
     @datecart.destroy
 
     respond_to do |format|
-      format.js
-      format.html { redirect_to(current_user.profile) }
-      format.xml  { head :ok }
+      if current_user.profile
+        format.js
+        format.html { redirect_to(current_user.profile) }
+      else
+        render :nothing => true
+      end
+      format.xml { head :ok }
     end
   end
-  
+
   # datecart/:datecart_id/clear_cart
   # POST
   def clear_cart
-      @datecart = Datecart.find(params[:id])
-      @cleared_items = @datecart.cart_items.destroy_all
-      
-      respond_to do |format|
-        format.js
-        format.html {redirect_to(@datecart)}
-      end
+    @datecart = Datecart.find(params[:id])
+    @cleared_items = @datecart.cart_items.destroy_all
+
+    respond_to do |format|
+      format.js
+      format.html { redirect_to(@datecart) }
+    end
   end
-  
+
+  # Open the dialog to save a datecart from the search screen
+  def begin_complete
+    @datecart = Datecart.find(params[:id])
+    render :save_datecart
+  end
+
   # complete date planning
   def complete
-    if current_user
-      @datecart = Datecart.find(params[:id])
-      @datecart.update_attributes(:user_id => current_user.id)
-      if current_user.profile.nil?
-        redirect_to(@datecart, :notice => 'Datecart was successfully updated.')
-      else
-        redirect_to(current_user.profile)
-      end
+    # User has to be logged in to reach here
+    @datecart = Datecart.find(params[:id])
+    params[:datecart][:datetime] = DateTime.parse params[:datecart][:datetime]
+    @datecart.update_attributes(params[:datecart].merge({:user_id => current_user.id}))
+    if @profile = current_user.profile
+      redirect_to(@profile)
     else
-      # Devise not set to create users RESTFULLY 
-      redirect_to(new_user_session_path)
+      redirect_to(@datecart, :notice => 'Datecart was successfully updated.')
     end
   end
 
@@ -124,9 +134,55 @@ class DatecartsController < ApplicationController
       redirect_to(new_user_session_path)
     end
   end
-  
-  # render print view
+
+  # Render print view
   def print
     @datecart = Datecart.find(params[:id])
+  end
+
+  # Render the calendar popup (should only be quered via remote javascript request)
+  def calendar
+    @datecart = Datecart.find(params[:id])
+  end
+
+  # Send the calendar as a file download, native file extensions should then handle everything (i.e. outlook)
+  def download_calendar
+    @datecart = Datecart.find(params[:id])
+    send_data generate_vcalendar(@datecart, :download), :filename => "my_date.ics", :type => "text/calendar"
+  end
+
+  # Generate the vcal associated the datecart. Allows calendar programs to query for any updates regularly
+  def subscribe
+    @datecart = Datecart.find(params[:id])
+    render :text => generate_vcalendar(@datecart, :subscribe)
+  end
+
+  private
+
+  # Some samples from eventful for reference
+  # ical: 'webcal://eventful.com/toronto/ical/events/nkotbsb-tour-new-kids-block-and-backstreet-boys-/E0-001-035309535-0'
+  #outlook: 'http://eventful.com/toronto/ical/events/nkotbsb-tour-new-kids-block-and-backstreet-boys-/E0-001-035309535-0'
+
+  def generate_vcalendar datecart, type
+    <<-VCAL
+BEGIN:VCALENDAR
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+PRODID:-//gdi//GetDateIdeas//EN
+VERSION:2.0
+BEGIN:VEVENT
+DTSTAMP:#{format_time DateTime.now}Z
+DTSTART:#{format_time datecart.datetime}Z
+DTEND:#{format_time datecart.datetime}Z
+SUMMARY: Date Ideas: #{datecart.name}
+PRIORITY:0
+CATEGORIES:DATE
+CLASS:PRIVATE
+URL:#{request.env["REQUEST_URI"]}
+DESCRIPTION: #{datecart.notes}
+LOCATION: TODO: generate this based on sorted locations for datecart
+END:VEVENT
+END:VCALENDAR
+    VCAL
   end
 end

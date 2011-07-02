@@ -1,0 +1,27 @@
+<% session['venue_type'] = params['venue'] %>
+
+<%= stylesheet_link_tag("wizard.css") %>
+
+<%= title("Search - Events") %>
+
+<%= content_for :sidebar_filters do %>
+	<fieldset id="di_filters">
+			<%= render :partial => 'breadcrumb', :locals => { :location_text => "Toronto" } %>
+      <%= render "filter" %>
+	</fieldset>
+<% end %>
+
+<%= content_for :sidebar_cart do %>
+	<div id="di_datecart">
+		<%= render @datecart %>
+	</div>
+<% end %>
+
+<% @cart_items = @datecart.cart_items %>
+<div id="main_results">
+	<%= render :partial => 'event_results' %>
+</div>
+
+<div id="ajax_paginate">
+	<%= will_paginate @wizard.events %>
+</div>

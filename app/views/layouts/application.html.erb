@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DateIdeas.ca | <%= content_for?(:title) ? yield(:title) : 'Make it a great Date.' %></title>
+  <title>DateIdeas.ca | <%= content_for?(:title) ? content_for(:title) : 'Make it a great Date.' %></title>
   <%= yield :head %>
-  <%= stylesheet_link_tag 'di.css' %>
+
   <%= stylesheet_link_tag 'compiled/screen.css', :media => 'screen, projection' %>
   <%= stylesheet_link_tag 'compiled/print.css', :media => 'print' %>
   <!--[if lt IE 8]> <%= stylesheet_link_tag 'compiled/ie.css', :media => 'screen, projection' %> <![endif]-->
 
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
-  <!-- %= javascript_include_tag "http://maps.google.com/maps?file=api&v=3.3&sensor=true&key=ABQIAAAAPykA5RAR6EyCOpLSM2i1ixRNc1IYPKVGk-SIdG4lEdSAsvBTlRSSkM-qzMzVi4YWslSu0OGheV6nJg" % -->
-  <%# javascript_include_tag "http://maps.google.com/maps/api/js?v=3.3&sensor=false" %>
   <%= stylesheet_link_tag    "jquery.ui.all.css" %>
-  <%= stylesheet_link_tag    "jquery.ui.theme.css" %>
-  <%# javascript_include_tag "jquery.min.js","jquery.rails.js" %>
   <%= javascript_include_tag "jquery-ui.min.js" %>
   <%= javascript_include_tag "jquery.ui.core.js" %>
   <%= javascript_include_tag "jquery.ui.widget.js" %>
@@ -22,54 +18,29 @@
   <%= javascript_include_tag "jquery.ui.selectable.js" %>
   <%= javascript_include_tag "jquery.ui.accordion.js" %>
   <%= javascript_include_tag "autocomplete-rails.js" %>
-  <%# stylesheet_link_tag    "jquery.lightbox-0.5.css" %>
-  <%# javascript_include_tag "jquery.lightbox-0.5.js" %>
-	<%= javascript_include_tag "jquery-ui-timepicker-addon.js" %>
-	
-  <!-- jquery google maps plugin -->
-  <%# javascript_include_tag "markermanager.js" %>
-  <%# javascript_include_tag "StyledMarker.js" %>
-  <%# javascript_include_tag "jquery.metadata.js" %>
-  <%# javascript_include_tag "jquery.jmapping.js" %>
-	
-	<!-- dateideas -->
-  <%= javascript_include_tag "dateideas.js" %>
+  <%= javascript_include_tag "jquery-ui-timepicker-addon.js" %>
 
+	<!-- dateideas custom js -->
+  <%= javascript_include_tag "application.js" %>
+  <%= javascript_include_tag "dateideas.js" %>
+  <%= yield :scripts %>
 </head>
 <body>
-	<div class="container">			
-		<div id="header" class="span-25 last">
-			<!-- <p class="notice">Notices: <%= notice %></p> -->
+	<div id="header">
+		<div class="container">
 			<div id="user_nav" class="last">
 				<%= render 'shared/navigation' %>
 			</div>
-			<h1 id="logo"><%= link_to root_path do %> <%=image_tag "logo_beta.png"%><% end %></h1>
 			<%= yield :header %>
 		</div>
-		<hr/>
-		<div id="content" class="span-25 last">
-			<div id="sidebar_left" class="span-7">
-				<div id="sidebar_left_pinned" class="span-7">
-					<%= yield :sidebar_map %>
-					<hr/>
-					<%= yield :sidebar_filters %>
-				</div>
-			</div>
-			<div id="main" class="span-12">
-				<%= yield %>
-			</div>
-			<div id="sidebar_right" class="span-6 last">
-				<div id="sidebar_right_pinned" class="span-6">
-					<%= yield :sidebar_cart %>
-					<hr/>
-					<%= yield :sidebar_info %>
-				</div>
-			</div>
+	</div>
+	
+	<div class="container">
+		<div id="content" class="span-24 last">
+			<%= content_for?(:content) ? yield(:content) : yield %>
 		</div>
 		<hr/>
-		<div id="footer" class="last">© 2010 Date Ideas</div>
-
+		<%= render 'shared/footer' %>
 	</div>
-    <%= yield :scripts %>
 </body>
 </html>

@@ -2,27 +2,42 @@ require 'eventful/api'
 #Implements a rails adaptor for the eventful api
 #Uses the eventfulapi gem
 class DateIdeas::EventfulAdaptor
-  
   def initialize
     begin
       @app_key = '7zXsjWk67F7qVKtq'
       @eventful = Eventful::API.new @app_key
     rescue Eventful::APIError => e
-      logger.info("There was a problem with the API: #{e}")
+      Rails.logger.info("There was a problem initializing the Eventful API: #{e}")
     end
   end
 
-  def search(query, location)
-    # result is a ruby hash
-    results = @eventful.call 'events/search',
-                             :date => 'future',     
-                             :keywords => query,
-                             :location => location,
-                             :page_size => 3,
-                             :units => 'km',
-                             :mature => 'normal',
-                             :sort_order => 'popularity'
-    unless results['events'].nil?
+  def search(venue_type, date, location, num_pages)
+    if Event.EVENT_CATEGORY.has_key?(venue_type)
+      category = Event.EVENT_CATEGORY.fetch(venue_type)
+    else
+      category = venue_type
+    end
+    
+    # keywords = Event.EVENT_KEYWORDS.fetch(venue_type)
+    results = nil
+    
+    begin
+      #a ruby hash is returned from an API call
+      results = @eventful.call 'events/search',
+                               :date => date,
+                               # :keywords => keywords,
+                               :category => category,
+                               :within => 5,
+                               :location => location,
+                               :page_size => num_pages,
+                               :units => 'km',
+                               :mature => 'normal',
+                               :sort_order => 'date'
+    rescue Exception => e
+      Rails.logger.info("Eventful API call failed with error " + e)
+    end
+    
+    unless results.nil? and results['events'].nil?
       return create_events(results['events']['event'])
     end
     
@@ -46,6 +61,7 @@ class DateIdeas::EventfulAdaptor
     event.eventid = event_id.gsub('@','-')
     event.title = event_hash['title']
     event.url = event_hash['url']
+    
     event.photo_url = get_photo_url(event_hash, 'medium')
     event.start_time = get_time(event_hash['start_time'])
     event.end_time = get_time(event_hash['end_time'])

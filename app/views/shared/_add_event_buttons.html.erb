@@ -1,9 +1,13 @@
-<!-- This is the master view for event add/remove buttons -->
+<span>
+	<%= link_to("Read More", event.url, :class => "add_button") %>
+</span>
+
+<%# Check if an event has been added to the cart %>
 <% @cart_item = CartItem.joins(:event).where(:events=>{:eventid => event.eventid}, :datecart_id => @datecart.id).first %>
 <span id="event_<%= event.eventid %>">
 	<% if @cart_item.nil? %>
 		<%= render :partial => 'add_event', :locals => {:datecart => @datecart, :eventid => event.eventid, :venue_type => params[:venue_type]} %>
 	<% else %>
-		<%= render :partial => 'remove', :locals => {:datecart => @datecart} %>
+		<%= render :partial => 'remove_event', :locals => {:datecart => @datecart} %>
 	<% end %>
 </span>

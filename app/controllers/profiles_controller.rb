@@ -18,16 +18,15 @@ class ProfilesController < ApplicationController
   end
   
   def show
+    @profile = Profile.find(params[:id])
     respond_to do |format|
-      @profile = Profile.find_by_user_id(params[:id])
       if @profile
-        format.html
+        format.html { render :action => 'show', :layout => 'dashboard' }
       else
         logger.debug('profile does not exist')
         if params[:id].to_i == current_user.id
           format.html { redirect_to new_profile_path }
         else
-          # TODO: Profile not found error
           format.html { render :text => "This user profile does not exist" }
         end
       end
@@ -37,15 +36,15 @@ class ProfilesController < ApplicationController
   def new
       @profile = current_user.profile
       if @profile.nil?
-        @profile = current_user.build_profile(:user_id => current_user.id)
+        @profile = current_user.create_profile(:user_id => current_user.id)
       else
-        # TODO: Profile exists error
-        redirect_to(profile_url(@profile.user_id), :notice => "You already have an existing profile")
+        redirect_to(@profile, :notice => "You already have an existing profile")
       end
   end
 
   def edit    
     @profile = current_user.profile
+    render :layout => 'dashboard'
   end
 
   # POST /profiles
@@ -68,9 +67,9 @@ class ProfilesController < ApplicationController
   def update
     @profile = current_user.profile
     respond_to do |format|
-      unless @profile.nil?
+      if @profile
         if @profile.update_attributes(params[:profile])
-          format.html { redirect_to(profile_url(@profile.user_id), :notice => 'Profile was successfully updated.') }
+          format.html { redirect_to(@profile, :notice => 'Profile was successfully updated.') }
           format.xml  { head :ok }
         else
           format.html { render :action => "edit" }

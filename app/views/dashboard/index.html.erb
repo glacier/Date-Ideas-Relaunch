@@ -1,0 +1,22 @@
+<div id="yourdates_title">Your Dates</div>
+<div id="yourdates">
+  <% if @upcoming_datecarts.blank? %>
+      No upcoming dates planned.<br>
+      <%= link_to "+ Add Something New", wizard_index_path, :class => "datecart_buttons center", :remote => true %>
+      <div id="di_add_to_date" class="dialog"></div>
+  <% else %>
+      <%= render :partial => "dashboard/datecart", :collection => @upcoming_datecarts %>
+  <% end %>
+
+  <% if @unfinished_datecarts.blank? %>
+  <% end %>
+
+  <% if @past_datecart.blank? %>
+
+  <% else %>
+      In the past...
+      <%= render :partial => "dashboard/datecart", :locals => {:datecart => @past_datecart} %>
+  <% end %>
+
+  <% # render :partial => "dashboard/significant_dates/upcoming"  %>
+</div>

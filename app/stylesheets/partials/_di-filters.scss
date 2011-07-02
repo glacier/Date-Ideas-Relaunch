@@ -1,0 +1,30 @@
+#di_filter {
+	padding:{
+		top: 0;
+	};
+	select {
+		width: 220px;
+		font-size: 18px;
+	}
+	fieldset {
+		text-align: left;
+	}
+}
+
+#search_params {
+	@include inline-block-list;
+}
+
+#filter_options {
+	@include inline-block-list;
+	li {
+		padding-left:4px;
+	}
+}
+#di_breadcrumb_section {
+	font-size: 16px;
+}
+/*#di_filter_front, #di_breadcrumb {
+
+}
+*/

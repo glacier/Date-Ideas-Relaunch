@@ -1,16 +1,28 @@
 <%# View of the cart shown at the front page %>
-<div id="di_new_date" class="dialog"></div>
-<div id="di_add_to_date" class="dialog"></div>
-
-<fieldset id="di_cart_front">
+<div id="di_datecart" class="di_module">
+	<div id="di_new_date" class="dialog"></div>
+	<div id="di_add_to_date" class="dialog"></div>
 	<div id="di_edit_dialog" class="dialog">Dialog</div>
-	<h2>Your Date</h2>
-
-	<div id="datecart_items">
-		<%= render :partial => 'datecarts/datecart_items' %>
+	<h6><span>My Date Ideas</span><span class="icon"><%= image_tag 'datecart_pencil_icon.png' %></span></h6>
+	<div id="di_cart_front" class="di_module_section">
+		<fieldset id="datecart_items" class="datecart">
+			<%= render :partial => 'datecarts/datecart_items' %>
+		</fieldset>
 	</div>
-	<%= render :partial => 'datecarts/datecart_functions' %>
-	
-	<p><%= link_to "+ Add Something New", wizard_index_path, :class => "datecart_buttons", :remote => true %></p>
-	<p><%= link_to "Plan New Date", new_datecart_path, :class => "datecart_buttons", :remote => true %></p>
-</fieldset>
+	<h6><span> TODO:show date </span><span class="icon"><%= image_tag 'datecart_calendar_icon.png' %></span></h6>
+	<div>
+		<p>TODO: Add notes field</p>
+		<fieldset id="functions" class="datecart">
+			<%= render :partial => 'datecarts/datecart_functions' %>
+		</fieldset>
+		<div id="di_cart_status">
+			<% if @datecart.cart_saved? %>
+				Date plan has been saved.
+			<% else %>
+				Date plan has not been saved.
+			<% end %>
+		</div>
+		<hr/>
+		<p><%# link_to "Plan New Date", new_datecart_path, :class => "datecart_buttons", :remote => true %></p>
+	</div>
+</div>

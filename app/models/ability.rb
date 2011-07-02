@@ -10,17 +10,17 @@ class Ability
     # alias_action
     if user.role? :admin
       can :manage, :all
-      can :manage, :data_farmer
+      can :manage, :data_farmers
     else
       cannot :destroy, [Datecart, Profile]
-      cannot :manage, :data_farmer
+      cannot :manage, :data_farmers
       
       can :read, :all
       can [:create, :update], [Datecart, Profile, :Relationships]
 
       # Note: can another user see someone's unsaved Datecart?
       # I think they can.  This might be a security loop hole.
-      can [:complete, :email, :print, :clear_cart], Datecart
+      can [:begin_complete, :complete, :email, :print, :clear_cart, :calendar, :download_calendar, :subscribe], Datecart
       
       # Allow user to manage their own user account
       # Seems to be a linear search -- will it scale to many users/profiles?

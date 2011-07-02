@@ -1,8 +1,5 @@
 class DateIdeas::DnaService
-  PRICE_RANGE = { 'budget' => ['0','< $10','$10-$25'],
-                  'moderate' => ['$25-$50'],
-                  'high_roller' => ['$50+'],
-                 }
+
   CATEGORIES = { 'food' => ['food','restaurants'],
                  'bars' => ['bars'],
                  'activities_events' => ['active'],
@@ -12,79 +9,20 @@ class DateIdeas::DnaService
   def initialize(logger)
     @logger = logger
   end
-  def search(venue_type,location,price_point = 'budget',page = '1', per_page=10, neighbourhood = nil )
+  def search(venue_type,location,price_point = 'budget',page = '1', per_page=10, neighbourhood = nil, sub_category = nil )
     puts("DateIdeas.search:" << venue_type.to_s << ":" << location.to_s << ":" << price_point.to_s << ":" << page.to_s)
     neighbourhoods = Array.new
+    categories = Array.new
     sql = String.new
-    if( neighbourhood.nil? )
-        sql <<
-      "SELECT b.*                                  \
-      FROM                                         \
-        businesses b                               \
-      WHERE                                        \
-            b.dna_pricepoint IN (?)                \
-        AND (b.deleted IS NULL OR                  \
-             b.deleted = ? )                       \
-        AND EXISTS ( SELECT 1                      \
-               FROM business_neighbourhoods bn     \
-                    ,neighbourhoods n              \
-               WHERE n.id=bn.neighbourhood_id      \
-                 AND bn.business_id=b.id           \
-                 AND n.district_subsection=? )     \
-        AND EXISTS ( SELECT 1                      \
-               FROM business_categories bc         \
-                    ,categories c                  \
-              WHERE c.id=bc.category_id            \
-              AND bc.business_id=b.id 	           \
-              AND (c.name IN (?) OR                \
-                   c.parent_name IN (?) OR
-                   c.parent_name IN ( SELECT 1                      \
-                                        FROM categories c1          \
-                                       WHERE c1.parent_name IN (?)) \
-                  ))                                                \
-      ORDER BY b.name"
-        db_businesses = Business.find_by_sql([sql,
-                                              PRICE_RANGE.fetch(price_point),
-                                              false,
-                                              location,
-                                              CATEGORIES.fetch(venue_type),
-                                              CATEGORIES.fetch(venue_type),
-                                              CATEGORIES.fetch(venue_type)]).paginate(:page => page, :per_page => 4)
+    if ( sub_category.nil? || "all".eql?(sub_category))
+      categories = CATEGORIES.fetch(venue_type)
     else
-        sql <<
-      "SELECT b.*                                  \
-      FROM                                         \
-        businesses b                               \
-      WHERE                                        \
-            b.dna_pricepoint IN (?)                \
-        AND (b.deleted IS NULL OR                  \
-             b.deleted = ? )                       \
-        AND EXISTS ( SELECT 1                      \
-               FROM business_neighbourhoods bn     \
-                    ,neighbourhoods n              \
-               WHERE n.id=bn.neighbourhood_id      \
-                 AND bn.business_id=b.id           \
-                 AND n.neighbourhood=? )           \
-        AND EXISTS ( SELECT 1                      \
-               FROM business_categories bc         \
-                    ,categories c                  \
-              WHERE c.id=bc.category_id            \
-              AND bc.business_id=b.id 	           \
-              AND (c.name IN (?) OR                \
-                   c.parent_name IN (?) OR
-                   c.parent_name IN ( SELECT 1                      \
-                                        FROM categories c1          \
-                                       WHERE c1.parent_name IN (?)) \
-                  ))                                                \
-      ORDER BY b.name"
-        db_businesses = Business.find_by_sql([sql,
-                                              PRICE_RANGE.fetch(price_point),
-                                              false,
-                                              neighbourhood,
-                                              CATEGORIES.fetch(venue_type),
-                                              CATEGORIES.fetch(venue_type),
-                                              CATEGORIES.fetch(venue_type)]).paginate(:page => page, :per_page => 4)
-
+      categories.push(sub_category)
+    end
+    if( neighbourhood.nil? || "all_neighbourhoods".eql?(neighbourhood) )
+      db_businesses = Business.search_by_district_subsection('Toronto',location,price_point,categories,page)
+    else
+      db_businesses = Business.search_by_neighbourhood('Toronto',neighbourhood,price_point,categories,page)
     end
     db_businesses_no_exerpt = Array.new
 
@@ -125,10 +63,7 @@ class DateIdeas::DnaService
             end
           end
 
-          b.dna_excerpt = highest_review.text_excerpt
-          b.has_yelp_data = true
-          @logger.info("b.excerpt :" +b.dna_excerpt)
-          @logger.info("b.has_yelp_data:" +b.has_yelp_data.to_s )
+          b.review = highest_review
         end
       end
     end

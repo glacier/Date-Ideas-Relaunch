@@ -61,7 +61,7 @@ GEM
     faraday (0.6.1)
       addressable (~> 2.2.4)
       multipart-post (~> 1.1.0)
-      rack (>= 1.1.0, < 2)
+      rack (< 2, >= 1.1.0)
     fssm (0.2.7)
     geokit (1.5.0)
     geokit-rails3 (0.1.2)

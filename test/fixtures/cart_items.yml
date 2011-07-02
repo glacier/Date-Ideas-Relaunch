@@ -1,0 +1,4 @@
+myitem:
+    event: myevent      # either event or business must be non-nil
+    datecart: mycart    # should not be blank
+    venue_type: 'food' # should not be blank

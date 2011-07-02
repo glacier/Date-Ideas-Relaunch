@@ -9,21 +9,36 @@
       </ul>
     </div>
   <% end %>
-
-	<div class="field">
-		<%= f.label :user_id %>
-		<%= @profile.user_id %>
-	</div>
 	
-  <div class="field">
-    <%= f.label :anniversary %><br />
-    <%= f.date_select :anniversary, :include_blank => true %>
-  </div>
-  
-	<div class="field">
-    <%= f.label :about_me %><br />
-    <%= f.text_field :about_me %>
-  </div>
+	<table>
+		<tbody>
+			<tr>
+				<td><%=f.label :city %></td>
+				<td><%= f.select(:city, [['Toronto', 'toronto'], ['Montreal', 'montreal']]) %></td>
+				<td>Your default location</td>
+			</tr>
+			<tr>
+				<td><%=f.label :relationship_status %></td>
+				<td><%= f.select :relationship_status, [['Single', 'single'], ['Dating', 'dating'], ['Long-term relationship', 'long_term'], ['Engaged', 'engaged'], ['Married', 'married']], {:include_blank => 'Not telling'} %></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><%=f.label :sig_other_name %></td>
+				<td><%= f.text_field :sig_other_name, :title=>"Name of significant other" %></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td><%=f.label :anniversary %></td>
+				<!-- use date picker here? -->
+				<td><%= f.date_select :anniversary, :include_blank => true %></td>
+			</tr>
+			<tr>
+				<td><%=f.label :about_me %></td>
+				<td><%= f.text_field :about_me, :title =>"Bio" %></td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
   <div class="actions">
     <%= f.submit %>
   </div>

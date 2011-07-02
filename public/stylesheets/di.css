@@ -22,6 +22,16 @@ h1 small{
 	float: left;
 	width: 560px;
 }*/
+.business_static_map {
+    position: relative;
+}
+
+.map {
+    position: relative;
+    top:0px;
+    
+}
+
 #gmaps4rails_map {
   width: 250px;
   height: 300px;

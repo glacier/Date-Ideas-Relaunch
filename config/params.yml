@@ -1,0 +1,6 @@
+#Some configurable options, makes it easy for any developer to make changes to
+# functionality that may be abstracted or difficult to observe without having written it
+# themselves
+
+google_maps_static_api_dimensions: "200x200"
+datecart_action_icon_size: 30

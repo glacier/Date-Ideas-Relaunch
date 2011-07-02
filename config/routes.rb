@@ -5,10 +5,15 @@ DateIdeas::Application.routes.draw do
   resources :datecarts do 
     member do
       delete "clear_cart"
+      get "begin_complete"
       put "complete"
       get "email"
       get "print"
+      get "calendar"
+      get "download_calendar"
+      get "subscribe"
     end
+
     resources :cart_items do
       collection do
         post "create_event"
@@ -16,7 +21,9 @@ DateIdeas::Application.routes.draw do
     end
   end
 
-  # TODO: handle user abuse of application urls?
+  namespace :dashboard do
+    resource :significant_dates
+  end
   
   match '/auth/:provider/callback' => 'authentications#create'
   
@@ -55,6 +62,8 @@ DateIdeas::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => "wizard#index"
+
+  match "dashboard/" => "dashboard#index"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -110,6 +119,12 @@ DateIdeas::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
-  match "data_farmer" =>'data_farmer#index'
-  match "data_farmer/farm" => 'data_farmer#farm'
+
+  resources :data_farmers do
+    collection do
+      post "farm"
+    end
+  end
+  #match "data_farmers/farm" => 'data_farmers#farm'
+  match 'data_farmers/update_neighbourhood_select/:city', :controller=>'data_farmers', :action => 'update_neighbourhood_select'
 end

@@ -1,128 +1,156 @@
-// dateideas custom css
-.container {
-	background:{
-		color: $quiet-pink;
-	};
-}
-
+/* DateIdeas application-wide styles */
 body {
-	a {
-		@include hover-link;
+	background: $body-bg-color url('/images/di-body-background-1.png') repeat fixed;
+	input[type="text"], input[type="password"] {
+		color: #CCC;
+		border-radius: 4px;
+		width:180px;
 	}
-	background: {
-		color: $loud-blue;
+	a {
+		@include unstyled-link;
+		color: $link-color;
 	}
 }
 
 hr {
-	height:0px;
-	background:{
-		color: $quiet-bg-color;
-	};
+	border:0px !important;
 }
 
 #header {
+	height: 75px;
+	background-color: $header-bg-color;
+	color: $header-txt-color;
+	a {
+		color: $header-txt-color;
+	}
 	#logo {
-		padding: 5px;
-
+		padding-top: 10px;
+		float: left;
 	}
 	#user_nav {
-		padding: 5px;
-		background:{
-			color: $nav-bg-color;
-		};
-		a {
-			@include loud_text;
-		}
+		float: right;
+		padding-top: 25px;
+		
 		ul {
-			@include horizontal-list(4px, right);
+			@include horizontal-list(10px, left);
+			font:{
+				size: 16px;
+			};
 		}
 	}
-	background: {
-		color: $quiet-pink;
-	}
-}
-
-#sidebar_left {
-	@include pie-clearfix;
-	width: 270px;
-	height: 600px;
 }
 
 #content {
 	margin: 0 auto;
-	background: {
-		color: $quiet-pink; //$quiet-bg-color;
-	}
+	height: 100%;
+}
+
+#sidebar_left {
+	@include pie-clearfix;
+	padding-top: 45px;
+	height: 600px;
+}
+
+#sidebar_left_content, #sidebar_right_content {
+	margin-left: 20px;
 }
 
 #main {
-	padding-top: 5px;
-	.poplight {
-		@include quiet_link_button;
-	}
-	/* Elements */
-	.add_button {
-		@include fancy-button-structure(14px, 0.30em, 1px);		         
-		@include fancy-button-colors($fancy-green);
-	}
-	
-	.remove_button {
-		@include fancy-button-structure(14px, 0.30em, 1px);		         
-		@include fancy-button-colors($fancy-red);
-	}
+	@include heading2;
+	padding-top: 45px;
 }
 
 #sidebar_right {
-	height: 100%;
-/*	padding-top: 0px;
-	margin-top: 0px;*/
+	padding-top: 45px;
+	background-color: $sidebar-right-bg-color;
+}
+
+#sidebar_right_pinned {
+	background-color: $sidebar-left-bg-color;
 }
 
 #footer {
-	padding: 5px;
-	@include loud_text;
-	background:{
-		color: $footer-bg-color;
-	};
+	@include horizontal-list(10px, left);
+	font-size: 14px;
 }
 
 .dialog {
 	display: none;
 }
 
-#di_related_info {
-	padding-left: 0px;
-	padding-right: 5px;
+
+.admin {
+	color: red;
 }
-#di_venue_info {
-	margin-top: 5px;
-	ul {
-		@include horizontal-list(4px, left);
+
+/* Site Elements */
+/* Use the blue icons from jquery-ui */
+.ui-state-dateideas .ui-icon { 
+	background-image: url(../images/ui-icons_3572ac_256x240.png); 
+}
+
+.di_module_section {
+	padding-top: 5px;
+	
+	fieldset {
+		text-align: center;
 	}
 }
 
-.admin {
-		color: red;
+.di_module {
+	@include heading5;
+	margin-bottom: 20px;
+	
+	fieldset {
+		padding:0;
+		margin-bottom: 15px;
+	}
+}
+
+.di_module_large {
+	@include heading3;
+}
+
+.di_module_medium {
+	@include heading4;
+	padding-left: 20px;
+}
+
+.di_module_header_tail {
+	float: left;
+	background: url("/images/right_tail_shorter-1.png") no-repeat right;
+	height: 37px;
+	width: 30px;
+}
+
+/* ajax update container fading */
+.ajax_load_and_fade {
+/*	background: rgb(255, 0, 0);*/
+	opacity: 0.2;
+	background: #FFF url('/images/ajax-loader-large.gif') no-repeat fixed center;
+}
+
+.ajax-hidden {
+	display:none;
 }
 
 /* styles for pinning various elements on the page */
 .pin-left {
 	position: fixed;
 	top: 10px;
-	width: 270px;
+	width: inherit;
 }
 
 .pin-right {
 	position: fixed;
 	top: 10px;
-	width: 220px;
+	width: inherit;;
 }
 
 .pin-info {
 	position: fixed;
 	top: 280px;
-	width: 220px;
+	width: inherit;
 }
 
 

@@ -1,0 +1,19 @@
+<h1>DataFarmer</h1>
+<%= form_for @data_farmer, :url => { :action => 'farm' } do  |df|  %>
+    <table>
+      <tr>
+        <td>City:</td><td><%= df.select(:city, options_for_select( Neighbourhood.find_by_sql('SELECT distinct(city) FROM neighbourhoods').collect { |n| n.city}, @data_farmer.city),:remote => true )%></td>
+      </tr>
+      <tr>
+        <td>Neighbourhood:</td><td><div id="neighbourhoods"><%= render :partial => 'neighbourhoods' %></div></td>
+      </tr><tr>
+        <% @categories.each do |cat | %>
+        <td><%= h cat.display_name %></td>
+        <td><%= check_box_tag 'categories[]', cat.name %></td>
+        </tr><tr>
+        <% end %>
+      </tr><tr>
+        <td colspan="2" align="center"><%= df.submit "Farm Data"%></td>
+      </tr>
+    </table>
+<% end %>

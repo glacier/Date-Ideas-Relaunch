@@ -1,86 +1,85 @@
-.di_bullet{
+/* Wizard view */
+.di_wizard {
+	@include heading1;
+	
+	form, table {
+		font: 18px helvetica;
+	}
+	table {
+		margin-bottom: 12px;
+	}
+	select {
+		font-size: 18px;
+		width: 200px;
+	}
+	td {
+		margin:0;
+		padding: 0px 30px 0px 0px;
+		height: 67px;
+	}
+	tr.blank {
+		background-color: #FFF;
+		height: 10px;
+	}
+	td.banner {
+		background: url("/images/di_wizard_tail2.png") no-repeat;
+	}
+	td.question_text {
+		background: url("/images/di_wizard_bg_sliver.png") repeat-x;
+		padding-right: 20px;
+		color: white;
+		
+		label {
+			font-weight: normal;
+		}
+		
+		text-align: right;
+		text-transform: uppercase;
+	}
+
+	.ajax-hidden {
+		display:none;
+	}
+
+	#logo {
+		padding:{
+			bottom: 40px;
+		};
+	}
+	#di_whatis_icons {
+		padding-left: 30px;
+		padding-top: 45px;
+		padding:{
+			left: 30px;
+			top: 45px;
+			bottom: 25px;
+		};
+	}
+	#di_whatis_text {
+		@include pie-clearfix;
+		padding-bottom: 40px;
+		p {
+/*			padding: 0;
+			margin: 0;
+*/			display: inline;
+			float: left;
+			width: 210px;
+			font: bold 16px helvetica;
+			text-align: center;
+		}
+	}
+}
+
+/* Wizard: Large green search button */
+.search-btn-large {
+	@include di_button(26px, #aee239);
+	width: 300px;
+	height: 60px;
+}
+
+.di_bullet {
   width: 5em; height: 5em;
   -webkit-border-radius: 5em; -moz-border-radius: 5em;
 }
 
-.di_results_main {
-	@include pie-clearfix;
-	.di_main_biz {
-		.di_biz_photo {
-			width:100px;
-		}
-	}
-}
-
-.di_biz {
-	background: {
-		color: $quiet-pink;
-	}
-	
-	padding-bottom: 10px;
-	
-	.di_biz_name {
-	    font-weight: bold;
-	}
-	.di_biz_info {
-		@include pie-clearfix;
-		.di_biz_desc {
-			float: left;
-			width: 280px;
-			margin: {
-				left:10px;
-				bottom:10px;
-			}
-			h4 {
-				margin-bottom: 0.5em;
-				font-weight: bold;
-			}
-			p {
-				margin-bottom: 0.75em;
-			}
-		}
-	}
-	.di_biz_add {
-/*		float: right;*/
-		text-align: center;
-	}
-
-	.di_biz_yelp_reviews {
-	}
-	
-	.di_biz_hr {
-		visibility: hidden;
-	}
-	
-	margin-bottom: 20px;
-	padding: 10px; 
-
-	@include pie-clearfix;
-	@include box-shadow;
-	@include border-radius(5px);
-}
-
-.di_biz_photo {
-	float: left;
-	display: block;
-	border: 1px;
-}
-
-.ratings {
-	@include horizontal-list;
-	float: left;
-	width:150px;
-}
-
-.di_main_biz {
-	@include pie-clearfix;
-	width:150px;
-	float: left;
-}
-
-/* yelp logo */
-.yelp-badge {
-	float: left;
-	margin-right: 10px;
-}
 
