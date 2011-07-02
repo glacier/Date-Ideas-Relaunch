@@ -1,9 +1,10 @@
 class CartItemsController < ApplicationController
+  
   # GET /cart_items
   # GET /cart_items.xml
   def index
     @cart_items = CartItem.all
-
+  
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @cart_items }

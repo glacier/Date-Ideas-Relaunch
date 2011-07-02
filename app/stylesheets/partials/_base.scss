@@ -1,7 +1,7 @@
 // Here is where you can define your constants for your application and to configure the blueprint framework.
 // Feel free to delete these if you want keep the defaults:
 
-$blueprint-grid-columns: 25;
+$blueprint-grid-columns: 24;
 $blueprint-grid-width: 30px;
 $blueprint-grid-margin: 10px;
 
@@ -9,45 +9,26 @@ $blueprint-grid-margin: 10px;
 // you can make a new grid background image from the command line like this:
 // compass grid-img 30+10x16
 
-/*//dateideas custom colors
-$nav-bg-color: #595959;
-$container-bg-color: #FFF; 
+//dateideas custom colors
+$di-cyan: #40c0cb;
 
-$footer-bg-color: #333132;
-$sidebar-bg-color: #424242;
-$loud-bg-color: #ef416c;
-$quiet-bg-color: #cccccc;
-$quiet-pink: #f7efeb;
-
-// dateideas blueprint base color definitions
-$font-color: #333132; //coffee color
-$loud-color: #FFF; // white
-$header-color: #333132;
-$loud-blue: #00c9f2;
-
-$link-color: $loud-bg-color;
-$link-visited-color: $loud-bg-color;
-$link-active-color: $loud-bg-color;*/
-
-
-$nav-bg-color: #595959;
-$container-bg-color: #FFF; 
-
+//dateideas colors for various elements
+$body-bg-color: #f7f7f7;
+$container-bg-color: $body-bg-color;
+$header-bg-color: #000;
+$header-txt-color: #FFF;
+$nav-bg-color: $header-bg-color;
+$sidebar-right-bg-color: #F9F2E7;
+$sidebar-left-bg-color: #FFF;
 $footer-bg-color: #FFF;
-$sidebar-bg-color: #FFF;
+
 $loud-bg-color: #FFF;
 $quiet-bg-color: #FFF;
 $quiet-pink: #FFF;
 
-// dateideas blueprint base color definitions
-$font-color: #333132; //coffee color
-$loud-color: #FFF; // white
-$header-color: #333132;
-$loud-blue: #00c9f2;
-
-/*$link-color: $loud-bg-color;
-$link-visited-color: $loud-bg-color;
-$link-active-color: $loud-bg-color;*/ 
+$link-color: $di-cyan;
+$link-visited-color: $di-cyan;
+$link-active-color: $di-cyan;
 
 // for fancy buttons
 $fancy-green: darken(#57b42c, 8);

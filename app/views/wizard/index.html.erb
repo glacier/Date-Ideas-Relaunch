@@ -1,13 +1,19 @@
 <% title("Wizard") %>
-<%= stylesheet_link_tag("wizard.css") %>
-<!--
-<%# stylesheet_link_tag("http://jqueryui.com/demos/demos.css") %>
--->
-
+<%# stylesheet_link_tag("wizard.css") %>
 <h1>Find the perfect date spot.</h1>
+<div id="di_wizard_form">
+	<%= render 'form' %>
+</div>
 
-<%= render 'form' %>
+<div id="di_whatis_icons">
+	<%= image_tag 'di_whoarewe_icons.png'%>
+</div>
+<div id="di_whatis_text">
+	<p>Save time and cut through the noise - Plan your date quickly.</p>
+	<p class='prepend-1'>Ever forget a special day? Like an Anniversary? Never again!</p>
+	<p class='prepend-1'>Be in the know of the best date spots</p>
+</div>
 
-<!-- form_for doesn't appear to like binding to @wizard, a non-active record model object
-		as Rails complains about a nil class Wizard. I've switched to using form_tags to pass parameters to the create action in the WizardController
- -->
+
+
+

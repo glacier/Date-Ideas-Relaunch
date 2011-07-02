@@ -1,0 +1,107 @@
+/* dateideas results view related CSS */
+.di_results_main {
+	@include pie-clearfix;
+	.di_main_biz {
+		.di_biz_photo {
+			width:100px;
+		}
+	}
+}
+
+.di_biz {
+	@include results_container;
+
+	.di_biz_name {
+	    font-weight: bold;
+	}
+	.di_biz_info {
+		@include pie-clearfix;
+		.di_biz_desc {
+			float: left;
+			width: 280px;
+			margin: {
+				left: 20px;
+				bottom: 10px;
+			}
+			p {
+				margin-bottom: 0;
+			}
+		}
+	}
+	.di_biz_add {
+		position: relative;
+		left: 45px;
+		span {
+			text-align: center;
+		}
+	}
+	.di_biz_yelp_reviews {
+	}
+	
+	.di_biz_hr {
+		visibility: hidden;
+	}
+}
+
+.di_event_add {
+	span {
+		text-align: center;
+	}
+}
+
+.di_biz_photo {
+	float: left;
+	display: block;
+	border: 1px;
+}
+
+.add_button {
+	@include di_button(14px, #aee239);
+	margin-left: 15px;
+	width: 90px;
+	height: 20px;
+}
+
+.remove_button {
+	@include di_button(14px, #40c0cb);
+	margin-left: 15px;
+	width: 90px;
+	height: 20px;
+}
+
+.ratings {
+	@include horizontal-list;
+	float: left;
+	width:150px;
+}
+
+.di_main_biz {
+	@include pie-clearfix;
+	width:150px;
+	float: left;
+}
+
+#di_related_info {
+	padding-left: 0px;
+}
+
+#di_venue_info {
+	margin-top: 5px;
+	ul {
+		@include horizontal-list(4px, left);
+	}
+}
+
+.di_related_info {
+	p {
+		margin-top: 10px;
+	}
+}
+
+/* yelp logo */
+.yelp-badge, .eventful-badge {
+	float: left;
+	margin-right: 10px;
+	position: relative;
+	left: 20px;
+}

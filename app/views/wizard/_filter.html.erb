@@ -1,19 +1,9 @@
-<%# View of the cart shown at the front page %>
-<style>
-/*	.pin-cart {
-		position: fixed;
-		top: 10px;
-		width: 220px;
-	}*/
-</style>
-<fieldset id="di_filter_front">
-<div class="di_filter">
-  <%= form_tag '/wizard/search', :method => :get do %>
-    <h4 class="filter_header">Let's get specific</h4>
-    <%= hidden_field_tag(:location, @wizard.location) %>
-    <%= select_tag(:neighbourhood, options_for_select(@neighbourhoods.collect { |hood| [hood.neighbourhood]}, @wizard.neighbourhood), :onchange => "this.form.submit();") %>
-    <%= select_tag(:venue, options_for_select(Wizard::VENUES,@wizard.venue), :onchange => "this.form.submit();")%>
-    <%= select_tag(:price_point, options_for_select(Wizard::PRICE_POINTS), :onchange => "this.form.submit();") %>
-  <% end %>
+<div id="di_filter" class="di_module">
+	<h5 class="span-5 filter_header"><span> Let's get specific</span></h5>
+	<div class="di_module_header_tail"></div>
+	<hr/>
+	<div id="di_filter_section" class="di_module_section">
+		<%= render :partial => 'filter_form' %>
+		<div class='filter_loaders ajax-hidden'>Loading ... <%= image_tag 'ajax-loader-small.gif' %></div>
+	</div>
 </div>
-</fieldset>

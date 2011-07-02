@@ -11,17 +11,21 @@ class DateIdeas::EventfulAdaptor
     end
   end
 
-  def search(venue_type, location, num_pages)
-
-    category = Event.EVENT_CATEGORY.fetch(venue_type)
-    keywords = Event.EVENT_KEYWORDS.fetch(venue_type)
+  def search(venue_type, date, location, num_pages)
+    if Event.EVENT_CATEGORY.has_key?(venue_type)
+      category = Event.EVENT_CATEGORY.fetch(venue_type)
+    else
+      category = venue_type
+    end
+    
+    # keywords = Event.EVENT_KEYWORDS.fetch(venue_type)
     results = nil
     
     begin
       #a ruby hash is returned from an API call
       results = @eventful.call 'events/search',
-                               :date => 'future',
-                               :keywords => keywords,
+                               :date => date,
+                               # :keywords => keywords,
                                :category => category,
                                :within => 5,
                                :location => location,

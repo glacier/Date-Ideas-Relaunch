@@ -11,77 +11,37 @@ module WizardHelper
     return display
   end
   def display_address(business)
-      bus_addr = String.new
+    bus_addr = String.new
 
-      bus_addr.concat(business.address1)
+    bus_addr.concat(business.address1)
 
-      if ! (business.address2.nil? || business.address2.empty?)
+    if ! (business.address2.nil? || business.address2.empty?)
 
-        bus_addr.concat(", ").concat(business.address2)
-      end
+      bus_addr.concat(", ").concat(business.address2)
+    end
 
-      if ! (business.address3.nil? || business.address3.empty?)
-        bus_addr.concat(", ").concat(business.address3)
-      end
+    if ! (business.address3.nil? || business.address3.empty?)
+      bus_addr.concat(", ").concat(business.address3)
+    end
 
-      if ! (business.city.nil? ||   business.city.empty?)
-        bus_addr.concat(", ").concat(business.city)
-      end
+    if ! (business.city.nil? ||   business.city.empty?)
+      bus_addr.concat(", ").concat(business.city)
+    end
 
-      if ! (business.province.nil? || business.province.empty?)
-        bus_addr.concat(", ").concat(business.province)
-      end
-
-      if ! (business.phone_no.nil? || business.phone_no.empty?)
-        phone_number = business.phone_no.gsub(/\./,'')
-        bus_addr.concat(" (").concat(phone_number[0..2]).concat(")").concat(phone_number[3..5]).concat("-").concat(phone_number[6..9])
-      end
+    if ! (business.province.nil? || business.province.empty?)
+      bus_addr.concat(", ").concat(business.province)
+    end
 
     return bus_addr
   end
-  def display_map_info(business)
-    address = display_address(business)
-    html = <<EOF
-    <div id="map-locations#{business.id}">
-		  <div class="location#{business.id}" data-id="1" data-point="{lng: #{business.longitude}, lat: #{business.latitude}}" data-category="'restaurant'">
-		    <div class="info-html#{business.id}">
-		      <p>#{business.name}<br>#{address}</p>
-		    </div>
-		  </div>
-		</div>
-EOF
+  def display_phone_no(business)
+    bus_phone = String.new
     
-    return html
-  end
-  def display_main_map_info(businesses)
-   
-    business1 = businesses[0]
-    address1  = display_address(business1) 
-    business2 = businesses[1]
-    address2  = display_address(business2)
-    business3 = businesses[2]
-    address3  = display_address(business3)
+    if ! (business.phone_no.nil? || business.phone_no.empty?)
+      phone_number = business.phone_no.gsub(/\./,'')
+      bus_phone.concat(" (").concat(phone_number[0..2]).concat(") ").concat(phone_number[3..5]).concat("-").concat(phone_number[6..9])
+    end
     
-    html = <<EOF  
-  	<div id="map-side-bar"> 
-			<div class="map-location" data-id="1" data-point="{lng: #{business1.longitude}, lat: #{business1.latitude}}" data-category="'restaurant'">
-				<div class="info-box"> 
-					<p>#{business1.name}<br>#{address1}</p> 
-				</div> 
-			</div> 
-			<div class="map-location" data-id="2" data-point="{lng: #{business2.longitude}, lat: #{business2.latitude}}" data-category="'restaurant'"> 
-				<div class="info-box"> 
-					<p>#{business2.name}<br>#{address2}</p> 
-				</div> 
-			</div> 
-			<div class="map-location" data-id="3" data-point="{lng: #{business3.longitude}, lat: #{business3.latitude}}" data-category="'restaurant'"> 
-				<div class="info-box"> 
-					<p>#{business3.name}<br>#{address3}</p> 
-				</div> 
-			</div> 
-		</div>
-EOF
-
-    return html		  
+    return bus_phone
   end
 end

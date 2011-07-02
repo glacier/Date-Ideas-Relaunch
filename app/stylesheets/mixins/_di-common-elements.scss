@@ -1,0 +1,145 @@
+/* DateIdeas Headings */
+@mixin heading-common($size, $color:#FFF, $weight:normal) {
+	font-weight: $weight;
+	font-family: helvetica,arial,sans-serif;
+	font-size: $size;
+	color: $color;
+}
+
+@mixin heading-banner-common($size, $color:#FFF, $weight:normal) { 
+	@include heading-common($size, $color, $weight);
+	background: #FFF url("/images/sliver_shorter-1.png") repeat-x;
+	height: 37px;
+	
+	margin:{
+		right: 0px !important;
+		bottom: 15px;
+	}
+	span {
+		float: left;
+		position: relative;			
+		left: 20px;
+	}
+	span.icon {
+		float: right;
+		position: relative;
+		top: 8px;
+		left: -10px;
+	}
+}
+
+@mixin heading1 {
+	/* eg. wizard heading */
+	h1 {
+		@include heading-common(56px, #535353, bold);
+		text-align: center;
+		margin-bottom: 20px;
+	}
+}
+
+@mixin heading2 {
+	/* Dark grey, no background */
+	h2 {
+		@include heading-common(25px, #535353, bold);
+		margin-bottom: 0px;
+	}
+}
+
+@mixin heading3 {
+	/* White, caps, background/tail */
+	h3 {
+		@include heading-banner-common(20px);
+	}
+	span {
+		top: 8px;
+		text-transform: uppercase;
+	}
+}
+
+@mixin heading4 {
+	/* Green, uppercase, no background */
+	h4 {
+		@include heading-common(18px, #2ba4b0, bold);
+		text-transform: uppercase;
+		margin: {
+			top: 18px;
+		};
+	}
+}
+
+@mixin heading5 {
+	/* White, caps, background/tail */
+	h5 {
+		@include heading-banner-common(16px);
+		span {
+			top: 7px;
+			text-transform: uppercase;
+		}
+	}
+}
+
+@mixin heading6 {
+	/* White, capitalized, background/no tail */
+	h6 {
+		@include heading-banner-common(15px);
+		span {
+			top: 9px;
+			text-transform: capitalize;
+		}
+	}
+}
+
+@mixin di_button($font-size, $button-color) {
+	@include fancy-button-structure($font-size, 0.4em, 0px);
+	@include fancy-button-colors-matte(darken($button-color, 8));
+	/* override */
+	font-family: Helvetica;
+	
+	/* courtesy of ZURB super awesome buttons */
+	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.5);
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+	border-top: 1px solid rgba(0,0,0,0.1);
+  	text-shadow: #3e5900 0px 1px 1px;
+	
+	&:hover {
+		border-color:#e2e2e2;
+		text-decoration: none;
+	};
+}
+
+@mixin results_container {
+	margin-top: 15px;
+	background-color: #FFF;
+	border: 1px solid #e2e2e2;
+
+	padding: {
+		left: 20px;
+		top: 15px;
+		bottom: 15px;
+	}
+	h3 {
+		font-size: 20px;
+	}
+	@include pie-clearfix;
+	@include border-radius(5px);
+}
+
+/*  
+ * Old results container style with right and bottom shadow borders
+ * Not currently used
+*/
+@mixin results_half_container {
+	margin-top: 20px;
+	padding: {
+		top: 5px;
+		bottom: 10px;
+	}
+	h4 {
+		margin-bottom: 5px;
+	}
+	width: 400px;
+	@include pie-clearfix;
+	@include box-shadow(#CCC 2px 2px 1px);
+	@include border-radius(5px);
+}

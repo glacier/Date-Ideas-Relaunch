@@ -10,10 +10,10 @@ class Ability
     # alias_action
     if user.role? :admin
       can :manage, :all
-      can :manage, :data_farmer
+      can :manage, :data_farmers
     else
       cannot :destroy, [Datecart, Profile]
-      cannot :manage, :data_farmer
+      cannot :manage, :data_farmers
       
       can :read, :all
       can [:create, :update], [Datecart, Profile, :Relationships]

@@ -1,4 +1,5 @@
 class Wizard
+  CITY = [['Toronto', 'toronto'], ['Montreal', 'montreal']]
   VENUES = [['Food','food'],
             ['Bars','bars'],
             ['Arts & Entertainment','arts_entertainment'],
@@ -11,19 +12,16 @@ class Wizard
   PRICE_POINTS = [['Budget','budget'],
                   ['Moderate','moderate'],
                   ['High Roller','high_roller']]
-  HEART_IMAGE_URL = { 1.0 => "/images/one_heart.gif", 
-                      2.0 => "/images/two_hearts.gif",
-                      3.0 => "/images/three_hearts.gif",
-                      4.0 => "/images/four_hearts.gif",
-                      4.5 => "/images/four_and_half_hearts.gif",
-                      5.0 => "/images/five_hearts.gif",
-                    }
 
-  attr_accessor :venue, :location, :price_point, :response, :businesses, :restaurant, :activity, :dessert, :neighbourhood_name, :events, :neighbourhoods, :neighbourhood
+  attr_accessor :venue, :event_category, :event_date, :location, :price_point, :response, :businesses, :restaurant,
+                :activity, :dessert, :neighbourhood_name, :events, :neighbourhoods, :neighbourhood,
+                :sub_categories, :sub_category
   
-  def initialize(venue="", location="", price_point="")
+  def initialize(venue="", event_cat="", event_date="", location="", price_point="")
     @venue = venue
     @location = location
+    @event_category = event_cat
+    @event_date = event_date
     @price_point = price_point
     @businesses = Array.new
   end

@@ -1,0 +1,14 @@
+myevent:
+    start_time: '2011-06-16 22:00:00'
+    end_time: '2011-06-17 02:00:00'
+    title: Open Mic
+    url: http://eventful.com/toronto/events/open-mic-/E0-001-034518326-1@2011061622
+    venue_address: 2579 Yonge Street
+    venue_name: Rockie Raccoons Eatery
+    city_name: Toronto
+    region_name: 
+    postal_code: M4P2J1
+    latitude: 43.714289
+    longitude: -79.399764
+    eventid: E0-001-034518326-1-2011061622
+

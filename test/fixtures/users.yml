@@ -1,0 +1,8 @@
+demo:
+    first_name: "demo"
+    last_name: "account"
+    username: "demo"
+    email: "demo@dateideas.ca"
+    gender: "male"
+    birthday: "1980-01-01"
+    postal_code: "M3C3P5"

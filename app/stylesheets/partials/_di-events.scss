@@ -1,38 +1,76 @@
-/* Eventful required css for logo */
-.eventful-badge,
-.eventful-badge * {
-  margin: 0             !important;
-  padding: 0            !important;
-  border: 0             !important;
-  text-align: center    !important;
-  color: #CCC           !important;
-  font-family: Arial    !important;
-  text-decoration: none !important;
-}                                     
-.eventful-small {     
-  position: relative    !important;
-  width: 100px          !important;
-  font-size: 8px       !important;
-  line-height: 8px     !important;
-}
-
-/* Events in the right sidebar */
+/* Date Ideas events related CSS */
 .di_event {
-	@include pie-clearfix;
-}
-
-.di_event_info {
-	margin:0;
-	padding-left: 2px;
-	float: left;
-}
-
-.event_title_small {
-/*	padding-top: 5px;*/
-	@include small_header;
+	@include results_container;
 }
 
 #event_venue_name,#event_address,#event_time {
 	margin:0;
 	padding-left: 2px;
 }
+
+.di_event_info {
+	@include pie-clearfix;
+	.di_event_desc {
+		float: left;
+		position:relative;
+		top: 20px;
+		left: 10px;
+		width: 280px;
+		margin: {
+			bottom: 10px;
+		}
+	}
+}
+
+.di_event_add {
+	position: relative;
+	left: 48px;
+}
+
+.di_event_photo {
+	float: left;
+	display: block;
+	border: 1px;
+}
+
+/* Eventful required css for logo */
+.eventful-badge,
+.eventful-badge * {
+  margin: 0             !important;
+  padding: 0            !important;
+  border: 0             !important;
+/*  text-align: center    !important;*/
+  color: #CCC           !important;
+  font-family: Arial    !important;
+  text-decoration: none !important;
+}                                     
+.eventful-small {     
+  position: relative    !important;
+  left: 20px;
+/*  width: 139px          !important;*/
+  font-size: 8px       !important;
+  line-height: 8px     !important;
+}
+
+/* Some unstyled elements */
+/*.di_event_name {
+
+}
+
+.event_title_small {
+
+}
+
+.event_venue_name {
+	
+}
+
+.event_address {
+	
+}
+
+.event_time {
+	
+}
+*/
+

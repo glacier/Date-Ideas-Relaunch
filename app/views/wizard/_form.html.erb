@@ -1,34 +1,54 @@
 <%# The wizard search form view %>
 <%= form_tag '/wizard/search', :method => :get do %>
 <table>
-  <tr>
-    <td>
-      <%= label_tag(:venue,"1. What do you want to do?") %>
+  <tr class="question">
+	  <td class="banner"></td>
+    <td class="question_text">
+      <%= label_tag(:venue,"What do you want to do?") %>
     </td>
-		<td>
+		<td class="question_text">
       <%= select_tag(:venue, options_for_select(Wizard::VENUES))%>
     </td>
   </tr>
-  <tr>
-    <td>
-        <%= label_tag(:location,"2. What area do you want to go to?") %>
+	<tr class="blank">
+	</tr>
+  <tr class="question">
+		<td class="banner"></td>
+    <td class="question_text">
+        <%= label_tag(:price_point,"Choose your city:") %>
     </td>
-		<td>
+		<td class="question_text">
+        <%= select_tag(:city, options_for_select(Wizard::CITY)) %>
+    </td>
+  </tr>
+  <tr class="blank">
+  </tr>
+  <tr class="question">
+	  <td class="banner"></td>
+    <td class="question_text">
+        <%= label_tag(:location,"What area do you want to go to?") %>
+    </td>
+		<td class="question_text">
         <%= select_tag(:location, options_for_select(Wizard::LOCATIONS)) %>
     </td>
   </tr>
-  <tr>
-    <td>
-        <%= label_tag(:price_point,"3. What is your price point") %>
+	<tr class="blank">
+	</tr>
+  <tr class="question">
+		<td class="banner"></td>
+    <td class="question_text">
+        <%= label_tag(:price_point,"What is your price point") %>
     </td>
-		<td>
+		<td class="question_text">
         <%= select_tag(:price_point, options_for_select(Wizard::PRICE_POINTS)) %>
     </td>
   </tr>
-  <tr>
-    <td colspan="2" align="left">
-      <%= submit_tag("Search")  %>
-    </td>
-  </tr>
+
 </table>
+<div class="prepend-5">
+	<div id="wizard_loader" class="prepend-1" style="height:35px"> 
+		<%= image_tag 'ajax-loader-bar.gif', :class => "ajax-hidden" %>
+	</div>
+	<%= submit_tag("Search", :class => "search-btn-large")  %>
+</div>
 <% end %>

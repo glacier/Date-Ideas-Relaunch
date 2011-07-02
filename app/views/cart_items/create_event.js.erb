@@ -1,2 +1,2 @@
 $("#datecart_items").html("<%= escape_javascript(render :partial => 'datecarts/datecart_items') %>");
-$("#event_<%= params[:event_id] %>").html("<%= escape_javascript(render :partial => 'wizard/remove', :locals => {:datecart => @datecart, :eventid => params[:event_id]}) %>");
+$("#event_<%= params[:event_id] %>").html("<%= escape_javascript(render :partial => 'wizard/remove_event', :locals => {:datecart => @datecart, :eventid => params[:event_id]}) %>");

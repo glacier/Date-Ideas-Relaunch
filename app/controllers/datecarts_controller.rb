@@ -81,9 +81,13 @@ class DatecartsController < ApplicationController
     @datecart.destroy
 
     respond_to do |format|
-      format.js
-      format.html { redirect_to(current_user.profile) }
-      format.xml  { head :ok }
+      if current_user.profile
+        format.js
+        format.html { redirect_to(current_user.profile) }
+      else
+        render :nothing => true
+      end
+      format.xml  { head :ok }      
     end
   end
   
@@ -102,15 +106,16 @@ class DatecartsController < ApplicationController
   # complete date planning
   def complete
     if current_user
+      # if logged in, associate datecart with user
       @datecart = Datecart.find(params[:id])
       @datecart.update_attributes(:user_id => current_user.id)
-      if current_user.profile.nil?
-        redirect_to(@datecart, :notice => 'Datecart was successfully updated.')
-      else
+      if current_user.profile
         redirect_to(current_user.profile)
+      else
+       redirect_to(@datecart, :notice => 'Datecart was successfully updated.')
       end
     else
-      # Devise not set to create users RESTFULLY 
+      # Ask to sign in 
       redirect_to(new_user_session_path)
     end
   end

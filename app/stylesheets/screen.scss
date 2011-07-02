@@ -9,29 +9,31 @@
 
 // Import the non-default scaffolding module.
 @import "blueprint/scaffolding";
-/*@import "blueprint/colors";
-@import "blueprint/topography";*/
 
 // Generate the blueprint framework according to your configuration:
 @include blueprint;
-@include blueprint-scaffolding;
+/*@include blueprint-scaffolding;*/
 
 @import "fancy-buttons";
 
 @import "compass/utilities/lists/horizontal-list";
+@import "compass/typography/lists/inline-list";
+@import "compass/typography/lists/inline-block-list";
 @import "compass/utilities/links/hover-link";
-/*@import "compass/utilities/links/bullets";*/
-
+@import "compass/utilities/links/unstyled-link";
+@import "compass/css3";
 @import "compass/css3/box-shadow";
 @import "compass/css3/border-radius";
 
 //dateideas styles
-
-@import "mixins/aesthetics";
+@import "mixins/di-common-elements";
 @import "partials/di-application";
 @import "partials/di-events";
+@import "partials/di-results";
 @import "partials/di-wizard";
 @import "partials/di-datecart";
+@import "partials/di-filters";
+@import "partials/di-profile";
 
 /*button { @include fancy-button(#2966a8); }*/
 /* Styles all buttons with:
