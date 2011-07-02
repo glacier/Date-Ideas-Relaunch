@@ -62,7 +62,6 @@ class DateIdeas::YelpAdaptorV2
       puts path
       p = @access_token.get(path).body
       search_results = JSON.parse(p)
-      puts 'test', p
       if (search_results.has_key?("businesses"))
         businesses_hash = search_results.fetch("businesses")
         returned_businesses = create_businesses(businesses_hash)
