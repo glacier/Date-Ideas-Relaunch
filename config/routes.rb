@@ -13,6 +13,7 @@ DateIdeas::Application.routes.draw do
       get "download_calendar"
       get "subscribe"
     end
+
     resources :cart_items do
       collection do
         post "create_event"

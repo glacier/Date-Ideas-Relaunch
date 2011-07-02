@@ -6,7 +6,7 @@ class Datecart < ActiveRecord::Base
   belongs_to :significant_date
 
   # Waiting on WIll's confirmation of all validations
-  validates :user_id, :name, :datetime, :presence => true
+#  validates :user_id, :name, :datetime, :presence => true
 
   validate :has_date_when_saved?
 
@@ -27,7 +27,7 @@ class Datecart < ActiveRecord::Base
   private
   def has_date_when_saved?
     if user_id
-      if datecarts.blank?
+      if cart_items.blank?
         @errors.add(:base, "You can't save a datecart without any associated events or venues.")#Add link or something to make that happen
       end
     end

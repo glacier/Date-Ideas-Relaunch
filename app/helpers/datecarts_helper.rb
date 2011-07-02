@@ -42,17 +42,16 @@ module DatecartsHelper
     url = "http://calendar.yahoo.com/?v=60&view=d&type=20&"
     name = datecart.name || "My Date"
     hash = {
-        :title => "#{name}: i have absolutely no idea what to write here",
+        :title => "#{name}",
         :st => format_time(datecart.datetime),
-        :desc => "note",
+        :desc => datecart.notes,
         :in_loc => "somewhere for now",
-        :url => "getdateideas"
+        :url => "www.getdateideas.com"
     }
     url << hash.to_query
   end
 
   def format_google_calendar_link datecart
-
     # google: "http://www.google.com/calendar/event?action=TEMPLATE&amp;dates=20110608T193000/20110608T193000&amp;text=Eventful:+NKOTBSB+Tour%3A+New+Kids+On+The+Block+and+Backstreet+Boys+at+Air+Canada+Centre&amp;location=40+Bay+Street,Toronto,Ontario,Canada&amp;details=&amp;sprop=partner:evdb.com&amp;sprop=partneruuid:E0-001-035309535-0"
     url = "http://www.google.com/calendar/event?action=TEMPLATE&"
     name = datecart.name || "My Date"
