@@ -70,6 +70,8 @@ module ApplicationHelper
     uri.to_s
   end
 
+  # Use the previous modal dialogue format to keep things DRY
+  # pass in the title of the dialogue, the div where things will be opened, and the partial of content to render
   def generate_modal_dialogue div, title, partial
     <<-MODAL
     //define config object
@@ -111,4 +113,38 @@ $("##{div}").dialog("open");
       datetime.to_formatted_s(:long_ordinal) #Formats as June 11th, 2011 hh:mm (handles timezones)
     end
   end
+
+  # Generate the html for a static map from google. Uses format helpers to tailor the api call
+  def generate_map datecart
+    image_tag "https://maps.google.com/maps/api/staticmap?#{format_google_maps_api_call_parameters(datecart.cart_items)}", :class => "map", :alt => "Date Map"
+  end
+
+  private
+
+  # Generate the query hash for the api call to generate a static map
+  def format_google_maps_api_call_parameters cart_items
+    parameters = {
+        :size => ParamFile.new.google_maps_static_api_dimensions,
+        :sensor => false
+    }
+    result = ""
+    result << parameters.to_query
+    result << "&#{format_google_maps_markers(cart_items)}" # Add the marker CGI params
+  end
+
+  #TODO: Update this to use the new naming system for locations once they are sortable
+  def format_google_maps_markers cart_items
+    markers = ""
+    cart_items.each do |cart_item|
+      if cart_item.business_id
+        business = cart_item.business
+        markers << "markers=color:blue|label:#{business.name}|#{business.address1},#{business.city},#{business.province},#{business.postal_code},#{business.country}&"
+      else
+        event = cart_item.event
+        markers << "markers=color:blue|label:#{event.title}|#{event.venue_address},#{event.city_name},#{event.postal_code}&"
+      end
+    end
+    markers
+  end
+
 end

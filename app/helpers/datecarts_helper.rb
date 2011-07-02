@@ -42,11 +42,10 @@ module DatecartsHelper
     url = "http://calendar.yahoo.com/?v=60&view=d&type=20&"
     name = datecart.name || "My Date"
     hash = {
-        :title => "#{name}",
+        :title => "Date Ideas: #{name}",
         :st => format_time(datecart.datetime),
         :desc => datecart.notes,
-        :in_loc => "somewhere for now",
-        :url => "www.getdateideas.com"
+        :in_loc => "TODO: sort cart items by time and put first location here"
     }
     url << hash.to_query
   end
@@ -56,11 +55,11 @@ module DatecartsHelper
     url = "http://www.google.com/calendar/event?action=TEMPLATE&"
     name = datecart.name || "My Date"
     hash = {
-        :text => name,
-        :dates => format_time(datecart.datetime) << "Z/" << format_time(datecart.datetime+2.hours) << "Z",
+        :text => "Date Ideas: #{name}",
+        :dates => format_time(datecart.datetime) << "Z/" << format_time(datecart.datetime) << "Z",
         :sprop => "website:www.getdateideas.com&sprop;=name:Get Date Ideas",
-        :details => "lots of notes!",
-        :location => "figuring this one out",
+        :details => datecart.notes,
+        :location => "TODO: sort cart items by time and put first location here",
         :trp => "true"
     }
     url << hash.to_query

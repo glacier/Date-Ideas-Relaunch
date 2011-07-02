@@ -26,30 +26,5 @@ module DashboardHelper
     end
   end
 
-  def format_google_maps_api_call_parameters cart_items
-    parameters = {
-        :size => ParamFile.new.google_maps_static_api_dimensions,
-        :sensor => false
-    }
-    result = ""
-    parameters.each do |key, val|
-      result << "#{key}=#{val}&"
-    end
-    result << format_google_maps_markers(cart_items)
-    p result
-  end
 
-  private
-
-  def format_google_maps_markers cart_items
-    markers = ""
-    cart_items.each do |cart_item|
-      next unless cart_item.business_id
-      business = cart_item.business
-      puts business
-      Rails.logger.debug business
-        markers << "markers=color:blue|label:#{business.name}|#{business.address1},#{business.city},#{business.province},#{business.postal_code},#{business.country}&"
-    end
-    markers
-  end
 end

@@ -1,4 +1,4 @@
-<div id="yourdates_title">Your Dates </div>
+<div id="yourdates_title">Your Dates</div>
 <div id="yourdates">
   <% if @upcoming_datecarts.blank? %>
       No upcoming dates planned.<br>
@@ -14,9 +14,9 @@
   <% if @past_datecart.blank? %>
 
   <% else %>
-  In the past...
-      <%= render :partial => "dashboard/datecart", :locals => {:datecart => @past_datecart } %>
+      In the past...
+      <%= render :partial => "dashboard/datecart", :locals => {:datecart => @past_datecart} %>
   <% end %>
 
-  <%= render :partial => "dashboard/significant_dates/upcoming" %>
+  <% # render :partial => "dashboard/significant_dates/upcoming"  %>
 </div>

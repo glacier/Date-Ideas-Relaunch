@@ -29,7 +29,7 @@
 
 //dateideas styles                                          21
 /*@import "mixins/aesthetics";*/
-@import "partials/di-dashboard";
+
 @import "mixins/di-common-elements";
 @import "partials/di-application";
 @import "partials/di-events";
@@ -38,6 +38,7 @@
 @import "partials/di-datecart";
 @import "partials/di-filters";
 @import "partials/di-profile";
+@import "partials/di-dashboard";
 
 /*button { @include fancy-button(#2966a8); }*/
 /* Styles all buttons with:

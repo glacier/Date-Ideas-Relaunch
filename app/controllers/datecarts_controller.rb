@@ -135,20 +135,23 @@ class DatecartsController < ApplicationController
     end
   end
 
-  # render print view
+  # Render print view
   def print
     @datecart = Datecart.find(params[:id])
   end
 
+  # Render the calendar popup (should only be quered via remote javascript request)
   def calendar
     @datecart = Datecart.find(params[:id])
   end
 
+  # Send the calendar as a file download, native file extensions should then handle everything (i.e. outlook)
   def download_calendar
     @datecart = Datecart.find(params[:id])
     send_data generate_vcalendar(@datecart, :download), :filename => "my_date.ics", :type => "text/calendar"
   end
 
+  # Generate the vcal associated the datecart. Allows calendar programs to query for any updates regularly
   def subscribe
     @datecart = Datecart.find(params[:id])
     render :text => generate_vcalendar(@datecart, :subscribe)
@@ -156,6 +159,7 @@ class DatecartsController < ApplicationController
 
   private
 
+  # Some samples from eventful for reference
   # ical: 'webcal://eventful.com/toronto/ical/events/nkotbsb-tour-new-kids-block-and-backstreet-boys-/E0-001-035309535-0'
   #outlook: 'http://eventful.com/toronto/ical/events/nkotbsb-tour-new-kids-block-and-backstreet-boys-/E0-001-035309535-0'
 
@@ -169,14 +173,14 @@ VERSION:2.0
 BEGIN:VEVENT
 DTSTAMP:#{format_time DateTime.now}Z
 DTSTART:#{format_time datecart.datetime}Z
-DTEND:#{format_time datecart.datetime+1.hour}Z
-SUMMARY: #{datecart.name}
+DTEND:#{format_time datecart.datetime}Z
+SUMMARY: Date Ideas: #{datecart.name}
 PRIORITY:0
 CATEGORIES:DATE
 CLASS:PRIVATE
 URL:#{request.env["REQUEST_URI"]}
 DESCRIPTION: #{datecart.notes}
-LOCATION: SOMEHWEREEERERERE
+LOCATION: TODO: generate this based on sorted locations for datecart
 END:VEVENT
 END:VCALENDAR
     VCAL
