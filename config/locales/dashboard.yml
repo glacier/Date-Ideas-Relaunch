@@ -1,0 +1,11 @@
+en:
+  dashboard:
+    datecart:
+      no_date_set: "You have not yet chosen a date"
+      upcoming: "Your upcoming date on "
+      upcoming_friend: "Your friend's upcoming date on "
+      upcoming_sig: "Your upcoming significant date on "
+      last: "Your last date night was "
+      past: "Your date on  "
+      past_sig: "Your significant date on "
+      past_friend: "Your friend's date on "

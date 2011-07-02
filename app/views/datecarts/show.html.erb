@@ -1,6 +1,14 @@
 <%# Full display of the cart %>
 <p id="notice"><%= flash[:notice] %></p>
 <div id="di_edit_dialog" class="dialog">Dialog</div>
+<div id="datecart_<%=@datecart.id%>_calendar_dialog" class="dialog">Calendar Dialog</div>
+<fieldset id="cart">
+	<%= render :partial => 'datecarts/date_info' %>
+	<div id="datecart_items">
+		<%= render :partial => 'datecarts/datecart_items', :locals => {:venue => params['venue']} %>
+	</div>
+	<%= render :partial => 'datecarts/datecart_functions' %>
+</fieldset>
 <div id="di_add_to_date" class="dialog">Dialog</div>
 
 <h2>Your date </h2>

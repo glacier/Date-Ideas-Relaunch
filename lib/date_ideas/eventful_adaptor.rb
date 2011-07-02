@@ -7,7 +7,7 @@ class DateIdeas::EventfulAdaptor
       @app_key = '7zXsjWk67F7qVKtq'
       @eventful = Eventful::API.new @app_key
     rescue Eventful::APIError => e
-      logger.info("There was a problem initializing the Eventful API: #{e}")
+      Rails.logger.info("There was a problem initializing the Eventful API: #{e}")
     end
   end
 
@@ -34,7 +34,7 @@ class DateIdeas::EventfulAdaptor
                                :mature => 'normal',
                                :sort_order => 'date'
     rescue Exception => e
-      logger.info("Eventful API call failed with error " + e)
+      Rails.logger.info("Eventful API call failed with error " + e)
     end
     
     unless results.nil? and results['events'].nil?

@@ -1,0 +1,25 @@
+//define config object
+<% id = "#datecart_#{@datecart.id}_calendar_dialog" %>
+var dialogOpts = {
+	title: "Export Date to Calendar",
+	modal: true,
+	overlay: { 
+		background: "url(img/modal.png) repeat" 
+	},
+	// buttons: {
+	// 	"Ok": function() { $(this).dialog("close"); }
+	// },
+	closeOnEscape: true,
+	width: 450,
+	autoOpen: false,
+	resizable: false,
+	draggable: false,
+	open: function() {
+		//display correct dialog content
+		$("<%=id%>").html("<%= escape_javascript(render 'add_to_calendar', :format => :html) %>");
+	}
+};
+
+$("<%=id%>").dialog(dialogOpts);
+$("<%=id%>").dialog("open");
+

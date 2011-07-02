@@ -1,3 +1,4 @@
+
 // This import applies a global reset to any page that imports this stylesheet.
 @import "blueprint/reset";
 
@@ -16,16 +17,19 @@
 
 @import "fancy-buttons";
 
-@import "compass/utilities/lists/horizontal-list";
+@import "compass/typography/lists/horizontal-list";
 @import "compass/typography/lists/inline-list";
 @import "compass/typography/lists/inline-block-list";
-@import "compass/utilities/links/hover-link";
-@import "compass/utilities/links/unstyled-link";
+@import "compass/typography/links/hover-link";
+@import "compass/typography/links/unstyled-link";
+@import "compass/typography/";
 @import "compass/css3";
 @import "compass/css3/box-shadow";
 @import "compass/css3/border-radius";
 
-//dateideas styles
+//dateideas styles                                          21
+/*@import "mixins/aesthetics";*/
+
 @import "mixins/di-common-elements";
 @import "partials/di-application";
 @import "partials/di-events";
@@ -34,6 +38,7 @@
 @import "partials/di-datecart";
 @import "partials/di-filters";
 @import "partials/di-profile";
+@import "partials/di-dashboard";
 
 /*button { @include fancy-button(#2966a8); }*/
 /* Styles all buttons with:

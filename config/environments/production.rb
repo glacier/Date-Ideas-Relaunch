@@ -4,7 +4,7 @@ DateIdeas::Application.configure do
   # The production environment is meant for finished, "live" apps.
   # Code is not reloaded between requests
   config.cache_classes = true
-  config.cache_store = :dalli_store, { :namespace => "production" }
+
   # Full error reports are disabled and caching is turned on
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
@@ -26,7 +26,7 @@ DateIdeas::Application.configure do
 
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
-  config.cache_store = :dalli_store # 'localhost:11211'
+  config.cache_store = :dalli_store, { :namespace => "production" }
 
   # Disable Rails's static asset server
   # In production, Apache or nginx will already do this

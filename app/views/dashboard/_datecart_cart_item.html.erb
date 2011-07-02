@@ -1,0 +1,23 @@
+<% if datecart_cart_item.business_id #If we're dealing with a business%>
+
+    <% @business = Business.find(datecart_cart_item.business_id) %>
+    <div id="business_<%= @business.id %>" class="business_item">
+      <div class="business_title">
+        <%= link_to @business.name, business_path(@business) %>
+      </div>
+      <div class="business_location">
+        <%= "#{@business.address1},  #{@business.city},  #{number_to_phone @business.phone_no}" %>
+      </div>
+    </div>
+
+<% else #If we're dealing with an event %>
+    <% @event = Event.find(datecart_cart_item.event_id) %>
+    <div id="event_<%= @event.id%>" class="event_item">
+      <div class="business_title">
+        <%= link_to @event.title, @event.url %>
+      </div>
+      <div class="business_location">
+        <%= "#{@event.venue_address},  #{@event.city_name}" %>
+      </div>
+    </div>
+<% end %>

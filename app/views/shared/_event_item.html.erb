@@ -1,7 +1,8 @@
+<% p "event item" %>
 <h4 class="di_event_name <%= title_size %>"><%= link_to event.title, event.url %></h4>
 <div class="di_event_info">
 	<div class="di_event_photo">
-		<%= image_tag(image_url('event', event.photo_url), :width => size) %>
+		<%= image_tag(image_path(event.photo_url), :width => size) %>
 	</div>
 	<div class="di_event_desc">
 		<p id="event_venue_name">Where: <%= event.venue_name %></p>

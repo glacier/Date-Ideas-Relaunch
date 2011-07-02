@@ -46,7 +46,6 @@ class WizardController < ApplicationController
 
     businesses = dnaService.search(@wizard.venue, @wizard.location, @wizard.price_point, current_page, 8, @wizard.neighbourhood,@wizard.sub_category)
     
-    
     per_page = 3
     current_page_events = 1
     if @wizard.venue == 'activities_events'

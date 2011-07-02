@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
       # TODO: create cart for current_user
       # TODO: require sign up or login to save
       cart = Datecart.create
+
       session[:datecart_id] = cart.id
       cart
     end
