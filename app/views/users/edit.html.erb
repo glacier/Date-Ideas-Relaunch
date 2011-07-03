@@ -1,0 +1,19 @@
+<div id="user_settings" class="di_module_large">
+	<h3 class="span-13"><span>User Account Settings</span></h3>
+	<div class="di_module_header_tail"></div>
+	<%= render 'form' %>
+</div>
+
+<%= content_for :sidebar_right do %>
+	<div id="notifications" class="di_module_medium">
+		<h4> Notification Preferences </h4>
+		<hr/>
+
+		<h4>Change password</h4>
+		<%= render :template => 'devise/passwords/edit', :locals => { :resource => current_user, :resource_name => "user"} %>
+	</div>
+
+	<div id="cancel_account" class="di_module_medium">
+		<h4> Disable account </h4>
+	</div>
+<% end %>
