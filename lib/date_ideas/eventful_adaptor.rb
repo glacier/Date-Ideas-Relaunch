@@ -12,6 +12,17 @@ class DateIdeas::EventfulAdaptor
   end
 
   def search(venue_type, date, location, num_pages)
+    if venue_type.blank?
+      y 'venue_type is blank'
+      query = 'tag:festivals || tag:attractions || tag:arts || tag:concerts || tag:music || tag:family || tag:food'
+      y query
+    end
+    
+    if date.blank?
+      y 'date is blank'
+      date = 'today'
+    end
+      
     if Event.EVENT_CATEGORY.has_key?(venue_type)
       category = Event.EVENT_CATEGORY.fetch(venue_type)
     else
@@ -23,6 +34,7 @@ class DateIdeas::EventfulAdaptor
       #a ruby hash is returned from an API call
       results = @eventful.call 'events/search',
                                :date => date,
+                               :q => query,
                                # :keywords => keywords,
                                :category => category,
                                :within => 5,

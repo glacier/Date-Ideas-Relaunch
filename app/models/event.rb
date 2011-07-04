@@ -12,6 +12,7 @@ class Event < ActiveRecord::Base
   }
   
   EVENTFUL_CATEGORIES = {
+    'All' => '',
     'Concerts and Tour Dates' => 'music',
     'Kids and Family' => 'family_fun_kids',
     'Festivals' => 'festivals_parades',
@@ -28,10 +29,11 @@ class Event < ActiveRecord::Base
   }
   
   TIMES = {
+    'All times' => 'Future',
     'Today' => 'Today',
     'This Week' => 'This Week',
     'Next Week' => 'Next Week',
-    'This Month' => 'July'
+    'This Month' => 'July' #TODO implement get current month
   }
   
   #define some keywords to narrow down search within a category

@@ -20,7 +20,7 @@ class Wizard
   def initialize(venue="", event_cat="", event_date="", location="", price_point="")
     @venue = venue
     @location = location
-    @event_category = event_cat
+    @event_category = event_cat || ""
     @event_date = event_date
     @price_point = price_point
     @businesses = Array.new
