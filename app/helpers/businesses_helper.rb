@@ -1,10 +1,10 @@
 module BusinessesHelper
 
   def display_reviews(business)
-    html = String.new
+    html = ''
     if(!business.reviews.nil?)
       business.reviews.each do | review |
-        html_part = String.new
+        html_part = ''
         html_part = <<EOF
         <ul class="yelp_review">
           <li class="review_list_item_profile">
@@ -22,11 +22,11 @@ EOF
     return html
   end
   def display_review(business)
-    html = String.new
+    html = ''
 
     if(!business.review.nil?)
       review = business.review
-        html_part = String.new
+        html_part = ''
         html_part = <<EOF
         <ul class="yelp_review">
           <li class="review_list_item_excerpt"><img src="/images/reviews_from_yelp.gif" alt="Review from Yelp"/><br/>#{review.text_excerpt}<a href="http://www.yelp.com/biz/#{business.external_id}#hrid:#{review.id}" target="_blank">read more</a>.</li>

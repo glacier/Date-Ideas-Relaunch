@@ -11,9 +11,9 @@ class DateIdeas::DnaService
   end
   def search(venue_type,location,price_point = 'budget',page = '1', per_page=10, neighbourhood = nil, sub_category = nil )
     puts("DateIdeas.search:" << venue_type.to_s << ":" << location.to_s << ":" << price_point.to_s << ":" << page.to_s)
-    neighbourhoods = Array.new
-    categories = Array.new
-    sql = String.new
+    neighbourhoods = []
+    categories = []
+    sql = ''
     if ( sub_category.nil? || "all".eql?(sub_category))
       categories = CATEGORIES.fetch(venue_type)
     else
@@ -24,7 +24,7 @@ class DateIdeas::DnaService
     else
       db_businesses = Business.search_by_neighbourhood('Toronto',neighbourhood,price_point,categories,page)
     end
-    db_businesses_no_exerpt = Array.new
+    db_businesses_no_exerpt = []
 
     db_businesses.each do |b|
       if ( b.external_id.nil? )
@@ -76,7 +76,7 @@ class DateIdeas::DnaService
     return result
   end
   def get_address(business)
-    address = String.new
+    address = ''
     address.concat(business.address1)
 
     if ! (business.address2.nil? || business.address2.empty?)

@@ -16,8 +16,8 @@ class DateIdeas::YelpAdaptorV2
   def business_detail(business_id)
     begin
       path = "/v2/business/" + business_id
-      p = @access_token.get(path).body
-      search_results = JSON.parse(p)
+      result = @access_token.get(path).body
+      search_results = JSON.parse(result)
       if (search_results.has_key?("error"))
         business = nil
         error_message = search_results.fetch("error").fetch("text")
@@ -40,12 +40,11 @@ class DateIdeas::YelpAdaptorV2
           neighbourhood = n.gsub(/[ ]/, '+')
           path="/v2/search?term=%s&location=%s+%s&offset=%s" % [categories.join("+"), CGI.escape(neighbourhood), CGI.escape(location), offset]
           puts path
-          p = @access_token.get(path).body
-          search_results = JSON.parse(p)
+          result = @access_token.get(path).body
+          search_results = JSON.parse(result)
 
           if (search_results.has_key?("businesses"))
             businesses_hash = search_results.fetch("businesses")
-            r_businesses = Array.new
             r_businesses = create_businesses(businesses_hash)
             r_businesses.each do |biz|
               returned_businesses.push(biz)
@@ -60,8 +59,8 @@ class DateIdeas::YelpAdaptorV2
     else
       path="/v2/search?term=%s&location=%s&offset=%s" % [categories.join("+"), CGI.escape(location), offset]
       puts path
-      p = @access_token.get(path).body
-      search_results = JSON.parse(p)
+      result = @access_token.get(path).body
+      search_results = JSON.parse(result)
       if (search_results.has_key?("businesses"))
         businesses_hash = search_results.fetch("businesses")
         returned_businesses = create_businesses(businesses_hash)
@@ -74,7 +73,7 @@ class DateIdeas::YelpAdaptorV2
   end
 
   def create_businesses(businesses_hash)
-    businesses = Array.new
+    businesses = []
     businesses_hash.each do |business_hash|
       business = create_business(business_hash)
       businesses.push(business)
@@ -134,7 +133,7 @@ class DateIdeas::YelpAdaptorV2
   end
 
   def create_reviews(reviews_hash)
-    reviews = Array.new
+    reviews = []
     reviews_hash.each { |review_hash|
       reviews.push(create_review(review_hash))
     }
@@ -168,7 +167,7 @@ class DateIdeas::YelpAdaptorV2
   end
 
   def create_neighbourhoods(neighbourhoods_hash)
-    neighbourhoods = Array.new
+    neighbourhoods = []
     neighbourhoods_hash.each do |n|
       neighbourhood = Neighbourhood.new
       neighbourhood.neighbourhood = n
@@ -178,7 +177,7 @@ class DateIdeas::YelpAdaptorV2
   end
 
   def create_categories(categories_hash)
-    categories = Array.new
+    categories = []
     categories_hash.each do |display_name, name|
       category = Category.new
       category.name = name

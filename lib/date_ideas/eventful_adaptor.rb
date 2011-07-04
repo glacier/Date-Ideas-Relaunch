@@ -41,11 +41,11 @@ class DateIdeas::EventfulAdaptor
       return create_events(results['events']['event'])
     end
     
-    return Array.new
+    return []
   end
  
   def create_events(events_hash)
-    events = Array.new
+    events = []
     events_hash.each do |hash|
       e = create_event(hash)
       return_code = Rails.cache.write(e.eventid, e, :expires_in => 30.minutes)

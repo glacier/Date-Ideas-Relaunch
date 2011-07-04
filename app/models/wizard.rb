@@ -23,8 +23,9 @@ class Wizard
     @event_category = event_cat
     @event_date = event_date
     @price_point = price_point
-    @businesses = Array.new
+    @businesses = []
   end
+
   def add_business(business)
     @businesses.push(business)
   end
