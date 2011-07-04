@@ -64,11 +64,11 @@ $(document).ready(function() {
 	
 	//Display spinners for a add/remove button while item has not been added to cart
 	$('.add_button').live("ajax:beforeSend", function() {
-		$(this).parent().html("<img src='/images/ajax-loader-bar.gif' />");
-	});                                                                
-	
+		$(this).parent().html("<img src='/images/ajax-loader-small.gif' />");
+	});
+
 	$('.remove_button').live("ajax:beforeSend", function() {
-		$(this).parent().html("<img src='/images/ajax-loader-bar.gif' />");
+		$(this).parent().html("<img src='/images/ajax-loader-small.gif' />");
 	});
 	
 	// Ajax pagination
