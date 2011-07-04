@@ -18,9 +18,7 @@ class DateIdeas::EventfulAdaptor
       category = venue_type
     end
     
-    # keywords = Event.EVENT_KEYWORDS.fetch(venue_type)
     results = nil
-    
     begin
       #a ruby hash is returned from an API call
       results = @eventful.call 'events/search',
@@ -31,20 +29,30 @@ class DateIdeas::EventfulAdaptor
                                :location => location,
                                :page_size => num_pages,
                                :units => 'km',
-                               :mature => 'normal',
+                               :mature => 'safe',
                                :sort_order => 'date'
     rescue Exception => e
-      Rails.logger.info("Eventful API call failed with error " + e)
+      Rails.logger.info("Eventful API call failed with error!!")
     end
     
-    unless results.nil? and results['events'].nil?
-      return create_events(results['events']['event'])
+    if results.nil? or results['events'].nil?
+      return Array.new
     end
     
-    return Array.new
+    num_items_found = results['total_items']
+    if num_items_found > 0
+      hash = results['events']['event']
+      create_events(hash, num_items_found)
+    else
+      return Array.new
+    end    
   end
  
-  def create_events(events_hash)
+  def create_events(events_hash, num_items)
+    if num_items == 1
+      return [ create_event(events_hash) ]
+    end
+    
     events = Array.new
     events_hash.each do |hash|
       e = create_event(hash)
@@ -61,7 +69,6 @@ class DateIdeas::EventfulAdaptor
     event.eventid = event_id.gsub('@','-')
     event.title = event_hash['title']
     event.url = event_hash['url']
-    
     event.photo_url = get_photo_url(event_hash, 'medium')
     event.start_time = get_time(event_hash['start_time'])
     event.end_time = get_time(event_hash['end_time'])
