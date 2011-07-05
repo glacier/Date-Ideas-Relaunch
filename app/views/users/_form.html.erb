@@ -1,36 +1,34 @@
 <%= form_for(@user) do |f| %>
 	<table>
-		<tbody>
-			<tr>
-				<td><%=f.label :first_name %></td>
-				<td><%= f.text_field :first_name, :title => "First Name" %></td>
-				<td>
-					
-				</td>
-			</tr>
-			<tr>
-				<td><%=f.label :last_name %></td>
-				<td><%= f.text_field :last_name, :title => "Last Name" %></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td><%=f.label :gender %></td>
-				<td><%= f.select :gender, [['Female', 'female'],['Male', 'male']] %></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td><%=f.label :birthday %></td>
-				<!-- use date picker here? -->
-				<td><%= f.date_select :birthday, :include_blank => true %></td>
-			</tr>
-			<tr>
-				<td><%=f.label :postal_code %></td>
-				<td><%= f.text_field :postal_code, :title =>"postal or zip code" %></td>
-				<td></td>
-			</tr>
-		</tbody>
+			<tbody>
+				<tr>
+					<td><%=f.label :first_name %></td>
+					<td><%= f.text_field :first_name, :title => "First Name" %></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><%=f.label :last_name %></td>
+					<td><%= f.text_field :last_name, :title => "Last Name" %></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><%=f.label :gender %></td>
+					<td><%= f.select :gender, [['Female', 'female'],['Male', 'male']] %></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><%=f.label :birthday %></td>
+					<!-- use date picker here? -->
+					<td><%= f.date_select :birthday, :include_blank => true %></td>
+				</tr>
+				<tr>
+					<td><%=f.label :postal_code %></td>
+					<td><%= f.text_field :postal_code, :title =>"postal or zip code" %></td>
+					<td></td>
+				</tr>
+			</tbody>
 	</table>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+	<div class="actions">
+	  <%= f.submit %>
+	</div>
 <% end %>

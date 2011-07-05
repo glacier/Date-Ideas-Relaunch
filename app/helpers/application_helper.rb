@@ -69,7 +69,15 @@ module ApplicationHelper
     uri = URI::HTTP.build([nil, "eventful.com", nil, "/" + location + "/" + "events", query, nil]).to_s
     uri.to_s
   end
-
+  
+  def generate_ribbon_header title
+    result = content_tag(:h3, content_tag(:span, title), :class=>"span-13")
+    result << content_tag(:div, '', :class=>'di_module_header_tail')
+    content_tag(:div, :class=>"ribbon_header") do
+      result
+    end
+  end
+  
   # Use the previous modal dialogue format to keep things DRY
   # pass in the title of the dialogue, the div where things will be opened, and the partial of content to render
   def generate_modal_dialogue div, title, partial
