@@ -31,7 +31,6 @@ hr {
 	#user_nav {
 		float: right;
 		padding-top: 25px;
-		
 		ul {
 			@include horizontal-list(10px, left);
 			font:{

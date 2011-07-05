@@ -1,6 +1,5 @@
 <% if user_signed_in? %>
 	<ul>
-		<li><%= current_user.email %></li>
 		<li><%= link_to "Account Settings", edit_user_path(current_user) %></li>
 		<!-- May not work if no profile is there -->
 		<li><%= link_to "Edit Profile", edit_profile_path(current_user.id) %></li>
@@ -18,4 +17,4 @@
 		<li><%= link_to "Login", new_user_session_path %></li>
 	</ul>
 <% end %>
-	
+
