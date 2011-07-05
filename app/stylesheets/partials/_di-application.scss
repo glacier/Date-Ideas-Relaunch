@@ -7,7 +7,8 @@ body {
 		width:180px;
 	}
 	a {
-		@include unstyled-link;
+/*		@include unstyled-link;*/
+		text-decoration: none;
 		color: $link-color;
 	}
 }
@@ -30,7 +31,6 @@ hr {
 	#user_nav {
 		float: right;
 		padding-top: 25px;
-		
 		ul {
 			@include horizontal-list(10px, left);
 			font:{
@@ -89,6 +89,20 @@ hr {
 	background-image: url(../images/ui-icons_3572ac_256x240.png); 
 }
 
+/* container for headers with ribbon backgrounds */
+.ribbon_header {
+	@include pie-clearfix;
+}
+
+/* adds a ribbon tail graphic to headers */
+.di_module_header_tail {
+	float: left;
+	background: url("/images/right_tail_shorter-1.png") no-repeat right;
+	height: 37px;
+	width: 30px;
+}
+
+/* containers for a page module */
 .di_module_section {
 	padding-top: 5px;
 	
@@ -116,14 +130,8 @@ hr {
 	padding-left: 20px;
 }
 
-.di_module_header_tail {
-	float: left;
-	background: url("/images/right_tail_shorter-1.png") no-repeat right;
-	height: 37px;
-	width: 30px;
-}
-
-/* ajax update container fading */
+/* Various ajax loaders */
+/* with container fading */
 .ajax_load_and_fade {
 /*	background: rgb(255, 0, 0);*/
 	opacity: 0.2;
@@ -152,5 +160,7 @@ hr {
 	top: 280px;
 	width: inherit;
 }
+
+
 
 

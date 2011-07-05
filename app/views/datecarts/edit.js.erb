@@ -1,24 +1,2 @@
-//define config object
-var dialogOpts = {
-	title: "Edit",
-	modal: true,
-	overlay: { 
-		background: "url(img/modal.png) repeat" 
-	},
-	// buttons: {
-	// 	"Ok": function() { $(this).dialog("close"); }
-	// },
-	closeOnEscape: true,
-	width: 450,
-	autoOpen: false,
-	resizable: false,
-	draggable: false,
-	open: function() {
-		//display correct dialog content
-		$("#di_edit_dialog").html("<%= escape_javascript(render 'form', :format => :html) %>");
-	}
-};
-
-$("#di_edit_dialog").dialog(dialogOpts);
-$("#di_edit_dialog").dialog("open");
+<%= raw generate_modal_dialogue(:"di_edit_dialog", :"Edit", render('form', :format => :html)) %>
 

@@ -12,26 +12,28 @@ class Event < ActiveRecord::Base
   }
 
   EVENTFUL_CATEGORIES = {
-      'Concerts and Tour Dates' => 'music',
-      'Kids and Family' => 'family_fun_kids',
-      'Festivals' => 'festivals_parades',
-      'Film' => 'movies_film',
-      'Food and Wine' => 'food',
-      'Art Galleries and Exhibits' => 'art',
-      'Literary and Books' => 'books',
-      'Museums and Attractions' => 'attractions',
-      'Nightlife and Singles' => 'singles_social',
-      'Outdoors and Recreation' => 'outdoors_recreation',
-      'Performing Arts' => 'performing_arts',
-      'Pets' => 'animals',
-      'Sports' => 'sports'
+    'All' => '',
+    'Concerts and Tour Dates' => 'music',
+    'Kids and Family' => 'family_fun_kids',
+    'Festivals' => 'festivals_parades',
+    'Film' => 'movies_film',
+    'Food and Wine' => 'food' ,
+    'Art Galleries and Exhibits' => 'art',
+    'Literary and Books' => 'books',
+    'Museums and Attractions' => 'attractions',
+    'Nightlife and Singles' => 'singles_social' ,
+    'Outdoors and Recreation' => 'outdoors_recreation',
+    'Performing Arts' => 'performing_arts',
+    'Pets' => 'animals',
+    'Sports' => 'sports'
   }
 
   TIMES = {
-      'Today' => 'Today',
-      'This Week' => 'This Week',
-      'Next Week' => 'Next Week',
-      'This Month' => 'July'
+    'All times' => 'Future',
+    'Today' => 'Today',
+    'This Week' => 'This Week',
+    'Next Week' => 'Next Week',
+    'This Month' => Time.new.strftime("%B")
   }
 
     #define some keywords to narrow down search within a category
@@ -45,7 +47,6 @@ class Event < ActiveRecord::Base
   }
 
   cattr_reader :EVENT_CATEGORY, :EVENT_KEYWORDS
-
   has_many :cart_items
 
   # For now, don't save event descriptions.  Note that the descriptions returned from the Eventful API can contain HTML tags and can be very verbose.

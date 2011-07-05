@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(:version => 20110701035646) do
   end
 
   create_table "business_types", :force => true do |t|
-    t.string   "business_id"
+    t.integer  "business_id"
     t.string   "category_name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(:version => 20110701035646) do
     t.datetime "updated_at"
     t.string   "name",                :default => "My Date"
     t.datetime "datetime"
-    t.string   "notes",               :default => "Make it special!"
+    t.text     "notes"
     t.integer  "significant_date_id"
   end
 

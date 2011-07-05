@@ -23,20 +23,11 @@
 </div>
 
 <%= content_for :main_related do %>
-  <% if ( !@wizard.events.nil? ) %>
-		<div id="di_related_info">
-			<h3>Related Events</h3>
-				<% @wizard.events.each do |event| %>
-					<div class="di_event">
-						<%= render :partial => 'shared/event_item', :locals => {:event => event, :title_size => 'event_title_small', :size => 100} %>
-						<div class="di_event_add">
-							<%= render :partial => 'shared/add_event_buttons', :locals => {:event => event, :cart_items => @cart_items} %>
-						</div>
-					</div>
-				<% end %>
-			<p><%= link_to "See more at eventful.com >>", eventful_url("Toronto", params['venue'], "Next+7+Days","Popularity") %></p>
-		</div>
-  <% end %>
+	<div id="di_related_info">
+		<h3>Related Events</h3>
+	  <%= render :partial => 'event_results' %>
+		<p><%= link_to "See more at eventful.com >>", eventful_url("Toronto", params['venue'], "Next+7+Days","Popularity") %></p>
+	</div>
 <% end %>
 
 <div id="ajax_paginate">

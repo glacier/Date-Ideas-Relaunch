@@ -1,5 +1,5 @@
-<% if @wizard.events.nil? %>
- <p> Sorry, we've got nothing for you this time :( </p>
+<% if @wizard.events.blank? %>
+ <p> No events were found. </p>
 <% else %>
 	<% @wizard.events.each do |event| %>
 		<div class="di_biz">

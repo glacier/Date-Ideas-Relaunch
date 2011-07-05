@@ -17,6 +17,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find(params[:id])
+    respond_to do |format|
+      format.html {render :layout => 'dashboard'}
+    end
+  end
+  
   def show
     @user = User.find(params[:id])
 

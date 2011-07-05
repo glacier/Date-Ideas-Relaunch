@@ -1,8 +1,10 @@
 <% if user_signed_in? %>
 	<ul>
-		<li><%= current_user.email %></li>
-		<li><%= link_to "Sign out", destroy_user_session_path %></li>
-		<li><%= link_to "Profile", profile_path(current_user.id) %></li>
+		<li><%= link_to "Account Settings", edit_user_path(current_user) %></li>
+		<!-- May not work if no profile is there -->
+		<li><%= link_to "Edit Profile", edit_profile_path(current_user.id) %></li>
+		<li><%= link_to "Profile", profile_path(current_user.id) %></li> 
+		<li><%= link_to "Log out", destroy_user_session_path %></li>
 		<% if current_user.role? :admin %>
 			<li><%= link_to "Add/Modify Businesses", businesses_path %></li>
       <li><%= link_to "Add/Modify Neighbourhoods", neighbourhoods_path %></li>
@@ -11,7 +13,8 @@
 	</ul>
 <% else %>
 	<ul>
+		<!-- <li><%# link_to "Sign Up", new_user_session_path %></li> -->
 		<li><%= link_to "Login", new_user_session_path %></li>
 	</ul>
 <% end %>
-	
+
