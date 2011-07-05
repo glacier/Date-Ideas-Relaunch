@@ -20,9 +20,9 @@ class WizardController < ApplicationController
   end
 
   def search
-    event_cat = params['event_cat'] || params[:venue]
-    event_date = params['event_date'] || 'today'
-  
+    #set proper event params
+    event_cat = params['event_cat']
+    event_date = params['event_date']
     @wizard = Wizard.new(params[:venue], event_cat, event_date, params[:location], params[:price_point])
       
     neighbourhood = params[:neighbourhood]
@@ -46,14 +46,24 @@ class WizardController < ApplicationController
 
     businesses = dnaService.search(@wizard.venue, @wizard.location, @wizard.price_point, current_page, 8, @wizard.neighbourhood,@wizard.sub_category)
     
+    # Eventful related searches
     per_page = 3
     current_page_events = 1
     if @wizard.venue == 'activities_events'
+      event_cat = params[:event_cat].blank? ? '' : params[:event_cat]
       per_page = 8
       current_page_events = current_page
+    else
+      event_cat = params[:venue]
+      event_date = 'today'
     end
+    
 
     #grab events from eventful.com
+    y 'eventful search params'
+    y event_cat
+    y event_date
+    
     events = eventful.search(event_cat, event_date, 'toronto', 30).paginate(:page => current_page_events, :per_page => per_page)
 
     @datecart = current_cart

@@ -64,11 +64,11 @@ $(document).ready(function() {
 	
 	//Display spinners for a add/remove button while item has not been added to cart
 	$('.add_button').live("ajax:beforeSend", function() {
-		$(this).parent().html("<img src='/images/ajax-loader-bar.gif' />");
-	});                                                                
-	
+		$(this).parent().html("<img src='/images/ajax-loader-small.gif' />");
+	});
+
 	$('.remove_button').live("ajax:beforeSend", function() {
-		$(this).parent().html("<img src='/images/ajax-loader-bar.gif' />");
+		$(this).parent().html("<img src='/images/ajax-loader-small.gif' />");
 	});
 	
 	// Ajax pagination
@@ -82,12 +82,17 @@ $(document).ready(function() {
 	});
 		
 	// Wizard UI indicator while loading results
-	$('#main input[name="commit"]').click(function(){
-		$("form:first").submit();
+	// Doesn't work in Firefox
+	// $('#main input[name="commit"]').click(function(){
+	// 	$('form:first').submit();
+	// 	$('select').attr('readonly', true);
+	// 	$('input').attr('readonly', true);
+	// 	$('#wizard_loader img').removeClass('ajax-hidden');
+	// });
+	
+	$('#di_wizard_form form').submit(function(){
 		$('#wizard_loader img').removeClass('ajax-hidden');
-		
-		$('select').attr('disabled', 'disabled');
-		$('input').attr('disabled', 'disabled');
+		return true;
 	});
 	
 	$('#di_filter_section select').live('change', function(){
@@ -97,7 +102,8 @@ $(document).ready(function() {
 		}).submit();		
 		// Show spinners around the page to indicate results are being loaded
 		$('.filter_loaders').removeClass('ajax-hidden');
-		$('select').attr('disabled', 'disabled');
+		// disabling may lead to no parameters to be sent in Firefox
+		// $('select').attr('disabled', 'disabled');
 	});
 	
 	//Toggle all input text and password fields on site
@@ -107,7 +113,6 @@ $(document).ready(function() {
 	});
 	
 	$('input[type="text"],input[type="password"]').focus(function(){
-		console.log("test");
         $(this).css("color","black");
         clear_input($(this));
     }).blur(function(){

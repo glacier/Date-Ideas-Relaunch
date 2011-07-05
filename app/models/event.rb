@@ -1,7 +1,8 @@
 class Event < ActiveRecord::Base
   validates_presence_of :eventid
   validates_uniqueness_of :eventid
-    
+  #  validates :start_time, :venue_name, :venue_address, :presence => true
+  
   # mapping of venue type in wizard search form to the proper eventful.com category id
   @@EVENT_CATEGORY = { 
     'activities_events' => 'festivals_parades', #attractions, family_fun_kids
@@ -12,6 +13,7 @@ class Event < ActiveRecord::Base
   }
   
   EVENTFUL_CATEGORIES = {
+    'All' => '',
     'Concerts and Tour Dates' => 'music',
     'Kids and Family' => 'family_fun_kids',
     'Festivals' => 'festivals_parades',
@@ -28,10 +30,11 @@ class Event < ActiveRecord::Base
   }
   
   TIMES = {
+    'All times' => 'Future',
     'Today' => 'Today',
     'This Week' => 'This Week',
     'Next Week' => 'Next Week',
-    'This Month' => 'July'
+    'This Month' => Time.new.strftime("%B")
   }
   
   #define some keywords to narrow down search within a category
@@ -45,12 +48,6 @@ class Event < ActiveRecord::Base
   }
   
   cattr_reader :EVENT_CATEGORY, :EVENT_KEYWORDS
-  
   has_many :cart_items
-
-  # For now, don't save event descriptions.  Note that the descriptions returned from the Eventful API can contain HTML tags and can be very verbose.
-#  validates :start_time, :venue_name, :venue_address, :presence => true
-
-
-  # :description --  Don't see the utility of saving this. The descriptions returned from the Eventful API can contain HTML tags and can be very verbose.
+  # :description --  Don't see the utility of saving this. The descriptions returned from the Eventful API can contain HTML tags and can be very verbose.ˇ
 end
