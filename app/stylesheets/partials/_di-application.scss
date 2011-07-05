@@ -90,6 +90,20 @@ hr {
 	background-image: url(../images/ui-icons_3572ac_256x240.png); 
 }
 
+/* container for headers with ribbon backgrounds */
+.ribbon_header {
+	@include pie-clearfix;
+}
+
+/* adds a ribbon tail graphic to headers */
+.di_module_header_tail {
+	float: left;
+	background: url("/images/right_tail_shorter-1.png") no-repeat right;
+	height: 37px;
+	width: 30px;
+}
+
+/* containers for a page module */
 .di_module_section {
 	padding-top: 5px;
 	
@@ -115,13 +129,6 @@ hr {
 .di_module_medium {
 	@include heading4;
 	padding-left: 20px;
-}
-
-.di_module_header_tail {
-	float: left;
-	background: url("/images/right_tail_shorter-1.png") no-repeat right;
-	height: 37px;
-	width: 30px;
 }
 
 /* Various ajax loaders */
@@ -154,5 +161,7 @@ hr {
 	top: 280px;
 	width: inherit;
 }
+
+
 
 
