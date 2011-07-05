@@ -87,11 +87,11 @@ class DateIdeas::EventfulAdaptor
     # start_time = nil
     # stop_time = nil
     if !hash['start_time'].blank?
-      start_time = Time.parse(hash['start_time'])
+      start_time = Time.parse(get_time(hash['start_time']))
     end
     
     if !hash['stop_time'].blank?
-      stop_time = Time.parse(hash['stop_time'])
+      stop_time = Time.parse(get_time(hash['stop_time']))
     end
     
     if stop_time.blank? and start_time.blank?
