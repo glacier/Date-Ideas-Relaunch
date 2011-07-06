@@ -24,6 +24,17 @@ class UsersController < ApplicationController
     end
   end
   
+  def update
+    @user = User.find(params[:id])
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        format.html { redirect_to(profile_url(@user), :notice => "Your account is successfully updated")}
+      else
+        format.html { render :edit }
+      end
+    end
+  end
+  
   def show
     @user = User.find(params[:id])
 

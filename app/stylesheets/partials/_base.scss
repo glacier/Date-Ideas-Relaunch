@@ -10,10 +10,14 @@ $blueprint-grid-margin: 10px;
 // compass grid-img 30+10x16
 
 //dateideas custom colors
-$di-cyan: #40c0cb;
+$di-cyan: #40C0CB;
+$di-green: #AEE239;
+$di-light-green: #75cdd5;
+$di-darker-green: #98c631;
+$fancy-green: darken(#57b42c, 8);
 
 //dateideas colors for various elements
-$body-bg-color: #f7f7f7;
+$body-bg-color: #F7F7F7;
 $container-bg-color: $body-bg-color;
 $header-bg-color: #000;
 $header-txt-color: #FFF;
@@ -30,11 +34,11 @@ $link-color: $di-cyan;
 $link-visited-color: $di-cyan;
 $link-active-color: $di-cyan;
 
-// for fancy buttons
+/* // for fancy buttons (not currently used)
 $fancy-green: darken(#57b42c, 8);
 $fancy-orange: #F0EEE4;
 $fancy-silver: #B7B7B7;
-$fancy-red: adjust_hue($fancy-green, -100);
+$fancy-red: adjust_hue($fancy-green, -100); */
 
 .span_page {
     width: 100%;

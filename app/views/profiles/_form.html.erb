@@ -14,12 +14,12 @@
 		<tbody>
 			<tr>
 				<td><%=f.label :city %></td>
-				<td><%= f.select(:city, [['Toronto', 'toronto'], ['Montreal', 'montreal']]) %></td>
+				<td><%= f.select(:city, [['Toronto', 'toronto'], ['Montreal', 'montreal']], :selected => @profile.city) %></td>
 				<td>Your default location</td>
 			</tr>
 			<tr>
 				<td><%=f.label :relationship_status %></td>
-				<td><%= f.select :relationship_status, [['Single', 'single'], ['Dating', 'dating'], ['In a relationship', 'in_a_relationship'], ['Engaged', 'engaged'], ['Married', 'married']], {:include_blank => 'Keeping it a secret'} %></td>
+				<td><%= f.select :relationship_status, [['Secret', 'secret'], ['Single', 'single'], ['Dating', 'dating'], ['In a relationship', 'in_a_relationship'], ['Engaged', 'engaged'], ['Married', 'married']], :selected => @profile.relationship_status %></td>
 				<td></td>
 			</tr>
 			<tr>
@@ -34,7 +34,7 @@
 			</tr>
 			<tr>
 				<td><%=f.label :about_me %></td>
-				<td><%= f.text_field :about_me, :title =>"Bio" %></td>
+				<td><%= f.text_area :about_me, :cols=>80, :rows=>40, :value => @profile.about_me %></td>
 				<td></td>
 			</tr>
 		</tbody>

@@ -1,11 +1,14 @@
 /* DateIdeas application-wide styles */
 body {
+	font-family: Helvetica !important;
+/*	font-size: 20px;*/
 	background: $body-bg-color url('/images/di-body-background-1.png') repeat fixed;
-	input[type="text"], input[type="password"] {
+	input[type="text"], input[type="password"]{
 		color: #CCC;
 		border-radius: 4px;
-		width:180px;
+		width: 200px;
 	}
+
 	a {
 /*		@include unstyled-link;*/
 		text-decoration: none;
@@ -15,6 +18,19 @@ body {
 
 hr {
 	border:0px !important;
+}
+
+form {
+	select, input {
+		font-family: Helvetica;
+		font-size: 16px;
+	}
+	
+	textarea {
+		width: 200px;
+		height: 150px;
+		font-size: 16px;
+	}
 }
 
 #header {
@@ -58,6 +74,10 @@ hr {
 #main {
 	@include heading2;
 	padding-top: 45px;
+	form label {
+		color: $di-light-green;
+		font-size: 18px;
+	}
 }
 
 #sidebar_right {
@@ -84,6 +104,12 @@ hr {
 }
 
 /* Site Elements */
+
+/* Submit Buttons */
+#profile_submit, #user_submit {
+	@include di_button(16px, $di-green);
+}
+
 /* Use the blue icons from jquery-ui */
 .ui-state-dateideas .ui-icon { 
 	background-image: url(../images/ui-icons_3572ac_256x240.png); 
@@ -123,6 +149,7 @@ hr {
 
 .di_module_large {
 	@include heading3;
+	margin-bottom: 50px;
 }
 
 .di_module_medium {
@@ -130,6 +157,17 @@ hr {
 	padding-left: 20px;
 }
 
+.di_module_container {
+	@include results_container;
+	@include pie-clearfix;
+	h1 {
+		color: $di-darker-green;
+	}
+}
+.subcontainer {
+	float:left;
+	margin-right: 15px;
+}
 /* Various ajax loaders */
 /* with container fading */
 .ajax_load_and_fade {
@@ -160,7 +198,3 @@ hr {
 	top: 280px;
 	width: inherit;
 }
-
-
-
-

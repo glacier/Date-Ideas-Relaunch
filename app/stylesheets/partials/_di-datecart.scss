@@ -84,7 +84,7 @@ $heart_button: saturate(lighten($red, 2), 20)
 .function_buttons {
 /*	@include fancy-button-matte($fancy-silver, 10px, 0.30em, 1px);
 	@include fancy-button-colors-matte(#ddd);   */
-	@include di_button(14px, #aee239);
+	@include di_button(14px, $di-green);
 	width:100px;
 	height:20px;
 	text-align: center;
