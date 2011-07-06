@@ -3,9 +3,11 @@ class DateIdeas::YelpAdaptorV2
   @@TEST_URL = "http://api.sandbox.yelp.com"
   @@CONSUMER_KEY = 'Z720kWRw-CAauOQNUbMEAQ'
   @@CONSUMER_SECRET = 'e7999uMADazHkmG5NDVDWBykczc'
-  @@TOKEN = '1Gj9nSZwzv_o5F_egAYGgYDBsdTdeKFZ'
-  @@TOKEN_SECRET = 'Yd98KQPlSAOWXfmHYsTctbihEH4'
-
+  # @@TOKEN = '1Gj9nSZwzv_o5F_egAYGgYDBsdTdeKFZ'
+  # @@TOKEN_SECRET = 'Yd98KQPlSAOWXfmHYsTctbihEH4'
+  @@TOKEN = 'PVQ8f1oAcFIal8fDodOx7qW5VXNwbhkK'
+  @@TOKEN_SECRET = 'WdUPWAiYOfViusLJXxaXDeeTVO0'
+  
   def initialize(logger, test_mode = false)
     @logger = logger
     @url = test_mode ? @@TEST_URL : @@PROD_URL

@@ -1,18 +1,29 @@
 <%# Dateideas customized view for devise password change %>
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-<table>
-	<tbody>
-  <%# devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
-  <tr>
-		<td><%= f.label :password %></td>
-		<td><%= f.password_field :password, :title=>"New password" %></td>
-	</tr>
-  <tr>
-		<td><%= f.label :password_confirmation %></td>
-	  <td><%= f.password_field :password_confirmation, :title => "Confirm password" %></td>
-	</tr>
-</tbody>
-</table>
-<p><%= f.submit "Change my password" %></p>
-<% end %>
+<%# 
+	Note that the password cannot be reset. Rendering this view as just a placeholder for now. 
+	Will enable Devise registrable module to allow password editing. View rendered will be registrations/edit
+%>
+<div id="account_registration_settings" class="di_module_medium">
+	<h4>Change Password</h4>
+	<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
+	<table>
+		<tbody>
+	  <%# devise_error_messages!(resource) %>
+	  <%= f.hidden_field :reset_password_token %>
+	  <tr>
+			<td><%= f.label :password %></td>
+			<td><%= f.password_field :password, :title=>"New password" %></td>
+		</tr>
+	  <tr>
+			<td><%= f.label :password_confirmation %></td>
+		  <td><%= f.password_field :password_confirmation, :title => "Confirm password" %></td>
+		</tr>
+	</tbody>
+	</table>
+	<p><%= f.submit "Change my password" %></p>
+	<% end %>
+</div>
+
+<div id="cancel_account" class="di_module_medium">
+	<h4>Cancel Account</h4>
+</div>

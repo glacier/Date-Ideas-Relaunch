@@ -1,18 +1,14 @@
+<%# This is just a placeholder until we allow user registration. Then we let Devise handle the user account operations %>
 <div id="user_settings" class="di_module_large">
-	<%= generate_ribbon_header :"User Account Settings" %>
+	<%= generate_ribbon_header :"User Account Settings",13 %>
 	<%= render 'form' %>
 </div>
 
 <%= content_for :sidebar_right do %>
 	<div id="notifications" class="di_module_medium">
 		<h4> Notification Preferences </h4>
-		<hr/>
-
-		<h4>Change password</h4>
-		<%= render :template => 'devise/passwords/edit', :locals => { :resource => current_user, :resource_name => "user"} %>
 	</div>
-
-	<div id="cancel_account" class="di_module_medium">
-		<h4> Disable account </h4>
-	</div>
+	<%= render :template => 'devise/passwords/edit', :locals => { :resource => current_user, :resource_name => "user"} %>
+	<%# render the view below once registrations is enabled %>
+	<%# render :template => 'devise/registrations/edit', :locals => { :resource => current_user, :resource_name => "user"} %>
 <% end %>

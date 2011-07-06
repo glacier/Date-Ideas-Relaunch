@@ -1,14 +1,25 @@
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this profile from being saved:</h2>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for(@user) do |f| %>
 	<table>
 			<tbody>
 				<tr>
 					<td><%=f.label :first_name %></td>
-					<td><%= f.text_field :first_name, :title => "First Name" %></td>
+					<td><%= f.text_field :first_name, :title => @user.first_name %></td>
 					<td></td>
 				</tr>
 				<tr>
 					<td><%=f.label :last_name %></td>
-					<td><%= f.text_field :last_name, :title => "Last Name" %></td>
+					<td><%= f.text_field :last_name, :title => @user.last_name %></td>
 					<td></td>
 				</tr>
 				<tr>
@@ -23,7 +34,7 @@
 				</tr>
 				<tr>
 					<td><%=f.label :postal_code %></td>
-					<td><%= f.text_field :postal_code, :title =>"postal or zip code" %></td>
+					<td><%= f.text_field :postal_code %></td>
 					<td></td>
 				</tr>
 			</tbody>

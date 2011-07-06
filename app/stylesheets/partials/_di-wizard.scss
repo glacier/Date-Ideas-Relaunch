@@ -72,7 +72,7 @@
 
 /* Wizard: Large green search button */
 .search-btn-large {
-	@include di_button(26px, #aee239);
+	@include di_button(26px, $di-green);
 	width: 300px;
 	height: 60px;
 }

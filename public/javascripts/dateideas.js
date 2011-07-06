@@ -108,14 +108,18 @@ $(document).ready(function() {
 	
 	//Toggle all input text and password fields on site
 	//Set title attribute of input to show toggle texts
-	$('input[type="text"],input[type="password"]').each(function(){
+	$('input[type="text"],input[type="password"], textarea').each(function(){
 		$(this).val($(this).attr('title'));
 	});
 	
-	$('input[type="text"],input[type="password"]').focus(function(){
+	$('input[type="text"],input[type="password"], textarea').focus(function(){
         $(this).css("color","black");
         clear_input($(this));
     }).blur(function(){
         show_input($(this));
     });
+	
+	//Hack to extend the sidebar container to the bottom
+	height = $('#content').outerHeight() + 112;
+	$('#sidebar_right').height(height);
 });

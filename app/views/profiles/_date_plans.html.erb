@@ -1,12 +1,13 @@
 <div id="date_plans">
-	<h1> Your planned dates </h1>
+	<%= generate_ribbon_header("Date Plans", 8) %>
 	<% if user.datecarts.empty? %>
-		<p> You have no dates planned! </p>
+		<p> No dates planned </p>
 	<% end %>
 	
 	<ul>
 		<% user.datecarts.each do |datecart| %>
-			<li><%= link_to(datecart) do %>
+			<li>
+			<%= link_to(datecart) do %>
 					<%= datecart.name %>
 					<% end %> on <%= datecart.datetime %> 
 					<%= link_to 'Delete', datecart, :confirm => 'Are you sure?', :method => :delete, :remote => true %>		
