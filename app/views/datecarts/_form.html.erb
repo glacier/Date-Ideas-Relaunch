@@ -1,44 +1,70 @@
 <script type="text/javascript">
-	$(document).ready(function(){
-		//show date picker pop up
-		$('#datecart_datetime').datetimepicker({
-                dateFormat: "yy/mm/dd",
-		        ampm: true,
-		        hourGrid: 4,
-		        minuteGrid: 10
-		});
-	});
+    $(document).ready(function() {
+        //initialize date picker pop up
+        $('#datecart_datetime').datetimepicker({
+            dateFormat: "yy/mm/dd",
+            defaultDate: +1,
+            minDate: 0,
+            ampm: true,
+            hourGrid: 4,
+            minuteGrid: 10
+        });
+
+        //Enforce basic punctuation for app names (currently undecided what shold be validated against)
+        jQuery.validator.addMethod("letterswithbasicpunc", function(value, element) {
+            return this.optional(element) || /^[a-z0-9-.,$()'\"\s&!]+$/i.test(value);
+        }, "Letters or punctuation only please");
+
+        $("#edit_datecart_<%=@datecart.id%>").validate({
+            rules: {
+                "datecart[name]": {
+                    required: true,
+                    "letterswithbasicpunc": true
+                },
+                "datecart[datetime]": {
+                    required: true
+                },
+                "datecart[notes]": {
+                    maxlength: 300
+                }
+            },
+            messages: {
+                "datecart[notes]": "Max 300"
+            }
+        });
+
+    });
 </script>
 
 <%= form_for(@datecart) do |f| %>
-  <% if @datecart.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@datecart.errors.count, "error") %> prohibited this datecart from being saved:</h2>
+    <% if @datecart.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@datecart.errors.count, "error") %> prohibited this datecart from being saved:</h2>
 
-      <ul>
-      <% @datecart.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @datecart.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %>
-		<%= f.text_field :name %>
-  </div>
-  
-	<div class="field">
-    <%= f.label :datetime %>
-		<%= f.text_field :datetime %>
-  </div>
+    <div class="field">
+      <%= f.label :datetime %>
+      <%= f.text_field :datetime %>
+    </div>
 
-	<div class="field">
-    <%= f.label :notes %>
-		<%= f.text_field :notes %>
-  </div>
+    <div class="field">
+      <%= f.label :notes %>
+      <%= f.text_field :notes %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+    <div class="actions">
+      <%= f.submit "Update" %>
+    </div>
 <% end %>
