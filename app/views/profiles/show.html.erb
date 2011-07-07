@@ -17,7 +17,7 @@
 	<hr/>
 
 	<div id="about" class="di_module_large">
-		<%= generate_ribbon_header(:about, 13) %>
+		<%= generate_ribbon_header(:h3, :about, 13) %>
 		<div class="di_module_container">
 		  <%= @profile.about_me %>
 		</div>
@@ -26,7 +26,7 @@
 	<hr/>
 
 	<div id="dates_planned" class="di_module_large">
-		<%= generate_ribbon_header "Dates Planned",13 %>
+		<%= generate_ribbon_header(:h3, "Dates Planned", 13) %>
 		<div id="number" class="di_module_container subcontainer">
 			<!-- TODO: get number of dates planned -->
 			<h1>0</h1>

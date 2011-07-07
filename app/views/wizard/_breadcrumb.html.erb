@@ -1,14 +1,12 @@
 <div id="di_breadcrumb" class="di_module">
-	<h5 class="span-5"><span>Your search</span></h5>
-	<div class="di_module_header_tail"></div>
-	<hr/>
+	<%= generate_ribbon_header :h5, :"Your Search", 5 %>
 	<div id="di_breadcrumb_section" class="di_module_section">
 		<fieldset>
 			<ul id='search_params'>
 			  <li>'<%= get_display_text(params['venue']) %>'</li>
 				<li>in '<%= location_text.nil? ? params['location'] : location_text %>' </li>
 				<% if params['venue'] == 'activities_events' %>
-					<li> that are happening '<%= params['event_date'].blank? ? 'Today' : params['event_date'] %>'<li>
+					<li> that are happening '<%= params['event_date'].blank? ? 'Today' : params['event_date'] %>'</li>
 				<% else %>
 					<li>with '<%= params['price_point'] %>' prices</li>
 				<% end %>
