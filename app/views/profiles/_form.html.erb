@@ -34,7 +34,7 @@
 			</tr>
 			<tr>
 				<td><%=f.label :about_me %></td>
-				<td><%= f.text_area :about_me, :cols=>80, :rows=>40, :value => @profile.about_me %></td>
+				<td><%= text_area :profile, :about_me, :cols=>80, :rows=>40 %></td>
 				<td></td>
 			</tr>
 		</tbody>
