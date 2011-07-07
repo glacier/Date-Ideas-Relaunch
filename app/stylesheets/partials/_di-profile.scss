@@ -17,6 +17,7 @@
 		position:relative;
 		left: 20px;
 		top: 50px;*/
+		margin-left: 20px;
 	}
 	ul {
 		list-style-type: none;
@@ -26,7 +27,6 @@
 	}
 	#pic, #info {
 		float: left;
-		text-align: center;
 	}
 	#info {
 		padding-top: 40px;
@@ -52,7 +52,11 @@
 
 #date_plans {
 	@include heading3;
-	@include horizontal-list(10px, left);
+/*	@include horizontal-block-list(10px, left);*/
+	list-style-type: none;
+	p {
+		margin-left: 20px;
+	}
 }
 
 #plan_date_button {
