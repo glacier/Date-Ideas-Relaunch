@@ -59,6 +59,8 @@ class Business < ActiveRecord::Base
   end
 
    def Business.search_by_district_subsection(city,district_subsection, price_point, categories, page )
+    msg="city:%s district subsection:%s price point:%s categories:%s page:%s" % [city, district_subsection, price_point, categories, page]
+    Rails.logger.info msg
     sql = String.new
     sql <<
       "SELECT b.*                                  \
@@ -98,6 +100,8 @@ class Business < ActiveRecord::Base
       return db_businesses
   end
   def Business.search_by_neighbourhood(city,neighbourhood, price_point, categories, page)
+      msg="city:%s neighbourhood:%s price point:%s categories:%s page:%s" % [city, neighbourhood, price_point, categories, page]
+      Rails.logger.info msg
       sql = String.new
       sql <<
       "SELECT b.*                                  \
