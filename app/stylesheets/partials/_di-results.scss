@@ -16,9 +16,14 @@
 	}
 	.di_biz_info {
 		@include pie-clearfix;
+		ul {
+			list-style-type: none;
+			padding: 0;
+			margin: 10px 10px 10px 0px;
+		}
 		.di_biz_desc {
 			float: left;
-/*			width: 280px;*/
+			width: 260px;
 			margin: {
 				left: 20px;
 				bottom: 10px;
@@ -29,18 +34,12 @@
 		}
 	}
 	.di_biz_add {
-		position: relative;
-		left: 45px;
+		float: left;
 		span {
 			text-align: center;
-			img {
-				margin-left: 55px;
-			}
 		}
 	}
-	.di_biz_yelp_reviews {
-	}
-	
+
 	.di_biz_hr {
 		visibility: hidden;
 	}
@@ -104,7 +103,6 @@
 /* yelp logo */
 .yelp-badge, .eventful-badge {
 	float: left;
-	margin-right: 10px;
 	position: relative;
-	left: 20px;
+	top: 3px;
 }

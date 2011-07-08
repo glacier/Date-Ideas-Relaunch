@@ -1,7 +1,5 @@
 <div id="di_filter" class="di_module">
-	<h5 class="span-5 filter_header"><span> Let's get specific</span></h5>
-	<div class="di_module_header_tail"></div>
-	<hr/>
+	<%= generate_ribbon_header :h5, :"Let's Get Specific'", 5 %>
 	<div id="di_filter_section" class="di_module_section">
 		<%= render :partial => 'filter_form' %>
 		<div class='filter_loaders ajax-hidden'>Loading ... <%= image_tag 'ajax-loader-small.gif' %></div>

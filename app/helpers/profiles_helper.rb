@@ -10,13 +10,13 @@ module ProfilesHelper
 			
 			unless anniversary.blank?
 				if status != 'single' and status != 'secret'
-  				list << content_tag(:li, content_tag(:span, "Anniversary:") + anniversary )
+  				list << content_tag(:li, content_tag(:span, "Anniversary: ") + anniversary )
 				end
 			end
 		end
 		
 		content_tag :ul do
-		  list
+		  raw(list)
 	  end
   end
 end
