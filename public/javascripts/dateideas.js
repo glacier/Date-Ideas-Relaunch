@@ -122,4 +122,57 @@ $(document).ready(function() {
 	//Hack to extend the sidebar container to the bottom
 	height = $('#content').outerHeight() + 112;
 	$('#sidebar_right').height(height);
+	
+	//show date picker pop up
+	// $('#datecart_datetime').datetimepicker({
+	//             dateFormat: "yy/mm/dd",
+	//         ampm: true,
+	//         hourGrid: 4,
+	//         minuteGrid: 10
+	// });
+	// $('.hidden_date_picker').hide();
+	$('.hidden_date_picker').datepicker({
+	    buttonImage: '/images/datecart_calendar_icon.png',
+		buttonImageOnly: true,
+        changeMonth: true,
+        changeYear: true,
+        showOn: 'button',
+		altField: '#alt_show_date',
+		altFormat: "yy/mm/dd",
+		dateFormat: "yy/mm/dd",
+		defaultDate: new Date(),
+		setDate: new Date(),
+		beforeShow: function(input){
+			$(input).datepicker("setDate", new Date());
+		},
+		onClose: function(dateText) {
+			$('#date_display').html($("#alt_show_date").attr('value'));
+		}
+	});
+	
+	
+	//date ideas notes update
+	$('.editable').editable(function(value, settings){
+		return value;
+	}, {
+		type : 'textarea',
+		submit : 'Done'
+	});
+	$('.editable_notes').editable(function(value, settings){
+		return value;
+	}, {
+		type : 'textarea',
+		submit : 'Done'
+	});
+	
+	$('#di_datecart_functions #save').click(function(){
+		date_on_page = $('#date_date').attr('value');
+		notes = $('#date_notes').html();
+		console.log(date_on_page);
+		console.log(notes);
+		$(window).load(function() {
+			$('#datecart_datetime').attr('value', date_on_page);			
+			$('#datecart_notes').attr('value', notes);
+		});
+	});
 });
