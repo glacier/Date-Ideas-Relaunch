@@ -1,0 +1,28 @@
+#venue_page_top_section {
+	@include pie-clearfix;
+	#di_venue_photo {
+		float: left;
+		margin-right: 25px;
+	}
+	#di_venue_map {
+		float: left;
+	}
+}
+
+#di_venue_info {
+	
+}
+
+.yelp_review {
+	@include pie-clearfix;
+	.user_photo {
+		float: left;
+		margin-right: 40px;
+	}
+
+	.review_info {
+		ul {
+			list-style-type: none;
+		}
+	}
+}

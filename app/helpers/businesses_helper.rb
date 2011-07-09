@@ -1,44 +1,21 @@
 module BusinessesHelper
-
-  def display_reviews(business)
-    html = String.new
-    if(!business.reviews.nil?)
-      business.reviews.each do | review |
-        html_part = String.new
-        html_part = <<EOF
-        <ul class="yelp_review">
-          <li class="review_list_item_profile">
-            <img src="#{review.user_photo_url_small}" alt="#{review.name}">
-          </li>
-          <li class="review_list_item_excerpt"><img src="#{review.rating_img_url}" alt="Yelp Rating"><br>#{review.text_excerpt}<a href="http://www.yelp.com/biz/#{business.external_id}#hrid:#{review.id}" target="_blank">read more</a>.</li>
-          <li class="review_list_item_poster">Posted by <a href="http://www.yelp.com/user_details?userid=#{review.user_id}" target="_blank">#{review.name}</a> on <a href="http://www.yelp.com" target="_blank">Yelp.com</a>
-          </li>
-      </ul>
-EOF
-        html.concat(html_part)
-      end
-
-    end
-    return html
+  def business_photo business
+    business.photo_url
   end
-  def display_review(business)
-    html = String.new
-
-    if(!business.review.nil?)
-      review = business.review
-        html_part = String.new
+  
+  def display_review(biz_external_id, r)
         # TODO: Add review count display here
-        # TODO: Display price range
-        html_part = <<EOF
-        <ul class="yelp_review">
-          <li><img src="#{review.rating_img_url}" alt="Yelp Rating"></li>
-          <li class="review_list_item_excerpt">#{review.text_excerpt}<a href="http://www.yelp.com/biz/#{business.external_id}#hrid:#{review.id}" target="_blank">Read more</a></li>
-          <li class="review_list_item_poster">Posted by <a href="http://www.yelp.com/user_details?userid=#{review.user_id}" target="_blank">#{review.name}</a> on <a href="http://www.yelp.com" target="_blank">Yelp.com</a>
-          </li>
-      </ul>
+        html = <<EOF
+        <div class="yelp_review">
+    			<div class="user_photo"><img src="#{r.user_photo_url_small}" alt="#{r.name}"></div>
+    			<div class="review_info">
+      			<ul class="yelp_review">
+              <li class="review_list_item_excerpt"><img src="#{r.rating_img_url}" alt="Yelp Rating"></li>
+              <li>#{r.text_excerpt}<a href="http://www.yelp.com/biz/#{biz_external_id}#hrid:#{r.id}" target="_blank">read more</a></li>
+              <li class="review_list_item_poster">Posted by <a href="http://www.yelp.com/user_details?userid=#{r.user_id}" target="_blank">#{r.name}</a> on <a href="http://www.yelp.com" target="_blank">Yelp.com</a></li>
+              </ul>
+    			</div>
+    		</div>
 EOF
-        html.concat(html_part)
-    end
-    return html
   end
 end
