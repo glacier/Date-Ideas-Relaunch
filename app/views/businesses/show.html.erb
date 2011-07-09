@@ -40,10 +40,9 @@
 
 <div id="di_reviews" class="di_module_large">
 	<%= generate_ribbon_header(:h3, "reviews", 17) %>
-  <%= image_tag ("/images/reviews_from_yelp.gif") %>
 	<!-- for each yelp review   -->
 	<% @business.reviews.each do |r| %>
-	  <%= raw display_review(@business.external_id, r) %>
+	  <%= raw display_review_in_venue(@business.external_id, r) %>
 	<% end %>
 </div>
 
