@@ -13,8 +13,8 @@ class Business < ActiveRecord::Base
   has_many :neighbourhoods, :through => :business_neighbourhoods
 
     # before_destroy :ensure_not_referenced_by_any_line_item
-  validates_presence_of :venue_type, :name, :address1, :province, :city, :postal_code, :phone_no
-  validates_length_of :name, :minimum => 4, :maximum => 30
+  validates_presence_of :name, :address1, :province, :city, :postal_code, :phone_no
+  validates_length_of :name, :minimum => 4
   validates_length_of :address1, :postal_code, :minimum => 5
   validates_length_of :phone_no, :minimum => 10
 
@@ -31,17 +31,12 @@ class Business < ActiveRecord::Base
   end
 
   def display_address
-    d_address = ""
-    d_address.concat(address1)
-    if(! address2.nil? )
-      d_address.concat(",").concat(address2)
-    end
-    # hard code city here for now because it was coming up empty
-    d_address.concat(",").concat('Toronto')
-    d_address.concat(",").concat(province)
+    d_address = address1
+    d_address << ", #{address2}" if address2
+    d_address << ", #{city}, #{province}"
   end
 
-    # hook method
+  # hook method
   def ensure_not_referenced_by_any_line_item
     if cart_items.count.zero?
       return true
@@ -51,7 +46,7 @@ class Business < ActiveRecord::Base
     end
   end
 
-  acts_as_gmappable
+  acts_as_gmappable({:process_geocoding => false})
 
   def gmaps4rails_address
     display_address

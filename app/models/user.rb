@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 
   # Email is validated by devise.
   validates_presence_of :email, :username, :first_name, :last_name, :birthday, :gender
-  validates_length_of :postal_code, :maximum => 5
+  validates_length_of :postal_code, :minimum => 5
   validates_length_of :first_name, :minimum => 3
 
   # Include default devise modules. Others available are:
