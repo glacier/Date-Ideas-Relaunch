@@ -4,7 +4,7 @@ body {
 /*	font-size: 20px;*/
 	background: $body-bg-color url('/images/di-body-background-1.png') repeat fixed;
 	input[type="text"], input[type="password"]{
-		color: #CCC;
+		color: black;
 		border-radius: 4px;
 		width: 200px;
 	}
@@ -193,4 +193,16 @@ form {
 	position: fixed;
 	top: 280px;
 	width: inherit;
+}
+
+.feedback, .error, .alert, .notice, .success, .info {
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: 2px solid #dddddd;
+}
+
+.error, .alert {
+  background: #fbe3e4;
+  color: #8a1f11;
+  border-color: #fbc2c4;
 }

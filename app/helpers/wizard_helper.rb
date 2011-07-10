@@ -11,7 +11,7 @@ module WizardHelper
     return display
   end
   def display_address(business)
-    bus_addr = String.new
+    bus_addr = ''
 
     bus_addr.concat(business.address1)
 
@@ -35,7 +35,7 @@ module WizardHelper
     return bus_addr
   end
   def display_phone_no(business)
-    bus_phone = String.new
+    bus_phone = ''
     
     if ! (business.phone_no.nil? || business.phone_no.empty?)
       phone_number = business.phone_no.gsub(/\./,'')

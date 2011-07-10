@@ -6,7 +6,7 @@ module DatecartsHelper
     items = datecart.cart_items
     display_text = { "food" => "Dining", "bars" => "Drinks", "activities_events" => "Activities & Events", "nightlife" => 'Nightlife', 'arts_entertainment' => 'Arts and Entertainment'}
 
-    category_display = Hash.new
+    category_display = {}
     items.each do |item|
       # only display under the first venue_type that an item is classified under
       html_str = "<tr><td>"

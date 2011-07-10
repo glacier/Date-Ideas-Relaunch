@@ -47,27 +47,27 @@ class DateIdeas::EventfulAdaptor
     end
     
     if results.nil? or results['events'].nil?
-      return Array.new
+      return []
     end
-    
+
     num_items_found = results['total_items']
     if num_items_found > 0
       hash = results['events']['event']
       create_events(hash, num_items_found)
     else
-      return Array.new
+      []
     end    
   end
  
   def create_events(events_hash, num_items)
     if num_items == 1
       if event_past? events_hash
-        return Array.new
+        return []
       end
       return [ create_event(events_hash) ]
     end
     
-    events = Array.new
+    events = []
     events_hash.each do |hash|
       unless event_past? hash
         e = create_event(hash)
@@ -80,7 +80,7 @@ class DateIdeas::EventfulAdaptor
         y hash['stop_time']
       end
     end
-    return events
+    events
   end
   
   def event_past?(hash)

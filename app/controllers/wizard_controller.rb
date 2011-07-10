@@ -29,6 +29,7 @@ class WizardController < ApplicationController
     if( neighbourhood.nil? )
       neighbourhood = 'all_neighbourhoods'
     end
+
     @wizard.neighbourhood = neighbourhood
     sub_category  = params[:sub_category]
     if( sub_category.nil? )

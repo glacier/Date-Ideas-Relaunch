@@ -1,10 +1,10 @@
 module BusinessesHelper
 
   def display_reviews(business)
-    html = String.new
-    if(!business.reviews.nil?)
-      business.reviews.each do | review |
-        html_part = String.new
+    html = ''
+    if (!business.reviews.nil?)
+      business.reviews.each do |review|
+        html_part = ''
         html_part = <<EOF
         <ul class="yelp_review">
           <li class="review_list_item_profile">
@@ -19,17 +19,18 @@ EOF
       end
 
     end
-    return html
+    html
   end
-  def display_review(business)
-    html = String.new
 
-    if(!business.review.nil?)
+  def display_review(business)
+    html = ''
+
+    if (!business.review.nil?)
       review = business.review
-        html_part = String.new
+      html_part = ''
         # TODO: Add review count display here
         # TODO: Display price range
-        html_part = <<EOF
+      html_part = <<EOF
         <ul class="yelp_review">
           <li><img src="#{review.rating_img_url}" alt="Yelp Rating"></li>
           <li class="review_list_item_excerpt">#{review.text_excerpt}<a href="http://www.yelp.com/biz/#{business.external_id}#hrid:#{review.id}" target="_blank">Read more</a></li>
@@ -37,8 +38,8 @@ EOF
           </li>
       </ul>
 EOF
-        html.concat(html_part)
+      html.concat(html_part)
     end
-    return html
+    html
   end
 end
