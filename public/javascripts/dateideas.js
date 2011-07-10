@@ -122,4 +122,25 @@ $(document).ready(function() {
 	//Hack to extend the sidebar container to the bottom
 	height = $('#content').outerHeight() + 112;
 	$('#sidebar_right').height(height);
+
+    //wizard
+    $('#location-without-hood').hide();
+    $('#location-with-hood').show();
+    console.log("doc ready")
+    $('#city').change(function(){
+        console.log("wizard selected")
+        var city = $('select#city :selected').val();
+        if(city == 'Montreal')
+        {
+            //show the hidden div
+            $('#location-with-hood').hide();
+            $('#location-without-hood').show();
+        }
+        else
+        {
+            //otherwise, hide it
+            $('#location-without-hood').hide();
+            $('#location-with-hood').show();
+        }
+    });
 });

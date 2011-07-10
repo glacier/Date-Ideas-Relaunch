@@ -23,17 +23,27 @@
   </tr>
   <tr class="blank">
   </tr>
-  <tr class="question">
-	  <td class="banner"></td>
+  <tr id="location-with-hood" class="question">
+	<td class="banner"></td>
     <td class="question_text">
         <%= label_tag(:location,"What area do you want to go to?") %>
     </td>
-		<td class="question_text">
+	<td class="question_text">
         <%= select_tag(:location, options_for_select(Wizard::LOCATIONS)) %>
     </td>
   </tr>
-	<tr class="blank">
-	</tr>
+  <tr id="location-without-hood" class="question">
+	<td class="banner"></td>
+    <td class="question_text">
+        <%= label_tag(:postal_code,"Enter the postal code?") %>
+        <%= autocomplete_field_tag :postal_code, autocomplete_neighbourhood_postal_code_wizard_index_path ,  :size => 7  %>
+    </td>
+	<td class="question_text">
+        <%= label_tag(:range,"range") %><%= select_tag(:range, options_for_select(Wizard::POSTAL_RANGES)) %>
+    </td>
+  </tr>
+  <tr class="blank">
+  </tr>
   <tr class="question">
 		<td class="banner"></td>
     <td class="question_text">

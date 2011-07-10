@@ -98,6 +98,7 @@ class Business < ActiveRecord::Base
       return db_businesses
   end
   def Business.search_by_neighbourhood(city,neighbourhood, price_point, categories, page)
+
       sql = String.new
       sql <<
       "SELECT b.*                                  \
@@ -137,4 +138,44 @@ class Business < ActiveRecord::Base
       return db_businesses
   end
 
+  def Business.search_by_postal_code(city,postal_code, price_point, categories, page)
+      puts "search_by_neighbourhood(#{city}, #{postal_code},#{price_point},#{categories},#{page})"
+      sql = String.new
+      sql <<
+      "SELECT b.*                                  \
+      FROM                                         \
+        businesses b                               \
+      WHERE                                        \
+            b.dna_pricepoint IN (?)                \
+        AND (b.deleted IS NULL OR                  \
+             b.deleted = ? )                       \
+        AND EXISTS ( SELECT 1                      \
+               FROM business_neighbourhoods bn     \
+                    ,neighbourhoods n              \
+               WHERE n.id=bn.neighbourhood_id      \
+                 AND bn.business_id=b.id           \
+                 AND n.postal_code=?               \
+                 AND n.city=? )                    \
+        AND EXISTS ( SELECT 1                      \
+               FROM business_categories bc         \
+                    ,categories c                  \
+              WHERE c.id=bc.category_id            \
+              AND bc.business_id=b.id 	           \
+              AND (c.name IN (?) OR                \
+                   c.parent_name IN (?) OR
+                   c.parent_name IN ( SELECT 1                      \
+                                        FROM categories c1          \
+                                       WHERE c1.parent_name IN (?)) \
+                  ))                                                \
+      ORDER BY b.name"
+      db_businesses = Business.find_by_sql([sql,
+                                            PRICE_RANGE.fetch(price_point),
+                                            false,
+                                            postal_code,
+                                            city,
+                                            categories,
+                                            categories,
+                                            categories]).paginate(:page => page, :per_page => 8)
+      return db_businesses
+  end
 end

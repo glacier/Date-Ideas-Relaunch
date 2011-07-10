@@ -1,5 +1,5 @@
 class WizardController < ApplicationController
-  autocomplete :neighbourhood, :neighbourhood
+  autocomplete :neighbourhood, :postal_code
   # before_filter :authenticate_user!
   skip_load_and_authorize_resource
   
@@ -23,7 +23,16 @@ class WizardController < ApplicationController
     #set proper event params
     event_cat = params['event_cat']
     event_date = params['event_date']
-    @wizard = Wizard.new(params[:venue], event_cat, event_date, params[:location], params[:price_point])
+    @wizard = Wizard.new(params[:venue],
+                         event_cat,
+                         event_date,
+                         params[:location],
+                         params[:city],
+                         params[:province],
+                         params[:postal_code],
+                         params[:range],
+                         params[:country],
+                         params[:price_point])
       
     neighbourhood = params[:neighbourhood]
     if( neighbourhood.nil? )
@@ -44,7 +53,8 @@ class WizardController < ApplicationController
     sub_categories = Category.find_by_sql(["SELECT c.* FROM categories c WHERE c.parent_name in (?) AND EXISTS ( SELECT 1 FROM business_categories bc WHERE bc.category_id=c.id)",DateIdeas::DnaService::CATEGORIES.fetch(@wizard.venue)])
     @wizard.sub_categories = sub_categories
 
-    businesses = dnaService.search(@wizard.venue, @wizard.location, @wizard.price_point, current_page, 8, @wizard.neighbourhood,@wizard.sub_category)
+
+    businesses = dnaService.search(@wizard.venue, @wizard.location, @wizard.price_point, current_page, 8, @wizard.neighbourhood,@wizard.sub_category, @wizard.city, @wizard.postal_code, @wizard.range )
     
     # Eventful related searches
     per_page = 3
@@ -64,7 +74,7 @@ class WizardController < ApplicationController
     y event_cat
     y event_date
     
-    events = eventful.search(event_cat, event_date, 'toronto', 30).paginate(:page => current_page_events, :per_page => per_page)
+    events = eventful.search(event_cat, event_date, @wizard.city, 30).paginate(:page => current_page_events, :per_page => per_page)
 
     @datecart = current_cart
     @wizard.businesses = businesses

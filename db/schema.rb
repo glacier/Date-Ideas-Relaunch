@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110701035646) do
+ActiveRecord::Schema.define(:version => 20110703233425) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -151,6 +151,8 @@ ActiveRecord::Schema.define(:version => 20110701035646) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "city"
+    t.string   "postal_code"
+    t.string   "province"
     t.string   "country"
   end
 

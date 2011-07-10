@@ -32,6 +32,10 @@ module WizardHelper
       bus_addr.concat(", ").concat(business.province)
     end
 
+    if ! (business.postal_code.nil? || business.postal_code.empty? )
+      bus_addr.concat(" ").concat(business.postal_code)
+    end
+
     return bus_addr
   end
   def display_phone_no(business)
