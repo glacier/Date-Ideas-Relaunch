@@ -1,64 +1,64 @@
 .dashboard_item {
-   /* position:relative;
-       margin-bottom:10px;
-       width: 600px;
-       height: 250px;
-       border: solid;
-       border-width: 1px;
+	@include pie-clearfix;
+	.datecart_itinerary {
+		@include pie-clearfix;
+		margin-top: 25px;
+		.business_static_map {
+			float: left;
+			margin-right: 25px;
+		}
+		.datecart_places {
+			float: left;
+		}
 
-       .datecart_title {
-           height:20px;
-           margin-bottom:5px;
-           .title_text {
-               padding-left: 5px;
-               a {
-                   color: white;
-               }
-               background:#ef416c;
-               font-weight:bold;
-               font-size:15px;
-           }
-       }
+		ul {
+			list-style-type: none;
+			padding: 0;
+		}
+	}
+	
+	fieldset.datecart_notes {
+		float: left;
+		width: 170px;
+		margin-right: 25px;
+	}
+	
+	.datecart_share {
+		float: left;
+	}
+	
+	.datecart_actions {
+		@include horizontal-list;
+	}
+	
+	.dashboard_action_buttons {
+		@include di_button(15px, $di-green);
+		text-align: center;
+		li {
+			padding-bottom: 10px;
+		}
+	}
+}
+#upcoming_sig_dates {
+	margin-top: 45px;
+	p {
+		font-weight: bold;
+	}
+	h3 {
+		font-size: 20px;
+		text-transform: uppercase;
+		color: #4399a8; /* darker cyan */
+	}
+}
+#sig_dates {
+	margin-left: 30px;
+	h5 {
+		font-size: 14px;
+		text-transform: uppercase;
+		color: $di-green;
+	}
+}
 
-       .datecart_notes_title {
-           font-weight: bold;
-           font-size:15px;
-
-           padding:0px;
-           margin:0px;
-           position:absolute;
-           bottom:80px;
-       }
-           
-       .datecart_notes {
-           position:absolute;
-           width:300px;
-           bottom:0px;
-           height:80px;
-           overflow-y:scroll;
-           
-           border: solid;
-           border-width: 1px;
-
-       }
-
-       .datecart_action_icons {
-           position: absolute;
-           bottom:0px;
-           right:0px;
-           .action_icon {
-               margin-right: 25px;
-
-           }
-       }
-       .map {
-           position: absolute;
-           right: 0px;
-           top: 0px;
-           width:200px;
-       }*/
-
-    /*@include pie-clearfix;*/
-	/*@include box-shadow;*/
-	/*@include border-radius(5px);*/
+#add_sig_dates {
+	margin-top: 45px;
 }

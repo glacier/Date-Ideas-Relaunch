@@ -33,5 +33,13 @@
 </div>
 
 <%= content_for :sidebar_right do %>
-	<%= render :partial =>'dashboard/significant_dates/upcoming' %>
+
+	<div id="sig_dates">
+		<%= link_to content_tag(:span, "Plan New Date"), new_datecart_path, :id => "plan_date_button" %>
+		<%= render :partial =>'dashboard/significant_dates/upcoming' %>
+		<div id="add_sig_dates">
+			<h5>add new significant date</h5>
+			<p>TODO</p>
+		</div>
+	</div>
 <% end %>

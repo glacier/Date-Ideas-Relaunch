@@ -6,6 +6,11 @@
 #di_datecart {
 	@include heading6;
 	background-color: #FFF;
+
+	fieldset {
+		border: 0px;
+	}
+	
 	ul {
 		padding-left: 0;
 		margin-left: 0;
@@ -60,10 +65,6 @@
 		left: 160px;
 		top: 8px;
 	}*/
-}
-
-fieldset {
-	border: 0px;
 }
 
 #di_cart_front {

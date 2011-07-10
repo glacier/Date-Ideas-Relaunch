@@ -39,8 +39,7 @@
 
 	<%= content_for :sidebar_right do %>
 		<% if current_user?(@user) %>
-			<%= render :partial => 'date_plans', :locals => {:user => @user} %>
-			<%= link_to content_tag(:span, "Plan New Date"), new_datecart_path, :id => "plan_date_button" %>
+				<%= render :partial => 'date_plans', :locals => {:user => @user} %>
 		<% end %>
 	<% end %>
 
