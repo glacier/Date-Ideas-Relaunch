@@ -22,7 +22,7 @@ class DatecartsController < ApplicationController
     @datecart = Datecart.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :layout => 'dashboard'}
       format.xml { render :xml => @datecart }
     end
   end

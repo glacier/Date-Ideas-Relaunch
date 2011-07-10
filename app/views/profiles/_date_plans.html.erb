@@ -13,8 +13,8 @@
 						<%= datecart.name %>
 						<% end %> on <%= datecart.datetime %> 
 						<%= link_to 'Delete', datecart, :confirm => 'Are you sure?', :method => :delete, :remote => true %>		
-				</li>
 			<% end %>
+			</li>
 		</ul>
 		<%= link_to content_tag(:span, "Plan New Date"), new_datecart_path, :id => "plan_date_button" %>
 	</div>
