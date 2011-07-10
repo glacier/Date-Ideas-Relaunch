@@ -1,5 +1,9 @@
 <% if user_signed_in? %>
-	<ul>
+	<ul id="tabs">
+		<li id="dashboard"><%= link_to "Dashboard", :controller => 'dashboard', :action => "index" %></li>
+	</ul>
+
+	<ul id="settings_dropdown">
 		<li><%= link_to "Account Settings", edit_user_path(current_user) %></li>
 		<!-- May not work if no profile is there -->
 		<li><%= link_to "Edit Profile", edit_profile_path(current_user.id) %></li>

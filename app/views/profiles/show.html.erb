@@ -29,18 +29,18 @@
 		<%= generate_ribbon_header(:h3, "Dates Planned", 13) %>
 		<div id="number" class="di_module_container subcontainer">
 			<!-- TODO: get number of dates planned -->
-			<h1>0</h1>
+			<h1>TODO: get number of dates</h1>
 		</div>
 		<div class="di_module_container subcontainer">
 			<!-- TODO: get last date  -->
-			<h1> No dates planned yet! </h1>
+			<h1> TODO: Get last date </h1>
 		</div>
 	</div>
 
 	<%= content_for :sidebar_right do %>
 		<% if current_user?(@user) %>
 			<%= render :partial => 'date_plans', :locals => {:user => @user} %>
-			<%= link_to content_tag(:span, "Plan New Date"), wizard_index_path, :id => "plan_date_button" %>
+			<%= link_to content_tag(:span, "Plan New Date"), new_datecart_path, :id => "plan_date_button" %>
 		<% end %>
 	<% end %>
 

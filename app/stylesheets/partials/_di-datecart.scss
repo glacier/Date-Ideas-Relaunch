@@ -45,6 +45,16 @@
 			padding: 0;
 		}
 	}
+	
+	.ui-datepicker-trigger {
+		position: relative;
+		left: 30px;
+		top: 8px;
+	}
+	
+	#date_display {
+		font-size: 12px;
+	}
 /*	.ui-datepicker-trigger {
 /*		position:relative;
 		left: 160px;

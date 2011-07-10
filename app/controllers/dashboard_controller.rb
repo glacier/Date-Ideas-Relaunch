@@ -17,6 +17,9 @@ class DashboardController < ApplicationController
           current_datecarts << cart
         end
       end
+      # display sig dates on dashboard
+      @user = current_user
+      @significant_dates = @user.significant_dates
     end
 
     @upcoming_datecarts = [] #Store upcoming dates here
