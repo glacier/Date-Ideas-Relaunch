@@ -37,6 +37,9 @@ form {
 	}
 }
 
+fieldset {
+	border: 0;
+}
 #header {
 	height: 75px;
 	background-color: $header-bg-color;
