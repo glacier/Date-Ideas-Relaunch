@@ -3,7 +3,7 @@ class CartItem < ActiveRecord::Base
   belongs_to :event
   belongs_to :datecart
 
-  validates :venue_type, :datecart_id, :presence => true
+  validates :datecart_id, :presence => true
   validate :has_an_event_or_business?
 
   def type

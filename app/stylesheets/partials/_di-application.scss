@@ -25,7 +25,7 @@ form {
 		font-family: Helvetica;
 		font-size: 16px;
 	}
-	
+
 	textarea {
 		width: 200px;
 		height: 150px;
@@ -41,12 +41,16 @@ form {
 		color: $header-txt-color;
 	}
 	#logo {
-		padding-top: 10px;
-		float: left;
+		position: absolute;
+        left: 15%;
+        padding-top:5px;
 	}
 	#user_nav {
-		float: right;
-		padding-top: 25px;
+	    position: absolute;
+		right: 15%;
+        li {
+		    padding-top: 25px;
+        }
 		ul {
 			@include horizontal-list(10px, left);
 			font:{
@@ -63,7 +67,7 @@ form {
 
 #sidebar_left {
 	@include pie-clearfix;
-	padding-top: 45px;
+	padding-top: 20px;
 	height: 600px;
 }
 
@@ -73,11 +77,11 @@ form {
 
 #main {
 	@include heading2;
-	padding-top: 45px;
+	padding-top: 20px;
 }
 
 #sidebar_right {
-	padding-top: 45px;
+	padding-top: 20px;
 	background-color: $sidebar-right-bg-color;
 }
 
@@ -205,4 +209,8 @@ form {
   background: #fbe3e4;
   color: #8a1f11;
   border-color: #fbc2c4;
+}
+
+label.error {
+    margin-left: 10px;
 }

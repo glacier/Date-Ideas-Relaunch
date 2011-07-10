@@ -4,16 +4,20 @@ class DataFarmersController < ApplicationController
   # load_and_authorize_resource
 
   def update_neighbourhood_select
-    logger.info("update neighbourhood select ")
+    Rails.logger.info("update neighbourhood select ")
     @data_farmer = DataFarmer.new
     neighbourhoods = Neighbourhood.where(:city=>params[:city]).order(:neighbourhood) unless params[:city].blank?
-    logger.info("neighbourhood size:" + neighbourhoods.length.to_s)
+    Rails.logger.info("neighbourhood size:" + neighbourhoods.length.to_s)
     render :partial => "neighbourhoods", :locals => {:neighbourhoods => neighbourhoods}
   end
 
   def index
+    @user = current_user
     @data_farmer = DataFarmer.new
     @categories = Category.find_all_by_parent_name('')
+    @cities = Rails.cache.fetch("data_farmers_cities") do
+      Neighbourhood.find_by_sql('SELECT distinct(city) FROM neighbourhoods').collect { |n| n.city }
+    end
     @neighbourhoods = Neighbourhood.find_by_city('Toronto')
     respond_to do |format|
       format.html
@@ -23,12 +27,13 @@ class DataFarmersController < ApplicationController
   end
 
   def farm
+    @user = current_user
     @data_farmer = DataFarmer.new
     interval = 20
     neighbourhoods = []
     neighbourhood = params[:neighbourhood]
     city = params[:data_farmer][:city]
-    logger.info("city:" + city.to_s)
+    Rails.logger.info("city:" + city.to_s)
 
     neighbourhoods.push(neighbourhood)
     categories = params[:categories]
@@ -67,8 +72,8 @@ class DataFarmersController < ApplicationController
     end
 
     saved_counter = 0
-    scrapy = DateIdeas::ScreenScraper.new(logger)
-    yelp_adaptor = DateIdeas::YelpAdaptorV2.new(logger, false)
+    scrapy = DateIdeas::ScreenScraper.new()
+    yelp_adaptor = DateIdeas::YelpAdaptorV2.new(false)
     yelp_businesses = yelp_adaptor.search(city, categories, neighbourhoods, offset)
     yelp_businesses.each do |biz|
       save = true
@@ -119,6 +124,7 @@ class DataFarmersController < ApplicationController
         biz.save
       end
     end
+
     if (saved_counter > 0)
       farmed_info.loaded = farmed_info.loaded + saved_counter
       farmed_info.save

@@ -3,12 +3,13 @@ class ProfilesController < ApplicationController
   load_and_authorize_resource
   
   def index
+    @user = current_user
     @profiles = Profile.all
   end
   
   rescue_from ActiveRecord::RecordNotFound do |exception|
     # render :text => "This user profile does not exist"
-    logger.debug('profile does not exist')
+    Rails.logger.debug('profile does not exist')
     if params[:id].to_i == current_user.id
       redirect_to new_profile_path
     else
@@ -23,7 +24,7 @@ class ProfilesController < ApplicationController
       if @profile
         format.html { render :action => 'show', :layout => 'dashboard' }
       else
-        logger.debug('profile does not exist')
+        Rails.logger.debug('profile does not exist')
         if params[:id].to_i == current_user.id
           format.html { redirect_to new_profile_path }
         else
@@ -34,12 +35,8 @@ class ProfilesController < ApplicationController
   end
 
   def new
-      @profile = current_user.profile
-      if @profile.nil?
-        @profile = current_user.create_profile(:user_id => current_user.id)
-      else
-        redirect_to(@profile, :notice => "You already have an existing profile")
-      end
+    @user = current_user
+    @profile = Profile.new
   end
 
   def edit    

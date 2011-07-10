@@ -7,26 +7,24 @@ class DateIdeas::DnaService
                 'arts_entertainment' => ['arts'],
   }
 
-  def initialize(logger)
-    @logger = logger
-  end
-
   def search(venue_type, location, price_point = 'budget', page = '1', per_page=10, neighbourhood = nil, sub_category = nil)
     puts("DateIdeas.search:" << venue_type.to_s << ":" << location.to_s << ":" << price_point.to_s << ":" << page.to_s)
     neighbourhoods = []
     categories = []
     sql = ''
     if (sub_category.nil? || "all".eql?(sub_category))
-      categories = CATEGORIES.fetch(venue_type)
+      categories = CATEGORIES[venue_type]
     else
       categories.push(sub_category)
     end
+
     if (neighbourhood.nil? || "all_neighbourhoods".eql?(neighbourhood))
       db_businesses = Business.search_by_district_subsection('Toronto', location, price_point, categories, page)
     else
       db_businesses = Business.search_by_neighbourhood('Toronto', neighbourhood, price_point, categories, page)
     end
-    db_businesses_no_exerpt = []
+
+    db_businesses_no_excerpt = []
 
     db_businesses.each do |b|
       if (b.external_id.nil?)
@@ -40,15 +38,15 @@ class DateIdeas::DnaService
         end
         b.neighbourhoods.collect { |hood| neighbourhoods.push(hood.neighbourhood) } #flatten list of neighbourhood objects and add it to the list.
       elsif (b.text_excerpt.nil? || b.text_excerpt.size == 0)
-        @logger.info("business with no exerpt :" + b.external_id)
-        db_businesses_no_exerpt.push(b)
+        Rails.logger.info("business with no exerpt :" + b.external_id)
+        db_businesses_no_excerpt.push(b)
       end
     end
 
-    @logger.info("neighbourhoods:" + neighbourhoods.to_s)
+    Rails.logger.info("neighbourhoods:" + neighbourhoods.to_s)
       #grab from Yelp
-    yelp_adaptor = DateIdeas::YelpAdaptorV2.new(@logger, false)
-    yelp_businesses = yelp_adaptor.search('Toronto', CATEGORIES.fetch(venue_type), neighbourhoods)
+    yelp_adaptor = DateIdeas::YelpAdaptorV2.new(false)
+    yelp_businesses = yelp_adaptor.search('Toronto', CATEGORIES[venue_type], neighbourhoods)
 
     merged_businesses = merge(db_businesses, yelp_businesses)
 
@@ -75,7 +73,7 @@ class DateIdeas::DnaService
   def get_geocode(address)
     puts('starting geocoder call for address: '+address)
     result = Geokit::Geocoders::MultiGeocoder.geocode(address)
-    @logger.info("result"<<result.to_s)
+    Rails.logger.info("result"<<result.to_s)
     return result
   end
 

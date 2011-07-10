@@ -3,17 +3,19 @@ class BusinessesController < ApplicationController
   load_and_authorize_resource
 
   def index
+   @user = current_user
     current_page = params[:page]
     @businesses = Business.all.paginate(:page => current_page, :per_page => 10)
   end
 
   def show
+    @user = current_user
     @business = Business.find(params[:id])
     @json = @business.to_gmaps4rails
     @markers = @business.to_gmaps4rails
 
 
-    scrappy = DateIdeas::ScreenScraper.new(logger)
+    scrappy = DateIdeas::ScreenScraper.new()
     scraped_biz_details = {}
     scraped_biz_details = scrappy.get_business_details(@business.external_id)
     if (!scraped_biz_details.nil?)
@@ -25,10 +27,10 @@ class BusinessesController < ApplicationController
     end
 
     if (!@business.external_id.nil?)
-      yelp_adaptor = DateIdeas::YelpAdaptorV2.new(logger, false)
+      yelp_adaptor = DateIdeas::YelpAdaptorV2.new(false)
       business_detail = yelp_adaptor.business_detail(@business.external_id)
       if (!business_detail.nil?)
-        logger.info("business_detail:" +business_detail.to_s)
+        Rails.logger.info("business_detail:" +business_detail.to_s)
         if (!@business.external_id.nil? && (@business.dna_excerpt.nil? ||@business.dna_excerpt.size == 0))
           highest_review = Review.new
           highest_review.rating = 0
@@ -46,10 +48,12 @@ class BusinessesController < ApplicationController
   end
 
   def edit
+    @user = current_user
     @business = Business.find(params[:id])
   end
 
   def new
+    @user = current_user
     @business = Business.new
     respond_to do |format|
       format.html # new.html.erb
@@ -83,7 +87,7 @@ class BusinessesController < ApplicationController
       @business.deleted = false
     end
 
-    logger.info("deleted:" + @business.deleted.to_s)
+    Rails.logger.info("deleted:" + @business.deleted.to_s)
     if @business.update_attributes(params[:business])
       redirect_to(businesses_path, :notice => 'Venue listing was successfully updated.')
     end

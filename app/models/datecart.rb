@@ -12,9 +12,9 @@ class Datecart < ActiveRecord::Base
     false
   end
 
-  def cart_saved?
-    return true if user_id
-    false
+  def display_datetime
+    return datetime.strftime('%Y/%m/%d %I:%M %P') if datetime
+    ""
   end
 
   private

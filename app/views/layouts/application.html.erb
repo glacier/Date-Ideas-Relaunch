@@ -10,7 +10,7 @@
 
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
-  <%= stylesheet_link_tag    "jquery.ui.all.css" %>
+  <%= stylesheet_link_tag "jquery.ui.all.css" %>
   <%= javascript_include_tag "jquery-ui.min.js" %>
   <%= javascript_include_tag "jquery.ui.core.js" %>
   <%= javascript_include_tag "jquery.ui.widget.js" %>
@@ -20,29 +20,35 @@
   <%= javascript_include_tag "jquery.validate.min.js" %>
   <%= javascript_include_tag "autocomplete-rails.js" %>
   <%= javascript_include_tag "jquery-ui-timepicker-addon.js" %>
-	<%= javascript_include_tag "jquery.jeditable.mini.js" %>
-	<!-- dateideas custom js -->
+  <%= javascript_include_tag "jquery.jeditable.mini.js" %>
+  <!-- dateideas custom js -->
   <%= javascript_include_tag "application.js" %>
   <%= javascript_include_tag "dateideas.js" %>
-	
+
   <%= yield :scripts %>
 </head>
 <body>
-	<div id="header">
-		<div class="container">
-			<div id="user_nav" class="last">
-				<%= render 'shared/navigation' %>
-			</div>
-			<%= yield :header %>
-		</div>
-	</div>
-	
-	<div class="container">
-		<div id="content" class="span-24 last">
-			<%= content_for?(:content) ? yield(:content) : yield %>
-		</div>
-		<hr/>
-		<%= render 'shared/footer' %>
-	</div>
+<div id="header">
+  <div class="container">
+    <div id="logo">
+        <%= link_to root_path do %>
+            <%= image_tag "di_logo_white.png", :width => 90, :height => 60 %>
+        <% end %>
+      </div>
+    <div id="user_nav" class="last">
+
+      <%= render 'shared/navigation' %>
+    </div>
+    <%= yield :header %>
+  </div>
+</div>
+
+<div class="container">
+  <div id="content" class="span-24 last">
+    <%= content_for?(:content) ? yield(:content) : yield %>
+  </div>
+  <hr/>
+  <%= render 'shared/footer' %>
+</div>
 </body>
 </html>

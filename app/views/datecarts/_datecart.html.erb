@@ -2,7 +2,7 @@
 <div id="di_datecart" class="di_module">
 	<div id="di_new_date" class="dialog"></div>
 	<div id="di_add_to_date" class="dialog"></div>
-	<div id="di_edit_dialog" class="dialog">Dialog</div>
+	<div id="di_edit_dialog" class="dialog"></div>
 
 	<h6><span id="date_title" class="editable floater">My Date Ideas</span><span class="icon"><%= image_tag 'datecart_pencil_icon.png' %></span></h6>
 	<div id="di_cart_front" class="di_module_section">
@@ -11,7 +11,7 @@
 		</fieldset>
 	</div>
 	<h6>
-		<input type="hidden" id="date_date" class="hidden_date_picker nofloat" value="<%= Time.now.strftime('%Y/%m/%d') %>"/>
+		<input type="hidden" id="date_date" class="hidden_date_picker nofloat" value="<%= (Time.now + 1.day).strftime('%Y/%m/%d %I:%M %p')  %>"/>
 		<input type="hidden" id="alt_show_date" class="nofloat" value="blah" />
 		<span id="date_display" class="nofloat"><%= Time.now.strftime('%A %B %d, %Y') %></span>
 	</h6>
@@ -21,7 +21,7 @@
 			<%= render :partial => 'datecarts/datecart_functions' %>
 		</fieldset>
 		<div id="di_cart_status">
-			<% if @datecart.cart_saved? %>
+			<% if @datecart.user_id %>
 				Date plan has been saved.
 			<% else %>
 				Date plan has not been saved.

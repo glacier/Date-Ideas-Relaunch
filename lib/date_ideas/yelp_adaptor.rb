@@ -1,11 +1,8 @@
 class DateIdeas::YelpAdaptor
-  def initialize(logger)
-    @logger = logger
-  end
 
   def search(venue_type, neighbourhood, price_point = 'price_point', page = 'page')
-    @logger.info("yelp:venue_type:" + venue_type.to_s)
-    @logger.info("yelp:neighbourhood:" + neighbourhood.to_s)
+    Rails.logger.info("yelp:venue_type:" + venue_type.to_s)
+    Rails.logger.info("yelp:neighbourhood:" + neighbourhood.to_s)
     client = Yelp::Client.new
     request = Yelp::Review::Request::Location.new(
         :neighborhood => neighbourhood[1],
@@ -64,7 +61,7 @@ class DateIdeas::YelpAdaptor
     business.reviews = create_reviews(business_hash.fetch("reviews"))
     business.categories = create_categories(business_hash.fetch("categories"))
     business.neighbourhoods = create_neighbourhoods(business_hash.fetch("neighborhoods"))
-    @logger.info("business:" + business_hash.to_s)
+    Rails.logger.info("business:" + business_hash.to_s)
     return business
   end
 

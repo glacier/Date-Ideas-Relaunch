@@ -16,16 +16,18 @@ class Wizard
   attr_accessor :venue, :event_category, :event_date, :location, :price_point, :response, :businesses, :restaurant,
                 :activity, :dessert, :neighbourhood_name, :events, :neighbourhoods, :neighbourhood,
                 :sub_categories, :sub_category
-  
-  def initialize(venue="", event_cat="", event_date="", location="", price_point="")
+
+
+  def initialize(venue="", event_cat="", event_date="", location="", price_point="", neighbourhood = 'all_neighbourhoods', sub_category = 'all')
     @venue = venue
     @location = location
     @event_category = event_cat || ""
     @event_date = event_date
     @price_point = price_point
     @businesses = []
+    @neighbourhood = neighbourhood
+    @sub_category = sub_category
   end
-
   def add_business(business)
     @businesses.push(business)
   end

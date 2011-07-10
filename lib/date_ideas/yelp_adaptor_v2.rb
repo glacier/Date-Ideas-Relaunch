@@ -8,8 +8,7 @@ class DateIdeas::YelpAdaptorV2
   @@TOKEN = 'PVQ8f1oAcFIal8fDodOx7qW5VXNwbhkK'
   @@TOKEN_SECRET = 'WdUPWAiYOfViusLJXxaXDeeTVO0'
   
-  def initialize(logger, test_mode = false)
-    @logger = logger
+  def initialize(test_mode = false)
     @url = test_mode ? @@TEST_URL : @@PROD_URL
     @consumer = OAuth::Consumer.new(@@CONSUMER_KEY, @@CONSUMER_SECRET, {:site => @url})
     @access_token = OAuth::AccessToken.new(@consumer, @@TOKEN, @@TOKEN_SECRET)
@@ -23,7 +22,7 @@ class DateIdeas::YelpAdaptorV2
       if (search_results.has_key?("error"))
         business = nil
         error_message = search_results.fetch("error").fetch("text")
-        @logger.error("Yelp Server Error Message :" +error_message)
+        Rails.logger.error("Yelp Server Error Message :" +error_message)
       else
         business = create_business(search_results, true)
       end
@@ -35,6 +34,7 @@ class DateIdeas::YelpAdaptorV2
   end
 
   def search(location, categories, neighbourhoods, offset = 0)
+
     returned_businesses = []
     if (!neighbourhoods.nil? && neighbourhoods.size > 0)
       neighbourhoods.each do |n|
@@ -54,7 +54,7 @@ class DateIdeas::YelpAdaptorV2
           else
             #handle errors
             error_message = search_results.fetch("error").fetch("text")
-            @logger.error("Yelp Server Error Message: " << error_message)
+            Rails.logger.error("Yelp Server Error Message: " << error_message)
           end
         end
       end
@@ -68,9 +68,10 @@ class DateIdeas::YelpAdaptorV2
         returned_businesses = create_businesses(businesses_hash)
       else
         error_message = search_results.fetch("error").fetch("text")
-        @logger.error("Yelp Server Error Message2: " +error_message)
+        Rails.logger.error("Yelp Server Error Message2: " +error_message)
       end
     end
+
     return returned_businesses
   end
 
@@ -125,6 +126,9 @@ class DateIdeas::YelpAdaptorV2
     if (extract_reviews)
       business.reviews = create_reviews(business_hash.fetch("reviews"))
     end
+
+    #These lines cause the sql commit-begin messages. Should use a temporary instance variables instead of the one
+    # joined via Rails.
     if (business_hash.has_key?("categories"))
       business.categories = create_categories(business_hash.fetch("categories"))
     end
@@ -135,11 +139,7 @@ class DateIdeas::YelpAdaptorV2
   end
 
   def create_reviews(reviews_hash)
-    reviews = []
-    reviews_hash.each { |review_hash|
-      reviews.push(create_review(review_hash))
-    }
-    return reviews
+    reviews_hash.collect { |review_hash| create_review(review_hash)}
   end
 
   def create_review(review_hash)
@@ -169,13 +169,9 @@ class DateIdeas::YelpAdaptorV2
   end
 
   def create_neighbourhoods(neighbourhoods_hash)
-    neighbourhoods = []
-    neighbourhoods_hash.each do |n|
-      neighbourhood = Neighbourhood.new
-      neighbourhood.neighbourhood = n
-      neighbourhoods.push(neighbourhood)
+    neighbourhoods_hash.collect do |n|
+      Neighbourhood.new(:neighbourhood => n)
     end
-    return neighbourhoods
   end
 
   def create_categories(categories_hash)

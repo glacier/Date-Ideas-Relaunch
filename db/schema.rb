@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110701035646) do
+ActiveRecord::Schema.define(:version => 20110710135723) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -134,6 +134,8 @@ ActiveRecord::Schema.define(:version => 20110701035646) do
     t.string "longitude"
     t.string "eventid"
   end
+
+  add_index "events", ["eventid"], :name => "index_events_on_eventid", :unique => true
 
   create_table "farmed_infos", :force => true do |t|
     t.string   "neighbourhood"

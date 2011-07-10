@@ -23,12 +23,12 @@ class DateIdeas::EventfulAdaptor
     else
       category = venue_type
     end
-      
+
     if date.blank?
       y 'date is blank'
       date = 'today'
     end
-      
+
     results = nil
     begin
       #a ruby hash is returned from an API call
@@ -45,7 +45,7 @@ class DateIdeas::EventfulAdaptor
     rescue Exception => e
       Rails.logger.info("Eventful API call failed with error: #{e}")
     end
-    
+
     if results.nil? or results['events'].nil?
       return []
     end
@@ -56,23 +56,35 @@ class DateIdeas::EventfulAdaptor
       create_events(hash, num_items_found)
     else
       []
-    end    
+    end
   end
- 
+
   def create_events(events_hash, num_items)
+    Rails.logger.debug __FILE__ + __LINE__.to_s
     if num_items == 1
       if event_past? events_hash
         return []
       end
-      return [ create_event(events_hash) ]
+      return [create_event(events_hash)]
     end
-    
+
     events = []
     events_hash.each do |hash|
       unless event_past? hash
         e = create_event(hash)
-        return_code = Rails.cache.write(e.eventid, e, :expires_in => 30.minutes)
-        events.push(e)
+        begin
+          if e.save
+            Rails.cache.write(e.eventid, e, :expires_in => 30.minutes)
+            events.push(e)
+          else
+            Rails.logger.debug "INVALID EVENT:\nAttrs:\n#{e.attributes}\nErrors:\n#{e.errors}"
+          end
+        rescue ActiveRecord::RecordNotUnique
+          #Just means we have a duplicate event, we can't do antyhing else with it, so it stays as is.
+          Rails.cache.write(e.eventid, e, :expires_in => 30.minutes)
+          events.push(e)
+        end
+
       else
         y 'some past events were filtered'
         y hash['title']
@@ -82,20 +94,20 @@ class DateIdeas::EventfulAdaptor
     end
     events
   end
-  
+
   def event_past?(hash)
     # start_time = nil
     # stop_time = nil
     if !hash['start_time'].blank?
       start_time = Time.parse(get_time(hash['start_time']))
     end
-    
+
     if !hash['stop_time'].blank?
       stop_time = Time.parse(get_time(hash['stop_time']))
     end
-    
+
     if stop_time.blank? and start_time.blank?
-        return false
+      return false
     elsif stop_time.blank?
       if start_time.past?
         return true
@@ -103,40 +115,38 @@ class DateIdeas::EventfulAdaptor
     elsif stop_time.past?
       return true
     end
-    
+
     return false
   end
-  
+
   def create_event(event_hash)
     # y event_hash
-    event = Event.new
-    event_id = event_hash['id']
-    # substitute '@' with a '-' because @ converts to %40 in the url
-    event.eventid = event_id.gsub('@','-')
-    event.title = event_hash['title']
-    event.url = event_hash['url']
-    event.photo_url = get_photo_url(event_hash, 'medium')
-    event.start_time = get_time(event_hash['start_time'])
-    event.end_time = get_time(event_hash['stop_time'])
-    event.venue_name = event_hash['venue_name']
-    event.venue_address = event_hash['venue_address']
-    event.city_name = event_hash['city_name']
-    event.region_name = event_hash['region_name']
-    event.postal_code = event_hash['postal_code']
-    event.latitude = event_hash['latitude']
-    event.longitude = event_hash['longitude']
-    return event
+    Event.new({
+                  :eventid => event_hash['id'].gsub('@', '-'),
+                  :title => event_hash['title'],
+                  :url => event_hash['url'],
+                  :photo_url => get_photo_url(event_hash, 'medium'),
+                  :start_time => get_time(event_hash['start_time']),
+                  :end_time => get_time(event_hash['stop_time']),
+                  :venue_name => event_hash['venue_name'],
+                  :venue_address => event_hash['venue_address'],
+                  :city_name => event_hash['city_name'],
+                  :region_name => event_hash['region_name'],
+                  :postal_code => event_hash['postal_code'],
+                  :latitude => event_hash['latitude'],
+                  :longitude => event_hash['longitude']
+              })
   end
 
   def get_time(time)
-   if time 
-    if time.is_a? Time
-      result = time.strftime("%a, %b %d, %I:%M %p")
-    else 
-      result = Time.parse(time).strftime("%a, %b %d, %I:%M %p")
+    if time
+      if time.is_a? Time
+        result = time.strftime("%a, %b %d, %I:%M %p")
+      else
+        result = Time.parse(time).strftime("%a, %b %d, %I:%M %p")
+      end
     end
-   end
-   return result
+    return result
   end
 
   def get_photo_url(event_hash, photo_size)

@@ -9,7 +9,7 @@
 		color: #FFF;
 	}
 	table {
-		margin-bottom: 12px;
+		margin-bottom: 0px;
 	}
 	select {
 		font-size: 18px;
@@ -44,23 +44,28 @@
 		display:none;
 	}
 
-	#logo {
+	#wizard_logo {
 		padding:{
-			bottom: 40px;
+			bottom: 20px;
 		};
 	}
+    #wizard_loader {
+       img {
+         margin-top:5px;
+       }
+       height:30px;
+    }
+
 	#di_whatis_icons {
-		padding-left: 30px;
-		padding-top: 45px;
-		padding:{
+		padding: {
 			left: 30px;
 			top: 45px;
-			bottom: 25px;
+			bottom: 15px;
 		};
 	}
 	#di_whatis_text {
 		@include pie-clearfix;
-		padding-bottom: 40px;
+		padding-bottom: 15px;
 		p {
 /*			padding: 0;
 			margin: 0;

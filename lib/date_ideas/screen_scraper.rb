@@ -8,8 +8,7 @@ class DateIdeas::ScreenScraper
                  '$$$$' => '$50+',
   }
 
-  def initialize(logger)
-    @logger = logger
+  def initialize()
   end
 
   def get_price_range(biz)
@@ -18,12 +17,12 @@ class DateIdeas::ScreenScraper
 
     begin
       url = url.concat(biz)
-      @logger.info("url:" +url)
+      Rails.logger.info("url:" +url)
       doc = Nokogiri::HTML(open(url))
       price_range = doc.xpath('//a[@id="price_tip"]/text()').to_s
       price = PRICE_RANGE[price_range]
     rescue Exception => msg
-      @logger.error("Exception:" +msg.to_s)
+      Rails.logger.error("Exception:" +msg.to_s)
     end
     price
   end
@@ -34,7 +33,7 @@ class DateIdeas::ScreenScraper
     hash_result = {}
     begin
       url = url.concat(biz_external_id)
-      @logger.info("url:" +url)
+      Rails.logger.info("url:" +url)
       doc = Nokogiri::HTML(open(url))
       price_range = doc.xpath('//a[@id="price_tip"]/text()').to_s
       hours = []
@@ -54,7 +53,7 @@ class DateIdeas::ScreenScraper
       hash_result['takes_reservations'] = takes_reservations
       hash_result['kids_friendly'] = kids_friendly
     rescue Exception => msg
-      @logger.error("Exception:" + msg.to_s)
+      Rails.logger.error("Exception:" + msg.to_s)
       hash_result = nil
     end
     hash_result

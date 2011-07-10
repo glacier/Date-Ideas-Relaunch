@@ -1,7 +1,4 @@
 class Event < ActiveRecord::Base
-  validates_presence_of :eventid
-  validates_uniqueness_of :eventid
-
     # mapping of venue type in wizard search form to the proper eventful.com category id
   @@EVENT_CATEGORY = {
       'activities_events' => 'festivals_parades', #attractions, family_fun_kids

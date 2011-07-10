@@ -1,15 +1,13 @@
 <span>
-	<%= link_to("See Reviews", business_path(business), :class => "add_button", :rel => business.id) %>
-	<% 
-		unless cart_items.blank?
-			@cart_item = cart_items.find(:first, :conditions => ["business_id = :b", {:b => business.id }])
-		end
-	%>
+	<%= link_to("See Reviews", "/businesses/#{business.id}", :class => "add_button", :rel => business.id) %>
+  <% unless cart_items.blank?
+         @cart_item = cart_items.find(:first, :conditions => ["business_id = :b", {:b => business.id}])
+     end %>
 </span>
 
 <span id="add_to_date_<%= business.id %>">
 	<%# TODO make sure this check is correct now that cart_item object has been changed %>
-	<% if @cart_item.nil? %>
+  <% if @cart_item.nil? %>
 		<%= render :partial => 'add', :locals => {:datecart => @datecart, :business => business, :venue_type => params[:venue_type]} %>
 	<% else %>
 		<%= render :partial => 'remove', :locals => {:datecart => @datecart, :business => business} %>
