@@ -58,7 +58,10 @@ class Business < ActiveRecord::Base
     "#{self.name}<br/>#{self.display_address}<br/>#{self.phone_no}"
   end
 
+
   def Business.search_by_district_subsection(city, district_subsection, price_point, categories, page)
+    msg="city:%s district subsection:%s price point:%s categories:%s page:%s" % [city, district_subsection, price_point, categories, page]
+    Rails.logger.info msg
     sql = ''
     sql <<
         "SELECT b.*                                  \
@@ -99,34 +102,36 @@ class Business < ActiveRecord::Base
   end
 
   def Business.search_by_neighbourhood(city, neighbourhood, price_point, categories, page)
+    msg=" city :% s neighbourhood :% s price point :% s categories :% s page :% s " % [city, neighbourhood, price_point, categories, page]
+    Rails.logger.info msg
     sql = ''
     sql <<
-        "SELECT b.*                                  \
-      FROM                                         \
+        " SELECT b.*                                  \
+    FROM                                         \
         businesses b                               \
       WHERE                                        \
             b.dna_pricepoint IN (?)                \
         AND (b.deleted IS NULL OR                  \
-             b.deleted = ? )                       \
-        AND EXISTS ( SELECT 1                      \
+             b.deleted = ?)                       \
+        AND EXISTS (SELECT 1                      \
                FROM business_neighbourhoods bn     \
-                    ,neighbourhoods n              \
+                    , neighbourhoods n              \
                WHERE n.id=bn.neighbourhood_id      \
                  AND bn.business_id=b.id           \
-                 AND n.neighbourhood=?             \
-                 AND n.city=? )                    \
-        AND EXISTS ( SELECT 1                      \
+                 AND n.neighbourhood= ?             \
+                 AND n.city= ?)                    \
+        AND EXISTS (SELECT 1                      \
                FROM business_categories bc         \
-                    ,categories c                  \
+                    , categories c                  \
               WHERE c.id=bc.category_id            \
-              AND bc.business_id=b.id 	           \
+              AND bc.business_id=b.id              \
               AND (c.name IN (?) OR                \
                    c.parent_name IN (?) OR
-                   c.parent_name IN ( SELECT 1                      \
+    c.parent_name IN (SELECT 1                      \
                                         FROM categories c1          \
                                        WHERE c1.parent_name IN (?)) \
                   ))                                                \
-      ORDER BY b.name"
+      ORDER BY b.name "
     db_businesses = Business.find_by_sql([sql,
                                           PRICE_RANGE.fetch(price_point),
                                           false,
