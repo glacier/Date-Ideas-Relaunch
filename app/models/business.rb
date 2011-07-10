@@ -33,7 +33,8 @@ class Business < ActiveRecord::Base
     if(! address2.nil? )
       d_address.concat(",").concat(address2)
     end
-    d_address.concat(",").concat(city)
+    # hard code city here for now because it was coming up empty
+    d_address.concat(",").concat('Toronto')
     d_address.concat(",").concat(province)
   end
 
