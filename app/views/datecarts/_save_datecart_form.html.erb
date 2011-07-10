@@ -13,7 +13,9 @@
         //Enforce basic punctuation for app names (currently undecided what shold be validated against)
         jQuery.validator.addMethod("letterswithbasicpunc", function(value, element) {
             return this.optional(element) || /^[a-z0-9-.,$()'\"\s&!]+$/i.test(value);
-        }, "Simple names only please!");
+        }, "Simple names only!");
+
+        jQuery.validator.messages.required = "Required";
 
         $("#edit_datecart_<%=@datecart.id%>").validate({
             rules: {
@@ -29,11 +31,17 @@
                 }
             },
             messages: {
-                "datecart[notes]": "Max 300"
+                "datecart[notes]": "Max 300 chars"
             }
         });
     });
 </script>
+
+<style type="text/css">
+  label.error {
+      margin-left: 5px;
+  }
+</style>
 
 <%= form_for(@datecart, :url => "/datecarts/#{@datecart.id}/complete") do |f| %>
     <% if @datecart.errors.any? %>
@@ -49,17 +57,17 @@
 
     <div class="field">
       <%= f.label :name %>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, :class => "dialog_input" %>
     </div>
 
     <div class="field">
       <%= f.label :datetime %>
-      <%= f.text_field :datetime %>
+      <%= f.text_field :datetime, :class => "dialog_input" %>
     </div>
 
     <div class="field">
       <%= f.label :notes %>
-      <%= f.text_field :notes %>
+      <%= f.text_field :notes, :class => "dialog_input" %>
     </div>
 
     <div class="actions">

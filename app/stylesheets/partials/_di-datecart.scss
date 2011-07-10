@@ -96,4 +96,12 @@ $heart_button: saturate(lighten($red, 2), 20)
 .datecart_buttons {
 	@include fancy-button-matte(adjust_hue($fancy-green, 110), 14px, 0.30em, 1px);
 }
-                                   
+
+#datecart_save_dialog .field, #datecart_save_dialog .actions {
+    clear: right;
+}
+
+#datecart_save_dialog .field
+#datecart_save_dialog .dialog_input {
+    float:right;
+}
