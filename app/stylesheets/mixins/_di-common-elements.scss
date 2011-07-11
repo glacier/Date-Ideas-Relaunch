@@ -17,7 +17,7 @@
 	}
 	span {
 		float: left;
-		position: relative;			
+		position: relative;
 		left: 20px;
 	}
 	span.icon {
@@ -95,7 +95,7 @@
 	@include fancy-button-colors-matte(darken($button-color, 8));
 	/* override fancy button */
 	font-family: Helvetica;
-	font-weight: normal;
+	font-weight: bold;
 	
 	/* courtesy of ZURB super awesome buttons */
 	-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
@@ -103,7 +103,6 @@
 	text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
 	border-top: 1px solid rgba(0,0,0,0.1);
   	text-shadow: #3e5900 0px 1px 1px;
-	
 	&:hover {
 		border-color:#e2e2e2;
 		text-decoration: none;

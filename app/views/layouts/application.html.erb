@@ -19,7 +19,7 @@
   <%= javascript_include_tag "jquery.ui.accordion.js" %>
   <%= javascript_include_tag "autocomplete-rails.js" %>
   <%= javascript_include_tag "jquery-ui-timepicker-addon.js" %>
-
+	<%= javascript_include_tag "jquery.jeditable.mini.js" %>
 	<!-- dateideas custom js -->
   <%= javascript_include_tag "application.js" %>
   <%= javascript_include_tag "dateideas.js" %>
@@ -29,7 +29,7 @@
 <body>
 	<div id="header">
 		<div class="container">
-			<div id="user_nav" class="last">
+			<div id="user_nav" class="span-20 last">
 				<%= render 'shared/navigation' %>
 			</div>
 			<%= yield :header %>

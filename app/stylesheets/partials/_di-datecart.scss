@@ -1,9 +1,16 @@
+
 #di_map {
 	margin: 5px;
 }
 
 #di_datecart {
 	@include heading6;
+	background-color: #FFF;
+
+	fieldset {
+		border: 0px;
+	}
+	
 	ul {
 		padding-left: 0;
 		margin-left: 0;
@@ -15,10 +22,49 @@
 	fieldset {
 		text-align: center;
 	}
-}
 
-fieldset {
-	border: 0px;
+	textarea {
+		width: 178px;
+		height: 150px;
+		font-size: 16px;
+	}
+	
+	input {
+		width: 145px;
+	}
+	
+	.nofloat {
+		float: none;
+	}
+	
+	#date_notes {
+		border: 1px solid #CCC;
+		height: 100px;
+		margin-bottom: 15px;
+	}
+	
+	.editable {
+		textarea {
+			font-size: 12px;
+			margin: 0;
+			padding: 0;
+		}
+	}
+	
+	.ui-datepicker-trigger {
+		position: relative;
+		left: 30px;
+		top: 8px;
+	}
+	
+	#date_display {
+		font-size: 12px;
+	}
+/*	.ui-datepicker-trigger {
+/*		position:relative;
+		left: 160px;
+		top: 8px;
+	}*/
 }
 
 #di_cart_front {

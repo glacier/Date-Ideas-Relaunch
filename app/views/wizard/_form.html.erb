@@ -36,10 +36,9 @@
 	<td class="banner"></td>
     <td class="question_text">
         <%= label_tag(:postal_code,"Enter the postal code?") %>
-        <%= autocomplete_field_tag :postal_code, autocomplete_neighbourhood_postal_code_wizard_index_path ,  :size => 7  %>
     </td>
-	<td class="question_text">
-        <%= label_tag(:range,"range") %><%= select_tag(:range, options_for_select(Wizard::POSTAL_RANGES)) %>
+    <td class="question_text">
+        <%= autocomplete_field_tag :postal_code, '', autocomplete_neighbourhood_postal_code_wizard_index_path%>
     </td>
   </tr>
   <tr class="blank">
@@ -55,7 +54,7 @@
   </tr>
 
 </table>
-<div class="prepend-5">
+<div class="prepend-3">
 	<div id="wizard_loader" class="prepend-1" style="height:35px"> 
 		<%= image_tag 'ajax-loader-bar.gif', :class => "ajax-hidden" %>
 	</div>

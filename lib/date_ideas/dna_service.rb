@@ -64,25 +64,25 @@ class DateIdeas::DnaService
     else
 
       if( !yelp_businesses.nil? && yelp_businesses.size > 0 )
-        y_businesses =  Array.new
+        y_businesses =  []
         #AY : figure out a better way of doing this.
         yelp_businesses.each do |yb|
           if( 'Montreal'.eql?(yb.city) || 'Montréal'.eql?(yb.city) || 'Toronto'.eql?(yb.city))
             db_bs = Business.find_by_external_id(yb.external_id)
             if( db_bs.nil? )
-              yb.save
+              @logger.info("saving #{get_address(yb)} longitude : #{yb.longitude} latitude: #{yb.latitude}")
+
+              yb.save!
               y_businesses.push(yb)
             else
               y_businesses.push(db_bs)
             end
           end
-          merged_businesses = y_businesses.paginate( :page => page, :per_page => 8 )
         end
-
+        merged_businesses = y_businesses.paginate( :page => page, :per_page => 8 )
       else
         #no results from db and from yelp
-
-        merged_businesses = Array.new.paginate(:page=>page,:per_page => 8 )
+        merged_businesses = [].paginate(:page=>page,:per_page => 8 )
       end
     end
 

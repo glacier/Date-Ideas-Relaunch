@@ -5,6 +5,7 @@ class WizardController < ApplicationController
   
   def index
     @wizard = Wizard.new
+    @datecart = current_cart
     respond_to do |format|
       format.js
       format.html { render :layout => 'wizard' }
@@ -18,7 +19,7 @@ class WizardController < ApplicationController
       format.html # index.html.erb
     end
   end
-
+  
   def search
     #set proper event params
     event_cat = params['event_cat']

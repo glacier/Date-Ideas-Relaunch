@@ -22,20 +22,28 @@ class DatecartsController < ApplicationController
     @datecart = Datecart.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :layout => 'dashboard'}
       format.xml { render :xml => @datecart }
     end
   end
 
-  # GET /datecarts/new
-  # GET /datecarts/new.xml
+  # creates a new datecart
   def new
-    @datecart = Datecart.new
-
+    # TODO: Prompt user to save cart if current cart has not been saved
+    
+    # leave the old datecart id in the session
+    unless session[:datecart_id].blank?
+      session[:datecart_id_last] = session[:datecart_id]
+    end
+    @datecart = Datecart.new      
     session[:datecart_id] = @datecart.id
+    
+    y 'a new cart has been loaded'
+
+    # redirect user to wizard index to start planning date
     respond_to do |format|
       format.js
-      format.html # new.html.erb
+      format.html { redirect_to wizard_index_path }
       format.xml { render :xml => @datecart }
     end
   end

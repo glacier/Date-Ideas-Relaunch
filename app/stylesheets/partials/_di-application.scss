@@ -16,6 +16,10 @@ body {
 	}
 }
 
+h1.venue {
+	font-size: 40px;
+	color: #558b97;
+}
 hr {
 	border:0px !important;
 }
@@ -33,6 +37,9 @@ form {
 	}
 }
 
+fieldset {
+	border: 0;
+}
 #header {
 	height: 75px;
 	background-color: $header-bg-color;
@@ -74,10 +81,6 @@ form {
 #main {
 	@include heading2;
 	padding-top: 45px;
-	form label {
-		color: $di-light-green;
-		font-size: 18px;
-	}
 }
 
 #sidebar_right {
@@ -190,6 +193,12 @@ form {
 .pin-right {
 	position: fixed;
 	top: 10px;
+	width: inherit;;
+}
+
+.pin-datepicker {
+	position: fixed;
+	top: 300px;
 	width: inherit;;
 }
 

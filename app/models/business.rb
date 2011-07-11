@@ -33,7 +33,11 @@ class Business < ActiveRecord::Base
     if(! address2.nil? )
       d_address.concat(",").concat(address2)
     end
-    d_address.concat(",").concat(city)
+    if( city.nil? || city.empty? )
+      d_address.concat(",").concat('Toronto')
+    else
+      d_address.concat(",").concat(city)
+    end
     d_address.concat(",").concat(province)
   end
 
@@ -46,8 +50,8 @@ class Business < ActiveRecord::Base
       return false
     end
   end
-
-  acts_as_gmappable
+  # for some reason it's failing on montreal...maybe utf-8 not supported?
+  acts_as_gmappable  :validation => false
 
   def gmaps4rails_address
     display_address
@@ -59,6 +63,8 @@ class Business < ActiveRecord::Base
   end
 
    def Business.search_by_district_subsection(city,district_subsection, price_point, categories, page )
+    msg="city:%s district subsection:%s price point:%s categories:%s page:%s" % [city, district_subsection, price_point, categories, page]
+    Rails.logger.info msg
     sql = String.new
     sql <<
       "SELECT b.*                                  \
@@ -98,7 +104,8 @@ class Business < ActiveRecord::Base
       return db_businesses
   end
   def Business.search_by_neighbourhood(city,neighbourhood, price_point, categories, page)
-
+      msg="city:%s neighbourhood:%s price point:%s categories:%s page:%s" % [city, neighbourhood, price_point, categories, page]
+      Rails.logger.info msg
       sql = String.new
       sql <<
       "SELECT b.*                                  \
