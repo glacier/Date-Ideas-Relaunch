@@ -25,7 +25,7 @@
 			<%= render :partial => 'datecarts/datecart_functions' %>
 		</fieldset>
 		<div id="di_cart_status">
-			<% if @datecart.cart_saved? %>
+			<% if @datecart.user_id %>
 				Date plan has been saved.
 			<% else %>
 				Date plan has not been saved.

@@ -1,16 +1,17 @@
 module BusinessesHelper
+
   def business_photo business
     business.photo_url
   end
   
   def display_review(business)
-    html = String.new
+    html = ""
     if(!business.review.nil?)
       review = business.review
-        html_part = String.new
+      html_part = ''
         # TODO: Add review count display here
         # TODO: Display price range
-        html_part = <<EOF
+      html_part = <<EOF
         <ul class="yelp_review">
           <li><img src="#{review.rating_img_url}" alt="Yelp Rating"></li>
           <li class="review_list_item_excerpt">#{review.text_excerpt}<a href="http://www.yelp.com/biz/#{business.external_id}#hrid:#{review.id}" target="_blank">Read more</a></li>
@@ -18,9 +19,9 @@ module BusinessesHelper
           </li>
       </ul>
 EOF
-        html.concat(html_part)
+      html.concat(html_part)
     end
-    return html
+    html
   end
   
   def display_review_in_venue(biz_external_id, r)

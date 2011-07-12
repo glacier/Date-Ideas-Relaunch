@@ -29,17 +29,28 @@
   <% else %>
       <%= render :partial => "dashboard/datecart", :locals => {:datecart => @past_datecart} %>
   <% end %>
-  <% # render :partial => "dashboard/significant_dates/upcoming"  %>
 </div>
 
 <%= content_for :sidebar_right do %>
 
 	<div id="sig_dates">
 		<%= link_to content_tag(:span, "Plan New Date"), new_datecart_path, :id => "plan_date_button" %>
-		<%= render :partial =>'dashboard/significant_dates/upcoming' %>
+      <div id="upcoming_sig_dates">
+	    <% if @significant_dates  %>
+        <h3>significant dates</h3>
+
+	<ul>
+
+      </ul>
+        </div>
+
+		<%= render :partial => 'dashboard/significant_dates/upcoming', :collection => @significant_dates %>
 		<div id="add_sig_dates">
 			<h5>add new significant date</h5>
 			<p>TODO</p>
 		</div>
+            <% else %>
+
+        <% end %>
 	</div>
 <% end %>

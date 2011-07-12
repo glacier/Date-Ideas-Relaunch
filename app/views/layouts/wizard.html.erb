@@ -1,13 +1,11 @@
 <% content_for :content do %>
-	<div id="wizard_main" class="prepend-5 append-5 span-14">
-		<div class="di_wizard span-14 last">
-			<div id="logo" class="prepend-5">
-				<%= link_to root_path do %> 
-					<%=image_tag "di-logo-no-beta.png"%>
-				<% end %>
-			</div>
-			<%= yield %>
-		</div>
-	</div>
+    <div id="wizard_main" class="prepend-5 append-5 span-14">
+      <div class="di_wizard span-14 last">
+        <div id="wizard_logo" class="prepend-4">
+          <%= image_tag "di-logo-no-beta.png" %>
+        </div>
+        <%= yield %>
+      </div>
+    </div>
 <% end %>
 <%= render :file => 'layouts/application' %>

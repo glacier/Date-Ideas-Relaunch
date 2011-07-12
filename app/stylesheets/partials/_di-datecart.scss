@@ -67,6 +67,8 @@
 	}*/
 }
 
+
+
 #di_cart_front {
 	ul {
 		text-align: left;
@@ -105,7 +107,10 @@
 #di_datecart_functions {
 /*	@include horizontal-list(2px);*/
 /*	@include inline-block-list;*/
+    margin: 0;
+
 	ul {
+
 		@include no-bullets;
 	}
 }
@@ -132,7 +137,6 @@ $heart_button: saturate(lighten($red, 2), 20)
 	@include fancy-button-colors-matte(#ddd);   */
 	@include di_button(14px, $di-green);
 	width:100px;
-	height:20px;
 	text-align: center;
 	li {
 		padding-bottom: 10px;
@@ -142,4 +146,5 @@ $heart_button: saturate(lighten($red, 2), 20)
 .datecart_buttons {
 	@include fancy-button-matte(adjust_hue($fancy-green, 110), 14px, 0.30em, 1px);
 }
-                                   
+
+

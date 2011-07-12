@@ -1,8 +1,4 @@
 class User < ActiveRecord::Base
-  # Should be handled by Devise
-  # validates_presence_of :email
-  # validates_format_of :email, :with => ...., :message => "a valid email must be provided"
-  
   has_one :profile
   has_many :datecarts
   has_many :significant_dates
@@ -22,12 +18,10 @@ class User < ActiveRecord::Base
   # TODO: link user tips, reviews to user model
   # has_many :tips
 
-  # Waiting on will's validations
   # Email is validated by devise.
-#  validates :email, :username, :first_name, :last_name, :birthday, :postal_code, :gender, :role_id,
-#            :encrypted_password, :presence => true
-
-#  validates :postal_code, :length => {:maximum => 7}
+  validates_presence_of :email, :username, :first_name, :last_name, :birthday, :gender
+  validates_length_of :postal_code, :minimum => 5
+  validates_length_of :first_name, :minimum => 3
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
@@ -35,8 +29,7 @@ class User < ActiveRecord::Base
   # :rememberable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation
-  attr_accessible :first_name, :last_name, :username, :gender, :birthday, :postal_code
+  attr_accessible :password, :password_confirmation
   # :remember_me,
   
   def apply_omniauth(omniauth)

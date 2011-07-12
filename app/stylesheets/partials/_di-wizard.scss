@@ -13,7 +13,7 @@
 		color: #FFF;
 	}
 	table {
-		margin-bottom: 12px;
+		margin-bottom: 0px;
 	}
 	select {
 		font-size: 18px;
@@ -48,11 +48,7 @@
 		display:none;
 	}
 
-	#wizard_main {
-		@include heading2;
-	}
-	
-	#logo {
+	#wizard_logo {
 		padding:{
 			bottom: 20px;
 		};
@@ -60,7 +56,12 @@
 			width: 50%;
 		}
 	}
-	
+    #wizard_loader {
+       img {
+         margin-top:5px;
+       }
+       height:30px;
+    }
 	#di_intro {
 		padding-left: 10px;
 		#di_whatis_icons {

@@ -45,7 +45,7 @@ class YellowAdaptor
     #(1..2).each do | page |
       results_hash = find_business('Restaurant','Toronto','216.246.250.183')
       businesses_hash = results_hash.fetch("listings")
-      businesses = Array.new
+      businesses = []
 
       businesses_hash.each do |b|
 
@@ -70,7 +70,7 @@ class YellowAdaptor
   def build_url(method, params)
     params['apikey'] = @api_key
     params['fmt'] = @format
-   param_array = Array.new
+   param_array = []
     params.each_pair do |key, value|
       unless value.nil?
         param_array.push("%s=%s" % [key, value])

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110703233425) do
+ActiveRecord::Schema.define(:version => 20110710135723) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(:version => 20110703233425) do
   end
 
   create_table "business_types", :force => true do |t|
-    t.integer  "business_id"
+    t.string   "business_id"
     t.string   "category_name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(:version => 20110703233425) do
     t.datetime "updated_at"
     t.string   "name",                :default => "My Date"
     t.datetime "datetime"
-    t.text     "notes"
+    t.string   "notes",               :default => "Make it special!"
     t.integer  "significant_date_id"
   end
 
@@ -135,6 +135,8 @@ ActiveRecord::Schema.define(:version => 20110703233425) do
     t.string "eventid"
   end
 
+  add_index "events", ["eventid"], :name => "index_events_on_eventid", :unique => true
+
   create_table "farmed_infos", :force => true do |t|
     t.string   "neighbourhood"
     t.integer  "offset"
@@ -151,9 +153,9 @@ ActiveRecord::Schema.define(:version => 20110703233425) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "city"
+    t.string   "country"
     t.string   "postal_code"
     t.string   "province"
-    t.string   "country"
   end
 
   create_table "profiles", :force => true do |t|
@@ -220,5 +222,13 @@ ActiveRecord::Schema.define(:version => 20110703233425) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+
+  create_table "wizards", :force => true do |t|
+    t.string   "venue"
+    t.string   "location"
+    t.integer  "priceRange"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

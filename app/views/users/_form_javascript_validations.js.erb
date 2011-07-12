@@ -1,0 +1,37 @@
+$(document).ready(function() {
+
+    jQuery.validator.messages.required = "Required";
+
+    jQuery.validator.addMethod("postalcode", function(postalcode, element) {
+        return this.optional(element) || postalcode.match(/(^\d{5}(-\d{4})?$)|(^[ABCEGHJKLMNPRSTVXYabceghjklmnpstvxy]{1}\d{1}[A-Za-z]{1} ?\d{1}[A-Za-z]{1}\d{1})$/);
+    }, "Invalid postal code");
+
+    $("#edit_user_<%=@user.id%>").validate({
+        rules: {
+            "user[first_name]": {
+                required: true,
+                minLength: 3
+            },
+            "user[last_name]": {
+                required: true
+            },
+            "user[gender]": {
+                required: true
+            },
+            "user[birthday(1i)]": {
+                required: true
+            },
+            "user[birthday(2i)]": {
+                required: true
+            },
+            "user[birthday(3i)]": {
+                required: true
+            },
+            "user[postal_code]": {
+                required: true,
+                postalcode: true
+            }
+        }
+    });
+});
+

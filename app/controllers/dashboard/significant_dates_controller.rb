@@ -7,14 +7,12 @@ class Dashboard::SignificantDatesController < ApplicationController
 
   end
 
-
   def create
     # composed of title, date (time), notes, and user_id
     @significant_date = SignificantDate.create(params[:significant_date])
     flash.notice= "Significant Date #{@significant_date.title} saved."
     render :controller => :dashboard
   end
-
 
   def new
     @significant_date = SignificantDate.new
