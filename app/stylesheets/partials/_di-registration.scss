@@ -9,10 +9,12 @@ $login-radius: 15px;
 	top: 45px;
 	right: 70px;
 }
+
 .ui-widget-content {
 	background-image: none;
 	border: 0;
 }
+
 .dialog, #di_registrations {
 	@include pie-clearfix;
 }
