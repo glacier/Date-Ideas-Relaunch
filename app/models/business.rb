@@ -50,8 +50,7 @@ class Business < ActiveRecord::Base
       return false
     end
   end
-  # for some reason it's failing on montreal...maybe utf-8 not supported?
-  acts_as_gmappable  :validation => false
+  acts_as_gmappable
 
   def gmaps4rails_address
     display_address

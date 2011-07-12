@@ -70,10 +70,9 @@ class DateIdeas::DnaService
           if( 'Montreal'.eql?(yb.city) || 'Montréal'.eql?(yb.city) || 'Toronto'.eql?(yb.city))
             db_bs = Business.find_by_external_id(yb.external_id)
             if( db_bs.nil? )
-              @logger.info("saving #{get_address(yb)} longitude : #{yb.longitude} latitude: #{yb.latitude}")
-
-              yb.save!
-              y_businesses.push(yb)
+              if(yb.save)
+                y_businesses.push(yb)
+              end
             else
               y_businesses.push(db_bs)
             end

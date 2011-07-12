@@ -74,8 +74,11 @@ class WizardController < ApplicationController
     y 'eventful search params'
     y event_cat
     y event_date
-    
-    events = eventful.search(event_cat, event_date, @wizard.city, 30).paginate(:page => current_page_events, :per_page => per_page)
+
+    neighbourhood = Neighbourhood.find_by_city(@wizard.city)
+
+    event_location = "%s, %s, %s" % [neighbourhood.city,neighbourhood.province, neighbourhood.country]
+    events = eventful.search(event_cat, event_date, event_location, 30).paginate(:page => current_page_events, :per_page => per_page)
 
     @datecart = current_cart
     @wizard.businesses = businesses
