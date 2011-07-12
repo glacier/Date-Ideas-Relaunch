@@ -1,45 +1,42 @@
+<script type="text/javascript"><%= render :partial => "form_javascript_validations.js.erb" %></script>
+
 <%= form_for(@profile) do |f| %>
-  <% if @profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
-      <ul>
-      <% @profile.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <% if @profile.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
+          <ul>
+            <% @profile.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+
+    <table>
+      <tbody>
+      <tr>
+        <td style="width:170px"><%= f.label :city %></td>
+        <td><%= f.select(:city, options_for_select(Wizard::CITY), :selected => @profile.city) %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :relationship_status %></td>
+        <td><%= f.select :relationship_status, options_for_select(Profile::RELATIONSHIP), :selected => @profile.relationship_status %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :sig_other_name, "Signifcant Other" %></td>
+        <td><%= f.text_field :sig_other_name %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :anniversary %></td>
+        <td><%= f.date_select :anniversary, :include_blank => false, :start_year => 1970, :end_year => 2011 %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :about_me %></td>
+        <td><%= text_area :profile, :about_me, :cols=>80, :rows=>40 %></td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="actions">
+      <%= f.submit %>
     </div>
-  <% end %>
-	
-	<table>
-		<tbody>
-			<tr>
-				<td><%=f.label :city %></td>
-				<td><%= f.select(:city, options_for_select(Wizard::CITY), :selected => @profile.city) %></td>
-				<td>Your default location</td>
-			</tr>
-			<tr>
-				<td><%=f.label :relationship_status %></td>
-				<td><%= f.select :relationship_status, options_for_select(Profile::RELATIONSHIP), :selected => @profile.relationship_status %></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td><%=f.label :sig_other_name %></td>
-				<td><%= f.text_field :sig_other_name, :title=>"Name of significant other" %></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td><%=f.label :anniversary %></td>
-				<!-- use date picker here? -->
-				<td><%= f.date_select :anniversary, :include_blank => true %></td>
-			</tr>
-			<tr>
-				<td><%=f.label :about_me %></td>
-				<td><%= text_area :profile, :about_me, :cols=>80, :rows=>40 %></td>
-				<td></td>
-			</tr>
-		</tbody>
-	</table>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

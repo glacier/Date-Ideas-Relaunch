@@ -1,14 +1,2 @@
 //define config object
 <%= raw generate_modal_dialogue(:"datecart_save_dialog", :"Enter Date Details", render('save_datecart_form', :format => :html)) %>
-// read values off the page
-date_title = $('#date_title').html();
-date_on_page = $('#date_date').attr('value');
-notes = $('#date_notes').html();
-
-console.log(date_title);
-console.log(date_on_page);
-console.log(notes);
-
-$('#datecart_name').attr('value', date_title);
-$('#datecart_datetime').attr('value', date_on_page);			
-$('#datecart_notes').attr('value', notes);

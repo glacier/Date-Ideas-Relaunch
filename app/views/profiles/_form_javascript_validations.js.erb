@@ -1,0 +1,29 @@
+$(document).ready(function() {
+
+    jQuery.validator.addMethod("letterswithbasicpunc", function(value, element) {
+        return this.optional(element) || /^[a-z0-9-.,$()'\"\s&!]+$/i.test(value);
+    }, "Simple names only!");
+
+    jQuery.validator.messages.required = "Required";
+
+    $("#new_profile").validate({
+        rules: {
+            "profile[city]": {
+                required: true
+            },
+            "profile[relationship_status]": {
+                required: true
+            }
+            "profile[anniversary(1i)]": {
+                required: true
+            },
+            "profile[anniversary(2i)]": {
+                required: true
+            },
+            "profile[anniversary(3i)]": {
+                required: true
+            }
+        }
+    });
+});
+

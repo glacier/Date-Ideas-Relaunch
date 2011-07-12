@@ -159,17 +159,4 @@ $(document).ready(function() {
 		type : 'textarea',
 		submit : 'Done'
 	});
-
-	// Populate the save date modal pop-up with fields on the page
-	$('#di_datecart_functions #save').click(function(){
-		date_on_page = $('#date_date').attr('value');
-		notes = $('#date_notes').html();
-		// console.log(date_on_page);
-		// console.log(notes);
-		// insert values after modal box is loaded into the DOM
-		$(window).load(function() {
-			$('#datecart_datetime').attr('value', date_on_page);
-			$('#datecart_notes').attr('value', notes);
-		});
-	});
 });

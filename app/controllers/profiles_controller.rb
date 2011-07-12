@@ -37,6 +37,7 @@ class ProfilesController < ApplicationController
   def new
     @user = current_user
     @profile = Profile.new
+    render :layout => 'dashboard'
   end
 
   def edit    

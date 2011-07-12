@@ -9,7 +9,6 @@ $(document).ready(function() {
         minuteGrid: 10
     });
 
-    //Enforce basic punctuation for app names (currently undecided what shold be validated against)
     jQuery.validator.addMethod("letterswithbasicpunc", function(value, element) {
         return this.optional(element) || /^[a-z0-9-.,$()'\"\s&!]+$/i.test(value);
     }, "Simple names only!");

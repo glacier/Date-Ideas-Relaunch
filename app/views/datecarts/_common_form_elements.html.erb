@@ -10,17 +10,37 @@
     </div>
 <% end %>
 
-<div class="formield">
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-</div>
+<% if @datecart.user_id %>
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
 
-<div class="field">
-  <%= form.label :datetime %>
-  <%= form.text_field :datetime, :value => @datecart.display_datetime, :readonly => 1 %>
-</div>
+    <div class="field">
+      <%= form.label :datetime %>
+      <%= form.text_field :datetime, :value => @datecart.display_datetime, :readonly => 1 %>
+    </div>
 
-<div class="field">
-  <%= form.label :notes %>
-  <%= form.text_field :notes %>
-</div>
+    <div class="field">
+      <%= form.label :notes %>
+      <%= form.text_field :notes %>
+    </div>
+
+<% else %>
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, :value => "My Date", :onclick=>"this.value=\"\"", :style => "color:gray;" %>
+
+    </div>
+
+    <div class="field">
+      <%= form.label :datetime %>
+      <%= form.text_field :datetime, :readonly => 1 %>
+    </div>
+
+    <div class="field">
+      <%= form.label :notes %>
+      <%= form.text_field :notes, :value => "Make it special!", :onclick => "this.value=''", :style => "color:gray;" %>
+    </div>
+
+<% end %>

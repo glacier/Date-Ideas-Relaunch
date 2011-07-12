@@ -15,12 +15,11 @@
 		</fieldset>
 	</div>
 	<h6>
-		<a href="#"><input type="hidden" id="date_date" class="hidden_date_picker nofloat" value="<%= Time.now.strftime('%Y/%m/%d') %>"/></a>
 		<input type="hidden" id="alt_show_date" class="nofloat" value="<%= today %>" />
 		<span id="date_display" class="date_display"><%= today %></span>
 	</h6>
 	<div>
-		<div id="date_notes" class="editable">test test test</div>
+		<div id="date_notes" class="editable"></div>
 		<fieldset id="functions" class="datecart">
 			<%= render :partial => 'datecarts/datecart_functions' %>
 		</fieldset>
