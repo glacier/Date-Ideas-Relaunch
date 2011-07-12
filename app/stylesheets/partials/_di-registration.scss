@@ -1,0 +1,70 @@
+$login-radius: 15px;
+.ui-widget-overlay {
+	background-color: black;
+	opacity: 0.2;
+}
+.ui-dialog-titlebar {
+/*	visibility: hidden;*/
+	position: relative;
+	top: 45px;
+	right: 70px;
+}
+.ui-widget-content {
+	background-image: none;
+	border: 0;
+}
+#di_registrations {
+	@include pie-clearfix;
+}
+.modal_container {
+	z-index: 10000;
+	background-color: #f9f2e7;
+	border: 10px solid rgba(0,0,0,0.1);
+	padding:{
+		top: 50px;
+		left: 20px;
+		right: 20px;
+		bottom: 50px;
+	}
+	/* CSS for transparent borders */
+	-moz-background-clip: padding;     /* Firefox 3.6 */
+	-webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
+	background-clip: padding-box;      /* Firefox 4, Safari 5, Opera 10, IE 9 */
+	
+	-webkit-border-radius: $login-radius;
+	-moz-border-radius: $login-radius;
+	border-radius: $login-radius;
+	@include pie-clearfix;
+}
+
+.registration_container {
+	@include heading3;
+	input[type="text"],input[type="password"] {
+		width: 150px;
+	}
+	p {
+		color: $di-cyan;
+		font-size: 20px;
+	}
+	#login_form {
+		float: left;
+		margin-right: 20px;
+	}
+	#login {
+		float: left;
+		position: relative;
+		top: 20px;
+		padding: 20px 0 0 20px;
+		height: 300px;
+		width: 160px;
+		border-left: 3px solid #CCC;
+	}
+	#signup {
+		float: left;
+		padding: 20px 0 0 20px;
+		position: relative;
+		top: 20px;
+		border-left: 2px solid #CCC;
+
+	}
+}

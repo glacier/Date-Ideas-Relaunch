@@ -96,19 +96,21 @@ module ApplicationHelper
     <<-MODAL
     //define config object
 var dialogOpts = {
-	title: \"#{title}\",
+	//title: \"#{title}\",
 	modal: true,
-	overlay: {
-		background: "url(img/modal.png) repeat"
-	},
+	// overlay: {
+	//	background: "url(img/modal.png) repeat"
+	//},
 	// buttons: {
 	// 	"Ok": function() { $(this).dialog("close"); }
 	// },
+	width: 650,
 	closeOnEscape: true,
-	width: 450,
 	autoOpen: false,
 	resizable: false,
 	draggable: false,
+	position: top,
+	stack: true,
 	open: function() {
 		//display correct dialog content
 		$("##{div}").html("#{escape_javascript partial}");
@@ -116,7 +118,11 @@ var dialogOpts = {
 };
 
 $("##{div}").dialog(dialogOpts);
+h=$("##{div}").height();
+$( ".selector" ).dialog( "option", "height", h );
+$("##{div}").removeClass('ui-dialog-content');
 $("##{div}").dialog("open");
+
     MODAL
   end
 

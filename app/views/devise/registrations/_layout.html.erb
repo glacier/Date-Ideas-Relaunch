@@ -1,0 +1,10 @@
+<div class="registration_container modal_container span-14 last">
+	<div id="login_form">
+		<%= generate_ribbon_header :h3, :"Sign Up", 8 %>
+		<%= render :partial => 'signup_form' %>
+	</div>
+	<div id="login">
+		<p>Have an account?</p>
+		<%= link_to "Log In", new_user_session_path, :remote => true, :class=>"di_button" %>
+	</div>
+</div>

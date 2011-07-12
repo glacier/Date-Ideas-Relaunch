@@ -109,7 +109,7 @@ fieldset {
 /* Site Elements */
 
 /* Submit Buttons */
-#profile_submit, #user_submit {
+#profile_submit, #user_submit, .di_button {
 	@include di_button(16px, $di-green);
 }
 
