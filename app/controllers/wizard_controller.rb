@@ -64,8 +64,11 @@ class WizardController < ApplicationController
 
     event_location = "%s, %s, %s" % [neighbourhood.city,neighbourhood.province, neighbourhood.country]
     @wizard.events = eventful.search(event_cat, event_date, event_location, 30).paginate(:page => current_page_events, :per_page => per_page)
-
     @datecart = current_cart
+
+    #Ugly code everywhere zomg
+    @wizard.events.shuffle! unless @wizard.events.blank?
+    @wizard.businesses.shuffle! unless @wizard.events.blank?
 
     respond_to do |format|
       if @wizard.venue == 'activities_events'
