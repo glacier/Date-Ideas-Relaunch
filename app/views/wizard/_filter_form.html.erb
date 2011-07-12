@@ -9,7 +9,7 @@
           <% if @wizard.postal_code %>
       <%= autocomplete_field_tag :postal_code, @wizard.postal_code, autocomplete_neighbourhood_postal_code_wizard_index_path ,  :size => 7  %>
               <% else  %>
-      <%= autocomplete_field_tag :postal_code, "Enter a postal code", autocomplete_neighbourhood_postal_code_wizard_index_path ,  :size => 7, :style=>"color:gray", :onclick => "this.value=\"\""  %>
+      <%= autocomplete_field_tag :postal_code, "e.g. H2X 1H6", autocomplete_neighbourhood_postal_code_wizard_index_path ,  :size => 7, :style=>"color:gray", :onclick => "this.value=\"\""  %>
               <% end %>
 
     <% end %>
