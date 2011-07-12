@@ -43,6 +43,9 @@ $(document).ready(function() {
 		$(".dialog").each(function() {
 			$(this).dialog("close");
 		});
+		$(".login_dialog").each(function(){
+			$(this).dialog("close");
+		});
 	});
 
 	$('a[rel="external"]').click(function(){

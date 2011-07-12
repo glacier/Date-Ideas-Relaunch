@@ -120,7 +120,9 @@ class DateIdeas::DnaService
 
   def get_address(business)
     address = ''
-    address.concat(business.address1)
+    unless business.address1.blank?
+      address.concat(business.address1)
+    end
 
     if !(business.address2.nil? || business.address2.empty?)
       address.concat(", ").concat(business.address2)

@@ -1,2 +1,3 @@
 $('.dialog').dialog("close");
-<%= raw generate_modal_dialogue(:"di_registrations", :"Sign In", render(:partial => 'devise/sessions/layout')) %>
+$('.login_dialog').dialog("close");
+<%= raw generate_modal_dialogue(:"di_login", :"Sign In", render(:partial => 'devise/sessions/layout')) %>
