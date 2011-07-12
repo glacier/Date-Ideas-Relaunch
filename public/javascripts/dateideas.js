@@ -1,19 +1,3 @@
-// Helper functions for toggling input text fields
-function clear_input(inputbox){
-    input_text = inputbox.val();
-    if(input_text == inputbox.attr('title')){
-        inputbox.val('');
-    }
-}
-
-function show_input(inputbox) {
-    input_text = inputbox.val();
-    if (input_text == '' || input_text == ' ') {
-        inputbox.val(inputbox.attr('title'));
-        inputbox.css("color", "#CCC");
-    }
-}
-
 // Helper function to pin an element on the page
 function pin(parent, element, style) {
 	var scrollable = parent;
@@ -107,12 +91,6 @@ $(document).ready(function() {
 		$('.filter_loaders').removeClass('ajax-hidden');
 		// disabling leads to no parameters sent in Firefox, but works in Chrome
 		// $('select').attr('disabled', 'disabled');
-	});
-
-	//Toggle all input text and password fields on site
-	//Set title attribute of input as toggle texts
-	$('input[type="text"],input[type="password"], textarea').each(function(){
-		$(this).val($(this).attr('title'));
 	});
 
 	$('input[type="text"],input[type="password"], textarea').focus(function(){

@@ -1,14 +1,20 @@
 #profile_settings, #user_settings {
-	form label {
-		color: $di-light-green;
-		font-size: 18px;
-	}
+	form {
+        display: block;
+        label {
+            color: $di-light-green;
+            font-size: 18px;
+	    }
+
+	 label.error {
+	     font-size: 14px;
+         color: #8A1F11;
+	 }
+    }
 	#profile_city, #profile_relationship_status {
 		width: 180px;
 	}
 }
-
-
 
 #profile_header {
 	@include pie-clearfix;

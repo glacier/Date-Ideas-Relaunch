@@ -1,4 +1,4 @@
-<script type="text/javascript"><%= render :partial => "form_javascript_validations" %></script>
+<script type="text/javascript"><%= render :partial => "form_javascript_validations.js.erb" %></script>
 
 <%= form_for(@datecart, :url => "/datecarts/#{@datecart.id}/complete", :id => "update_date_form") do |f| %>
     <%= render :partial => "common_form_elements", :locals => {:form => f} %>

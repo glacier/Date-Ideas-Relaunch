@@ -1,45 +1,43 @@
+<script type="text/javascript"><%= render :partial => "form_javascript_validations.js.erb"%></script>
+
 <% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this profile from being saved:</h2>
-    <ul>
-    <% @user.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this profile from being saved:</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
 <% end %>
 
 <%= form_for(@user) do |f| %>
-	<table>
-			<tbody>
-				<tr>
-					<td><%=f.label :first_name %></td>
-					<td><%= f.text_field :first_name, :title => @user.first_name %></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td><%=f.label :last_name %></td>
-					<td><%= f.text_field :last_name, :title => @user.last_name %></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td><%=f.label :gender %></td>
-					<td><%= f.select :gender, [['Female', 'female'],['Male', 'male']] %></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td><%=f.label :birthday %></td>
-					<!-- use date picker here? -->
-					<td><%= f.date_select :birthday, :include_blank => true %></td>
-				</tr>
-				<tr>
-					<td><%=f.label :postal_code %></td>
-					<td><%= f.text_field :postal_code %></td>
-					<td></td>
-				</tr>
-			</tbody>
-	</table>
-	<div class="actions">
-	  <%= f.submit %>
-	</div>
+    <table style="height:260px">
+      <tbody>
+      <tr>
+        <td  style="width:125px;" ><%= f.label :first_name, "First Name"%></td>
+        <td><%= f.text_field :first_name %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :last_name, "Last Name" %></td>
+        <td><%= f.text_field :last_name%></td>
+      </tr>
+      <tr>
+        <td><%= f.label :gender %></td>
+        <td><%= f.select :gender, [['Female', 'female'], ['Male', 'male']] %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :birthday %></td>
+        <!-- use date picker here? -->
+        <td><%= f.date_select :birthday, :include_blank => false, :start_year => 1920 %></td>
+      </tr>
+      <tr>
+        <td><%= f.label :postal_code, "Postal Code" %></td>
+        <td><%= f.text_field :postal_code%></td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>
