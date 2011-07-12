@@ -6,7 +6,12 @@
         <%= select_tag(:location, options_for_select(Wizard::LOCATIONS,@wizard.location), :disabled => value) %>
         <%= select_tag(:neighbourhood, options_for_select(@neighbourhoods.collect { |hood| [hood.neighbourhood]}.push(["All Neighbourhoods", "all_neighbourhoods"]).sort, @wizard.neighbourhood), :disabled => value) %>
     <% else %>
+          <% if @wizard.postal_code %>
       <%= autocomplete_field_tag :postal_code, @wizard.postal_code, autocomplete_neighbourhood_postal_code_wizard_index_path ,  :size => 7  %>
+              <% else  %>
+      <%= autocomplete_field_tag :postal_code, "Enter a postal code", autocomplete_neighbourhood_postal_code_wizard_index_path ,  :size => 7, :style=>"color:gray", :onclick => "this.value=\"\""  %>
+              <% end %>
+
     <% end %>
     <%= select_tag(:venue, options_for_select(Wizard::VENUES,@wizard.venue))%>
 		
