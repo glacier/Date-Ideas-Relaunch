@@ -1,9 +1,13 @@
 /* Wizard view */
 .di_wizard {
 	@include heading1;
+	padding-top: 25px;
 	
+	h1 {
+		font-size: 40px;
+	}
 	form, table {
-		font: 18px helvetica;
+		font: 14px helvetica;
 	}
 	label {
 		color: #FFF;
@@ -17,18 +21,18 @@
 	}
 	td {
 		margin:0;
-		padding: 0px 30px 0px 0px;
-		height: 67px;
+/*		padding: 0px 30px 0px 0px;*/
+/*		height: 50px;*/
 	}
 	tr.blank {
 		background-color: #FFF;
 		height: 10px;
 	}
 	td.banner {
-		background: url("/images/di_wizard_tail2.png") no-repeat;
+		background: url("/images/di_wizard_tail3.png") no-repeat;
 	}
 	td.question_text {
-		background: url("/images/di_wizard_bg_sliver.png") repeat-x;
+		background: url("/images/di_wizard_bg_sliver2.png") repeat-x;
 		padding-right: 20px;
 		color: white;
 		
@@ -48,6 +52,9 @@
 		padding:{
 			bottom: 20px;
 		};
+		img {
+			width: 50%;
+		}
 	}
     #wizard_loader {
        img {
@@ -55,25 +62,31 @@
        }
        height:30px;
     }
-
-	#di_whatis_icons {
-		padding: {
-			left: 30px;
-			top: 45px;
-			bottom: 15px;
-		};
-	}
-	#di_whatis_text {
-		@include pie-clearfix;
-		padding-bottom: 15px;
-		p {
-/*			padding: 0;
-			margin: 0;
-*/			display: inline;
-			float: left;
-			width: 210px;
-			font: bold 16px helvetica;
-			text-align: center;
+	#di_intro {
+		padding-left: 10px;
+		#di_whatis_icons {
+			padding-top: 30px;
+			padding-bottom: 15px;
+			img {
+				width: 80%;
+				position: relative;
+				left: 50px;
+			}
+		}
+		#di_whatis_text {
+			@include pie-clearfix;
+			padding-bottom: 20px;
+			padding-left: 12px;
+			p {	
+				display: inline;
+				float: left;
+				width: 150px;
+				font: bold 12px helvetica;
+				text-align: center;
+				margin-right:0px;
+				margin-left:10px;
+				margin-right:12px;
+			}
 		}
 	}
 }

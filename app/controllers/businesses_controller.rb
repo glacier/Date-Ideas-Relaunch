@@ -11,6 +11,8 @@ class BusinessesController < ApplicationController
   def show
     @user = current_user
     @business = Business.find(params[:id])
+    @datecart = current_cart
+    
     @json = @business.to_gmaps4rails
     @markers = @business.to_gmaps4rails
 
@@ -44,6 +46,11 @@ class BusinessesController < ApplicationController
         end
         @business.reviews = business_detail.reviews
       end
+    end
+
+    respond_to do |format|
+       format.html { render :layout => 'venue' }
+       # format.xml  { render :xml => @post }
     end
   end
 

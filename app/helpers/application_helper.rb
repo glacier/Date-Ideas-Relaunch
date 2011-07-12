@@ -24,6 +24,16 @@ module ApplicationHelper
     end
   end
 
+  def generate_unordered_list items
+    html = "<ul>"
+    items.each do |item|
+      html << "<li>" << item << "</li>"
+    end
+    html << "</ul>"
+    
+    raw(html)
+  end
+  
   # implemented according to railscast episode 244
   def avatar_url(user)
     default_url = "#{root_url}images/guest.jpg"

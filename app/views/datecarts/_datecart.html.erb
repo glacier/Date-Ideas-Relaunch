@@ -1,19 +1,23 @@
 <%# View of the cart shown at the front page %>
+<% today = Time.now.strftime('%A %B %d, %Y') %>
 <div id="di_datecart" class="di_module">
 	<div id="di_new_date" class="dialog"></div>
 	<div id="di_add_to_date" class="dialog"></div>
-	<div id="di_edit_dialog" class="dialog"></div>
+	<div id="di_edit_dialog" class="dialog">Dialog</div>
 
-	<h6><span id="date_title" class="editable floater">My Date Ideas</span><span class="icon"><%= image_tag 'datecart_pencil_icon.png' %></span></h6>
+	<h6>
+		<a href="#" alt="Click to edit" style="color:#FFF; "><span id="date_title" class="floater">My Date Ideas</span></a>
+		<span class="icon"><%= image_tag 'datecart_pencil_icon.png' %></span>
+	</h6>
 	<div id="di_cart_front" class="di_module_section">
 		<fieldset id="datecart_items" class="datecart">
 			<%= render :partial => 'datecarts/datecart_items' %>
 		</fieldset>
 	</div>
 	<h6>
-		<input type="hidden" id="date_date" class="hidden_date_picker nofloat" value="<%= (Time.now + 1.day).strftime('%Y/%m/%d %I:%M %p')  %>"/>
-		<input type="hidden" id="alt_show_date" class="nofloat" value="blah" />
-		<span id="date_display" class="nofloat"><%= Time.now.strftime('%A %B %d, %Y') %></span>
+		<a href="#"><input type="hidden" id="date_date" class="hidden_date_picker nofloat" value="<%= Time.now.strftime('%Y/%m/%d') %>"/></a>
+		<input type="hidden" id="alt_show_date" class="nofloat" value="<%= today %>" />
+		<span id="date_display" class="date_display"><%= today %></span>
 	</h6>
 	<div>
 		<div id="date_notes" class="editable">test test test</div>

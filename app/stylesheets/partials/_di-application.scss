@@ -16,6 +16,10 @@ body {
 	}
 }
 
+h1.venue {
+	font-size: 40px;
+	color: #558b97;
+}
 hr {
 	border:0px !important;
 }
@@ -33,6 +37,10 @@ form {
 	}
 }
 
+fieldset {
+	border: 0;
+}
+
 #header {
 	height: 75px;
 	background-color: $header-bg-color;
@@ -41,18 +49,16 @@ form {
 		color: $header-txt-color;
 	}
 	#logo {
-		position: absolute;
-        left: 15%;
         padding-top:5px;
 	}
 	#user_nav {
 	    position: absolute;
 		right: 15%;
-        li {
-		    padding-top: 25px;
-        }
+        top:5px;
 		ul {
 			@include horizontal-list(10px, left);
+            padding-top:25px;
+            float:right;
 			font:{
 				size: 16px;
 			};
@@ -190,6 +196,12 @@ form {
 .pin-right {
 	position: fixed;
 	top: 10px;
+	width: inherit;;
+}
+
+.pin-datepicker {
+	position: fixed;
+	top: 300px;
 	width: inherit;;
 }
 

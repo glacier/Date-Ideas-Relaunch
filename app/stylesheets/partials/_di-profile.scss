@@ -37,15 +37,21 @@
 	@include pie-clearfix;
 	.di_module_container {
 		margin-top:0px;
+		p {
+			font-weight: bold;
+		}
 	}
 	
 	#dates_planned {
 		@include pie-clearfix;
-		h1 {
-			/* hack to put text in 
-			the center of a box - what's a better way?*/
-			position: relative;
-			top: 10px;
+		p {
+			margin:0;
+		}
+		#number {
+			height: 72px;
+			h1 {
+				font-size: 70px;
+			}
 		}
 	}
 }
@@ -53,9 +59,17 @@
 #date_plans {
 	@include heading3;
 /*	@include horizontal-block-list(10px, left);*/
-	list-style-type: none;
-	p {
+
+	#date_plans_content {
 		margin-left: 20px;
+	}
+	ul {
+		font-weight: bold;
+		padding: 0;
+		list-style-type: none;
+		li {
+			margin-bottom: 25px;
+		}
 	}
 }
 
@@ -63,13 +77,10 @@
 	@include di_button(25px, $di-green);
 	width: 250px;
 	height: 55px;
-	position: relative;
-	top: 50px;
-	left: 20px;
-	/* TODO: refactor this into the di_button */
 	span {
 		position: relative;
-		left: 50px;
+		text-transform: capitalize;
+		left: 45px;
 		top: 10px;
 	}
 }

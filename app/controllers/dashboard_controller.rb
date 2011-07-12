@@ -1,6 +1,7 @@
 class DashboardController < ApplicationController
   def index
     @user = current_user # This is ensured by authenticate_user! in the pre-block of app controller
+    @significant_dates = @user.significant_dates
     datecarts = @user.datecarts
 
     current_datecarts = []
@@ -17,6 +18,7 @@ class DashboardController < ApplicationController
           current_datecarts << cart
         end
       end
+
     end
 
     @upcoming_datecarts = [] #Store upcoming dates here

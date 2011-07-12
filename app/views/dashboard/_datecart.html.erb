@@ -1,17 +1,24 @@
 <% id_prefix = "datecart_partial_#{datecart.id}" %>
-<div id="<%= id_prefix %>" class="dashboard_item">
-  <div id="<%= id_prefix + "_title" %>" class="datecart_title">
-    <p class="title_text"><%= format_date_header datecart.datetime, datecart.significant_date_id %></p>
-  </div>
-  <div class="business_static_map">
-      <%= generate_map datecart %>
-    </div>
-  <div id="<%= id_prefix + "_content" %>" class="datecart_content">
-    <% unless (cart_items = datecart.cart_items).blank? #TODO: remove once validations are implemented  %>
-        <%= render :partial => "datecart_cart_item", :collection => datecart.cart_items %>
-    <% end %>
-
-    <%= render :partial => "datecart_notes", :locals => { :datecart => datecart} %>
-    <%= render :partial => "datecart_actions", :locals => { :datecart => datecart} %>
-  </div>
+<div id="<%= id_prefix %>" class="di_module_container dashboard_item">
+  <h2 id="<%= id_prefix + "_title" %>" class="datecart_title">
+  	<%= format_date_header datecart.datetime, datecart.significant_date_id %>
+  </h2>
+  <div class="datecart_itinerary">
+		<div class="business_static_map">
+	      <%= generate_map datecart %>
+	   </div>
+	  <div id="<%= id_prefix + "_content" %>" class="datecart_places">
+	    <% unless (cart_items = datecart.cart_items).blank? #TODO: remove once validations are implemented  %>
+	        <%= render :partial => "datecart_cart_item", :collection => datecart.cart_items %>
+	    <% end %>
+	  </div>
+	</div>
+	
+	<fieldset class="datecart_notes">
+		<%= render :partial => "datecart_notes", :locals => { :datecart => datecart} %>
+	</fieldset>
+	
+	<div class="datecart_share">
+	  <%= render :partial => "datecart_actions", :locals => { :datecart => datecart} %>
+	</div>
 </div>

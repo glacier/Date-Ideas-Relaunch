@@ -1,22 +1,56 @@
-<div id="yourdates_title">Your Dates</div>
-<div id="yourdates">
-  <% if @upcoming_datecarts.blank? %>
-      No upcoming dates planned.<br>
-      <%= link_to "+ Add Something New", wizard_index_path, :class => "datecart_buttons center", :remote => true %>
-      <div id="di_add_to_date" class="dialog"></div>
-  <% else %>
-      <%= render :partial => "dashboard/datecart", :collection => @upcoming_datecarts %>
-  <% end %>
+<% # Main view of the dashboard  %>
+<div id="upcoming_panel" class="di_module_large">
+	<%= generate_ribbon_header :h3, "upcoming", 13 %>
 
-  <% if @unfinished_datecarts.blank? %>
-  <% end %>
+	  <% if @upcoming_datecarts.blank? %>
+			<div class="di_module_container">
+	      <p>No upcoming dates planned.</p>
+	      <%= link_to "+ Add Something New", wizard_index_path, :class => "datecart_buttons center", :remote => true %>
+	      <div id="di_add_to_date" class="dialog"></div>
+			</div>
+	  <% else %>
+		      <%= render :partial => "dashboard/datecart", :collection => @upcoming_datecarts %>
+	  <% end %>
+</div>
 
+<div id="unfinished_panel" class="di_module_large">
+	<%= generate_ribbon_header :h3, "Currently Planning", 13 %>
+	<div class="di_module_container">
+	  <% if @unfinished_datecarts.blank? %>
+			<p> No unfinished datecarts </p>
+	  <% end %>
+	</div>
+</div>
+
+<div id="past_panel" class="di_module_large">
+		<%= generate_ribbon_header :h3, "Your Past Dates", 13 %>
   <% if @past_datecart.blank? %>
-
+		<p> No past datecarts </p>
   <% else %>
-      In the past...
       <%= render :partial => "dashboard/datecart", :locals => {:datecart => @past_datecart} %>
   <% end %>
-
-  <% # render :partial => "dashboard/significant_dates/upcoming"  %>
 </div>
+
+<%= content_for :sidebar_right do %>
+
+	<div id="sig_dates">
+		<%= link_to content_tag(:span, "Plan New Date"), new_datecart_path, :id => "plan_date_button" %>
+      <div id="upcoming_sig_dates">
+	    <% if @significant_dates  %>
+        <h3>significant dates</h3>
+
+	<ul>
+
+      </ul>
+        </div>
+
+		<%= render :partial => 'dashboard/significant_dates/upcoming', :collection => @significant_dates %>
+		<div id="add_sig_dates">
+			<h5>add new significant date</h5>
+			<p>TODO</p>
+		</div>
+            <% else %>
+
+        <% end %>
+	</div>
+<% end %>

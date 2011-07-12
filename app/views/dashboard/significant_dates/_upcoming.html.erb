@@ -1,11 +1,4 @@
-<div id="<%= @user.id %>_upcoming_sig_dates">
-  <% @significant_dates.each do |date| %>
-      <div id="sig_date_<%= date.id %>">
-        <%= date.title %>
-      </div>
-  <% end %>
 
-  <% if @significant_dates.blank? %>
-      Add your special dates so you never forget!
-  <% end %>
-</div>
+      <li id="sig_date_<%= date.id %>">
+        <%= date.title %>
+      </li>

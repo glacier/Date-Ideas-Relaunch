@@ -1,7 +1,9 @@
 <% if @user && @user.id %>
-    <ul>
-      <li><%= link_to "Account Settings", "/users/#{@user.id}/edit" %></li>
-      <li><%= link_to "Profile", "/profiles/#{@user.id}" %></li>
+    <ul id="settings_dropdown">
+      <!-- May not work if no profile is there -->
+      <li><a href="/dashboard">Dashboard</a></li>
+      <li><a href="/users/<%= @user.id %>/edit">Account Settings</a></li>
+      <li><a href="/profiles/<%= @user.id %>">Profile</a></li>
       <li><a href="/users/sign_out">Log out</a></li>
     </ul>
 <% else %>
@@ -10,5 +12,4 @@
       <li><a href="/users/sign_in">Login</a></li>
     </ul>
 <% end %>
-
 

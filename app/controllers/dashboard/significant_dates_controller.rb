@@ -3,7 +3,6 @@ class Dashboard::SignificantDatesController < ApplicationController
   # Not sure we need an index, all this info is going to be displayed on the dashboard
   def index
     @user = current_user
-
     @significant_dates = @user.significant_dates
 
   end
