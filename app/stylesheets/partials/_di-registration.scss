@@ -13,10 +13,10 @@ $login-radius: 15px;
 	background-image: none;
 	border: 0;
 }
-#di_registrations {
+.dialog, #di_registrations {
 	@include pie-clearfix;
 }
-.modal_container {
+.dialog, .modal_container {
 	z-index: 10000;
 	background-color: #f9f2e7;
 	border: 10px solid rgba(0,0,0,0.1);

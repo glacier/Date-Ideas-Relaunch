@@ -1,9 +1,14 @@
 <script type="text/javascript"><%= render :partial => "form_javascript_validations.js.erb" %></script>
 
 <%= form_for(@datecart, :id => "update_date_form") do |f| %>
+	<table>
     <%= render :partial => "common_form_elements", :locals => {:form => f} %>
-
-    <div class="actions">
-      <%= f.submit "Update" %>
-    </div>
+		
+			<tr>
+				<td></td>
+		    <td class="actions">
+		      <%= f.submit "Update" %>
+		    </td>
+			</tr>
+		</table>
 <% end %>
