@@ -3,11 +3,11 @@ class DateIdeas::YelpAdaptorV2
   @@TEST_URL = "http://api.sandbox.yelp.com"
   @@CONSUMER_KEY = 'Z720kWRw-CAauOQNUbMEAQ'
   @@CONSUMER_SECRET = 'e7999uMADazHkmG5NDVDWBykczc'
-  # @@TOKEN = '1Gj9nSZwzv_o5F_egAYGgYDBsdTdeKFZ'
-  # @@TOKEN_SECRET = 'Yd98KQPlSAOWXfmHYsTctbihEH4'
+    # @@TOKEN = '1Gj9nSZwzv_o5F_egAYGgYDBsdTdeKFZ'
+    # @@TOKEN_SECRET = 'Yd98KQPlSAOWXfmHYsTctbihEH4'
   @@TOKEN = 'PVQ8f1oAcFIal8fDodOx7qW5VXNwbhkK'
   @@TOKEN_SECRET = 'WdUPWAiYOfViusLJXxaXDeeTVO0'
-  
+
   def initialize(test_mode = false)
     @url = test_mode ? @@TEST_URL : @@PROD_URL
     @consumer = OAuth::Consumer.new(@@CONSUMER_KEY, @@CONSUMER_SECRET, {:site => @url})
@@ -15,6 +15,7 @@ class DateIdeas::YelpAdaptorV2
   end
 
   def business_detail(business_id)
+    Rails.logger.info("business_detail(#{business_id})")
     begin
       path = "/v2/business/" + business_id
       result = @access_token.get(path).body
@@ -34,7 +35,7 @@ class DateIdeas::YelpAdaptorV2
   end
 
   def search(location, categories, neighbourhoods, offset = 0)
-
+    Rails.logger.info("search(#{location},#{categories},#{neighbourhoods},#{offset})")
     returned_businesses = []
     if (!neighbourhoods.nil? && neighbourhoods.size > 0)
       neighbourhoods.each do |n|
@@ -75,11 +76,40 @@ class DateIdeas::YelpAdaptorV2
     return returned_businesses
   end
 
+  def search_by_postal_code(categories, postal_code, city, province, country, range, offset = 0)
+    begin
+      Rails.logger.info("search_by_postal_code(#{categories},#{postal_code},#{city},#{province},#{country},#{range},#{offset})")
+      location = "%s %s %s %s" % [postal_code, CGI.escape(city), province, country]
+      path="/v2/search?term=%s&location=%s&offset=%s" % [categories.join("+"), CGI.escape(location), offset]
+      Rails.logger.info("path:#{path}")
+      p = @access_token.get(path).body
+      search_results = JSON.parse(p)
+      if (search_results.has_key?("error"))
+        business = nil
+        error_message = search_results.fetch("error").fetch("text")
+        Rails.logger.error("YELP ADAPTOR ERROR MESSAGE RETURNED:" +error_message)
+      else
+        businesses_hash = search_results.fetch("businesses")
+        business = create_businesses(businesses_hash)
+      end
+    rescue Exception => e
+      Rails.logger.error "YELP ADAPTOR ERROR: #{__LINE__}:#{e.message} \n #{e.backtrace}"
+      return nil
+    end
+    business
+  end
+
   def create_businesses(businesses_hash)
     businesses = []
-    businesses_hash.each do |business_hash|
-      business = create_business(business_hash)
-      businesses.push(business)
+    if (businesses_hash.nil? || businesses_hash.empty?)
+      return businesses
+    else
+      businesses_hash.each do |business_hash|
+        business = create_business(business_hash)
+        if (!business.nil?)
+          businesses.push(business)
+        end
+      end
     end
     return businesses
   end
@@ -89,26 +119,37 @@ class DateIdeas::YelpAdaptorV2
     if (business_hash.has_key?("id"))
       business.external_id = business_hash.fetch("id")
     end
-    business.name = business_hash.fetch("name")
-    address = business_hash.fetch("location").fetch("address")
-    business.address1 = address[0]
-    if (address.size == 2)
-      business.address2 = address[1]
+      #@logger.info("business:#{business_hash}")
+    if (business_hash.has_key?("name"))
+      business.name = business_hash.fetch("name")
     end
-    if (address.size == 3)
-      business.address3 = address[2]
-    end
-    if (business.city = business_hash.fetch("location").has_key?("city"))
-      business.city = business_hash.fetch("location").fetch("city")
-    end
-    if (business_hash.fetch("location").has_key?("state_code"))
-      business.province = business_hash.fetch("location").fetch("state_code")
-    end
-    if (business_hash.fetch("location").has_key?("postal_code"))
-      business.postal_code = business_hash.fetch("location").fetch("postal_code")
-    end
-    if (business_hash.fetch("location").has_key?("country_code"))
-      business.country = business_hash.fetch("location").fetch("country_code")
+    if (business_hash.has_key?("location"))
+      address = business_hash.fetch("location").fetch("address")
+      business.address1 = address[0]
+      if (address.size == 2)
+        business.address2 = address[1]
+      end
+      if (address.size == 3)
+        business.address3 = address[2]
+      end
+      if (business.city = business_hash.fetch("location").has_key?("city"))
+        business.city = business_hash.fetch("location").fetch("city")
+      end
+      if (business_hash.fetch("location").has_key?("state_code"))
+        business.province = business_hash.fetch("location").fetch("state_code")
+      end
+      if (business_hash.fetch("location").has_key?("postal_code"))
+        business.postal_code = business_hash.fetch("location").fetch("postal_code")
+      end
+      if (business_hash.fetch("location").has_key?("country_code"))
+        business.country = business_hash.fetch("location").fetch("country_code")
+      end
+      if (business_hash.fetch("location").has_key?("coordinate"))
+        business.longitude = business_hash.fetch("location").fetch("coordinate").fetch("longitude")
+        business.latitude = business_hash.fetch("location").fetch("coordinate").fetch("latitude")
+      end
+    else
+      return nil
     end
     if (business_hash.has_key?("image_url"))
       business.photo_url = business_hash.fetch("image_url")
@@ -116,10 +157,7 @@ class DateIdeas::YelpAdaptorV2
     if (business_hash.has_key?("phone"))
       business.phone_no = business_hash.fetch("phone")
     end
-    if (business_hash.fetch("location").has_key?("coordinate"))
-      business.longitude = business_hash.fetch("location").fetch("coordinate").fetch("longitude")
-      business.latitude = business_hash.fetch("location").fetch("coordinate").fetch("latitude")
-    end
+
     if (business_hash.has_key?("url"))
       business.url = business_hash.fetch("url")
     end
@@ -127,8 +165,8 @@ class DateIdeas::YelpAdaptorV2
       business.reviews = create_reviews(business_hash.fetch("reviews"))
     end
 
-    #These lines cause the sql commit-begin messages. Should use a temporary instance variables instead of the one
-    # joined via Rails.
+      #These lines cause the sql commit-begin messages. Should use a temporary instance variables instead of the one
+      # joined via Rails.
     if (business_hash.has_key?("categories"))
       business.categories = create_categories(business_hash.fetch("categories"))
     end
@@ -139,7 +177,7 @@ class DateIdeas::YelpAdaptorV2
   end
 
   def create_reviews(reviews_hash)
-    reviews_hash.collect { |review_hash| create_review(review_hash)}
+    reviews_hash.collect { |review_hash| create_review(review_hash) }
   end
 
   def create_review(review_hash)

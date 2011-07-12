@@ -45,7 +45,7 @@ DateIdeas::Application.routes.draw do
     collection do 
       get "search"
     end
-    get :autocomplete_neighbourhood_neighbourhood, :on => :collection
+    get :autocomplete_neighbourhood_postal_code, :on => :collection
   end
   
   #TODO: allow users to access their profiles using /profiles/:username?

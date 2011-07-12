@@ -154,6 +154,8 @@ ActiveRecord::Schema.define(:version => 20110710135723) do
     t.datetime "updated_at"
     t.string   "city"
     t.string   "country"
+    t.string   "postal_code"
+    t.string   "province"
   end
 
   create_table "profiles", :force => true do |t|
