@@ -10,17 +10,18 @@
 
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
-  <%= stylesheet_link_tag    "jquery.ui.all.css" %>
+  <%= stylesheet_link_tag "jquery.ui.all.css" %>
   <%= javascript_include_tag "jquery-ui.min.js" %>
   <%= javascript_include_tag "jquery.ui.core.js" %>
   <%= javascript_include_tag "jquery.ui.widget.js" %>
   <%= javascript_include_tag "jquery.ui.mouse.js" %>
   <%= javascript_include_tag "jquery.ui.selectable.js" %>
   <%= javascript_include_tag "jquery.ui.accordion.js" %>
+  <%= javascript_include_tag "jquery.validate.min.js" %>
   <%= javascript_include_tag "autocomplete-rails.js" %>
   <%= javascript_include_tag "jquery-ui-timepicker-addon.js" %>
-	<%= javascript_include_tag "jquery.jeditable.mini.js" %>
-	<!-- dateideas custom js -->
+  <%= javascript_include_tag "jquery.jeditable.mini.js" %>
+  <!-- dateideas custom js -->
   <%= javascript_include_tag "application.js" %>
   <%= javascript_include_tag "dateideas.js" %>
 	
@@ -29,6 +30,12 @@
 <body>
 	<div id="header">
 		<div class="container">
+           <div id="logo">
+        <%= link_to root_path do %>
+            <%= image_tag "di_logo_white.png", :width => 90, :height => 60 %>
+        <% end unless params[:controller] == "wizard" && params[:action] == "index" %>
+             <% # God awful hack, don't have time to think of something more elegant right now %>
+      </div>
 			<div id="user_nav" class="span-20 last">
 				<%= render 'shared/navigation' %>
 			</div>

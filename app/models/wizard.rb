@@ -21,7 +21,8 @@ class Wizard
                 :neighbourhood_name, :events, :neighbourhoods, :neighbourhood,
                 :sub_categories, :sub_category, :city, :province, :postal_code, :country, :range
 
-  def initialize(venue="", event_cat="", event_date="", location="",city="",province="",postal_code="",range="",country="", price_point="")
+  def initialize(venue="", event_cat="", event_date="", location="",city="",province="",postal_code="",range="",country="", price_point="",
+                sub_category = "all", neighbourhood = 'all_neighbourhoods')
     @venue = venue
     #location is really district
     if( !postal_code.nil? && postal_code.size > 0 )
@@ -36,8 +37,11 @@ class Wizard
     @event_category = event_cat || ""
     @event_date = event_date
     @price_point = price_point
-    @businesses = Array.new
+    @businesses = []
+    @neighbourhood = neighbourhood
+    @sub_category = sub_category
   end
+
   def add_business(business)
     @businesses.push(business)
   end

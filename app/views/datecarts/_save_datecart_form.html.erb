@@ -1,43 +1,8 @@
-<script type="text/javascript">
-	$(document).ready(function(){
-		//show date picker pop up
-		$('#datecart_datetime').datetimepicker({
-	          dateFormat: 'yy/mm/dd', // See format options on parseDate
-		        ampm: true,
-		        hourGrid: 4,
-		        minuteGrid: 10
-		});
-	});
-</script>
+<script type="text/javascript"><%= render :partial => "form_javascript_validations.js.erb" %></script>
 
-<%= form_for(@datecart, :url => "/datecarts/#{@datecart.id}/complete") do |f| %>
-  <% if @datecart.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@datecart.errors.count, "error") %> prohibited this datecart from being saved:</h2>
-      <ul>
-      <% @datecart.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<%= form_for(@datecart, :url => "/datecarts/#{@datecart.id}/complete", :id => "update_date_form") do |f| %>
+    <%= render :partial => "common_form_elements", :locals => {:form => f} %>
+    <div class="actions">
+      <%= f.submit "Save" %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-		<%= f.text_field :name %>
-  </div>
-
-	<div class="field">
-    <%= f.label :datetime %>
-		<%= f.text_field :datetime %>
-  </div>
-
-	<div class="field">
-    <%= f.label :notes %>
-		<%= f.text_field :notes %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Save" %>
-  </div>
-<%end%>
+<% end %>

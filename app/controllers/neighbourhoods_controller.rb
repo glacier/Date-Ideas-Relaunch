@@ -2,6 +2,7 @@ class NeighbourhoodsController < ApplicationController
   # GET /neighbourhoods
   # GET /neighbourhoods.xml
   def index
+    @user = current_user
     @neighbourhoods = Neighbourhood.all
 
     respond_to do |format|
@@ -13,6 +14,7 @@ class NeighbourhoodsController < ApplicationController
   # GET /neighbourhoods/1
   # GET /neighbourhoods/1.xml
   def show
+    @user = current_user
     @neighbourhood = Neighbourhood.find(params[:id])
 
     respond_to do |format|
@@ -24,6 +26,7 @@ class NeighbourhoodsController < ApplicationController
   # GET /neighbourhoods/new
   # GET /neighbourhoods/new.xml
   def new
+    @user = current_user
     @neighbourhood = Neighbourhood.new
 
     respond_to do |format|
@@ -34,12 +37,14 @@ class NeighbourhoodsController < ApplicationController
 
   # GET /neighbourhoods/1/edit
   def edit
+    @user = current_user
     @neighbourhood = Neighbourhood.find(params[:id])
   end
 
   # POST /neighbourhoods
   # POST /neighbourhoods.xml
   def create
+    @user = current_user
     @neighbourhood = Neighbourhood.new(params[:neighbourhood])
 
     respond_to do |format|

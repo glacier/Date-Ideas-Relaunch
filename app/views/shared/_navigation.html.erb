@@ -1,24 +1,15 @@
-<% if user_signed_in? %>
-	<ul id="tabs">
-		<li id="dashboard"><%= link_to "Dashboard", :controller => 'dashboard', :action => "index" %></li>
-	</ul>
-
-	<ul id="settings_dropdown">
-		<li><%= link_to "Account Settings", edit_user_path(current_user) %></li>
-		<!-- May not work if no profile is there -->
-		<li><%= link_to "Edit Profile", edit_profile_path(current_user.id) %></li>
-		<li><%= link_to "Profile", profile_path(current_user.id) %></li> 
-		<li><%= link_to "Log out", destroy_user_session_path %></li>
-		<% if current_user.role? :admin %>
-			<li><%= link_to "Add/Modify Businesses", businesses_path %></li>
-      <li><%= link_to "Add/Modify Neighbourhoods", neighbourhoods_path %></li>
-			<li><%= link_to "Farm Data", data_farmers_path %></li>
-		<% end %>
-	</ul>
+<% if @user && @user.id %>
+    <ul id="settings_dropdown">
+      <!-- May not work if no profile is there -->
+      <li><a href="/dashboard">Dashboard</a></li>
+      <li><a href="/users/<%= @user.id %>/edit">Account Settings</a></li>
+      <li><a href="/profiles/<%= @user.id %>">Profile</a></li>
+      <li><a href="/users/sign_out">Log out</a></li>
+    </ul>
 <% else %>
-	<ul>
-		<!-- <li><%# link_to "Sign Up", new_user_session_path %></li> -->
-		<li><%= link_to "Login", new_user_session_path %></li>
-	</ul>
+    <ul>
+      <!-- <li><%# link_to "Sign Up", new_user_session_path %></li> -->
+      <li><a href="/users/sign_in">Login</a></li>
+    </ul>
 <% end %>
 

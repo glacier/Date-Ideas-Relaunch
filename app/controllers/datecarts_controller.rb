@@ -129,7 +129,7 @@ class DatecartsController < ApplicationController
     if @profile = current_user.profile
       redirect_to(@profile)
     else
-      redirect_to(@datecart, :notice => 'Datecart was successfully updated.')
+      redirect_to(:dashboard, :notice => 'Datecart was successfully updated.')
     end
   end
 

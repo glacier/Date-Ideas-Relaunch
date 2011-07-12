@@ -1,8 +1,8 @@
 class Business < ActiveRecord::Base
-  PRICE_RANGE = { 'budget' => ['0','< $10','$10-$25'],
-                  'moderate' => ['$25-$50'],
-                  'high_roller' => ['$50+'],
-                 }
+  PRICE_RANGE = {'budget' => ['0', '< $10', '$10-$25'],
+                 'moderate' => ['$25-$50'],
+                 'high_roller' => ['$50+'],
+  }
   cattr_reader :per_page
   @@per_page = 10
 
@@ -12,9 +12,12 @@ class Business < ActiveRecord::Base
   has_many :business_neighbourhoods
   has_many :neighbourhoods, :through => :business_neighbourhoods
 
-  # before_destroy :ensure_not_referenced_by_any_line_item
-  # Waiting on will's validations
-  #validates :venue_type, :name, :address1, :province, :city, :presence => true
+    # before_destroy :ensure_not_referenced_by_any_line_item
+  validates_presence_of :name, :address1, :province, :city, :postal_code, :phone_no
+  validates_length_of :name, :minimum => 4
+  validates_length_of :address1, :postal_code, :minimum => 5
+  validates_length_of :phone_no, :minimum => 10
+
   attr_accessor :distance, :avg_rating, :rating_img_url, :reviews, :map, :text_excerpt, :group_date_friendly,
                 :takes_reservations, :hours, :kids_friendly, :gmaps, :has_yelp_data, :review
 
@@ -28,17 +31,9 @@ class Business < ActiveRecord::Base
   end
 
   def display_address
-    d_address = String.new
-    d_address.concat(address1)
-    if(! address2.nil? )
-      d_address.concat(",").concat(address2)
-    end
-    if( city.nil? || city.empty? )
-      d_address.concat(",").concat('Toronto')
-    else
-      d_address.concat(",").concat(city)
-    end
-    d_address.concat(",").concat(province)
+    d_address = address1
+    d_address << ", #{address2}" if address2
+    d_address << ", #{city}, #{province}"
   end
 
   # hook method
@@ -50,8 +45,8 @@ class Business < ActiveRecord::Base
       return false
     end
   end
-  # for some reason it's failing on montreal...maybe utf-8 not supported?
-  acts_as_gmappable  :validation => false
+
+  acts_as_gmappable :process_geocoding => false, :validation => false
 
   def gmaps4rails_address
     display_address
@@ -62,12 +57,13 @@ class Business < ActiveRecord::Base
     "#{self.name}<br/>#{self.display_address}<br/>#{self.phone_no}"
   end
 
-   def Business.search_by_district_subsection(city,district_subsection, price_point, categories, page )
+
+  def Business.search_by_district_subsection(city, district_subsection, price_point, categories, page)
     msg="city:%s district subsection:%s price point:%s categories:%s page:%s" % [city, district_subsection, price_point, categories, page]
     Rails.logger.info msg
-    sql = String.new
+    sql = ''
     sql <<
-      "SELECT b.*                                  \
+        "SELECT b.*                                  \
       FROM                                         \
         businesses b                               \
       WHERE                                        \
@@ -93,61 +89,62 @@ class Business < ActiveRecord::Base
                                        WHERE c1.parent_name IN (?)) \
                   ))                                                \
       ORDER BY b.name"
-      db_businesses = Business.find_by_sql([sql,
-                                            PRICE_RANGE.fetch(price_point),
-                                            false,
-                                            district_subsection,
-                                            city,
-                                            categories,
-                                            categories,
-                                            categories]).paginate(:page => page, :per_page => 8)
-      return db_businesses
+    db_businesses = Business.find_by_sql([sql,
+                                          PRICE_RANGE.fetch(price_point),
+                                          false,
+                                          district_subsection,
+                                          city,
+                                          categories,
+                                          categories,
+                                          categories]).paginate(:page => page, :per_page => 8)
+    return db_businesses
   end
-  def Business.search_by_neighbourhood(city,neighbourhood, price_point, categories, page)
-      msg="city:%s neighbourhood:%s price point:%s categories:%s page:%s" % [city, neighbourhood, price_point, categories, page]
-      Rails.logger.info msg
-      sql = String.new
-      sql <<
-      "SELECT b.*                                  \
-      FROM                                         \
+
+  def Business.search_by_neighbourhood(city, neighbourhood, price_point, categories, page)
+    msg=" city :% s neighbourhood :% s price point :% s categories :% s page :% s " % [city, neighbourhood, price_point, categories, page]
+    Rails.logger.info msg
+    sql = ''
+    sql <<
+        " SELECT b.*                                  \
+    FROM                                         \
         businesses b                               \
       WHERE                                        \
             b.dna_pricepoint IN (?)                \
         AND (b.deleted IS NULL OR                  \
-             b.deleted = ? )                       \
-        AND EXISTS ( SELECT 1                      \
+             b.deleted = ?)                       \
+        AND EXISTS (SELECT 1                      \
                FROM business_neighbourhoods bn     \
-                    ,neighbourhoods n              \
+                    , neighbourhoods n              \
                WHERE n.id=bn.neighbourhood_id      \
                  AND bn.business_id=b.id           \
-                 AND n.neighbourhood=?             \
-                 AND n.city=? )                    \
-        AND EXISTS ( SELECT 1                      \
+                 AND n.neighbourhood= ?             \
+                 AND n.city= ?)                    \
+        AND EXISTS (SELECT 1                      \
                FROM business_categories bc         \
-                    ,categories c                  \
+                    , categories c                  \
               WHERE c.id=bc.category_id            \
-              AND bc.business_id=b.id 	           \
+              AND bc.business_id=b.id              \
               AND (c.name IN (?) OR                \
                    c.parent_name IN (?) OR
-                   c.parent_name IN ( SELECT 1                      \
+    c.parent_name IN (SELECT 1                      \
                                         FROM categories c1          \
                                        WHERE c1.parent_name IN (?)) \
                   ))                                                \
-      ORDER BY b.name"
-      db_businesses = Business.find_by_sql([sql,
-                                            PRICE_RANGE.fetch(price_point),
-                                            false,
-                                            neighbourhood,
-                                            city,
-                                            categories,
-                                            categories,
-                                            categories]).paginate(:page => page, :per_page => 8)
-      return db_businesses
+      ORDER BY b.name "
+    db_businesses = Business.find_by_sql([sql,
+                                          PRICE_RANGE.fetch(price_point),
+                                          false,
+                                          neighbourhood,
+                                          city,
+                                          categories,
+                                          categories,
+                                          categories]).paginate(:page => page, :per_page => 8)
+    return db_businesses
   end
 
   def Business.search_by_postal_code(city,postal_code, price_point, categories, page)
       puts "search_by_neighbourhood(#{city}, #{postal_code},#{price_point},#{categories},#{page})"
-      sql = String.new
+      sql = ""
       sql <<
       "SELECT b.*                                  \
       FROM                                         \

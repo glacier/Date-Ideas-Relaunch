@@ -3,7 +3,6 @@ class AddPostalCodeToNeighbourhood < ActiveRecord::Migration
   def self.up
     add_column :neighbourhoods, :postal_code, :string
     add_column :neighbourhoods, :province, :string
-    add_column :neighbourhoods, :country, :string
     Neighbourhood.create(:postal_code =>'H1A 0A1', :city=>'Montréal',:province=>'QC', :country=>'Canada')
     Neighbourhood.create(:postal_code =>'H1A 0A2', :city=>'Montréal',:province=>'QC', :country=>'Canada')
     Neighbourhood.create(:postal_code =>'H1A 0A5', :city=>'Montréal',:province=>'QC', :country=>'Canada')
@@ -21940,6 +21939,5 @@ class AddPostalCodeToNeighbourhood < ActiveRecord::Migration
   def self.down
     remove_column :neighbourhoods, :province
     remove_column :neighbourhoods, :postal_code
-    remove_column :neighbourhoods, :country
   end
 end   
