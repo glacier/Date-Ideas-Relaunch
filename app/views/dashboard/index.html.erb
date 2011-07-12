@@ -13,15 +13,6 @@
 	  <% end %>
 </div>
 
-<div id="unfinished_panel" class="di_module_large">
-	<%= generate_ribbon_header :h3, "Currently Planning", 13 %>
-	<div class="di_module_container">
-	  <% if @unfinished_datecarts.blank? %>
-			<p> No unfinished datecarts </p>
-	  <% end %>
-	</div>
-</div>
-
 <div id="past_panel" class="di_module_large">
 		<%= generate_ribbon_header :h3, "Your Past Dates", 13 %>
   <% if @past_datecart.blank? %>
@@ -38,18 +29,17 @@
       <div id="upcoming_sig_dates">
 	    <% if @significant_dates  %>
         <h3>significant dates</h3>
-
-	<ul>
-
-      </ul>
-        </div>
+				<ul>
+      	</ul>
+      </div>
 
 		<%= render :partial => 'dashboard/significant_dates/upcoming', :collection => @significant_dates %>
 		<div id="add_sig_dates">
 			<h5>add new significant date</h5>
-			<p>TODO</p>
+			<!-- TODO: show add sig date form -->
+			<p></p>
 		</div>
-            <% else %>
+       <% else %>
 
         <% end %>
 	</div>

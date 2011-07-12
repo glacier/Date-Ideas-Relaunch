@@ -27,7 +27,7 @@
 @import "compass/css3/box-shadow";
 @import "compass/css3/border-radius";
 
-//dateideas styles                                          21
+//dateideas styles
 /*@import "mixins/aesthetics";*/
 
 @import "mixins/di-common-elements";
@@ -41,6 +41,7 @@
 @import "partials/di-dashboard";
 @import "partials/di-venue";
 @import "partials/di-navigation";
+@import "partials/di-registration";
 
 /*button { @include fancy-button(#2966a8); }*/
 /* Styles all buttons with:

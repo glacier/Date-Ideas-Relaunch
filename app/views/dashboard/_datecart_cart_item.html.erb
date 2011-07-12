@@ -11,13 +11,19 @@
     </div>
 
 <% else #If we're dealing with an event %>
+		<% # if statement can go here with @event being nil 
+			 # handle this for now by testing for nil events 
+			%>
+			
     <% @event = Event.find(datecart_cart_item.event_id) %>
-    <div id="event_<%= @event.id%>" class="business_item">
-      <h6 class="business_title">
-        <%= link_to @event.title, @event.url %>
-      </h6>
-      <div class="business_location">
-        <%= generate_unordered_list [@event.venue_address,  @event.city_name] %>
-      </div>
-    </div>
+		<% unless @event.blank? %>
+	    <div id="event_<%= @event.id %>" class="business_item">
+	      <h6 class="business_title">
+	        <%= link_to @event.title, @event.url %>
+	      </h6>
+	      <div class="business_location">
+	        <%= generate_unordered_list [@event.venue_address,  @event.city_name] %>
+	      </div>
+	    </div>
+		<% end %>
 <% end %>

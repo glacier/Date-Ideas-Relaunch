@@ -11,36 +11,34 @@
 <% end %>
 
 <% if @datecart.user_id %>
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name %>
-    </div>
+    <tr>
+      <td style="width:100px"><%= form.label :name %></td>
+      <td><%= form.text_field :name %></td>
 
-    <div class="field">
-      <%= form.label :datetime %>
-      <%= form.text_field :datetime, :value => @datecart.display_datetime, :readonly => 1 %>
-    </div>
+    <tr>
+      <td><%= form.label :datetime %></td>
+      <td><%= form.text_field :datetime, :value => @datecart.display_datetime, :readonly => 1 %></td>
+    </tr>
 
-    <div class="field">
-      <%= form.label :notes %>
-      <%= form.text_field :notes %>
-    </div>
+    <tr>
+      <td><%= form.label :notes %></td>
+      <td><%= form.text_field :notes %></td>
+    </tr>
 
 <% else %>
-    <div class="field">
-      <%= form.label :name %>
-      <%= form.text_field :name, :value => "My Date", :onclick=>"this.value=\"\"", :style => "color:gray;" %>
 
-    </div>
+    <tr>
+      <td style="width:100px"><%= form.label :name %> </td>
+      <td><%= form.text_field :name, :value => "My Date", :onclick=>"this.value=\"\"", :style => "color:gray;" %></td>
 
-    <div class="field">
-      <%= form.label :datetime %>
-      <%= form.text_field :datetime, :readonly => 1 %>
-    </div>
+    <tr>
+      <td> <%= form.label :datetime %></td>
+      <td> <%= form.text_field :datetime, :readonly => 1 %></td>
+    </tr>
 
-    <div class="field">
-      <%= form.label :notes %>
-      <%= form.text_field :notes, :value => "Make it special!", :onclick => "this.value=''", :style => "color:gray;" %>
-    </div>
+    <tr>
+      <td><%= form.label :notes %></td>
+      <td><%= form.text_field :notes, :value => "Make it special!", :onclick => "this.value=''", :style => "color:gray;"%></td>
+    </tr>
 
 <% end %>

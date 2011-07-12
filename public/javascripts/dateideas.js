@@ -85,7 +85,9 @@ $(document).ready(function() {
 	$('#di_filter_section select').live('change', function(){
 		$('#di_filter_section select').attr('disabled', false);
 		$("form:first").live("ajax:beforeSend", function(){
-			$('#main_results').addClass('ajax_load_and_fade');
+			// calls for the filter are not ajax.  Ajax doesn't really speed things up 
+			// in this case anyways.
+			// $('#main_results').addClass('ajax_load_and_fade');
 		}).submit();
 		// Show spinners around the page to indicate results are being loaded
 		$('.filter_loaders').removeClass('ajax-hidden');
