@@ -27,7 +27,9 @@ module ApplicationHelper
   def generate_unordered_list items
     html = "<ul>"
     items.each do |item|
-      html << "<li>" << item << "</li>"
+      unless item.blank?
+        html << "<li>" << item << "</li>"
+      end
     end
     html << "</ul>"
     
