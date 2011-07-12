@@ -60,7 +60,10 @@ class WizardController < ApplicationController
 
     Rails.logger.info "Eventful Search Params\n#{event_cat}\n#{event_date}"
 
-    @wizard.events = eventful.search(event_cat, event_date, 'toronto', 30).paginate(:page => current_page_events, :per_page => per_page)
+    neighbourhood = Neighbourhood.find_by_city(@wizard.city)
+
+    event_location = "%s, %s, %s" % [neighbourhood.city,neighbourhood.province, neighbourhood.country]
+    @wizard.events = eventful.search(event_cat, event_date, event_location, 30).paginate(:page => current_page_events, :per_page => per_page)
 
     @datecart = current_cart
 

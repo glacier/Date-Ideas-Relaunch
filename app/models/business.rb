@@ -46,7 +46,6 @@ class Business < ActiveRecord::Base
     end
   end
 
-  # for some reason it's failing on montreal...maybe utf-8 not supported?
   acts_as_gmappable :process_geocoding => false, :validation => false
 
   def gmaps4rails_address
