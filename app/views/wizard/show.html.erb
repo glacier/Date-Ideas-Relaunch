@@ -2,6 +2,8 @@
 <%= stylesheet_link_tag("wizard.css") %>
 
 <div id="datecart_save_dialog" class="dialog"></div>
+<div id="datecart_<%= @datecart.id %>_calendar_dialog" class="dialog"></div>
+
 <%= title("Search - Venues") %>
 
 <%= content_for :sidebar_map do %>
