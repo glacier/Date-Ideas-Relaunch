@@ -1,0 +1,29 @@
+$(document).ready(function() {
+
+    jQuery.validator.addMethod("postalcode", function(postalcode, element) {
+        return this.optional(element) || postalcode.match(/(^[ABCEGHJKLMNPRSTVXYabceghjklmnpstvxy]{1}\d{1}[A-Za-z]{1} \d{1}[A-Za-z]{1}\d{1})$/);
+    }, "Invalid postal code");
+
+    jQuery.validator.messages.required = "Required";
+
+    $("#wizard_search_form").validate({
+        rules: {
+            "venue": {
+                required: true
+            },
+            "city": {
+                required: true
+            },
+            "location": {
+                required: true
+            },
+            "postal_code": {
+                postalcode: true
+            },
+            "price_point": {
+                required: true
+            }
+        }
+    });
+});
+

@@ -1,63 +1,65 @@
+<script type="text/javascript"><%= render :partial => "form_javascript_validations.js.erb" %></script>
 <%# The wizard search form view %>
-<%= form_tag '/wizard/search', :method => :get do %>
-<table>
-  <tr class="question">
-	  <td class="banner"></td>
-    <td class="question_text">
-      <%= label_tag(:venue,"What do you want to do?") %>
-    </td>
-		<td class="question_text">
-      <%= select_tag(:venue, options_for_select(Wizard::VENUES))%>
-    </td>
-  </tr>
-	<tr class="blank">
-	</tr>
-  <tr class="question">
-		<td class="banner"></td>
-    <td class="question_text">
-        <%= label_tag(:price_point,"Choose your city:") %>
-    </td>
-		<td class="question_text">
-        <%= select_tag(:city, options_for_select(Wizard::CITY)) %>
-    </td>
-  </tr>
-  <tr class="blank">
-  </tr>
-  <tr id="location-with-hood" class="question">
-	<td class="banner"></td>
-    <td class="question_text">
-        <%= label_tag(:location,"What area do you want to go to?") %>
-    </td>
-	<td class="question_text">
-        <%= select_tag(:location, options_for_select(Wizard::LOCATIONS)) %>
-    </td>
-  </tr>
-  <tr id="location-without-hood" class="question">
-	<td class="banner"></td>
-    <td class="question_text">
-        <%= label_tag(:postal_code,"Enter the postal code?") %>
-    </td>
-    <td class="question_text">
-        <%= autocomplete_field_tag :postal_code, '', autocomplete_neighbourhood_postal_code_wizard_index_path%>
-    </td>
-  </tr>
-  <tr class="blank">
-  </tr>
-  <tr class="question">
-		<td class="banner"></td>
-    <td class="question_text">
-        <%= label_tag(:price_point,"What is your price point") %>
-    </td>
-		<td class="question_text">
-        <%= select_tag(:price_point, options_for_select(Wizard::PRICE_POINTS)) %>
-    </td>
-  </tr>
 
-</table>
-<div class="prepend-3">
-	<div id="wizard_loader" class="prepend-1">
-		<%= image_tag 'ajax-loader-bar.gif', :class => "ajax-hidden" %>
-	</div>
-	<%= submit_tag("Search", :class => "search-btn-large")  %>
-</div>
+<style type="text/css">
+    .banner {
+        width: 0px;
+    }
+</style>
+<%= form_tag '/wizard/search', :method => :get, :id => :wizard_search_form do %>
+    <table>
+      <tr class="question">
+        <td class="question_text">
+          <%= label_tag(:venue, "What do you want to do?") %>
+        </td>
+        <td class="question_text">
+          <%= select_tag(:venue, options_for_select(Wizard::VENUES)) %>
+        </td>
+      </tr>
+      <tr class="blank">
+      </tr>
+      <tr class="question">
+        <td class="question_text">
+          <%= label_tag(:price_point, "Choose your city:") %>
+        </td>
+        <td class="question_text">
+          <%= select_tag(:city, options_for_select(Wizard::CITY)) %>
+        </td>
+      </tr>
+      <tr class="blank">
+      </tr>
+      <tr id="location-with-hood" class="question">
+        <td class="question_text">
+          <%= label_tag(:location, "Which region?") %>
+        </td>
+        <td class="question_text">
+          <%= select_tag(:location, options_for_select(Wizard::LOCATIONS)) %>
+        </td>
+      </tr>
+      <tr id="location-without-hood" class="question">
+        <td class="question_text">
+          <%= label_tag(:postal_code, "Postal Code (optional)") %>
+        </td>
+        <td class="question_text">
+          <%= autocomplete_field_tag :postal_code, '', autocomplete_neighbourhood_postal_code_wizard_index_path %>
+        </td>
+      </tr>
+      <tr class="blank">
+      </tr>
+      <tr class="question">
+        <td class="question_text">
+          <%= label_tag(:price_point, "Prince range?") %>
+        </td>
+        <td class="question_text">
+          <%= select_tag(:price_point, options_for_select(Wizard::PRICE_POINTS)) %>
+        </td>
+      </tr>
+
+    </table>
+    <div class="prepend-3">
+      <div id="wizard_loader" class="prepend-1">
+        <%= image_tag 'ajax-loader-bar.gif', :class => "ajax-hidden" %>
+      </div>
+      <%= submit_tag("Search", :class => "search-btn-large") %>
+    </div>
 <% end %>
