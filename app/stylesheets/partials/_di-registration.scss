@@ -3,22 +3,16 @@ $login-radius: 15px;
 	background-color: black;
 	opacity: 0.2;
 }
+
 .ui-dialog-titlebar {
 /*	visibility: hidden;*/
-	position: relative;
-	top: 45px;
-	right: 70px;
+/*	position: relative;*/
+/*	top: 45px;
+	right: 70px;*/
 }
 
-.ui-widget-content {
-	background-image: none;
-	border: 0;
-}
-
-.dialog, #di_registrations {
-	@include pie-clearfix;
-}
-.dialog, .modal_container {
+.ui-dialog {
+	/* beige background with translucent borders */
 	z-index: 10000;
 	background-color: #f9f2e7;
 	border: 10px solid rgba(0,0,0,0.1);
@@ -37,6 +31,20 @@ $login-radius: 15px;
 	-moz-border-radius: $login-radius;
 	border-radius: $login-radius;
 	@include pie-clearfix;
+}
+
+
+.ui-widget-content {
+	background-image: none;
+/* borders won't show up for modal box if this is enabled */
+/*	border: 0; */
+}
+
+.dialog, #di_registrations {
+	@include pie-clearfix;
+}
+
+.dialog, .modal_container {
 }
 
 .registration_container {
