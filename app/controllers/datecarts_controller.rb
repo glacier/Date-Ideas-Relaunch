@@ -154,6 +154,9 @@ class DatecartsController < ApplicationController
     # Render print view
   def print
     @datecart = Datecart.find(params[:id])
+    respond_to do |format|
+      format.html {render :layout => 'dashboard'}
+    end
   end
 
     # Render the calendar popup (should only be quered via remote javascript request)

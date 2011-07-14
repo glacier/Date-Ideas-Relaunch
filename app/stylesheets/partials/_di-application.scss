@@ -128,9 +128,17 @@ fieldset {
 }
 
 /* container for headers with ribbon backgrounds */
-.ribbon_header {
+.ribbon_header, .header {
+	margin-top: 15px;
 	@include pie-clearfix;
 	@include heading3;
+}
+
+.header {
+	h3 {
+		margin-bottom: 0px;
+		padding-bottom: 0px;
+	}
 }
 
 /* adds a ribbon tail graphic to headers */
@@ -171,6 +179,7 @@ fieldset {
 }
 
 .di_module_container {
+	margin-bottom: 15px;
 	@include results_container;
 	@include pie-clearfix;
 	h1 {

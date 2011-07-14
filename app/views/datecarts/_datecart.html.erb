@@ -17,11 +17,23 @@
   </div>
   <h6>
     <input type="hidden" id="alt_show_date" class="nofloat" value="<%= today %>"/>
-    <span id="date_display" class="date_display"><%= today %></span>
+    <span id="date_display" class="date_display">
+			<% if @datecart.datetime.blank? %>
+				<%= today %>
+			<% else %>
+				<%= format_datetime @datecart.datetime %>
+			<% end %>
+		</span>
   </h6>
 
   <div>
-    <div id="date_notes" class="editable"> My date notes: </div>
+    <div id="date_notes" class="editable"> 
+			<% if @datecart.notes.blank? %>
+				My date notes:
+			<% else %>
+				<%= @datecart.notes %>
+			<% end %>
+		</div>
     <fieldset id="functions" class="datecart">
       <%= render :partial => 'datecarts/datecart_functions' %>
     </fieldset>

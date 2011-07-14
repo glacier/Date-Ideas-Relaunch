@@ -1,7 +1,10 @@
 <%= render :partial => 'shared/itinerary', :locals => {:datecart => @datecart} %>
 
-<div id="print_me">
-	<%= link_to('Print Me!', 'javascript:void(0);', :class => "add_button") %>
-</div>
+<%= content_for :sidebar_right do %>
+	<div id="print_me">
+		 <p><%= link_to('Print', 'javascript:void(0);', :class => "add_button") %></p>
+		 <p><%= link_to "Email", email_datecart_path(@datecart), :class => "add_button" %></p>
+		</div>
+<% end %>
 
 <!-- mechanism to return to search results -->

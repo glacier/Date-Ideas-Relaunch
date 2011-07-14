@@ -1,21 +1,11 @@
 <%# Full display of the cart %>
 <p id="notice"><%= flash[:notice] %></p>
-<h2>Your date </h2>
-<%= render :partial => 'datecarts/date_info' %>
-<div id="datecart_items">
-  <%= render :partial => 'datecarts/datecart_items', :locals => {:venue => params['venue']} %>
+<%= generate_ribbon_header :h3, @datecart.name, 13 %>
+<%= render :partial => "shared/datecart", :locals => {:datecart => @datecart} %>
 
-  <div class='ui-state-dateideas'>
-    <%= link_to edit_datecart_path(@datecart), :remote => true do %>
-        <span class="ui-icon ui-icon-pencil"></span>
-        <span>Edit date plan</span>
-    <% end %>
-  </div>
-</div>
-
-<%= render :partial => 'datecarts/datecart_functions' %>
-<br><br>
-<%= link_to "Start Planning!", wizard_index_path, :class => "add_button" %>
+<%= link_to edit_datecart_path(@datecart), :remote => true, :class => "function_buttons" do %>
+    <span>Edit date plan</span>
+<% end %>
 
 <!-- dialog boxes -->
 <div id="di_edit_dialog" class="dialog">Dialog</div>

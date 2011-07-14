@@ -9,7 +9,7 @@
 	   </div>
 	  <div id="<%= id_prefix + "_content" %>" class="datecart_places">
 	    <% unless (cart_items = datecart.cart_items).blank? #TODO: remove once validations are implemented  %>
-	        <%= render :partial => "datecart_cart_item", :collection => datecart.cart_items %>
+	        <%= render :partial => "dashboard/datecart_cart_item", :collection => datecart.cart_items %>
 	    <% end %>
 	  </div>
 	</div>

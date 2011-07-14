@@ -92,6 +92,13 @@ module ApplicationHelper
     end
   end
   
+  def generate_header h_tag, title, span_size
+    result = content_tag(h_tag, content_tag(:span, title), :class=>"span-#{span_size}")
+    content_tag(:div, :class=>"header") do
+      result
+    end
+  end
+  
   # Use the previous modal dialogue format to keep things DRY
   # pass in the title of the dialogue, the div where things will be opened, and the partial of content to render
   def generate_modal_dialogue div, title, partial

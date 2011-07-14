@@ -1,22 +1,26 @@
-<h1><%= @datecart.name %></h1>
-<!-- TODO: link for prompting to set a date if no date is set -->
-<p><%= @datecart.datetime %></p>
+<%= generate_ribbon_header :h3, datecart.name, 13 %>
+<% id_prefix = "datecart_partial_#{datecart.id}" %>
+<div id="<%= id_prefix %>" class="di_module_container dashboard_item">
+  <h2 id="<%= id_prefix + "_title" %>" class="datecart_title">
+  	<%= format_date_header datecart.datetime, datecart.significant_date_id %>
+  </h2>
+  <div class="datecart_itinerary">
+		<div class="business_static_map">
+	      <%= generate_map datecart %>
+	   </div>
+	  <div id="<%= id_prefix + "_content" %>" class="datecart_places">
+	    <% unless (cart_items = datecart.cart_items).blank? #TODO: remove once validations are implemented  %>
+	        <%= render :partial => "dashboard/datecart_cart_item", :collection => datecart.cart_items %>
+	    <% end %>
+	  </div>
+	</div>
+	
+	<div class="datecart_share">
+	  <%# render :partial => "dashboard/datecart_actions", :locals => { :datecart => datecart} %>
+	</div>
+</div>
 
-<h2>My Notes</h2>
-<p><%= @datecart.notes %></p>
-
-<h2>Map</h2>
-<%= generate_map @datecart %>
-
-<!-- TODO: link for prompting to set a time for each venue if no time is set -->
-<h2>My Itinerary</h2>
-<ul>
-	<% @datecart.cart_items.each do |item| %>
-		<% if item.type == 'event' %>
-			<%= render :partial => 'shared/event_item', :locals => {:event => item.event, :title_size => 'event_title_small', :size => '60'} %>
-		<% else %>
-			<%= render :partial => 'shared/venue_item', :locals => {:business => item.business} %>
-		<% end %>
-		<hr/>
-	<% end %>
-</ul>
+<%= generate_header :h3, "Notes", 14 %>
+<fieldset class="datecart_notes di_module_container" style="margin-top:0px">
+	<%= datecart.notes %>
+</fieldset>
