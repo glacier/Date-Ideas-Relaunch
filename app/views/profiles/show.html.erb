@@ -11,6 +11,7 @@
 			<h1> <%= @user.first_name %> <%= @user.last_name %> </h1>
 			<!-- Don't publically display email or anniversary for privacy reasons -->
 			<%= display_private_profile_info(@user)%>
+			<%= link_to "Edit Profile", edit_profile_path(@profile) %>
 		</div>
 	</div>
 

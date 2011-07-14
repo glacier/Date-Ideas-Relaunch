@@ -19,10 +19,6 @@ class Ability
       
       # Explicitly disallow these actions by any other user other than admin
       cannot :manage, [Business, DataFarmer, Neighbourhood]
-      
-      # Don't let people list objects, listing action is mostly for our debugging purposes
-      cannot :index, [Profile, User, Datecart]
-      cannot :show, [User, CartItem]
       can :show, Business
        
       # Only authorize users to modify objects they own
@@ -34,16 +30,20 @@ class Ability
         p.try(:user) == user || p.try(:user).blank?
       end
       
-      # GL - This is terrible because carts with no user associated can be edited by anyone
-      # But can't find a way to limit permissions right now without changing how datecart is saved
+      # GL - BUG: This is terrible because carts with no user associated can be modified or viewed by anyone
+      # Must be fixed. But I can't figure out a way to handle this without changing datecart saved is implemented.  In the end, the way things are done now is severely flawed.
       can :manage, Datecart do |d|
+        # remove d.try(:user).blank? will not allow a user to modify their current date cart that has not been saved ...
         d.try(:user) == user || d.try(:user).blank?
       end
       
       can :manage, CartItem
-      
-      # Note: can another user see someone's unsaved Datecart?
       can [:begin_complete, :complete, :email, :print, :clear_cart, :calendar, :download_calendar, :subscribe]
+      
+      # Don't let people list objects, listing action is mostly for our debugging purposes
+      # the permissions down here takes precedence over those above
+      cannot :index, [Profile, User, Datecart]
+      cannot :show, [User, CartItem]
     end
   end
 end

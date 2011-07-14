@@ -1,7 +1,9 @@
 <%# This is just a placeholder until we allow user registration. Then we let Devise handle the user account operations %>
 <div id="user_settings" class="di_module_large">
+	<p><%= notice %></p>
 	<%= generate_ribbon_header(:h3, :"User Account Settings", 13) %>
 	<%= render 'form' %>
+	<%= link_to "Back", :back %>
 </div>
 
 <%= content_for :sidebar_right do %>

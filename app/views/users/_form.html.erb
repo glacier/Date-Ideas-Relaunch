@@ -29,7 +29,7 @@
       <tr>
         <td><%= f.label :birthday %></td>
         <!-- use date picker here? -->
-        <td><%= f.date_select :birthday, :include_blank => true, :start_year => 1920 %></td>
+        <td><%= f.date_select :birthday, :include_blank => false, :start_year => 1993, :end_year => 1920 %></td>
       </tr>
       <tr>
         <td><%= f.label :postal_code, "Postal Code" %></td>

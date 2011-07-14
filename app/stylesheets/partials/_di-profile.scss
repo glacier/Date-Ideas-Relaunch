@@ -23,9 +23,10 @@
 		position:relative;
 		left: 20px;
 		top: 50px;*/
-		margin-left: 20px;
+/*		margin-left: 20px;*/
 	}
 	ul {
+		padding-left:0;
 		list-style-type: none;
 	}
 	span {
@@ -36,6 +37,7 @@
 	}
 	#info {
 		padding-top: 40px;
+		margin-left: 20px;
 	}
 }
 
