@@ -1,11 +1,12 @@
 class DatecartsController < ApplicationController
   # GET /datecarts
   # GET /datecarts.xml
-  load_and_authorize_resource
+  load_and_authorize_resource :except => [:subscribe, :clear_cart, :print]
+
   include DatecartsHelper
 
-  before_filter :authenticate_user!, :except => :subscribe
-
+  before_filter :authenticate_user!, :except => [:subscribe, :clear_cart, :print]
+  
   def index
     @datecarts = Datecart.all
 

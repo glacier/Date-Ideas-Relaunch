@@ -1,14 +1,14 @@
-<% link_name = "More things to do ..." %>
+<%# link_name = "More things to do ..." %>
 <% if @datecart.cart_empty? %>
 	<p>You haven't got a plan yet!</p>
-	<% link_name = "Things to do ..." %>
+	<%# link_name = "Things to do ..." %>
 <% else %>
 	<%= raw(sort_by_category(@datecart)) %>
 <% end %>
 
-<div class="ui-state-dateideas">
-	<%= link_to(wizard_index_path, :remote => true) do %>
+<!-- <div class="ui-state-dateideas">
+	<%#= link_to(wizard_index_path, :remote => true) do %>
 			<span class="ui-icon ui-icon-plusthick"></span>
-			<span><%= link_name %></span>
-	<% end %>
-</div>
+			<span><%#= link_name %></span>
+	<%# end %>
+</div> -->

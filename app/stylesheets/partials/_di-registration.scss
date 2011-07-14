@@ -11,17 +11,26 @@ $login-radius: 15px;
 	right: 70px;*/
 }
 
+.ui-dialog-title {
+	display: hidden;
+	visibility: hidden;
+}
+
 .ui-dialog {
 	/* beige background with translucent borders */
-	z-index: 10000;
+	z-index: 1000;
 	background-color: #f9f2e7;
 	border: 10px solid rgba(0,0,0,0.1);
 	padding:{
-		top: 50px;
+		top: 10px;
 		left: 20px;
 		right: 20px;
 		bottom: 50px;
 	}
+/*	span {
+		display: hidden;
+		visibility: hidden;
+	}*/
 	/* CSS for transparent borders */
 	-moz-background-clip: padding;     /* Firefox 3.6 */
 	-webkit-background-clip: padding;  /* Safari 4? Chrome 6? */
@@ -46,6 +55,7 @@ $login-radius: 15px;
 
 .dialog, .modal_container {
 }
+
 
 .registration_container {
 	@include heading3;

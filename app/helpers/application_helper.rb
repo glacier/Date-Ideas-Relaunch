@@ -104,7 +104,7 @@ var dialogOpts = {
 	// buttons: {
 	// 	"Ok": function() { $(this).dialog("close"); }
 	// },
-	width: 650,
+	//width: 650,
 	closeOnEscape: true,
 	autoOpen: false,
 	resizable: false,
@@ -118,8 +118,6 @@ var dialogOpts = {
 };
 
 $("##{div}").dialog(dialogOpts);
-h=$("##{div}").height();
-$( ".selector" ).dialog( "option", "height", h );
 $("##{div}").removeClass('ui-dialog-content');
 $("##{div}").dialog("open");
 

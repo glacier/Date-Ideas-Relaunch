@@ -1,5 +1,5 @@
 <script type="text/javascript"><%= render :partial => "form_javascript_validations.js.erb" %></script>
-
+<%= generate_ribbon_header :h3, :"Confirm Details", 7 %>
 <%= form_for(@datecart, :url => "/datecarts/#{@datecart.id}/complete", :id => "update_date_form") do |f| %>
 	<table>
     <%= render :partial => "common_form_elements", :locals => {:form => f} %>
@@ -10,3 +10,4 @@
     </tr>
 	</table>
 <% end %>
+

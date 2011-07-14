@@ -12,9 +12,13 @@
     <% end %>
   </div>
 </div>
-<div id="di_edit_dialog" class="dialog">Dialog</div>
-<div id="datecart_<%= @datecart.id %>_calendar_dialog" class="dialog">Calendar Dialog</div>
-<div id="di_add_to_date" class="dialog">Dialog</div>
-  <%= render :partial => 'datecarts/datecart_functions' %>
+
+<%= render :partial => 'datecarts/datecart_functions' %>
 <br><br>
 <%= link_to "Start Planning!", wizard_index_path, :class => "add_button" %>
+
+<!-- dialog boxes -->
+<div id="di_edit_dialog" class="dialog">Dialog</div>
+<div id="datecart_save_dialog" class="dialog"></div>
+<div id="datecart_<%= @datecart.id %>_calendar_dialog" class="dialog">Calendar Dialog</div>
+<div id="di_add_to_date" class="dialog">Dialog</div>

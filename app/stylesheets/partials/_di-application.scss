@@ -130,6 +130,7 @@ fieldset {
 /* container for headers with ribbon backgrounds */
 .ribbon_header {
 	@include pie-clearfix;
+	@include heading3;
 }
 
 /* adds a ribbon tail graphic to headers */
@@ -160,7 +161,7 @@ fieldset {
 }
 
 .di_module_large {
-	@include heading3;
+/*	@include heading3;*/
 	margin-bottom: 50px;
 }
 
