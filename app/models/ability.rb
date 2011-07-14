@@ -17,7 +17,6 @@ class Ability
     
       can :read, :all
       can :manage, Datecart
-      can :manage, Relationships
       can [:create, :update], Profile
           
       # Note: can another user see someone's unsaved Datecart?

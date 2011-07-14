@@ -1,9 +1,10 @@
-<% if @user && @user.id %>
+<%# if @user && @user.id %>
+<% if user_signed_in? %>
     <ul id="settings_dropdown">
       <!-- May not work if no profile is there -->
       <li><a href="/dashboard">Dashboard</a></li>
-      <li><a href="/users/<%= @user.id %>/edit">Account Settings</a></li>
-      <li><a href="/profiles/<%= @user.id %>">Profile</a></li>
+      <li><a href="/users/<%= current_user.id %>/edit">Account Settings</a></li>
+      <li><a href="/profiles/<%= current_user.id %>">Profile</a></li>
       <li><a href="/users/sign_out">Log out</a></li>
     </ul>
 <% else %>

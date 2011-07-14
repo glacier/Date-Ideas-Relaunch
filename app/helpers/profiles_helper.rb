@@ -27,11 +27,16 @@ module ProfilesHelper
   def show_last_date dates_planned
     if dates_planned.length > 0
       last_date = dates_planned[-1]
-      html = "<p>Your last date was at</p> <h1>"
+      if last_date.datetime.past?  
+        html = "<p>Your last date was at</p>"
+      else
+        html = "<p>Your next date is at</p>"
+      end
+      html <<"<h1>"
       html << link_to(last_date) {last_date.name}
       html << "</h1>"
   	else
-  	  html = "You haven't planned Any!"
+  	  html = "You haven't planned any yet!"
 	  end
 	  raw html
   end
