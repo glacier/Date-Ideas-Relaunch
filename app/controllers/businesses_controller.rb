@@ -1,6 +1,6 @@
 class BusinessesController < ApplicationController
   load_and_authorize_resource
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => :show
 
   def index
    @user = current_user

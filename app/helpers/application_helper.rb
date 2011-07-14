@@ -39,16 +39,18 @@ module ApplicationHelper
   # implemented according to railscast episode 244
   def avatar_url(user)
     default_url = "#{root_url}images/guest.jpg"
-    if user.profile
-      if user.profile.avatar_url.present?
-        user.profile.avatar_url
-      else
-        gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
-        "http://gravatar.com/avatar/#{gravatar_id}?s=200&d=#{CGI.escape(default_url)}"
-      end
-    else
-      default_url
-    end
+    # BUG: Don't use gravatar as you can get someone else's gravatar with your name.
+    # eg.  Try signing up with name "test meme" ... it's some dude's distorted face
+    # if user.profile
+    #      if user.profile.avatar_url.present?
+    #        user.profile.avatar_url
+    #      else
+    #        gravatar_id = Digest::MD5.hexdigest(user.email.downcase)
+    #        "http://gravatar.com/avatar/#{gravatar_id}?s=200&d=#{CGI.escape(default_url)}"
+    #      end
+    #    else
+    #      default_url
+    #    end
   end
 
   def image_url(thing, url)

@@ -6,6 +6,7 @@
 		  <tr>
 				<td><%= datecart.id %></td>
 				<td><%= datecart.name %></td>
+				<td><%= datecart.user.blank? ? "No one" : datecart.user.first_name %></td>
 		    <td><%= link_to 'Show', datecart %></td>
 		    <td><%= link_to 'Edit', edit_datecart_path(datecart) %></td>
 		    <td><%= link_to 'Destroy', datecart, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -13,5 +14,9 @@
 		<% end %>
 	<% end %>
 </table>
+
+<p>My current datecard: 
+<%= session[:datecart_id] %>
+</p>
 
 <%= link_to 'New Datecart', new_datecart_path %>

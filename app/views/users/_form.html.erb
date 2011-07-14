@@ -15,7 +15,7 @@
     <table style="height:260px">
       <tbody>
       <tr>
-        <td  style="width:125px;" ><%= f.label :first_name, "First Name"%></td>
+        <td style="width:125px;" ><%= f.label :first_name, "First Name"%></td>
         <td><%= f.text_field :first_name %></td>
       </tr>
       <tr>
@@ -24,12 +24,12 @@
       </tr>
       <tr>
         <td><%= f.label :gender %></td>
-        <td><%= f.select :gender, [['Female', 'female'], ['Male', 'male']] %></td>
+        <td><%= f.select :gender, [['Female', 'female'], ['Male', 'male']], :include_blank => true %></td>
       </tr>
       <tr>
         <td><%= f.label :birthday %></td>
         <!-- use date picker here? -->
-        <td><%= f.date_select :birthday, :include_blank => false, :start_year => 1920 %></td>
+        <td><%= f.date_select :birthday, :include_blank => true, :start_year => 1920 %></td>
       </tr>
       <tr>
         <td><%= f.label :postal_code, "Postal Code" %></td>

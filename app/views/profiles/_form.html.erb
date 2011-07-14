@@ -23,12 +23,12 @@
         <td><%= f.select :relationship_status, options_for_select(Profile::RELATIONSHIP), :selected => @profile.relationship_status %></td>
       </tr>
       <tr>
-        <td><%= f.label :sig_other_name, "Signifcant Other" %></td>
+        <td><%= f.label :sig_other_name, "Significant Other" %></td>
         <td><%= f.text_field :sig_other_name %></td>
       </tr>
       <tr>
         <td><%= f.label :anniversary %></td>
-        <td><%= f.date_select :anniversary, :include_blank => false, :start_year => 1970, :end_year => 2011 %></td>
+        <td><%= f.date_select :anniversary, :include_blank => false, :start_year => 1950, :end_year => 2011 %></td>
       </tr>
       <tr>
         <td><%= f.label :about_me %></td>

@@ -5,10 +5,12 @@
 </div>
 
 <%= content_for :sidebar_right do %>
-	<div id="notifications" class="di_module_medium">
+	<!-- Not yet implemented so don't show -->
+	<!-- <div id="notifications" class="di_module_medium">
 		<h4> Notification Preferences </h4>
-	</div>
-	<%= render :template => 'devise/passwords/edit', :locals => { :resource => current_user, :resource_name => "user"} %>
+	</div> -->
+	<%# This view is just a place holder as passwords is handled by devise registration controller %>
+	<%# render :template => 'devise/passwords/edit', :locals => { :resource => current_user, :resource_name => "user"} %>
 	<%# render the view below once registrations is enabled %>
-	<%# render :template => 'devise/registrations/edit', :locals => { :resource => current_user, :resource_name => "user"} %>
+	<%= render :template => 'devise/registrations/edit', :locals => { :resource => current_user, :resource_name => "user"} %>
 <% end %>

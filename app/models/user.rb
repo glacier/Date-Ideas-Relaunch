@@ -19,9 +19,15 @@ class User < ActiveRecord::Base
   # has_many :tips
 
   # Email is validated by devise.
-  validates_presence_of :email, :username, :first_name, :last_name, :birthday, :gender
-  validates_length_of :postal_code, :minimum => 5
+  validates_presence_of :email, :first_name, :last_name 
   validates_length_of :first_name, :minimum => 3
+
+  # GL - don't validate these for now upon Will's request
+  # Then why are these columns even here ...
+  # :birthday, :gender
+  # remove this column ... this is not used
+  # :username
+  # validates_length_of :postal_code, :minimum => 5
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :lockable and :timeoutable
@@ -29,7 +35,7 @@ class User < ActiveRecord::Base
   # :rememberable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :password, :password_confirmation
+  attr_accessible :email, :username, :first_name, :last_name, :birthday, :gender, :postal_code, :password, :password_confirmation
   # :remember_me,
   
   def apply_omniauth(omniauth)

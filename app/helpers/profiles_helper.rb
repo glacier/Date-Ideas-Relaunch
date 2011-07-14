@@ -37,7 +37,7 @@ module ProfilesHelper
       html << link_to(last_date) {last_date.name}
       html << "</h1>"
   	else
-  	  html = "<h1>You haven't planned any yet!</h1>"
+  	  html = "<h1>No dates planned yet</h1>"
 	  end
 	  raw html
   end
