@@ -52,6 +52,7 @@ class DatecartsController < ApplicationController
     # GET /datecarts/1/edit
   def edit
     @datecart = Datecart.find(params[:id])
+    authorize! :edit, @datecart
   end
 
     # POST /datecarts

@@ -20,11 +20,12 @@ module ProfilesHelper
 	  end
   end
   
-  def get_dates_planned user
-    user.datecarts
+  def get_num_dates_planned user
+    user.datecarts.length
   end
   
-  def show_last_date dates_planned
+  def show_last_date user
+    dates_planned = user.datecarts
     if dates_planned.length > 0
       last_date = dates_planned[-1]
       if last_date.datetime.past?  
@@ -36,7 +37,7 @@ module ProfilesHelper
       html << link_to(last_date) {last_date.name}
       html << "</h1>"
   	else
-  	  html = "You haven't planned any yet!"
+  	  html = "<h1>You haven't planned any yet!</h1>"
 	  end
 	  raw html
   end

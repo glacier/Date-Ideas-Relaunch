@@ -1,5 +1,6 @@
 class CartItemsController < ApplicationController
-
+  load_and_authorize_resource
+  
   # GET /cart_items
   # GET /cart_items.xml
   def index
@@ -11,17 +12,7 @@ class CartItemsController < ApplicationController
     end
   end
 
-    # GET /cart_items/1
-    # GET /cart_items/1.xml
-  def show
-    @datecart = Datecart.find(params[:datecart_id])
-    @cart_item = @datecart.cart_items.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml { render :xml => @cart_item }
-    end
-  end
+  # Removed show action, we don't really need it
 
     # GET /cart_items/new
     # GET /cart_items/new.xml

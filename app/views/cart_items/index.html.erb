@@ -13,13 +13,14 @@
   <tr>
     <td><%= cart_item.business_id %></td>
     <td><%= cart_item.datecart_id %></td>
-    <td><%= link_to 'Show', cart_item %></td>
-    <td><%= link_to 'Edit', edit_datecart_cart_item(cart_item) %></td>
-    <td><%= link_to 'Destroy', cart_item, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%# link_to 'Show', cart_item %></td>
+<!-- edit_datecart_cart_item -->
+    <td><%# link_to 'Edit', edit_datecart_cart_item_url(cart_item) %></td>
+    <td><%# link_to 'Destroy', cart_item, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Cart item', new_cart_item_path %>
+<%# link_to 'New Cart item', new_cart_item_path %>

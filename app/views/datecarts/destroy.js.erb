@@ -1,2 +1,4 @@
 $("#date_plans").html('<%= escape_javascript(render :partial => 'profiles/date_plans', :locals => {:user => @datecart.user }) %>')
 $("#datecart_items").html("<%= escape_javascript(render 'datecarts/datecart_items') %>")
+$("#number").html("<h1><%= get_num_dates_planned @datecart.user %></h1>")
+$("#your_last_date").html("<%= escape_javascript(show_last_date @datecart.user) %>")

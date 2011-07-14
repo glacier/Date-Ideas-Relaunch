@@ -25,15 +25,13 @@
 
 	<hr/>
 
-	<% dates_planned = get_dates_planned @user %>
-
 	<div id="dates_planned" class="di_module_large">
 		<%= generate_ribbon_header(:h3, "Dates Planned", 13) %>
 		<div id="number" class="di_module_container subcontainer">
-			<h1><%= dates_planned.length %></h1>
+			<h1><%= get_num_dates_planned @user %></h1>
 		</div>
-		<div class="di_module_container subcontainer">
-			<%= show_last_date dates_planned %>
+		<div id="your_last_date" class="di_module_container subcontainer">
+			<%= show_last_date @user %>
 		</div>
 	</div>
 

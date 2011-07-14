@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   #require user sign up/sign in to see own profile
   load_and_authorize_resource
+  before_filter :authenticate_user!
   
   def index
     @user = current_user
@@ -37,11 +38,13 @@ class ProfilesController < ApplicationController
   def new
     @user = current_user
     @profile = Profile.new
+    authorize! :new, @profile
     render :layout => 'dashboard'
   end
 
   def edit    
     @profile = current_user.profile
+    authorize! :edit, @profile
     render :layout => 'dashboard'
   end
 

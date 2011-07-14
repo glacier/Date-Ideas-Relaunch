@@ -1,4 +1,6 @@
 class DashboardController < ApplicationController
+  before_filter :authenticate_user!
+  
   def index
     @user = current_user # This is ensured by authenticate_user! in the pre-block of app controller
     @significant_dates = @user.significant_dates
