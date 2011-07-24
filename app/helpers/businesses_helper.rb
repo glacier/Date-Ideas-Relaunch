@@ -4,6 +4,15 @@ module BusinessesHelper
     business.photo_url
   end
   
+  def display_business_hours(business)
+    html=""
+    if business.hours.nil?
+      ""
+    else
+      raw(business.hours.join("<br/>"))
+    end
+  end
+    
   def display_review(business)
     html = ""
     if(!business.review.nil?)
