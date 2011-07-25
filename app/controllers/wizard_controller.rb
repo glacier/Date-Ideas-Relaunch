@@ -25,7 +25,7 @@ class WizardController < ApplicationController
 
   def search
     @user = current_user
-      #set proper event params
+    #set proper event params
     event_cat = params['event_cat']
     event_date = params['event_date']
 
@@ -49,7 +49,7 @@ class WizardController < ApplicationController
 
     @wizard.businesses = dnaService.search(@wizard.venue, @wizard.location, @wizard.price_point, current_page, 8, @wizard.neighbourhood, @wizard.sub_category, @wizard.city, @wizard.postal_code, @wizard.range)
 
-      # Eventful related searches
+    # Eventful related searches
     per_page = 3
     current_page_events = 1
     if @wizard.venue == 'activities_events'
