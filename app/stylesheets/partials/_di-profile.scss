@@ -81,6 +81,9 @@
 	}
 }
 
+#plan_button {
+	text-align: center;
+}
 #plan_date_button {
 	@include di_button(25px, $di-green);
 	width: 250px;
@@ -91,4 +94,9 @@
 		left: 45px;
 		top: 10px;
 	}
+}
+
+#plan_date_button_small {
+	@include di_button(15px, $di-green);
+	width: 120px;
 }

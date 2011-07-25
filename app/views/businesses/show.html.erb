@@ -1,23 +1,24 @@
-<%= link_to "Back to results",:back %>
-<% biz_photo = business_photo @business %>
 <div id="di_venue_header">
 	<div class="venue">
-	  <%= image_tag biz_photo, :width => 50, :height => 50 %>
+	  <%= image_tag business_photo(@business), :width => 50, :height => 50 %>
 	</div>
-  <h1 class="venue"><%= link_to @business.name, @business.url %> </h1>
+  <h1 class="venue"><%= link_to @business.name, @business.url %></h1>
 </div>
 
 <div id="venue_page_top_section">
 	<div id="di_venue_map">
 		 <%= gmaps({"markers" => {"data" => @markers, "custom_infowindow_class" => "yellow"}, "map_options" => {"processing" => "json", "auto_adjust" => true, "auto_zoom" => false, "zoom" => 15, "draggable" => true, "detect_location" => false}}) %>
 	</div>
-	<div>
-		<!-- TODO: buttons -->
-		<!-- Back to results button makes sense? -->
+	<div id="di_venue_buttons">
+		<div id="back_button">
+		<%= link_to "Back to results", :back, :class => "function_buttons" %>
+		</div>
 		<ul>
-			<li id="add"><%= link_to 'Add to date', clear_cart_datecart_path(@datecart), :class => 'function_buttons', :method => :delete, :remote => true %></li>
+			<li id="add">
+				<%= render :partial => 'shared/add_buttons', :locals => {:business => @business} %>
+			</li>
 			<li id="print"><%= link_to 'Print', print_datecart_path(@datecart), :class => 'function_buttons', :rel => 'external' %></li>
-			<li id="clear"><%= link_to 'Share', clear_cart_datecart_path(@datecart), :class => 'function_buttons', :method => :delete, :remote => true %></li>
+			<li id="clear"><%= link_to 'Share', '#', :class => 'function_buttons', :method => :delete, :remote => true %></li>
 		</ul>
 	</div>
 </div>
@@ -74,4 +75,7 @@
 
 <%= content_for :sidebar_right do %>
 		<%= render @datecart %>
+		<div id="plan_button">
+			<%= link_to content_tag(:span, "Plan New Date"), new_datecart_path, :id => "plan_date_button_small" %>
+		</div>
 <% end %>

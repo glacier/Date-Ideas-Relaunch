@@ -1,14 +1,4 @@
-.venue {
-	float: left;
-}
-#di_venue_header {
-	@include pie-clearfix;
-}
-
-#di_venue_map {
-/*	width: 500px;*/
-}
-/*Gmaps4rails css */
+/* Gmaps4rails css */
 #map-container {
   padding: 6px;
   border-width: 1px;
@@ -24,6 +14,31 @@
   width: 500px;
   height: 292px;
 }
+/* end Gmaps4rails */
+
+.venue {
+	float: left;
+	img {
+		margin-right: 20px ;
+	}
+}
+
+#di_venue_header {
+	@include pie-clearfix;
+}
+
+#back_button {
+	margin-bottom: 50px;
+}
+
+#di_venue_buttons {
+	ul {
+		list-style-type: none;
+		li {
+			margin-bottom: 10px;
+		}
+	}
+}
 
 #venue_page_top_section {
 	@include pie-clearfix;
@@ -32,12 +47,19 @@
 		margin-right: 25px;
 	}
 	#di_venue_map {
+		margin-right: 40px;
 		float: left;
 	}
 }
 
 #di_venue_info {
-	
+	th {
+		color: $di-cyan;
+		text-transform: uppercase;
+	}
+	td {
+		font-weight: bold;
+	}
 }
 
 .yelp_review {
