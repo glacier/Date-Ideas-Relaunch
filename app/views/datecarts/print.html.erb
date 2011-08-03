@@ -1,10 +1,26 @@
-<%= render :partial => 'shared/itinerary', :locals => {:datecart => @datecart} %>
-
-<%= content_for :sidebar_right do %>
-	<div id="print_me">
-		 <p><%= link_to('Print', 'javascript:void(0);', :class => "add_button") %></p>
-		 <p><%= link_to "Email", email_datecart_path(@datecart), :class => "add_button" %></p>
-		</div>
-<% end %>
-
+<%# render :partial => 'shared/itinerary', :locals => {:datecart => @datecart} %>
 <!-- mechanism to return to search results -->
+<div class="dashboard_item">
+	<h3><%= @datecart.name %></h3>
+	<% id_prefix = "datecart_partial_#{@datecart.id}" %>
+	<div id="<%= id_prefix %>" class="di_module_container dashboard_item">
+	  <h2 id="<%= id_prefix + "_title" %>" class="datecart_title">
+	  	<%= format_date_header @datecart.datetime, @datecart.significant_date_id %>
+	  </h2>
+	  <div class="datecart_itinerary">
+			<div class="business_static_map">
+		   <%= generate_map @datecart %>
+		   </div>
+		  <div id="<%= id_prefix + "_content" %>" class="datecart_places">
+		    <% unless (cart_items = @datecart.cart_items).blank? #TODO: remove once validations are implemented  %>
+		        <%= render :partial => "dashboard/datecart_cart_item", :collection => @datecart.cart_items %>
+		    <% end %>
+		  </div>
+		</div>
+	</div>
+
+	<h3>Notes</h3>
+	<fieldset class="datecart_notes di_module_container" style="margin-top:0px">
+		<%= @datecart.notes %>
+	</fieldset>
+</div>

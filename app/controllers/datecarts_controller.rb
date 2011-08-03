@@ -158,7 +158,7 @@ class DatecartsController < ApplicationController
   def print
     @datecart = Datecart.find(params[:id])
     respond_to do |format|
-      format.html {render :layout => 'dashboard'}
+      format.html {render :layout => 'itinerary_print'}
     end
   end
 
