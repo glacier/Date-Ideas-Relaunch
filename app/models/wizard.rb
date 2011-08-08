@@ -9,9 +9,9 @@ class Wizard
                ['Downtown Toronto East','East End'],
                ['Downtown Toronto West','West End'],
                ['Downtown Toronto Core','Downtown Core']]
-  PRICE_POINTS = [['Budget','budget'],
-                  ['Moderate','moderate'],
-                  ['High Roller','high_roller']]
+  PRICE_POINTS = [['Budget ($0-$10)','budget'],
+                  ['Moderate ($10 - $50)','moderate'],
+                  ['High Roller ($50+)','high_roller']]
 
   POSTAL_RANGES = [ [5],
                     [10],
