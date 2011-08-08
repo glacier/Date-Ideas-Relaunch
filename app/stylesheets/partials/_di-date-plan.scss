@@ -1,0 +1,33 @@
+.itinerary_row {
+	@include pie-clearfix;
+}
+
+/*.business_static_map {
+	float: left;
+	margin-right: 20px;
+}*/
+
+.business_item {
+/*	float: left;*/
+	ul {
+		list-style-type: none;
+		@include horizontal-list(5px, left);
+	}
+}
+
+.dashboard_item {
+	margin: 20px;
+}
+
+hr {
+	visibility: hidden;
+	margin: 1em;
+}
+
+h2 {
+	font-size: 20px;
+}
+
+h3 {
+	font-size: 15px;
+}
