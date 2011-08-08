@@ -22,7 +22,7 @@
 	<%= render @datecart %>
 <% end %>
 
-<div id="ajax_paginate">
+<div class="ajax_paginate">
 	<%= will_paginate @wizard.businesses %>
 </div>
 
@@ -38,3 +38,7 @@
 		<p><%= link_to "See more at eventful.com >>", eventful_url("Toronto", params['venue'], "Next+7+Days","Popularity") %></p>
 	</div>
 <% end %>
+
+<div class="ajax_paginate">
+	<%= will_paginate @wizard.businesses %>
+</div>

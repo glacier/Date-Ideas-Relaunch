@@ -1,26 +1,34 @@
 <%# render :partial => 'shared/itinerary', :locals => {:datecart => @datecart} %>
 <!-- mechanism to return to search results -->
-<div class="dashboard_item">
-	<h3><%= @datecart.name %></h3>
-	<% id_prefix = "datecart_partial_#{@datecart.id}" %>
-	<div id="<%= id_prefix %>" class="di_module_container dashboard_item">
-	  <h2 id="<%= id_prefix + "_title" %>" class="datecart_title">
-	  	<%= format_date_header @datecart.datetime, @datecart.significant_date_id %>
-	  </h2>
-	  <div class="datecart_itinerary">
-			<div class="business_static_map">
-		   <%= generate_map @datecart %>
-		   </div>
-		  <div id="<%= id_prefix + "_content" %>" class="datecart_places">
-		    <% unless (cart_items = @datecart.cart_items).blank? #TODO: remove once validations are implemented  %>
-		        <%= render :partial => "dashboard/datecart_cart_item", :collection => @datecart.cart_items %>
-		    <% end %>
-		  </div>
-		</div>
+
+<% id_prefix = "datecart_partial_#{@datecart.id}" %>
+<div id="<%= id_prefix %>" class="di_module_container dashboard_item">
+	<h2><%= @datecart.name %></h2>
+  <h3 id="<%= id_prefix + "_title" %>" class="datecart_title">
+  	<%= format_date_header @datecart.datetime, @datecart.significant_date_id %>
+  </h3>
+	<hr/>
+	<h3>Notes</h3>
+	<div class="datecart_notes di_module_container" style="margin-top:0px">
+		<%= @datecart.notes %>
+	</div>
+	<hr/>
+  <div class="datecart_itinerary">
+	  <div id="<%= id_prefix + "_content" %>" class="datecart_places">
+	    <% unless (cart_items = @datecart.cart_items).blank? #TODO: remove once validations are implemented  %>
+				<% @datecart.cart_items.each do |item| %>
+					<div class="itinerary_row">
+						<%= render :partial => "dashboard/datecart_cart_item", :locals => {:datecart_cart_item => item} %>
+						<div class="business_static_map">
+						   <%= generate_map_single item %>
+					   </div>
+						<hr/>
+					</div>
+				<% end %>
+	    <% end %>
+	  </div>
 	</div>
 
-	<h3>Notes</h3>
-	<fieldset class="datecart_notes di_module_container" style="margin-top:0px">
-		<%= @datecart.notes %>
-	</fieldset>
 </div>
+
+

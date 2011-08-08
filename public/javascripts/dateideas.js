@@ -62,7 +62,7 @@ $(document).ready(function() {
 	});
 
 	// Ajax pagination
-	$('#ajax_paginate a').attr('data-remote', 'true');
+	$('.ajax_paginate a').attr('data-remote', 'true');
 	$('.pagination a').live("ajax:beforeSend", function(){
 		console.log('pagination: beforeSend');
 		// $('#main_results').addClass('ajax_load_and_fade');
