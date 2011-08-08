@@ -54,7 +54,6 @@ class CartItemsController < ApplicationController
   def create_event
     @datecart = Datecart.find(params[:datecart_id])
 
-
     @event = Rails.cache.fetch(params[:event_id]) do
       Event.find_by_eventid(params[:event_id])
     end

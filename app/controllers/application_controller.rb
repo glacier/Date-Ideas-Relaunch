@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   private
     # gets the current cart in session or create a new one
     def current_cart
+      sess = session
       @session_cart = Datecart.find(session[:datecart_id])
     rescue ActiveRecord::RecordNotFound
       # TODO: create cart for current_user
