@@ -1,4 +1,8 @@
 DateIdeas::Application.routes.draw do
+  get "errors/404"
+
+  get "errors/500"
+
   # devise_for :admins
   # resources :cart_items
 
