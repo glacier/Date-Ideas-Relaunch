@@ -131,4 +131,8 @@ DateIdeas::Application.routes.draw do
   end
   #match "data_farmers/farm" => 'data_farmers#farm'
   match 'data_farmers/update_neighbourhood_select/:city', :controller=>'data_farmers', :action => 'update_neighbourhood_select'
+  
+  #route to 404 error
+  match '*a', :to => 'errors#404'
+  
 end
