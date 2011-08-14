@@ -152,6 +152,10 @@ $("##{div}").dialog("open");
     image_tag "https://maps.google.com/maps/api/staticmap?#{format_google_maps_api_call_parameters(datecart.cart_items)}", :class => "map", :alt => "Date Map"
   end
 
+  def generate_map_single cart_item
+    image_tag "https://maps.google.com/maps/api/staticmap?#{format_google_maps_api_call_parameters([cart_item])}", :class => "map", :alt => "Date Map"
+  end
+
   private
 
   # Generate the query hash for the api call to generate a static map
@@ -164,7 +168,7 @@ $("##{div}").dialog("open");
     result << parameters.to_query
     result << "&#{format_google_maps_markers(cart_items)}" # Add the marker CGI params
   end
-
+  
   #TODO: Update this to use the new naming system for locations once they are sortable
   def format_google_maps_markers cart_items
     markers = ""
