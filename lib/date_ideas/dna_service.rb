@@ -8,7 +8,7 @@ class DateIdeas::DnaService
                 'arts_entertainment' => ['arts'],
   }
 
-  def search(venue_type, location, price_point, page = '1', per_page=10, neighbourhood = nil, sub_category = nil, city = nil, postal_code=nil, range=nil)
+  def search(venue_type, location, price_point, page = '1', per_page = 2, neighbourhood = nil, sub_category = nil, city = nil, postal_code=nil, range=nil)
     Rails.logger.info "search(#{venue_type},#{location},#{price_point},#{page}, #{per_page}, #{neighbourhood}, #{sub_category}, #{city}, #{postal_code}, #{range})"
     neighbourhoods = []
     categories = []
@@ -20,7 +20,7 @@ class DateIdeas::DnaService
     end
     if ('Toronto'.eql?(city))
       if (neighbourhood.nil? || "all_neighbourhoods".eql?(neighbourhood))
-        db_businesses = Business.search_by_district_subsection('Toronto', location, price_point, categories, page)
+        db_businesses = Business.search_by_district_subsection('Toronto', location, price_point, categories, page, per_page)
       else
         db_businesses = Business.search_by_neighbourhood('Toronto', neighbourhood, price_point, categories, page)
       end
@@ -55,8 +55,7 @@ class DateIdeas::DnaService
     else
       neighbourhood = Neighbourhood.find_by_postal_code(postal_code)
       if neighbourhood
-        yelp_businesses = yelp_adaptor.search_by_postal_code(CATEGORIES.fetch(venue_type), postal_code, city,
-                                                             neighbourhood.province, neighbourhood.country, range)
+        yelp_businesses = yelp_adaptor.search_by_postal_code(CATEGORIES.fetch(venue_type), postal_code, city, neighbourhood.province, neighbourhood.country, range)
       else
         yelp_businesses = []
       end
@@ -64,8 +63,8 @@ class DateIdeas::DnaService
 
     if (!db_businesses.nil? && db_businesses.size > 0)
       merged_businesses = merge(db_businesses, yelp_businesses)
+      y 'called merge(db_businesses, yelp_businesses)'
     else
-
       if (!yelp_businesses.nil? && yelp_businesses.size > 0)
         y_businesses = []
           #AY : figure out a better way of doing this.
@@ -84,16 +83,17 @@ class DateIdeas::DnaService
             end
           end
         end
-        merged_businesses = y_businesses.paginate(:page => page, :per_page => 8)
+        merged_businesses = y_businesses.paginate(:page => page, :per_page => per_page)
       else
         #no results from db and from yelp
-        merged_businesses = [].paginate(:page=>page, :per_page => 8)
+        merged_businesses = [].paginate(:page=>page, :per_page => per_page)
       end
     end
 
       #search business details
     merged_businesses.each do |b|
-      if (!b.external_id.nil? && (b.dna_excerpt.nil? ||b.dna_excerpt.size == 0))
+      # add more calls to yelp api to get review counts -- what's better?
+      if (!b.external_id.nil? && (b.dna_excerpt.nil? ||b.dna_excerpt.size == 0))      
         business_detail = yelp_adaptor.business_detail(b.external_id)
         if (!business_detail.nil?)
           highest_review = Review.new
@@ -148,18 +148,19 @@ class DateIdeas::DnaService
   def merge(businesses, yelp_businesses)
     if (!yelp_businesses.nil?)
       businesses.each do |b|
-        if (b.external_id.nil?)
-          yelp_businesses.each do |y|
+        if (b.external_id.nil? or b.review_count.blank?)
+          yelp_businesses.each do |y|        
             if ((b.name.eql?(y.name) && b.address1.eql?(y.address1)) || (b.name.eql?(y.name) && b.longitude == y.longitude && b.latitude == y.latitude))
+              y 'matched'
               b.photo_url = y.photo_url
-                #merge the reviews
+              #merge the reviews
               b.reviews = y.reviews
               b.longitude = y.longitude
               b.latitude = y.latitude
               break
             end
           end
-        end
+        end        
       end
     end
     return businesses
