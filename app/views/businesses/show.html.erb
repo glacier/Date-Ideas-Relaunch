@@ -60,18 +60,9 @@
 
 <hr/>
 
-<div id="di_venue_excerpt" class="di_module_large">
-	<%= generate_ribbon_header(:h3, "dateideas tips", 17) %>
-	<%= raw (!@business.dna_excerpt.nil? && ( @business.reviews.nil? || @business.reviews.length == 0 )) ? "<h3>About</h3>".concat(@business.dna_excerpt) : "" %>
-</div>
+<%= display_dateideas_tips %>
 
-<div id="di_reviews" class="di_module_large">
-	<%= generate_ribbon_header(:h3, "reviews", 17) %>
-	<!-- for each yelp review   -->
-	<% @business.reviews.each do |r| %>
-	  <%= raw display_review_in_venue(@business.external_id, r) %>
-	<% end %>
-</div>
+<%= display_dateideas_reviews %>
 
 <%= content_for :sidebar_right do %>
 		<%= render @datecart %>
