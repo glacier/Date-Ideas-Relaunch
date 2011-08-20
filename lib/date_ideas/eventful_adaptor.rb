@@ -72,24 +72,39 @@ class DateIdeas::EventfulAdaptor
     events_hash.each do |hash|
       unless event_past? hash
         e = create_event(hash)
+
+        y 'event hash'
+        y hash['title']
+        y hash['url']
+        y hash['venue_name']
+        y hash['city_name']
+        y hash['id']
+        y hash['latitude']
+        y hash['longitude']
+
+        y 'event'
+        y e
+        
         begin
           if e.save
             Rails.cache.write(e.eventid, e, :expires_in => 30.minutes)
             events.push(e)
           else
-            Rails.logger.debug "INVALID EVENT:\nAttrs:\n#{e.attributes}\nErrors:\n#{e.errors}"
+            y 'event failed to be saved'
+            # y "INVALID EVENT:\nAttrs:\n#{e.attributes}\nErrors:\n#{e.errors}"
+            
+            # Rails.logger.debug "INVALID EVENT:\nAttrs:\n#{e.attributes}\nErrors:\n#{e.errors}"
           end
         rescue ActiveRecord::RecordNotUnique
           #Just means we have a duplicate event, we can't do antyhing else with it, so it stays as is.
           Rails.cache.write(e.eventid, e, :expires_in => 30.minutes)
           events.push(e)
         end
-
       else
-        y 'some past events were filtered'
-        y hash['title']
-        y hash['start_time']
-        y hash['stop_time']
+        y 'Event #{e.eventid} was filtered because it has passed.'
+        # y hash['title']
+        # y hash['start_time']
+        # y hash['stop_time']
       end
     end
     events
