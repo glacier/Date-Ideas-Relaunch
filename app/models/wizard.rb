@@ -9,9 +9,9 @@ class Wizard
                ['Downtown Toronto East','East End'],
                ['Downtown Toronto West','West End'],
                ['Downtown Toronto Core','Downtown Core']]
-  PRICE_POINTS = [['Budget','budget'],
-                  ['Moderate','moderate'],
-                  ['High Roller','high_roller']]
+  PRICE_POINTS = [['Budget ($0-$10)','budget'],
+                  ['Moderate ($10 - $50)','moderate'],
+                  ['High Roller ($50+)','high_roller']]
 
   POSTAL_RANGES = [ [5],
                     [10],
@@ -21,8 +21,7 @@ class Wizard
                 :neighbourhood_name, :events, :neighbourhoods, :neighbourhood,
                 :sub_categories, :sub_category, :city, :province, :postal_code, :country, :range
 
-  def initialize(venue="", event_cat="", event_date="", location="",city="",province="",postal_code="",range="",country="", price_point="",
-                sub_category = "all", neighbourhood = 'all_neighbourhoods')
+  def initialize(venue="", event_cat="", event_date="", location="",city="",province="",postal_code="",range="",country="", price_point="",sub_category = "all", neighbourhood = 'all_neighbourhoods')
     @venue = venue
     #location is really district
     if( !postal_code.nil? && postal_code.size > 0 )

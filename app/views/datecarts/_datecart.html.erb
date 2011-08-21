@@ -14,6 +14,7 @@
     <fieldset id="datecart_items" class="datecart">
       <%= render :partial => 'datecarts/datecart_items' %>
     </fieldset>
+		<%= link_to 'Clear', clear_cart_datecart_path(@datecart), :class => "muted_buttons", :method => :delete, :remote => true %>
   </div>
   <h6>
     <input type="hidden" id="alt_show_date" class="nofloat" value="<%= today %>"/>
@@ -27,24 +28,21 @@
   </h6>
 
   <div>
-    <div id="date_notes" class="editable"> 
+		<p>Notes</p>
+    <div id="date_notes" class="editable">
 			<% if @datecart.notes.blank? %>
 				My date notes:
 			<% else %>
 				<%= @datecart.notes %>
 			<% end %>
 		</div>
+		
+    <div id="di_cart_status">
+			<%= datecart_saved_status %>
+    </div>
+
     <fieldset id="functions" class="datecart">
       <%= render :partial => 'datecarts/datecart_functions' %>
     </fieldset>
-    <div id="di_cart_status">
-      <% if @datecart.user_id %>
-          Date plan has been saved.
-      <% else %>
-          Date plan has not been saved.
-      <% end %>
-    </div>
-    <hr/>
-    <p><%# link_to "Plan New Date", new_datecart_path, :class => "datecart_buttons", :remote => true %></p>
   </div>
 </div>

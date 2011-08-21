@@ -1,4 +1,13 @@
+// This import applies a global reset to any page that imports this stylesheet.
+@import "blueprint/reset";
+
+// To configure blueprint, edit the partials/_base.sass file.
+@import "partials/base";
+
 @import "blueprint";
 
 // Generate the blueprint print styles:
 @include blueprint-print;
+
+@import "compass/typography/lists/horizontal-list";
+@import "partials/di-date-plan";

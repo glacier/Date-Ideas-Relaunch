@@ -1,10 +1,10 @@
 <fieldset>
 	<% params['venue'] == 'activities_events' ? value = true : value = false %>
   <%= form_tag '/wizard/search', :method => :get do %>
-    <%= select_tag(:city, options_for_select(Wizard::CITY,@wizard.city)) %>
+		<%= hidden_field_tag 'city', @wizard.city %>
     <% if @wizard.city == 'Toronto' %>
         <%= select_tag(:location, options_for_select(Wizard::LOCATIONS,@wizard.location), :disabled => value) %>
-        <%= select_tag(:neighbourhood, options_for_select(@neighbourhoods.collect { |hood| [hood.neighbourhood]}.push(["All Neighbourhoods", "all_neighbourhoods"]).sort, @wizard.neighbourhood), :disabled => value) %>
+        <%= select_tag(:neighbourhood, options_for_select(@neighbourhoods.collect { |hood| [hood.neighbourhood]}.sort.unshift(["All Neighbourhoods", "all_neighbourhoods"]), @wizard.neighbourhood), :disabled => value) %>
     <% else %>
           <% if @wizard.postal_code %>
       <%= autocomplete_field_tag :postal_code, @wizard.postal_code, autocomplete_neighbourhood_postal_code_wizard_index_path ,  :size => 7  %>
@@ -19,10 +19,10 @@
         <%= select_tag(:event_cat, options_for_select(Event::EVENTFUL_CATEGORIES, @wizard.event_category)) %>
         <%= select_tag(:event_date, options_for_select(Event::TIMES, @wizard.event_date)) %>
     <% else %>
-    <%= select_tag(:sub_category, options_for_select(@wizard.sub_categories.collect {|c| [c.display_name, c.name ]}.push(['All Subcategories', 'all']).sort, @wizard.sub_category), :disabled => value) %>
+    <%= select_tag(:sub_category, options_for_select(@wizard.sub_categories.collect {|c| [c.display_name, c.name ]}.sort.unshift(['All Subcategories', 'all']), @wizard.sub_category), :disabled => value) %>
     <% end %>
 		
-    <%= select_tag(:price_point, options_for_select(Wizard::PRICE_POINTS), :disabled => value) %>
+    <%= select_tag(:price_point, options_for_select(Wizard::PRICE_POINTS, @wizard.price_point), :disabled => value) %>
 
   <% end %>
 </fieldset>

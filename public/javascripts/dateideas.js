@@ -62,13 +62,15 @@ $(document).ready(function() {
 	});
 
 	// Ajax pagination
-	$('#ajax_paginate a').attr('data-remote', 'true');
+	$('.ajax_paginate a').attr('data-remote', 'true');
 	$('.pagination a').live("ajax:beforeSend", function(){
 		console.log('pagination: beforeSend');
-		$('#main_results').addClass('ajax_load_and_fade');
+		// $('#main_results').addClass('ajax_load_and_fade');
+		$('.ajax_load_and_fade').height($('#main_results').height() + 5).show();
 	}).live("ajax:complete", function(){
 		console.log('pagination: complete');
-		$('#main_results').removeClass('ajax_load_and_fade');
+		// $('#main_results').removeClass('ajax_load_and_fade');
+		$('.ajax_load_and_fade').hide();
 	});
 
 	// Wizard UI indicator while loading results

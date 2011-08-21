@@ -1,8 +1,12 @@
 DateIdeas::Application.routes.draw do
+  get "errors/404"
+
+  get "errors/500"
+
   # devise_for :admins
   # resources :cart_items
 
-  resources :datecarts do 
+  resources :datecarts do
     member do
       delete "clear_cart"
       get "begin_complete"
@@ -24,47 +28,48 @@ DateIdeas::Application.routes.draw do
   namespace :dashboard do
     resource :significant_dates
   end
-  
+
   match '/auth/:provider/callback' => 'authentications#create'
-  
+
   # devise_for :users, :controllers => {:registrations => "registrations"}
-  devise_for :users
-  
+  devise_for :users, :controllers => {:sessions => "sessions"}
+
+
   resources :users do
     member do
       get :following, :followers
     end
   end
-  
+
   # get "wizard/index"
 
   # get "home/index"
 
   # resources :wizard
   resources :wizard do
-    collection do 
+    collection do
       get "search"
     end
     get :autocomplete_neighbourhood_postal_code, :on => :collection
   end
-  
+
   #TODO: allow users to access their profiles using /profiles/:username?
   resources :profiles
-  
+
   resources :authentications
-  
+
   resources :relationships, :only => [:create, :destroy]
-  
+
   resources :businesses
 
   resources :neighbourhoods
-  
+
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => "wizard#index"
 
   match "dashboard/" => "dashboard#index"
-  
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -113,7 +118,6 @@ DateIdeas::Application.routes.draw do
   #   end
 
 
-
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
@@ -127,4 +131,8 @@ DateIdeas::Application.routes.draw do
   end
   #match "data_farmers/farm" => 'data_farmers#farm'
   match 'data_farmers/update_neighbourhood_select/:city', :controller=>'data_farmers', :action => 'update_neighbourhood_select'
+  
+  #route to 404 error
+  match '*a', :to => 'errors#404'
+  
 end

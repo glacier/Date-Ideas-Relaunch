@@ -93,6 +93,7 @@ fieldset {
 }
 
 #sidebar_right {
+/*	text-align: center;*/
 	padding-top: 20px;
 	background-color: $sidebar-right-bg-color;
 }
@@ -190,11 +191,21 @@ fieldset {
 	float:left;
 	margin-right: 15px;
 }
+
 /* Various ajax loaders */
 /* with container fading */
 .ajax_load_and_fade {
-	opacity: 0.2;
-	background: #FFF url('/images/ajax-loader-large.gif') no-repeat fixed center;
+	display: none;
+	opacity: 0.8;
+	background: #FFF no-repeat;
+	z-index: 100;
+	position: absolute;
+	width: 430px;
+	text-align: center;
+	img {
+		position: relative;
+		top: 50px;
+	}
 }
 
 .ajax-hidden {

@@ -1,40 +1,60 @@
 module DatecartsHelper
   # display date cart sorted by venue type
-
-  def sort_by_category(datecart)
-    display = ""
-    items = datecart.cart_items
-    display_text = { "food" => "Dining", "bars" => "Drinks", "activities_events" => "Activities & Events", "nightlife" => 'Nightlife', 'arts_entertainment' => 'Arts and Entertainment'}
-
-    category_display = {}
-    items.each do |item|
-      # only display under the first venue_type that an item is classified under
-      html_str = "<tr><td>"
-      type = item.venue_type
-      venue = item.business
-      if venue.blank?
-        venue = item.event
-        venue_name = venue.title
-        html_str << link_to(venue_name, venue.url)
-      else
-        venue_name = venue.name
-        html_str << link_to(venue_name, business_path(venue))
-      end
-
-      html_str = html_str<< "</td><td>" << link_to(content_tag(:span, "", :class => 'ui-icon ui-icon-trash'), datecart_cart_item_path(datecart, item), :method => :delete, :remote => true) << "</td></tr>"
-      if category_display[type].nil?
-        category_display[type] = html_str
-      else
-        category_display[type] << " " << html_str
-      end
+  def datecart_saved_status
+    if @datecart.user_id 
+        "Date plan has been saved."
+    else
+        "Date plan has not been saved."
     end
+  end
 
-    category_display.keys.sort.each { |key|
-     display << "<p>" << display_text[key] << "</p>" 
-     display << "<table>" << category_display[key] << "</table>"
-    }
+  def add_more_link_name(datecart)
+    if datecart.cart_empty?
+      "Add things to do"
+    else
+      "Add more things to do"
+    end
+  end
+    
+  def display_cart_contents(datecart)
+    display = ""
 
-    display
+    if datecart.cart_empty?
+      display = "You haven't got a plan yet!"
+    else
+      items = datecart.cart_items
+      display_text = { "food" => "Dining", "bars" => "Drinks", "activities_events" => "Activities & Events", "nightlife" => 'Nightlife', 'arts_entertainment' => 'Arts and Entertainment'}
+
+      category_display = {}
+      items.each do |item|
+        # only display under the first venue_type that an item is classified under
+        html_str = "<tr><td>"
+        type = item.venue_type
+        venue = item.business
+        if venue.blank?
+          venue = item.event
+          venue_name = venue.title
+          html_str << link_to(venue_name, venue.url)
+        else
+          venue_name = venue.name
+          html_str << link_to(venue_name, business_path(venue))
+        end
+
+        html_str = html_str<< "</td><td>" << link_to(content_tag(:span, "", :class => 'ui-icon ui-icon-trash'), datecart_cart_item_path(datecart, item), :method => :delete, :remote => true) << "</td></tr>"
+        if category_display[type].nil?
+          category_display[type] = html_str
+        else
+          category_display[type] << " " << html_str
+        end
+      end
+
+      category_display.keys.sort.each { |key|
+       display << "<p>" << display_text[key] << "</p>" 
+       display << "<table>" << category_display[key] << "</table>"
+      }
+    end
+    
+    return display
   end
 
   def format_yahoo_calendar_link datecart

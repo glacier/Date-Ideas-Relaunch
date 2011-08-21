@@ -33,7 +33,7 @@ class DateIdeas::YelpAdaptorV2
     end
     business
   end
-
+  
   def search(location, categories, neighbourhoods, offset = 0)
     Rails.logger.info("search(#{location},#{categories},#{neighbourhoods},#{offset})")
     returned_businesses = []
@@ -116,13 +116,15 @@ class DateIdeas::YelpAdaptorV2
 
   def create_business(business_hash, extract_reviews = false)
     business = Business.new
+    
     if (business_hash.has_key?("id"))
       business.external_id = business_hash.fetch("id")
     end
-      #@logger.info("business:#{business_hash}")
+    
     if (business_hash.has_key?("name"))
       business.name = business_hash.fetch("name")
     end
+  
     if (business_hash.has_key?("location"))
       address = business_hash.fetch("location").fetch("address")
       business.address1 = address[0]

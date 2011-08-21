@@ -48,7 +48,9 @@ class Event < ActiveRecord::Base
 
   # For now, don't save event descriptions.  Note that the descriptions returned from the Eventful API can contain HTML tags and can be very verbose.
   #  validates :start_time, :venue_name, :venue_address, :presence => true
-  validates_presence_of :title, :url, :start_time, :venue_address, :venue_name, :city_name, :eventid, :latitude, :longitude
+  validates_presence_of :title, :url, :start_time, :venue_name, :city_name, :eventid, :latitude, :longitude
+  # don't valide this because sometimes the API doesn't return an address
+  # :venue_address
   validates_length_of :title,:city_name, :minimum => 4
 
   # :description --  Don't see the utility of saving this. The descriptions returned from the Eventful API can contain HTML tags and can be very verbose.

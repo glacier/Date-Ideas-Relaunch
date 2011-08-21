@@ -7,6 +7,5 @@
 		<li id="email"><%= link_to 'Email',  email_datecart_path(@datecart), :class => 'function_buttons' %></li>
 	<% end %>
 	
-	<li id="clear"><%= link_to 'Clear', clear_cart_datecart_path(@datecart), :class => 'function_buttons', :method => :delete, :remote => true %></li>
 	<li id="print"><%= link_to 'Print View', print_datecart_path(@datecart), :class => 'function_buttons', :rel => 'external' %></li>
 </ul>

@@ -1,3 +1,45 @@
+/* Gmaps4rails css */
+#map-container {
+  padding: 6px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #ccc #ccc #999 #ccc;
+  -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
+  -moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
+  box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
+  width: 800px;
+}
+
+#gmaps4rails_map {
+  width: 500px;
+  height: 292px;
+}
+/* end Gmaps4rails */
+
+.venue {
+	float: left;
+	img {
+		margin-right: 20px ;
+	}
+}
+
+#di_venue_header {
+	@include pie-clearfix;
+}
+
+#back_button {
+	margin-bottom: 50px;
+}
+
+#di_venue_buttons {
+	ul {
+		list-style-type: none;
+		li {
+			margin-bottom: 10px;
+		}
+	}
+}
+
 #venue_page_top_section {
 	@include pie-clearfix;
 	#di_venue_photo {
@@ -5,12 +47,19 @@
 		margin-right: 25px;
 	}
 	#di_venue_map {
+		margin-right: 40px;
 		float: left;
 	}
 }
 
 #di_venue_info {
-	
+	th {
+		color: $di-cyan;
+		text-transform: uppercase;
+	}
+	td {
+		font-weight: bold;
+	}
 }
 
 .yelp_review {

@@ -3,6 +3,9 @@
 
 <div id="datecart_save_dialog" class="dialog"></div>
 <div id="datecart_<%= @datecart.id %>_calendar_dialog" class="dialog"></div>
+<div class="ajax_load_and_fade" style="display:none">
+	<img src='/images/ajax-loader-large.gif' />
+</div>
 
 <%= title("Search - Venues") %>
 
@@ -19,6 +22,10 @@
 	<%= render @datecart %>
 <% end %>
 
+<div class="ajax_paginate">
+	<%= will_paginate @wizard.businesses %>
+</div>
+
 <% @cart_items = @datecart.cart_items %>
 <div id="main_results">
 	<%= render :partial => 'business_results', :locals => {:cart_items => @cart_items} %>
@@ -32,6 +39,6 @@
 	</div>
 <% end %>
 
-<div id="ajax_paginate">
+<div class="ajax_paginate">
 	<%= will_paginate @wizard.businesses %>
 </div>

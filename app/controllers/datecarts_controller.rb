@@ -108,7 +108,10 @@ class DatecartsController < ApplicationController
     # POST
   def clear_cart
     @datecart = Datecart.find(params[:id])
-    @cleared_items = @datecart.cart_items.destroy_all
+    @cleared_items = []
+    unless @datecart.cart_empty?
+      @cleared_items = @datecart.cart_items.destroy_all
+    end
 
     respond_to do |format|
       format.js
@@ -155,7 +158,7 @@ class DatecartsController < ApplicationController
   def print
     @datecart = Datecart.find(params[:id])
     respond_to do |format|
-      format.html {render :layout => 'dashboard'}
+      format.html {render :layout => 'itinerary_print'}
     end
   end
 

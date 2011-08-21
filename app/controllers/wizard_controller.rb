@@ -25,15 +25,16 @@ class WizardController < ApplicationController
 
   def search
     @user = current_user
-      #set proper event params
+    #set proper event params
     event_cat = params['event_cat']
     event_date = params['event_date']
 
     params[:postal_code] = nil unless params[:postal_code] && params[:postal_code] =~ /(^[ABCEGHJKLMNPRSTVXYabceghjklmnpstvxy]\d[A-Za-z] \d[A-Za-z]\d)$/
 
-    @wizard = Wizard.new(params[:venue], event_cat, event_date, params[:location], params[:city], params[:province],
-                         params[:postal_code], params[:range], params[:country], params[:price_point],
-                         params[:sub_category], params[:neighbourhood])
+    y 'price_point'
+    y params[:price_point]
+    
+    @wizard = Wizard.new(params[:venue], event_cat, event_date, params[:location], params[:city], params[:province],params[:postal_code], params[:range], params[:country], params[:price_point], params[:sub_category], params[:neighbourhood])
 
     current_page = params[:page]
     dnaService = DateIdeas::DnaService.new
@@ -49,7 +50,7 @@ class WizardController < ApplicationController
 
     @wizard.businesses = dnaService.search(@wizard.venue, @wizard.location, @wizard.price_point, current_page, 8, @wizard.neighbourhood, @wizard.sub_category, @wizard.city, @wizard.postal_code, @wizard.range)
 
-      # Eventful related searches
+    # Eventful related searches
     per_page = 3
     current_page_events = 1
     if @wizard.venue == 'activities_events'
