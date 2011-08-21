@@ -9,7 +9,6 @@ class WizardController < ApplicationController
   def index
     @user = current_user
     @wizard = Wizard.new
-    @datecart = current_cart
 
     respond_to do |format|
       format.js

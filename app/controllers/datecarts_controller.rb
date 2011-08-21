@@ -5,7 +5,7 @@ class DatecartsController < ApplicationController
 
   include DatecartsHelper
 
-  before_filter :authenticate_user!, :except => [:subscribe, :clear_cart, :print]
+  before_filter :authenticate_user!, :except => [:subscribe]
   
   def index
     @datecarts = Datecart.all
@@ -202,7 +202,7 @@ CATEGORIES:DATE
 CLASS:PRIVATE
 URL:#{request.env["REQUEST_URI"]}
 DESCRIPTION: #{datecart.notes}
-LOCATION: TODO: generate this based on sorted locations for datecart
+LOCATION: #{datecart.location}
 END:VEVENT
 END:VCALENDAR
     VCAL

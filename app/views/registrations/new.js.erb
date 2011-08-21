@@ -1,0 +1,4 @@
+$('.dialog').dialog("close");
+$('.login_dialog').dialog("close");
+<%= raw generate_modal_dialogue(:"di_login", :"Sign Up", render(:partial => 'devise/registrations/layout')) %>
+$('.ui-dialog').width($('.registration_container').last().width());

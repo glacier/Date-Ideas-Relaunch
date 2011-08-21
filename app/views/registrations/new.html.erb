@@ -1,39 +1,36 @@
 <h2>DateIdeas Sign up</h2>
 
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+    <%= devise_error_messages! %>
 
-	<%# Custom fields for dateideas registration %>
-	<p><%= f.label :first_name, "First Name" %></p>
-	<p><%= f.text_field :first_name %></p>
-	
-	<p><%= f.label :last_name, "Last Name" %></p>
-	<p><%= f.text_field :last_name %></p>
-	
-	<p><%= f.label :username, "Username" %></p>
-	<p><%= f.text_field :username %></p>
-	
-  <p><%= f.label :email %><br />
-  <%= f.text_field :email %></p>
+    <%# Custom fields for dateideas registration %>
+    <p><%= f.label :first_name, "First Name" %></p>
+    <p><%= f.text_field :first_name %></p>
 
-  <p><%= f.label :gender %><br />
-  <%= f.radio_button :gender, 'female' %> Female
-  <%= f.radio_button :gender, 'male' %> Male
-</p>
+    <p><%= f.label :last_name, "Last Name" %></p>
+    <p><%= f.text_field :last_name %></p>
 
-  <p><%= f.label :birthday %><br />
-  <%= f.date_select :birthday %></p>
+    <p><%= f.label :email %><br/>
+      <%= f.text_field :email %></p>
 
-  <p><%= f.label :postal_code %><br />
-  <%= f.text_field :postal_code %></p>
-	<% if @user.password_required? %>
-	  <p><%= f.label :password %><br />
-	  <%= f.password_field :password %></p>
+    <p><%= f.label :gender %><br/>
+      <%= f.radio_button :gender, 'female' %> Female
+      <%= f.radio_button :gender, 'male' %> Male
+    </p>
 
-	  <p><%= f.label :password_confirmation %><br />
-	  <%= f.password_field :password_confirmation %></p>
-	<% end %>
-  <p><%= f.submit "Sign up" %></p>
+    <p><%= f.label :birthday %><br/>
+      <%= f.date_select :birthday %></p>
+
+    <p><%= f.label :postal_code %><br/>
+      <%= f.text_field :postal_code %></p>
+    <% if @user.password_required? %>
+        <p><%= f.label :password %><br/>
+          <%= f.password_field :password %></p>
+
+        <p><%= f.label :password_confirmation %><br/>
+          <%= f.password_field :password_confirmation %></p>
+    <% end %>
+    <p><%= f.submit "Sign up" %></p>
 <% end %>
 
 <%= render :partial => "devise/shared/links" %>

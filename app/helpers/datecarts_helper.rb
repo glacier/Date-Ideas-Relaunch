@@ -65,7 +65,7 @@ module DatecartsHelper
         :title => "Date Ideas: #{name}",
         :st => format_time(datecart.datetime),
         :desc => datecart.notes,
-        :in_loc => "TODO: sort cart items by time and put first location here"
+        :in_loc => datecart.location
     }
     url << hash.to_query
   end
@@ -79,7 +79,7 @@ module DatecartsHelper
         :dates => format_time(datecart.datetime) << "Z/" << format_time(datecart.datetime) << "Z",
         :sprop => "website:www.getdateideas.com&sprop;=name:Get Date Ideas",
         :details => datecart.notes,
-        :location => "TODO: sort cart items by time and put first location here",
+        :location => datecart.location,
         :trp => "true"
     }
     url << hash.to_query
