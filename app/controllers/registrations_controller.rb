@@ -7,6 +7,8 @@ class RegistrationsController < Devise::RegistrationsController
     resource.active_datecart_id = session[:datecart_id]
     if resource.save
       if resource.active_for_authentication?
+        datecart = Datecart.find resource.active_datecart_id
+        datecart.update_attribute(:user_id, resource.id)
         set_flash_message :notice, :signed_up if is_navigational_format?
         sign_in(resource_name, resource)
         respond_with resource, :location => redirect_location(resource_name, resource)
