@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110714170247) do
+ActiveRecord::Schema.define(:version => 20110808110554) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(:version => 20110714170247) do
   end
 
   create_table "business_types", :force => true do |t|
-    t.integer  "business_id"
+    t.string   "business_id"
     t.string   "category_name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -115,8 +115,10 @@ ActiveRecord::Schema.define(:version => 20110714170247) do
     t.datetime "updated_at"
     t.string   "name",                :default => "My Date"
     t.datetime "datetime"
-    t.text     "notes"
+    t.string   "notes",               :default => "Make it special!"
     t.integer  "significant_date_id"
+    t.string   "session_id"
+    t.datetime "last_access"
   end
 
   create_table "events", :force => true do |t|
@@ -153,9 +155,9 @@ ActiveRecord::Schema.define(:version => 20110714170247) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "city"
-    t.string   "country"
     t.string   "postal_code"
     t.string   "province"
+    t.string   "country"
   end
 
   create_table "profiles", :force => true do |t|
@@ -218,8 +220,18 @@ ActiveRecord::Schema.define(:version => 20110714170247) do
     t.string   "gender"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
+    t.integer  "active_datecart_id"
   end
 
+  add_index "users", ["active_datecart_id"], :name => "index_users_on_active_datecart_id", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+
+  create_table "wizards", :force => true do |t|
+    t.string   "venue"
+    t.string   "location"
+    t.integer  "priceRange"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

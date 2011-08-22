@@ -7,6 +7,17 @@ class Datecart < ActiveRecord::Base
 
   validate :has_info_when_assigned_to_user?
 
+  def location
+    items = cart_items
+    first_venue = items.first unless items.empty?
+    if first_venue
+      location = first_venue.business_id ? first_venue.business.address1 : first_venue.event.venue_address
+    else
+      location = ""
+    end
+    location
+  end
+
   def cart_empty?
     return true if cart_items.empty?
     false

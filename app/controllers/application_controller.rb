@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   # load_and_authorize_resource
   before_filter :authenticate_user!
-  
+
   # unless config.consider_all_requests_local
   #   rescue_from Exception, :with => :render_error
   #   rescue_from ActiveRecord::RecordNotFound, :with => :render_not_found
@@ -13,28 +13,39 @@ class ApplicationController < ActionController::Base
   #   # display can't be found for pages that are denied to the user
   #   rescue_from CanCan::AccessDenied, :with => :render_not_found
   # end
-  # 
+
   private
-    
-    def render_not_found(exception)
-      render :template => "/errors/404.html.erb", :status => 404
-    end
-  
-    def render_error(exception)
-      # you can insert logic in here too to log errors
-      # or get more error info and use different templates
-      render :template => "/errors/500.html.erb", :status => 500
+  # gets the current cart in session or create a new one
+  def current_cart
+    # This style also means that a registered user doesn't have to worry about cookies getting cleared, etc.
+    if user = current_user # checks if the user is logged in or unregistered
+      cart = Datecart.find_by_id(user.active_datecart_id) #Use this form to avoid throwing an exception
+    else
+      # Use both the datecart_id and session id to ensure malicious users can't arbitrarily set the datecart value
+      # and access other users datecarts
+      cart = Datecart.find_by_id_and_session_id(session[:datecart_id], session[:session_id])
     end
 
-    # gets the current cart in session or create a new one
-    def current_cart
-      @session_cart = Datecart.find(session[:datecart_id])
-    rescue ActiveRecord::RecordNotFound
+    if cart
+      cart.update_attribute(:last_access, DateTime.now)
+    else
       # TODO: create cart for current_user
       # TODO: require sign up or login to save
-      cart = Datecart.create
-
+      cart = Datecart.create(:session_id => session[:session_id], :last_access => DateTime.now)
+      user.update_attribute(:active_datecart_id, cart.id) if user
       session[:datecart_id] = cart.id
-      cart
     end
+    cart
+  end
+
+  def render_not_found(exception)
+    render :template => "/errors/404.html.erb", :status => 404
+  end
+
+  def render_error(exception)
+    # you can insert logic in here too to log errors
+    # or get more error info and use different templates
+    render :template => "/errors/500.html.erb", :status => 500
+  end
+
 end

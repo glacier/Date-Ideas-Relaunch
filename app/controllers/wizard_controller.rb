@@ -1,13 +1,14 @@
 class WizardController < ApplicationController
   autocomplete :neighbourhood, :postal_code
-    # before_filter :authenticate_user!
+
+  # Disable authentication
+  before_filter :authenticate_user!, :only => []
+
   skip_load_and_authorize_resource
 
   def index
     @user = current_user
     @wizard = Wizard.new
-    @datecart = current_cart
-
 
     respond_to do |format|
       format.js
@@ -70,7 +71,7 @@ class WizardController < ApplicationController
     @wizard.events = eventful.search(event_cat, event_date, event_location, 30).paginate(:page => current_page_events, :per_page => per_page)
     @datecart = current_cart
 
-      #Ugly code everywhere zomg
+    #Ugly code everywhere zomg
     @wizard.events.shuffle! unless @wizard.events.blank?
     @wizard.businesses.shuffle! unless @wizard.events.blank?
 

@@ -1,5 +1,7 @@
 class CartItemsController < ApplicationController
   load_and_authorize_resource
+
+  before_filter :authenticate_user!, :except => [:create, :create_event, :update, :destroy]
   
   # GET /cart_items
   # GET /cart_items.xml
@@ -12,7 +14,7 @@ class CartItemsController < ApplicationController
     end
   end
 
-  # Removed show action, we don't really need it
+    # Removed show action, we don't really need it
 
     # GET /cart_items/new
     # GET /cart_items/new.xml
@@ -27,14 +29,14 @@ class CartItemsController < ApplicationController
 
     # GET /cart_items/1/edit
   def edit
-    @datecart = Datecart.find(params[:datecart_id])
+    @datecart = current_cart
     @cart_item = @datecart.cart_items.find(params[:id])
   end
 
     # POST /cart_items
     # POST /cart_items.xml
   def create
-    @datecart = Datecart.find(params[:datecart_id])
+    @datecart = current_cart
     @business = Business.find(params[:business_id])
 
     if @datecart
@@ -52,7 +54,7 @@ class CartItemsController < ApplicationController
   end
 
   def create_event
-    @datecart = Datecart.find(params[:datecart_id])
+    @datecart = current_cart
     @event = Rails.cache.fetch(params[:event_id]) do
       Event.find_by_eventid(params[:event_id])
     end

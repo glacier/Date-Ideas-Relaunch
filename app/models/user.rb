@@ -20,7 +20,8 @@ class User < ActiveRecord::Base
 
   # Email is validated by devise.
   validates_presence_of :email, :first_name, :last_name 
-  validates_length_of :first_name, :minimum => 3
+  validates_length_of :first_name, :minimum => 1
+  validates_length_of :last_name, :minimum => 1
 
   # GL - don't validate these for now upon Will's request
   # Then why are these columns even here ...
