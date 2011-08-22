@@ -53,8 +53,6 @@ class CartItemsController < ApplicationController
 
   def create_event
     @datecart = Datecart.find(params[:datecart_id])
-
-
     @event = Rails.cache.fetch(params[:event_id]) do
       Event.find_by_eventid(params[:event_id])
     end
@@ -64,6 +62,9 @@ class CartItemsController < ApplicationController
     respond_to do |format|
       if @cart_item.save
         format.js
+        format.html
+      else
+        Rails.logger.debug "Event cart_item save failed"
       end
     end
   end

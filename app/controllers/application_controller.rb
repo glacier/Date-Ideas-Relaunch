@@ -3,17 +3,17 @@ class ApplicationController < ActionController::Base
   # load_and_authorize_resource
   before_filter :authenticate_user!
   
-  unless config.consider_all_requests_local
-    rescue_from Exception, :with => :render_error
-    rescue_from ActiveRecord::RecordNotFound, :with => :render_not_found
-    rescue_from ActionController::RoutingError, :with => :render_not_found
-    rescue_from ActionController::UnknownController, :with => :render_not_found
-    # customize these as much as you want, ie, different for every error or all the same
-    rescue_from ActionController::UnknownAction, :with => :render_not_found
-    # display can't be found for pages that are denied to the user
-    rescue_from CanCan::AccessDenied, :with => :render_not_found
-  end
-  
+  # unless config.consider_all_requests_local
+  #   rescue_from Exception, :with => :render_error
+  #   rescue_from ActiveRecord::RecordNotFound, :with => :render_not_found
+  #   rescue_from ActionController::RoutingError, :with => :render_not_found
+  #   rescue_from ActionController::UnknownController, :with => :render_not_found
+  #   # customize these as much as you want, ie, different for every error or all the same
+  #   rescue_from ActionController::UnknownAction, :with => :render_not_found
+  #   # display can't be found for pages that are denied to the user
+  #   rescue_from CanCan::AccessDenied, :with => :render_not_found
+  # end
+  # 
   private
     
     def render_not_found(exception)

@@ -46,12 +46,13 @@ class Event < ActiveRecord::Base
   cattr_reader :EVENT_CATEGORY, :EVENT_KEYWORDS
   has_many :cart_items
 
-  # For now, don't save event descriptions.  Note that the descriptions returned from the Eventful API can contain HTML tags and can be very verbose.
-  #  validates :start_time, :venue_name, :venue_address, :presence => true
-  validates_presence_of :title, :url, :start_time, :venue_name, :city_name, :eventid, :latitude, :longitude
-  # don't valide this because sometimes the API doesn't return an address
-  # :venue_address
-  validates_length_of :title,:city_name, :minimum => 4
+  # A valid event must have an event id as defined by the eventful.com api. 
+  validates_presence_of :eventid
 
+  # don't validate the following because could be due to missing data from API
+  # validates_presence_of :venue_address, :title, :url, :start_time, :venue_name, :city_name, :eventid, :latitude, :longitude
+  # validates_length_of :title, :city_name, :minimum => 4
+  # For now, don't save event descriptions.  Note that the descriptions returned from the Eventful API can contain HTML tags and can be very verbose.
   # :description --  Don't see the utility of saving this. The descriptions returned from the Eventful API can contain HTML tags and can be very verbose.
+
 end

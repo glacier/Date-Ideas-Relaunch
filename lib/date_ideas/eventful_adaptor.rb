@@ -72,42 +72,26 @@ class DateIdeas::EventfulAdaptor
     events_hash.each do |hash|
       unless event_past? hash
         e = create_event(hash)
-
-        y 'event hash'
-        y hash['title']
-        y hash['url']
-        y hash['venue_name']
-        y hash['city_name']
-        y hash['id']
-        y hash['latitude']
-        y hash['longitude']
-
-        y 'event'
-        y e
-        
         begin
           if e.save
             Rails.cache.write(e.eventid, e, :expires_in => 30.minutes)
             events.push(e)
           else
-            y 'event failed to be saved'
-            # y "INVALID EVENT:\nAttrs:\n#{e.attributes}\nErrors:\n#{e.errors}"
-            
-            # Rails.logger.debug "INVALID EVENT:\nAttrs:\n#{e.attributes}\nErrors:\n#{e.errors}"
+            Rails.logger.debug "Event failed to be saved in db"
+            Rails.logger.debug "INVALID EVENT:\nAttrs:\n#{e.attributes}\nErrors:\n#{e.errors}"
           end
         rescue ActiveRecord::RecordNotUnique
-          #Just means we have a duplicate event, we can't do antyhing else with it, so it stays as is.
+          # Event already exists in db, use object from db and not the api
+          e = Event.find_by_eventid(e.eventid)
           Rails.cache.write(e.eventid, e, :expires_in => 30.minutes)
           events.push(e)
         end
       else
-        y 'Event #{e.eventid} was filtered because it has passed.'
-        # y hash['title']
-        # y hash['start_time']
-        # y hash['stop_time']
+        Rails.logger.debug "This event was filtered because it is in the past."
       end
     end
-    events
+    
+    return events
   end
 
   def event_past?(hash)
@@ -135,7 +119,6 @@ class DateIdeas::EventfulAdaptor
   end
 
   def create_event(event_hash)
-    # y event_hash
     Event.new({
                   :eventid => event_hash['id'].gsub('@', '-'),
                   :title => event_hash['title'],
