@@ -1,16 +1,16 @@
-<%= generate_ribbon_header :h3, datecart.name, 13 %>
-<% id_prefix = "datecart_partial_#{datecart.id}" %>
+<%= generate_ribbon_header :h3, @datecart.name, 13 %>
+<% id_prefix = "datecart_partial_#{@datecart.id}" %>
 <div id="<%= id_prefix %>" class="di_module_container dashboard_item">
   <h2 id="<%= id_prefix + "_title" %>" class="datecart_title">
-  	<%= format_date_header datecart.datetime, datecart.significant_date_id %>
+  	<%= format_date_header @datecart.datetime, @datecart.significant_date_id %>
   </h2>
   <div class="datecart_itinerary">
 		<div class="business_static_map">
-	      <%= generate_map datecart %>
+	      <%= generate_map @datecart %>
 	   </div>
 	  <div id="<%= id_prefix + "_content" %>" class="datecart_places">
-	    <% unless (cart_items = datecart.cart_items).blank? #TODO: remove once validations are implemented  %>
-	        <%= render :partial => "dashboard/datecart_cart_item", :collection => datecart.cart_items %>
+	    <% unless (cart_items = @datecart.cart_items).blank? #TODO: remove once validations are implemented  %>
+	        <%= render :partial => "dashboard/datecart_cart_item", :collection => @datecart.cart_items %>
 	    <% end %>
 	  </div>
 	</div>
@@ -18,5 +18,5 @@
 
 <%= generate_header :h3, "Notes", 14 %>
 <fieldset class="datecart_notes di_module_container" style="margin-top:0px">
-	<%= datecart.notes %>
+	<%= @datecart.notes %>
 </fieldset>
