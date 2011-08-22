@@ -22,7 +22,7 @@
     <%= select_tag(:sub_category, options_for_select(@wizard.sub_categories.collect {|c| [c.display_name, c.name ]}.sort.unshift(['All Subcategories', 'all']), @wizard.sub_category), :disabled => value) %>
     <% end %>
 		
-    <%= select_tag(:price_point, options_for_select(Wizard::PRICE_POINTS), :disabled => value) %>
+    <%= select_tag(:price_point, options_for_select(Wizard::PRICE_POINTS, @wizard.price_point), :disabled => value) %>
 
   <% end %>
 </fieldset>

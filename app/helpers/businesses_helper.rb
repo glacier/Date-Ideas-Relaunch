@@ -12,7 +12,34 @@ module BusinessesHelper
       raw(business.hours.join("<br/>"))
     end
   end
+  
+  def display_dateideas_tips
+    html = ""
     
+    unless @business.dna_excerpt.blank?
+      html << '<div id="di_venue_excerpt" class="di_module_large">' 
+      html << raw(generate_ribbon_header(:h3, :"dateideas tips", 17)) 
+      html << '<div class="di_module_container">' << @business.dna_excerpt << "</div></div>"
+	  end
+	  
+	  raw(html)
+  end
+
+  def display_dateideas_reviews
+    html = ""
+    
+    unless @business.reviews.blank?
+      html << '<div id="di_reviews" class="di_module_large">'
+      html << generate_ribbon_header(:h3, "reviews", 17)
+      @business.reviews.each do |r|
+        html << html_for_reviews_in_venue(@business.external_id, r)
+    	end
+      html << '</div>'
+    end
+    
+    raw(html)
+  end
+  
   def display_review(business)
     html = ""
     if(!business.review.nil?)
@@ -33,7 +60,7 @@ EOF
     html
   end
   
-  def display_review_in_venue(biz_external_id, r)
+  def html_for_reviews_in_venue(biz_external_id, r)
         # TODO: Add review count display here
         html = <<EOF
         <div class="yelp_review di_module_container">

@@ -32,9 +32,10 @@ class WizardController < ApplicationController
 
     params[:postal_code] = nil unless params[:postal_code] && params[:postal_code] =~ /(^[ABCEGHJKLMNPRSTVXYabceghjklmnpstvxy]\d[A-Za-z] \d[A-Za-z]\d)$/
 
-    @wizard = Wizard.new(params[:venue], event_cat, event_date, params[:location], params[:city], params[:province],
-                         params[:postal_code], params[:range], params[:country], params[:price_point],
-                         params[:sub_category], params[:neighbourhood])
+    y 'price_point'
+    y params[:price_point]
+    
+    @wizard = Wizard.new(params[:venue], event_cat, event_date, params[:location], params[:city], params[:province],params[:postal_code], params[:range], params[:country], params[:price_point], params[:sub_category], params[:neighbourhood])
 
     current_page = params[:page]
     dnaService = DateIdeas::DnaService.new

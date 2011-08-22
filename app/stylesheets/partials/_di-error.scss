@@ -1,0 +1,22 @@
+.error_page {
+	width: 40em;
+	padding: 0 4em;
+	margin: 4em auto 0 auto;
+	border-right-color: #999;
+	border-bottom-color: #999;
+	img {
+		position: relative;
+		left: 50px;
+	}
+	
+	h1 { 
+		font-size: 2em;
+		color: #535353; 
+		line-height: 1.5em;
+		text-align: center; 
+	}
+	
+	p {
+		text-align: center;
+	}
+}

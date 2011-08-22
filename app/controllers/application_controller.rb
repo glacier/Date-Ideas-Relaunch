@@ -3,10 +3,16 @@ class ApplicationController < ActionController::Base
   # load_and_authorize_resource
   before_filter :authenticate_user!
 
-  #TODO: After the 404 page is made, render it (don't redirect, users could notice)
-  # If an unregistered user gets access denied, then redirect them to the home page
-  rescue_from CanCan::AccessDenied do |denied|
-    redirect_to "/"
+  unless config.consider_all_requests_local
+    rescue_from Exception, :with => :render_error
+    rescue_from ActiveRecord::RecordNotFound, :with => :render_not_found
+    rescue_from AbstractController::ActionNotFound, :with => :render_not_found
+    rescue_from ActionController::RoutingError, :with => :render_not_found
+    rescue_from ActionController::UnknownController, :with => :render_not_found
+    # customize these as much as you want, ie, different for every error or all the same
+    rescue_from ActionController::UnknownAction, :with => :render_not_found
+    # display can't be found for pages that are denied to the user
+    rescue_from CanCan::AccessDenied, :with => :render_not_found
   end
 
   private
@@ -32,4 +38,15 @@ class ApplicationController < ActionController::Base
     end
     cart
   end
+
+  def render_not_found(exception)
+    render :template => "/errors/404.html.erb", :status => 404
+  end
+
+  def render_error(exception)
+    # you can insert logic in here too to log errors
+    # or get more error info and use different templates
+    render :template => "/errors/500.html.erb", :status => 500
+  end
+
 end

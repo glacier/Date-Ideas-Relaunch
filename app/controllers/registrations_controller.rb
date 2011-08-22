@@ -3,7 +3,8 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     build_resource
-    resource.active_datecart_id = session[:datecart_id] || Datecart.create.id
+    session[:datecart_id] ||= Datecart.create.id
+    resource.active_datecart_id = session[:datecart_id]
     if resource.save
       if resource.active_for_authentication?
         set_flash_message :notice, :signed_up if is_navigational_format?

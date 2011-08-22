@@ -18,8 +18,8 @@ class Business < ActiveRecord::Base
   validates_length_of :address1, :postal_code, :minimum => 5
   validates_length_of :phone_no, :minimum => 10
 
-  attr_accessor :distance, :avg_rating, :rating_img_url, :reviews, :map, :text_excerpt, :group_date_friendly,
-                :takes_reservations, :hours, :kids_friendly, :gmaps, :has_yelp_data, :review
+  attr_accessor :distance, :avg_rating, :rating_img_url, :reviews, :map, :text_excerpt, :group_date_friendly,:takes_reservations, :hours, :kids_friendly, :gmaps, :has_yelp_data, :review,
+:review_count
 
   def init
     @reviews = []
@@ -58,7 +58,7 @@ class Business < ActiveRecord::Base
   end
 
 
-  def Business.search_by_district_subsection(city, district_subsection, price_point, categories, page)
+  def Business.search_by_district_subsection(city, district_subsection, price_point, categories, page, per_page)
     msg="city:%s district subsection:%s price point:%s categories:%s page:%s" % [city, district_subsection, price_point, categories, page]
     Rails.logger.info msg
     sql = ''
@@ -96,7 +96,7 @@ class Business < ActiveRecord::Base
                                           city,
                                           categories,
                                           categories,
-                                          categories]).paginate(:page => page, :per_page => 8)
+                                          categories]).paginate(:page => page, :per_page => per_page)
     return db_businesses
   end
 

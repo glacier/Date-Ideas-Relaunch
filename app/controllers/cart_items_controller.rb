@@ -36,8 +36,6 @@ class CartItemsController < ApplicationController
     # POST /cart_items
     # POST /cart_items.xml
   def create
-    puts 'here'
-    p session
     @datecart = current_cart
     @business = Business.find(params[:business_id])
 

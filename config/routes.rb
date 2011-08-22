@@ -1,4 +1,8 @@
 DateIdeas::Application.routes.draw do
+  get "errors/404"
+
+  get "errors/500"
+
   # devise_for :admins
   # resources :cart_items
 
@@ -127,4 +131,8 @@ DateIdeas::Application.routes.draw do
   end
   #match "data_farmers/farm" => 'data_farmers#farm'
   match 'data_farmers/update_neighbourhood_select/:city', :controller=>'data_farmers', :action => 'update_neighbourhood_select'
+  
+  #route to 404 error
+  match '*a', :to => 'errors#404'
+  
 end

@@ -6,7 +6,8 @@ class DatecartsController < ApplicationController
   include DatecartsHelper
 
   before_filter :authenticate_user!, :except => [:subscribe]
-  
+  before_filter :owns_datecart?, :except => [:index]
+
   def index
     @datecarts = Datecart.all
 
@@ -17,8 +18,8 @@ class DatecartsController < ApplicationController
     end
   end
 
-    # GET /datecarts/1
-    # GET /datecarts/1.xml
+  # GET /datecarts/1
+  # GET /datecarts/1.xml
   def show
     @datecart = Datecart.find(params[:id])
 
@@ -28,7 +29,7 @@ class DatecartsController < ApplicationController
     end
   end
 
-    # creates a new datecart
+  # creates a new datecart
   def new
     # TODO: Prompt user to save cart if current cart has not been saved
 
@@ -41,7 +42,7 @@ class DatecartsController < ApplicationController
 
     y 'a new cart has been loaded'
 
-      # redirect user to wizard index to start planning date
+    # redirect user to wizard index to start planning date
     respond_to do |format|
       format.js
       format.html { redirect_to wizard_index_path }
@@ -49,14 +50,14 @@ class DatecartsController < ApplicationController
     end
   end
 
-    # GET /datecarts/1/edit
+  # GET /datecarts/1/edit
   def edit
     @datecart = Datecart.find(params[:id])
     authorize! :edit, @datecart
   end
 
-    # POST /datecarts
-    # POST /datecarts.xml
+  # POST /datecarts
+  # POST /datecarts.xml
   def create
     @datecart = Datecart.new(params[:datecart])
 
@@ -71,8 +72,8 @@ class DatecartsController < ApplicationController
     end
   end
 
-    # PUT /datecarts/1
-    # PUT /datecarts/1.xml
+  # PUT /datecarts/1
+  # PUT /datecarts/1.xml
   def update
     @datecart = Datecart.find(params[:id])
 
@@ -87,8 +88,8 @@ class DatecartsController < ApplicationController
     end
   end
 
-    # DELETE /datecarts/1
-    # DELETE /datecarts/1.xml
+  # DELETE /datecarts/1
+  # DELETE /datecarts/1.xml
   def destroy
     @datecart = Datecart.find(params[:id])
     @datecart.destroy
@@ -104,8 +105,8 @@ class DatecartsController < ApplicationController
     end
   end
 
-    # datecart/:datecart_id/clear_cart
-    # POST
+  # datecart/:datecart_id/clear_cart
+  # POST
   def clear_cart
     @datecart = Datecart.find(params[:id])
     @cleared_items = []
@@ -119,13 +120,13 @@ class DatecartsController < ApplicationController
     end
   end
 
-    # Open the dialog to save a datecart from the search screen
+  # Open the dialog to save a datecart from the search screen
   def begin_complete
     @datecart = Datecart.find(params[:id])
     render :save_datecart
   end
 
-    # complete date planning
+  # complete date planning
   def complete
     # User has to be logged in to reach here
     @datecart = Datecart.find(params[:id])
@@ -142,6 +143,8 @@ class DatecartsController < ApplicationController
     else
       redirect_to :back, :alert => :"There was an error saving your datecart."
     end
+
+    current_user.update_attribute(:active_datecart_id, Datecart.create(:user_id => current_user.id).id)
   end
 
   def email
@@ -154,26 +157,26 @@ class DatecartsController < ApplicationController
     end
   end
 
-    # Render print view
+  # Render print view
   def print
     @datecart = Datecart.find(params[:id])
     respond_to do |format|
-      format.html {render :layout => 'itinerary_print'}
+      format.html { render :layout => 'itinerary_print' }
     end
   end
 
-    # Render the calendar popup (should only be quered via remote javascript request)
+  # Render the calendar popup (should only be quered via remote javascript request)
   def calendar
     @datecart = Datecart.find(params[:id])
   end
 
-    # Send the calendar as a file download, native file extensions should then handle everything (i.e. outlook)
+  # Send the calendar as a file download, native file extensions should then handle everything (i.e. outlook)
   def download_calendar
     @datecart = Datecart.find(params[:id])
     send_data generate_vcalendar(@datecart, :download), :filename => "my_date.ics", :type => "text/calendar"
   end
 
-    # Generate the vcal associated the datecart. Allows calendar programs to query for any updates regularly
+  # Generate the vcal associated the datecart. Allows calendar programs to query for any updates regularly
   def subscribe
     @datecart = Datecart.find(params[:id])
     render :text => generate_vcalendar(@datecart, :subscribe)
@@ -181,9 +184,16 @@ class DatecartsController < ApplicationController
 
   private
 
-    # Some samples from eventful for reference
-    # ical: 'webcal://eventful.com/toronto/ical/events/nkotbsb-tour-new-kids-block-and-backstreet-boys-/E0-001-035309535-0'
-    #outlook: 'http://eventful.com/toronto/ical/events/nkotbsb-tour-new-kids-block-and-backstreet-boys-/E0-001-035309535-0'
+  def owns_datecart?
+    #TODO: use the cache
+    datecart = Datecart.find(params[:id])
+    return true if (datecart.user_id == current_user.id) || (datecart.session_id == session[:session_id])
+    render :template => "/errors/404.html.erb", :status => 404
+  end
+
+  # Some samples from eventful for reference
+  # ical: 'webcal://eventful.com/toronto/ical/events/nkotbsb-tour-new-kids-block-and-backstreet-boys-/E0-001-035309535-0'
+  #outlook: 'http://eventful.com/toronto/ical/events/nkotbsb-tour-new-kids-block-and-backstreet-boys-/E0-001-035309535-0'
 
   def generate_vcalendar datecart, type
     <<-VCAL
