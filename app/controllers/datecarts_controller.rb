@@ -5,7 +5,7 @@ class DatecartsController < ApplicationController
 
   include DatecartsHelper
 
-  before_filter :authenticate_user!, :except => [:subscribe]
+  before_filter :authenticate_user!, :except => [:subscribe, :clear_cart, :print]
   before_filter :owns_datecart?, :except => [:index]
 
   def index
