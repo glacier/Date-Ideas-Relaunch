@@ -6,7 +6,7 @@ class DatecartsController < ApplicationController
   include DatecartsHelper
 
   before_filter :authenticate_user!, :except => [:subscribe, :clear_cart, :print]
-  before_filter :owns_datecart?, :except => [:index]
+  before_filter :owns_datecart?, :except => [:index, :new, :clear_cart, :print]
 
   def index
     @datecarts = Datecart.all
