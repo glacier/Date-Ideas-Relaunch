@@ -29,6 +29,9 @@ class ApplicationController < ActionController::Base
 
     if cart
       cart.update_attribute(:last_access, DateTime.now)
+      if cart.user.blank?
+        cart.update_attribute(:session_id, session[:session_id])
+      end
     else
       # TODO: create cart for current_user
       # TODO: require sign up or login to save

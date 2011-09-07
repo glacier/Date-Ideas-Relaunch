@@ -32,15 +32,14 @@ class DatecartsController < ApplicationController
   # creates a new datecart
   def new
     # TODO: Prompt user to save cart if current cart has not been saved
-
     # leave the old datecart id in the session
     unless session[:datecart_id].blank?
       session[:datecart_id_last] = session[:datecart_id]
     end
+    
     @datecart = Datecart.new
     session[:datecart_id] = @datecart.id
-
-    y 'a new cart has been loaded'
+    current_user.active_datecart_id = @datecart.id
 
     # redirect user to wizard index to start planning date
     respond_to do |format|
@@ -186,7 +185,7 @@ class DatecartsController < ApplicationController
 
   def owns_datecart?
     #TODO: use the cache
-    datecart = Datecart.find(params[:id])
+    datecart = current_cart
     return true if (datecart.user_id == current_user.id) || (datecart.session_id == session[:session_id])
     render :template => "/errors/404.html.erb", :status => 404
   end
