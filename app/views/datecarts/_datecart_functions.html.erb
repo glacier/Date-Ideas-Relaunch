@@ -5,9 +5,8 @@
 		<li id="save"><%= link_to 'Save', begin_complete_datecart_path(@datecart), :class => 'function_buttons', :remote => true%></li>
 		<li id="email"><%= link_to 'Email',  email_datecart_path(@datecart), :class => 'function_buttons' %></li>
 	<% else %>
-	  <% params[:hidden_save] = "/datecarts/#{@datecart.id}/begin_complete" %>
-		<li id="save"><%= link_to 'Save', new_user_session_path, :class => 'function_buttons', :remote => true %></li>
-		<li id="email"><%= link_to 'Email',  new_user_session_path, :class => 'function_buttons' %></li>
+		<li id="save"><%= link_to 'Save', new_user_session_path(:do_action => "save", :datecart_id => @datecart.id), :class => 'function_buttons', :remote => true %></li>
+		<li id="email"><%= link_to 'Email',  new_user_session_path(:do_action => "email", :datecart_id => @datecart.id), :class => 'function_buttons' %></li>
 	<% end %>
 	
 	<li id="calendar"><%= link_to "Add to Calendar", calendar_datecart_path(@datecart), :class => "function_buttons", :remote => true %></li>

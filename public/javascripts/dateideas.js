@@ -19,7 +19,6 @@ function pin(parent, element, style) {
 //dateideas core misc javascript
 $(document).ready(function() {
 	//pin the datecart and the filters in the sidebar
-
 	$(window).load(function(){
 		var right = $('#sidebar_right_pinned');
 		var left = $('#sidebar_left_pinned');

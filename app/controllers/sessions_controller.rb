@@ -12,8 +12,14 @@ class SessionsController < Devise::SessionsController
     set_flash_message(:notice, :signed_in) if is_navigational_format?
     sign_in(resource_name, resource)
     
-    y params
-    
-    redirect_to :dashboard
+    # redirect to requested actions made prior to sign in / sign up 
+    if params[:user][:do_action] == "save"
+      y request.referer
+      redirect_to request.referer
+    elsif params[:user][:do_action] == "email"
+      redirect_to "/datecarts/#{params[:user][:datecart_id]}/email"
+    else
+      redirect_to :dashboard
+    end
   end
 end

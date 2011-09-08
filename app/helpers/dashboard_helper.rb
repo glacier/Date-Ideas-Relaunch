@@ -24,7 +24,10 @@ module DashboardHelper
         format_datetime(date, :past => true)
       end
     else
-      link_to I18n.t(:no_date_set, scope) #Choose where they need to go to set the date
+      #Choose where they need to go to set the date
+      # link_to I18n.t(:no_date_set, scope)
+      # Removed the link_to as it throws a "no route matches {}" error
+      I18n.t(:no_date_set, scope)
     end
   end
 end

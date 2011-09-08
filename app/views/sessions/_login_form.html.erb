@@ -9,7 +9,10 @@
         <td><%= f.password_field :password %></td>
       </tr>
       <tr>
-        <td></td>
+        <td>
+					<%= f.hidden_field :do_action, :value => params[:do_action] %>
+					<%= f.hidden_field :datecart_id, :value => params[:datecart_id] %>
+				</td>
         <td>
           <% if devise_mapping.rememberable? -%>
               <%= f.check_box :remember_me %> <%= f.label :remember_me %>
