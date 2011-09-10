@@ -1,6 +1,12 @@
-//define config object
-<%= raw generate_modal_dialogue(:"datecart_save_dialog", :"Enter Date Details", render('save_datecart_form', :format => :html)) %>
+// Update all logged in elements
+$('#user_nav').html("<%= escape_javascript(render :partial => 'shared/navigation') %>")
+$("#datecart_items").html("<%= escape_javascript(render 'datecarts/datecart_items') %>")
 
-//populate notes in the save modal box
+// Closes modal dialogs
+$('.login_dialog').dialog("close");
+
+<%= raw generate_modal_dialogue(:"datecart_save_dialog", :"Enter Date Details", render('datecarts/save_datecart_form', :format => :html)) %>
+
+// populate notes in the save modal box
 notes = $('#date_notes').html();
 $('#datecart_notes').attr('value', notes);

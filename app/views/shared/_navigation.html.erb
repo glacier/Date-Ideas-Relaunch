@@ -1,15 +1,16 @@
-<%# if @user && @user.id %>
 <% if user_signed_in? %>
-    <ul id="settings_dropdown">
-      <!-- May not work if no profile is there -->
-      <li><a href="/dashboard">Dashboard</a></li>
-      <li><a href="/users/<%= current_user.id %>/edit">Account Settings</a></li>
-      <li><a href="/profiles/<%= current_user.id %>">Profile</a></li>
-      <li><a href="/users/sign_out">Log out</a></li>
-    </ul>
+	<ul id="settings_dropdown">
+	  <!-- May not work if no profile is there -->
+	  <li><a href="/dashboard">Dashboard</a></li>
+	  <li><a href="/users/<%= current_user.id %>/edit">Account Settings</a></li>
+	  <li><a href="/profiles/<%= current_user.id %>">Profile</a></li>
+	  <li><a href="/users/sign_out">Log out</a></li>
+	</ul>
 <% else %>
 	<ul>
-		<li><%= link_to "Login / Sign Up", new_user_session_path, :remote => true %></li>
+		<li>
+			<%= link_to "Login / Sign Up", new_user_session_path(:js_login => 'false'), :remote => true %>
+		</li>
 	</ul>
 <% end %>
 

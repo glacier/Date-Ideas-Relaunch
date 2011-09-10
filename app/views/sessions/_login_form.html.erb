@@ -1,4 +1,7 @@
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+<%# Params[:js_login] is a hack to use ajax login for 'save' %>
+<%# Note that the 'save' dialog will be displayed properly 
+# only if sign_in form is set to remote =>true %>
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :remote => !(params[:js_login] == 'false')) do |f| %>
     <table>
       <tr>
         <td><%= f.label :email %></td>
@@ -10,8 +13,6 @@
       </tr>
       <tr>
         <td>
-					<%= f.hidden_field :do_action, :value => params[:do_action] %>
-					<%= f.hidden_field :datecart_id, :value => params[:datecart_id] %>
 				</td>
         <td>
           <% if devise_mapping.rememberable? -%>

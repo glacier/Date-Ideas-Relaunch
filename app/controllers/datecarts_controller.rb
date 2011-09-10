@@ -30,6 +30,7 @@ class DatecartsController < ApplicationController
   end
 
   # creates a new datecart
+  # TODO this method may need to be fixed up
   def new
     # TODO: Prompt user to save cart if current cart has not been saved
     # leave the old datecart id in the session
@@ -122,7 +123,10 @@ class DatecartsController < ApplicationController
   # Open the dialog to save a datecart from the search screen
   def begin_complete
     @datecart = Datecart.find(params[:id])
-    render :save_datecart
+    respond_to do |format|
+      format.js { render :save_datecart }
+      format.html
+    end
   end
 
   # complete date planning

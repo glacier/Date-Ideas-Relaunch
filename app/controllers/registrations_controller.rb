@@ -1,11 +1,12 @@
 class RegistrationsController < Devise::RegistrationsController
   # skip_load_and_authorize_resource
-
+  responds_to :js, :html
+  
   def create
     build_resource
     session[:datecart_id] ||= Datecart.create.id
-    
     resource.active_datecart_id = session[:datecart_id]
+    
     if resource.save
       if resource.active_for_authentication?
         datecart = Datecart.find resource.active_datecart_id

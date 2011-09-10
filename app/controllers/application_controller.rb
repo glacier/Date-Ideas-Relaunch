@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_user!
 
   # Show dynamic error pages
+  # TODO
   # unless config.consider_all_requests_local
   #   rescue_from Exception, :with => :render_error
   #   rescue_from ActiveRecord::RecordNotFound, :with => :render_not_found
@@ -15,7 +16,14 @@ class ApplicationController < ActionController::Base
   #   rescue_from CanCan::AccessDenied, :with => :render_not_found
   # end
 
+
   private
+  
+  # Overwriting the sign_out redirect devise helper path
+  def after_sign_in_path_for(resource_or_scope)
+    stored_location_for(:resource_or_scope) || :dashboard
+  end
+  
   # gets the current cart in session or create a new one
   def current_cart
     # This style also means that a registered user doesn't have to worry about cookies getting cleared, etc.

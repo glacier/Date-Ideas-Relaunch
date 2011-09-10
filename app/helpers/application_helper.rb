@@ -1,6 +1,9 @@
 module ApplicationHelper
   include WizardHelper
   include DashboardHelper
+  
+
+  
   def get_display_text(venue)
     display_text = { "food" => "Dining", 
                     "bars" => "Drinks", 
