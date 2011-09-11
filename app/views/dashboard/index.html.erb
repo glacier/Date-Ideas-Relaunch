@@ -28,21 +28,8 @@
 <%= content_for :sidebar_right do %>
 	<div id="sig_dates">
 		<%= link_to content_tag(:span, "Plan New Date"), new_datecart_path, :id => "plan_date_button" %>
-    <div id="upcoming_sig_dates">
-      <h3>significant dates</h3>
-	    <% if @significant_dates.blank?  %>
-				<p> No signficant dates added yet </p>
-     <% else %>
-			<ul>
-				<%= render :partial => 'dashboard/significant_dates/upcoming', :collection => @significant_dates %>
-	   	</ul>
-			<% end %>
-		</div>
-      
-		<%# Not yet implemented ... so shouldn't even show up %>
-		<%# TODO: add the sig dates form %>
-		<!-- <div id="add_sig_dates">
-			<h5>add new significant date</h5>
-		</div> -->
 	</div>
+
+	<%# Don't show significant dates because its not implemented yet %>
+	<%# render 'dashboard/significant_dates/sig_dates' %>
 <% end %>

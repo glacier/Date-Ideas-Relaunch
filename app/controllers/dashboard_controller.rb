@@ -23,13 +23,14 @@ class DashboardController < ApplicationController
 
     end
 
-    @upcoming_datecarts = [] #Store upcoming dates here
+    # show all upcoming dates (confusing to user if this is not done)
+    # however, will need to find better UI to nicely display more than 2 upcoming dates
     current_datecarts.sort_by { |c| c.datetime }
-
+    @upcoming_datecarts = current_datecarts
     # For now, just show the two nearest upcoming dates.
-    2.times do
-      @upcoming_datecarts << current_datecarts.pop unless current_datecarts.empty?
-    end
+    # 2.times do
+    #   @upcoming_datecarts << current_datecarts.pop unless current_datecarts.empty?
+    # end
 
     #@significant_dates = @user.significant_dates
     #  #Need to flush out how to handle significant datecarts, since they'll already be captured above.

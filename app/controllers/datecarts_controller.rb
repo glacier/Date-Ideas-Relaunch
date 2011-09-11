@@ -1,10 +1,8 @@
 class DatecartsController < ApplicationController
-  # GET /datecarts
-  # GET /datecarts.xml
-  load_and_authorize_resource :except => [:subscribe, :clear_cart, :print]
-
   include DatecartsHelper
-
+  
+  load_and_authorize_resource :except => [:subscribe, :clear_cart, :print]
+  
   before_filter :authenticate_user!, :except => [:subscribe, :clear_cart, :print]
   before_filter :owns_datecart?, :except => [:index, :new, :clear_cart, :print]
 
@@ -18,8 +16,6 @@ class DatecartsController < ApplicationController
     end
   end
 
-  # GET /datecarts/1
-  # GET /datecarts/1.xml
   def show
     @datecart = Datecart.find(params[:id])
 
@@ -29,19 +25,13 @@ class DatecartsController < ApplicationController
     end
   end
 
-  # creates a new datecart
-  # TODO this method may need to be fixed up
+  # creates a new datecart for 'plan new date'
+  # TODO: Prompt user to save cart if current cart has not been saved
   def new
-    # TODO: Prompt user to save cart if current cart has not been saved
-    # leave the old datecart id in the session
-    unless session[:datecart_id].blank?
-      session[:datecart_id_last] = session[:datecart_id]
-    end
-    
-    @datecart = Datecart.new
+    @datecart = Datecart.create(:session_id => session[:session_id], :last_access => DateTime.now)
+    current_user.update_attribute(:active_datecart_id, @datecart.id)
     session[:datecart_id] = @datecart.id
-    current_user.active_datecart_id = @datecart.id
-
+    
     # redirect user to wizard index to start planning date
     respond_to do |format|
       format.js
@@ -146,8 +136,12 @@ class DatecartsController < ApplicationController
     else
       redirect_to :back, :alert => :"There was an error saving your datecart."
     end
-
-    current_user.update_attribute(:active_datecart_id, Datecart.create(:user_id => current_user.id).id)
+    
+    # why Datecart.create(:user_id => ...)?
+    # current_user.update_attribute(:active_datecart_id, Datecart.create(:user_id => current_user.id).id)
+    
+    # Design decision - set the active_datecart_id as the last saved cart
+    current_user.update_attribute(:active_datecart_id, @datecart.id)
   end
 
   def email
