@@ -27,26 +27,42 @@ class ApplicationController < ActionController::Base
   # gets the current cart in session or create a new one
   def current_cart
     # This style also means that a registered user doesn't have to worry about cookies getting cleared, etc.
-    if user = current_user # checks if the user is logged in or unregistered
+    if user = current_user
+      # it is assumed that the user has a default active date cart assigned at sign up
       cart = Datecart.find_by_id(user.active_datecart_id) #Use this form to avoid throwing an exception
+      
+      # check if cart is found to make sure that user does not have a bad active_datecart_id
+      # this can happen if the datecart was somehow deleted
+      if cart.blank?
+        # if there is a cart id in session assign this cart to the user
+        unless session[:datecart_id].blank?
+          user.update_attribute(:active_datecart_id, session[:datecart_id])
+          cart = Datecart.find_by_id(user.active_datecart_id)
+        end
+      end
     else
-      # Use both the datecart_id and session id to ensure malicious users can't arbitrarily set the datecart value
-      # and access other users datecarts
+      y 'user is not logged in'
+      y session.inspect
+      # Use both the datecart_id and session id to ensure malicious users can't arbitrarily 
+      # set the datecart value and access other users datecarts
+      
+      # Grace: Note this never gets a cart b/c everytime a user logs out session[:session_id] changes
       cart = Datecart.find_by_id_and_session_id(session[:datecart_id], session[:session_id])
     end
 
     if cart
-      cart.update_attribute(:last_access, DateTime.now)
+      cart.update_attribute(:last_access, DateTime.now)     
       if cart.user.blank?
         cart.update_attribute(:session_id, session[:session_id])
       end
     else
-      # TODO: create cart for current_user
-      # TODO: require sign up or login to save
+      # Note: a new cart is created everytime a user logs out
       cart = Datecart.create(:session_id => session[:session_id], :last_access => DateTime.now)
       user.update_attribute(:active_datecart_id, cart.id) if user
-      session[:datecart_id] = cart.id
     end
+    
+    # store current_cart id in the session
+    session[:datecart_id] = cart.id
     cart
   end
 

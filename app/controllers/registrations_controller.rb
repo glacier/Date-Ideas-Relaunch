@@ -4,6 +4,7 @@ class RegistrationsController < Devise::RegistrationsController
   
   def create
     build_resource
+
     session[:datecart_id] ||= Datecart.create.id
     resource.active_datecart_id = session[:datecart_id]
     
