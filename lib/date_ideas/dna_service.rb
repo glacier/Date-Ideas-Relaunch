@@ -51,6 +51,8 @@ class DateIdeas::DnaService
     yelp_adaptor = DateIdeas::YelpAdaptorV2.new(false)
 
     if ('Toronto'.eql?(city) && (postal_code.blank?))
+      Rails.logger.info("Calling Yelp API search yelp_adaptor.search")
+      # GL: This yelp API call ignores subcategories ...
       yelp_businesses = yelp_adaptor.search(city, CATEGORIES.fetch(venue_type), neighbourhoods)
     else
       neighbourhood = Neighbourhood.find_by_postal_code(postal_code)
@@ -63,13 +65,13 @@ class DateIdeas::DnaService
 
     if (!db_businesses.nil? && db_businesses.size > 0)
       merged_businesses = merge(db_businesses, yelp_businesses)
-      y 'called merge(db_businesses, yelp_businesses)'
     else
       if (!yelp_businesses.nil? && yelp_businesses.size > 0)
         y_businesses = []
           #AY : figure out a better way of doing this.
+          # Don't merge with db results if city is Toronto
         yelp_businesses.each do |yb|
-          if ('Montreal'.eql?(yb.city) || 'Montréal'.eql?(yb.city) || 'Toronto'.eql?(yb.city))
+          if ('Montreal'.eql?(yb.city) || 'Montréal'.eql?(yb.city))
             db_bs = Business.find_by_external_id(yb.external_id)
             if (db_bs.nil?)
               Rails.logger.info("saving #{get_address(yb)} longitude : #{yb.longitude} latitude: #{yb.latitude}")
