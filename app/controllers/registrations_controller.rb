@@ -1,6 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
   # skip_load_and_authorize_resource
-  responds_to :js, :html
+  # responds_to :js, :html
   
   def create
     build_resource
